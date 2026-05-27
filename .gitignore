@@ -1,0 +1,36 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OCR pipeline outputs (generated)
+01_ocr/output/
+01_ocr/logs/
+
+# LLM eval outputs (generated)
+02_llm_eval/results/
+02_llm_eval/logs/
+
+# Env files — keep .env.example, ignore actual .env
+.env
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/

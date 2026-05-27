@@ -1,0 +1,25 @@
+# ── Core PDF processing ────────────────────────────────────────────────────────
+docling>=2.5.0               # IBM OCR + layout + table extraction
+PyMuPDF>=1.24.0              # Fast native PDF text/metadata extraction
+pdfplumber>=0.11.0           # Native table extraction for digital PDFs
+rapidocr-onnxruntime>=1.4.0  # Direct OCR for scanned pages (avoids Docling RAM issue)
+
+# ── Data validation & settings ────────────────────────────────────────────────
+pydantic>=2.7.0
+pydantic-settings>=2.3.0
+
+# ── Logging ───────────────────────────────────────────────────────────────────
+loguru>=0.7.2
+
+# ── PII redaction (runs fully in-process, no network calls) ───────────────────
+presidio-analyzer>=2.2.354
+presidio-anonymizer>=2.2.354
+spacy>=3.7.0
+# After install run: python -m spacy download en_core_web_lg
+
+# ── Image handling ────────────────────────────────────────────────────────────
+Pillow>=10.3.0
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+pytest>=8.2.0
+pytest-cov>=5.0.0

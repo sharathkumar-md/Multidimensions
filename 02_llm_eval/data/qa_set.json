@@ -1,0 +1,231 @@
+{
+  "version": "1.0",
+  "description": "Ground-truth QA pairs for GGB bearing product evaluation — sourced directly from OCR'd PDF content",
+  "questions": [
+    {
+      "id": "q001",
+      "question": "What is the static load capacity of DU® bearings?",
+      "expected_answer": "250 N/mm² (36,000 psi)",
+      "key_facts": ["250", "N/mm", "36000", "36 000"],
+      "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+      "category": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q002",
+      "question": "What is the operating temperature range for DU® bearings?",
+      "expected_answer": "Minimum -200°C (-328°F) to Maximum 280°C (536°F)",
+      "key_facts": ["-200", "280", "-328", "536"],
+      "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+      "category": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q003",
+      "question": "What is the maximum operating temperature for HI-EX® bearings?",
+      "expected_answer": "250°C (480°F)",
+      "key_facts": ["250", "480"],
+      "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+      "category": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q004",
+      "question": "What is the dynamic load capacity of HI-EX® bearings?",
+      "expected_answer": "100 N/mm² (14,000 psi)",
+      "key_facts": ["100", "N/mm", "14000", "14 000"],
+      "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+      "category": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q005",
+      "question": "What is the static load capacity of HSG fiber reinforced composite bearings?",
+      "expected_answer": "415 N/mm² (60,000 psi)",
+      "key_facts": ["415", "N/mm", "60000", "60 000"],
+      "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+      "category": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q006",
+      "question": "What is the static load capacity of GAR-MAX fiber reinforced composite bearings?",
+      "expected_answer": "210 N/mm² (30,000 psi)",
+      "key_facts": ["210", "N/mm", "30000", "30 000"],
+      "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+      "category": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q007",
+      "question": "What quality standard is GGB certified to for the aerospace industry?",
+      "expected_answer": "AS9100C, which includes all requirements of ISO 9001, and also respects ISO 14001",
+      "key_facts": ["AS9100C", "ISO 9001", "ISO 14001"],
+      "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+      "category": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q008",
+      "question": "What temperature threshold requires graphite inserts instead of PTFE inserts in DB™ bearings?",
+      "expected_answer": "Temperatures exceeding 250°C",
+      "key_facts": ["250", "graphite", "PTFE"],
+      "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+      "category": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q009",
+      "question": "What inner diameter tolerance is attainable with HPMB® bearings after post-installation machining?",
+      "expected_answer": "IT7",
+      "key_facts": ["IT7"],
+      "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+      "category": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q010",
+      "question": "Which NASA rover used GGB DU® bearings and when was it launched?",
+      "expected_answer": "NASA's Curiosity Mars rover used three DU® metal-polymer bearing segments as primary suspension components for the drill spindle. It was launched in 2011.",
+      "key_facts": ["Curiosity", "2011", "DU", "drill spindle"],
+      "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+      "category": "factual",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q011",
+      "question": "How does the static load capacity of HSG bearings compare to GAR-MAX bearings?",
+      "expected_answer": "HSG has a static load capacity of 415 N/mm², which is twice that of standard GAR-MAX at 210 N/mm²",
+      "key_facts": ["415", "210", "twice", "GAR-MAX", "HSG"],
+      "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+      "category": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q012",
+      "question": "What is the difference between DU® and DU-B bearings in terms of load capacity and material?",
+      "expected_answer": "DU-B adds a bronze backing that provides corrosion resistance and anti-magnetic properties. DU® has a higher static load capacity of 250 N/mm² while DU-B is 140 N/mm². Both share the same dynamic load capacity of 140 N/mm².",
+      "key_facts": ["bronze", "250", "140", "corrosion", "anti-magnetic"],
+      "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+      "category": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q013",
+      "question": "What advantages do GGB plain bearings offer over needle and roller bearings in transmission applications?",
+      "expected_answer": "Composite bearing overlay avoids metal-to-metal contact, no moving parts for reduced noise, economic and easy to assemble, reduced material usage with compact bearing design, self-lubricating and tolerant to contamination and lubricant starvation",
+      "key_facts": ["metal-to-metal", "no moving parts", "noise", "self-lubricating", "contamination"],
+      "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+      "category": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q014",
+      "question": "What are the three main bearing material types GGB manufactures for automotive transmissions?",
+      "expected_answer": "Metal-polymer bearings, engineered plastics bearings (EP™ range), and bimetal bearings",
+      "key_facts": ["metal-polymer", "engineered plastic", "bimetal"],
+      "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+      "category": "comparative",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q015",
+      "question": "Which GGB Engineered Plastic series is recommended for e-bike wheel hub and guide pulley applications?",
+      "expected_answer": "EP®43 is recommended for wheel hub and guide pulley applications",
+      "key_facts": ["EP43", "EP®43", "wheel hub", "guide pulley"],
+      "source_doc": "ggb-ep-engineered-plastics-bearings-bushings-for-e-bike-applications.pdf",
+      "category": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q016",
+      "question": "Which GGB bearing products are recommended for aircraft landing gear struts and actuators?",
+      "expected_answer": "DP4/DP4-B, DU®/DU-B, and Fiber Reinforced Composite bearings",
+      "key_facts": ["DP4", "DU", "Fiber Reinforced", "landing gear"],
+      "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+      "category": "application",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q017",
+      "question": "Which GGB bearings have been approved for use in water turbines by the USA Army Corps of Engineers?",
+      "expected_answer": "HPMB® bearings and HPM™/HPF™ composite bearing materials have been approved for usage in water turbines by the USA Army Corps of Engineers",
+      "key_facts": ["HPMB", "HPM", "HPF", "Army Corps of Engineers", "water turbines"],
+      "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+      "category": "application",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q018",
+      "question": "What types of transmissions use GGB bushings and washers?",
+      "expected_answer": "Manual transmissions (MT), automated manual transmissions (AMT), automatic transmissions (AT), double-clutch transmissions (DCT), continuously variable transmissions (CVT), and also transfer cases and transaxes",
+      "key_facts": ["MT", "AMT", "AT", "DCT", "CVT", "transfer cases"],
+      "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+      "category": "application",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q019",
+      "question": "Which GGB bearing products are used in blowout preventers and valves in the oil and gas industry?",
+      "expected_answer": "DP4™ is used in blowout preventers, valves, and watertight/gastight doors, hatches and covers in oil and gas applications",
+      "key_facts": ["DP4", "blowout preventers", "valves"],
+      "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+      "category": "application",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q020",
+      "question": "What manufacturing process and lubricant materials are used in GGB-CBM® bearings?",
+      "expected_answer": "GGB-CBM® uses a powder metallurgy process to produce a metallic matrix with homogeneously distributed solid lubricants: graphite and MoS2",
+      "key_facts": ["powder metallurgy", "graphite", "MoS2", "solid lubricant"],
+      "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+      "category": "application",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q021",
+      "question": "What specific challenges do e-bike engineers face that GGB's Engineered Plastic bearings help address?",
+      "expected_answer": "Maximizing battery life, improving electronic corrosion resistance, creating lightweight durable and quiet motor and drivetrain components; also reducing weight and increasing durability while keeping costs to a minimum",
+      "key_facts": ["battery life", "corrosion resistance", "lightweight", "noise", "e-bike"],
+      "source_doc": "ggb-ep-engineered-plastics-bearings-bushings-for-e-bike-applications.pdf",
+      "category": "reasoning",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q022",
+      "question": "What construction technique did GGB pioneer, and which hydropower product uses this technique?",
+      "expected_answer": "GGB pioneered the filament wound construction technique. The HPMB® (Hydro Power Machinable Bearing) uses this technique with a machinable inner and outer diameter.",
+      "key_facts": ["filament wound", "HPMB", "pioneered"],
+      "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+      "category": "reasoning",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q023",
+      "question": "What environmental and regulatory compliance do GGB aerospace bearings meet?",
+      "expected_answer": "GGB lead-free bearings comply with the EU RoHS directive restricting hazardous substances and the REACH regulation, as well as EVL and WEEE specifications for lead-free construction",
+      "key_facts": ["RoHS", "REACH", "lead-free", "EVL", "WEEE"],
+      "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+      "category": "reasoning",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q024",
+      "question": "How does the DP31 bearing differ from DP4 in terms of application focus?",
+      "expected_answer": "DP31 provides excellent resistance to flow erosion, cavitation and fatigue under cyclic loads, with applications in pumps and planetary gear sets. DP4 offers low friction and high wear resistance under high loads in boundary lubrication conditions, widely used in shifting towers and shifting forks.",
+      "key_facts": ["DP31", "flow erosion", "cavitation", "DP4", "shifting"],
+      "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+      "category": "reasoning",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q025",
+      "question": "What are the key advantages of HPMB® bearings for hydropower applications related to dimensional precision and installation?",
+      "expected_answer": "HPMB® offers machinable inner and outer diameters for superior precision, circularity and cylindricity tolerances. It supports single point machining of the bearing liner on-site prior to installation, and post-installation machining can achieve inner diameter tolerance IT7. Pre-machined high precision bearings are also available for immediate installation.",
+      "key_facts": ["machinable", "IT7", "single point machining", "on-site", "circularity"],
+      "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+      "category": "reasoning",
+      "difficulty": "hard"
+    }
+  ]
+}

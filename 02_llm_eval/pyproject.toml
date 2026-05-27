@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "multidimensions-llm-eval"
+version = "0.1.0"
+description = "LLM evaluation harness — benchmarks open-source models on GGB bearing domain data"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "config*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --cov=src --cov-report=term-missing"
+log_cli = true
+log_cli_level = "DEBUG"
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*"]

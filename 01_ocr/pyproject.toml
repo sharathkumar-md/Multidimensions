@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "multidimensions-ocr"
+version = "0.1.0"
+description = "Enterprise OCR pipeline — extracts text, tables, and figures from PDFs"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "config*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --cov=src --cov-report=term-missing"
+log_cli = true
+log_cli_level = "DEBUG"
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*"]
