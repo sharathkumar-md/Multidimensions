@@ -1,13 +1,3 @@
-"""
-OCR Pipeline orchestrator.
-
-Responsibilities:
-  - Discover PDF files in the configured input directory
-  - Skip duplicates via SHA-256 comparison against existing manifests
-  - Route each PDF through pdf_processor -> cleaner -> markdown export
-  - Write .md content file + .json manifest per document
-  - Return a PipelineResult summary
-"""
 from __future__ import annotations
 
 import json
@@ -33,7 +23,6 @@ from src.pdf_processor import export_document_markdown, process_pdf
 
 
 def _configure_logging() -> None:
-    """Set up loguru sinks: stderr + optional rotating file."""
     logger.remove()
     logger.add(
         sys.stderr,
@@ -60,7 +49,6 @@ def _configure_logging() -> None:
 
 
 def _load_existing_sha256s() -> set[str]:
-    """Read sha256 hashes from existing manifests to enable duplicate skipping."""
     hashes: set[str] = set()
     for manifest_file in settings.manifests_dir.glob("*.json"):
         try:
@@ -91,7 +79,6 @@ def _write_manifest(manifest: DocumentManifest) -> Path:
 
 
 def _process_single_pdf(pdf_path: Path, existing_hashes: set[str]) -> DocumentManifest:
-    """Full processing pipeline for one PDF. Safe to run in a worker process."""
     doc_id = uuid.uuid4().hex
     t0 = time.perf_counter()
 
@@ -167,14 +154,6 @@ def _process_single_pdf(pdf_path: Path, existing_hashes: set[str]) -> DocumentMa
 
 
 class OCRPipeline:
-    """
-    Entry point for the OCR pipeline.
-
-    Usage:
-        pipeline = OCRPipeline()
-        result = pipeline.run()
-    """
-
     def __init__(self) -> None:
         _configure_logging()
         settings.ensure_dirs()
@@ -186,7 +165,6 @@ class OCRPipeline:
         )
 
     def discover_pdfs(self) -> list[Path]:
-        """Return all PDF files in settings.input_dir (non-recursive)."""
         pdfs = sorted(settings.input_dir.glob("*.pdf"))
         logger.info("Discovered {n} PDF file(s) in {dir}", n=len(pdfs), dir=settings.input_dir)
         for p in pdfs:
@@ -194,7 +172,6 @@ class OCRPipeline:
         return pdfs
 
     def run(self, pdf_paths: list[Path] | None = None) -> PipelineResult:
-        """Process all PDFs (or a provided list) and return a PipelineResult."""
         pipeline_t0 = time.perf_counter()
 
         if pdf_paths is None:

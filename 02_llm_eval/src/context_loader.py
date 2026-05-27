@@ -15,8 +15,6 @@ _FIGURE_PATTERN = re.compile(
 
 
 class ContextLoader:
-    """Loads OCR-produced markdown files and maps them by source PDF filename."""
-
     def __init__(self) -> None:
         self._manifest_dir = settings.ocr_output_dir / "manifests"
         self._markdown_dir = settings.ocr_output_dir / "markdown"

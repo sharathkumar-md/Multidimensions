@@ -24,7 +24,6 @@ def _tokenize(text: str) -> set[str]:
 
 
 def token_f1(expected: str, actual: str) -> float:
-    """Token-level F1 between expected and actual answer strings."""
     exp_tokens = _tokenize(expected)
     act_tokens = _tokenize(actual)
     if not exp_tokens or not act_tokens:
@@ -38,7 +37,6 @@ def token_f1(expected: str, actual: str) -> float:
 
 
 def keyword_recall(key_facts: list[str], actual: str) -> float:
-    """Fraction of key_facts that appear (case-insensitive) in the actual answer."""
     if not key_facts:
         return 1.0
     actual_lower = actual.lower()
@@ -47,7 +45,6 @@ def keyword_recall(key_facts: list[str], actual: str) -> float:
 
 
 def semantic_similarity(expected: str, actual: str) -> float:
-    """Cosine similarity between sentence embeddings of expected and actual."""
     import numpy as np
 
     model = _get_embed_model()
@@ -60,10 +57,6 @@ def score_answer(
     key_facts: list[str],
     actual: str,
 ) -> AnswerScores:
-    """Compute all scoring metrics and a weighted composite score.
-
-    Weights: keyword_recall=0.40, token_f1=0.30, semantic_similarity=0.30
-    """
     kr = keyword_recall(key_facts, actual)
     tf1 = token_f1(expected, actual)
     sem = semantic_similarity(expected, actual)

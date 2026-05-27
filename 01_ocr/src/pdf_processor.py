@@ -1,14 +1,3 @@
-"""
-PDF processing — hybrid two-path architecture.
-
-Path A (digital pages): PyMuPDF — fast native text + pdfplumber tables.
-Path B (scanned pages):  PyMuPDF render at 150 DPI -> RapidOCR.
-
-Why two paths:
-  Docling's C++ pre-process stage renders every page into full-res image arrays
-  simultaneously, causing std::bad_alloc on PDFs with large embedded images.
-  PyMuPDF renders at controlled DPI and RapidOCR reads the result directly.
-"""
 from __future__ import annotations
 
 import time
@@ -26,12 +15,11 @@ from src.models import (
     PageResult,
 )
 
-# A page is considered "scanned" if its text character density is below this threshold.
-# Measured as: (len of extracted text) / (page area in pt^2)
+# Docling's C++ stage renders all pages into full-res image arrays simultaneously,
+# causing std::bad_alloc on PDFs with large embedded images. We use PyMuPDF at
+# controlled DPI + RapidOCR instead.
 _SCANNED_DENSITY_THRESHOLD = 0.002
 
-
-# ── Page layout classification ────────────────────────────────────────────────
 
 def _classify_page(page: fitz.Page) -> PageLayout:
     text = page.get_text("text")
@@ -47,10 +35,7 @@ def _classify_page(page: fitz.Page) -> PageLayout:
     return PageLayout.DIGITAL
 
 
-# ── Path A: PyMuPDF native text extraction ────────────────────────────────────
-
 def _extract_native_tables(pdf_path: Path, page_num_0: int, doc_id: str) -> list[ExtractedTable]:
-    """Extract tables from a digital page using pdfplumber."""
     tables: list[ExtractedTable] = []
     if not settings.extract_tables:
         return tables
@@ -96,7 +81,6 @@ def _save_native_figure(
     figures_out_dir: Path,
     fitz_doc: fitz.Document,
 ) -> ExtractedFigure | None:
-    """Extract and save an embedded image from a digital page."""
     if not settings.extract_figures:
         return None
     try:
@@ -127,7 +111,6 @@ def _process_digital_page(
     doc_id: str,
     figures_out_dir: Path,
 ) -> PageResult:
-    """Path A: extract text, tables, figures from a native digital page."""
     t0 = time.perf_counter()
     layout = _classify_page(fitz_page)
     raw_text = fitz_page.get_text("text").strip()
@@ -157,15 +140,10 @@ def _process_digital_page(
     )
 
 
-# ── Path B: PyMuPDF render -> RapidOCR for scanned pages ─────────────────────
-# Bypasses Docling's C++ preprocessing entirely to avoid std::bad_alloc on
-# PDFs that have large embedded images.
-
 _rapidocr_engine = None
 
 
 def _get_rapidocr():
-    """Lazy-init RapidOCR engine (singleton — model loading is expensive)."""
     global _rapidocr_engine
     if _rapidocr_engine is None:
         from rapidocr import RapidOCR
@@ -180,10 +158,6 @@ def _process_scanned_page(
     doc_id: str,
     figures_out_dir: Path,
 ) -> PageResult:
-    """
-    Path B: render page at 150 DPI via PyMuPDF, then OCR with RapidOCR.
-    150 DPI gives good OCR accuracy without excessive memory use.
-    """
     t0 = time.perf_counter()
     try:
         fitz_page = fitz_doc[page_num - 1]
@@ -229,19 +203,7 @@ def _process_scanned_page(
         )
 
 
-# ── Public API ────────────────────────────────────────────────────────────────
-
 def process_pdf(source_path: Path, doc_id: str) -> list[PageResult]:
-    """
-    Process a single PDF, routing each page through the appropriate path.
-
-    Args:
-        source_path: Path to the PDF file.
-        doc_id:      Unique document identifier (used for naming output files).
-
-    Returns:
-        List of PageResult, one per page.
-    """
     logger.info("Opening PDF: {name}", name=source_path.name)
     fitz_doc = fitz.open(str(source_path))
     page_count = fitz_doc.page_count
@@ -278,15 +240,6 @@ def process_pdf(source_path: Path, doc_id: str) -> list[PageResult]:
 
 
 def export_document_markdown(doc_id: str, pages: list[PageResult]) -> str:
-    """
-    Assemble full document Markdown from per-page results.
-
-    Structure per page:
-      ## Page N
-      <text>
-      <!-- table: id -->  <markdown table>
-      <!-- figure: id --> ![caption](path)
-    """
     parts: list[str] = []
     for page in pages:
         parts.append(f"## Page {page.page_num}\n")

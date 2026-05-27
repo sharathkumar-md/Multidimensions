@@ -1,18 +1,8 @@
-"""
-Entrypoint for the OCR pipeline.
-
-Run from the 01_ocr/ directory (or anywhere — conftest.py handles sys.path):
-
-    python run.py                           # process all PDFs in OCR_INPUT_DIR
-    python run.py path/to/file.pdf          # process one specific file
-    python run.py file1.pdf file2.pdf ...   # process multiple specific files
-"""
 from __future__ import annotations
 
 import sys
 from pathlib import Path
 
-# Ensure 01_ocr/ is on sys.path when run.py is executed directly
 sys.path.insert(0, str(Path(__file__).parent))
 
 
