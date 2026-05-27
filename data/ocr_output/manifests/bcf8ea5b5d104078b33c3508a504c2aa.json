@@ -1,0 +1,23 @@
+{
+  "doc_id": "bcf8ea5b5d104078b33c3508a504c2aa",
+  "source_filename": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+  "source_path": "..\\data\\input\\ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+  "file_size_bytes": 2332386,
+  "sha256": "f664cb821b645ab923e52f85e6b88c0018a519781c68dddf6da4e88bb2a05282",
+  "page_count": 2,
+  "status": "completed",
+  "created_at": "2026-05-26T14:16:16.518121",
+  "completed_at": "2026-05-26T14:16:17.178273",
+  "error_message": null,
+  "markdown_path": "markdown\\bcf8ea5b5d104078b33c3508a504c2aa.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\bcf8ea5b5d104078b33c3508a504c2aa",
+  "total_tables": 0,
+  "total_figures": 27,
+  "total_words": 565,
+  "scanned_pages": 0,
+  "digital_pages": 0,
+  "mixed_pages": 2,
+  "processing_time_ms": 662.7715001814067,
+  "has_scanned_content": true
+}

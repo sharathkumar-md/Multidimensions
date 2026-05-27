@@ -1,0 +1,23 @@
+{
+  "doc_id": "274fbb105e5148db993b4cfe85c4f453",
+  "source_filename": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+  "source_path": "..\\data\\input\\ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+  "file_size_bytes": 299391,
+  "sha256": "265c8268fdbb15f015cb476842e113032e1ded96ad04b4396df0f36801baff17",
+  "page_count": 2,
+  "status": "completed",
+  "created_at": "2026-05-26T14:16:15.611125",
+  "completed_at": "2026-05-26T14:16:16.515627",
+  "error_message": null,
+  "markdown_path": "markdown\\274fbb105e5148db993b4cfe85c4f453.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\274fbb105e5148db993b4cfe85c4f453",
+  "total_tables": 0,
+  "total_figures": 28,
+  "total_words": 577,
+  "scanned_pages": 0,
+  "digital_pages": 0,
+  "mixed_pages": 2,
+  "processing_time_ms": 904.9210001248866,
+  "has_scanned_content": true
+}
