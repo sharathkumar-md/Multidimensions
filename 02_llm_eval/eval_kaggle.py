@@ -112,7 +112,7 @@ def run_model(model_id, questions, docs):
     )
     tokenizer = AutoTokenizer.from_pretrained(model_id)
     model = AutoModelForCausalLM.from_pretrained(
-        model_id, quantization_config=quant, device_map="auto", torch_dtype=torch.bfloat16
+        model_id, quantization_config=quant, device_map="auto", dtype=torch.bfloat16
     )
     model.eval()
 
