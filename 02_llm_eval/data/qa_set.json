@@ -1,6 +1,4 @@
 {
-  "version": "1.0",
-  "description": "Ground-truth QA pairs for GGB bearing product evaluation — sourced directly from OCR'd PDF content",
   "questions": [
     {
       "id": "q001",
