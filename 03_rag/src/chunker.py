@@ -129,7 +129,7 @@ def chunk_documents(
     for manifest_path in manifests:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         md_rel = manifest.get("markdown_path") or manifest.get("output_markdown", "")
-        md_file = (ocr_output_dir / md_rel).resolve()
+        md_file = (ocr_output_dir / md_rel.replace("\\", "/")).resolve()
         if not md_file.exists():
             logger.warning(f"missing markdown: {md_file}")
             continue

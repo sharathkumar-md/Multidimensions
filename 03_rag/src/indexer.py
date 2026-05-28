@@ -5,7 +5,6 @@ import pickle
 from pathlib import Path
 
 import chromadb
-from chromadb.config import Settings as ChromaSettings
 from rank_bm25 import BM25Okapi
 from loguru import logger
 
@@ -18,14 +17,8 @@ _BM25_FILE = "bm25.pkl"
 _CHUNKS_FILE = "chunks.json"
 
 
-def _chroma_client(index_dir: Path) -> chromadb.Client:
-    return chromadb.Client(
-        ChromaSettings(
-            chroma_db_impl="duckdb+parquet",
-            persist_directory=str(index_dir),
-            anonymized_telemetry=False,
-        )
-    )
+def _chroma_client(index_dir: Path) -> chromadb.PersistentClient:
+    return chromadb.PersistentClient(path=str(index_dir))
 
 
 def build_index(chunks: list[Chunk], index_dir: Path | None = None) -> None:
@@ -60,8 +53,6 @@ def build_index(chunks: list[Chunk], index_dir: Path | None = None) -> None:
             metadatas=metadatas[i : i + batch],
         )
         logger.debug(f"indexed {min(i + batch, len(chunks))}/{len(chunks)}")
-
-    client.persist()
 
     bm25 = BM25Okapi([t.lower().split() for t in texts])
     with open(index_dir / _BM25_FILE, "wb") as f:
