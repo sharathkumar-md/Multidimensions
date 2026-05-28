@@ -1,0 +1,23 @@
+{
+  "doc_id": "a8236b09e9904bebbb4329babf86b202",
+  "source_filename": "LinMot.pdf",
+  "source_path": "..\\data\\input\\LinMot.pdf",
+  "file_size_bytes": 2777185,
+  "sha256": "dcfd7e016057074b6543bc49a1b45a975a4729ae30f82c4bd7a17a4038d4c527",
+  "page_count": 8,
+  "status": "completed",
+  "created_at": "2026-05-28T14:16:44.243061",
+  "completed_at": "2026-05-28T14:16:47.475610",
+  "error_message": null,
+  "markdown_path": "markdown\\a8236b09e9904bebbb4329babf86b202.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\a8236b09e9904bebbb4329babf86b202",
+  "total_tables": 29,
+  "total_figures": 33,
+  "total_words": 1734,
+  "scanned_pages": 0,
+  "digital_pages": 0,
+  "mixed_pages": 8,
+  "processing_time_ms": 3238.4674998465925,
+  "has_scanned_content": true
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "0987c243178849a7b5ffeb18df080cda",
+  "source_filename": "Kroll & Ziller Ebook - handover file.pdf",
+  "source_path": "..\\data\\input\\Kroll & Ziller Ebook - handover file.pdf",
+  "file_size_bytes": 947197,
+  "sha256": "fb766b395dfd450f4d8bdd21fb0c1491f956215292447649abaa79b5fab29457",
+  "page_count": 4,
+  "status": "completed",
+  "created_at": "2026-05-28T14:16:22.364107",
+  "completed_at": "2026-05-28T14:16:29.342770",
+  "error_message": null,
+  "markdown_path": "markdown\\0987c243178849a7b5ffeb18df080cda.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\0987c243178849a7b5ffeb18df080cda",
+  "total_tables": 1,
+  "total_figures": 12,
+  "total_words": 286,
+  "scanned_pages": 2,
+  "digital_pages": 0,
+  "mixed_pages": 2,
+  "processing_time_ms": 6979.66289985925,
+  "has_scanned_content": true
+}

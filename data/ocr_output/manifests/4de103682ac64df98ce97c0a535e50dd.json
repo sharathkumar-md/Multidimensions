@@ -1,0 +1,23 @@
+{
+  "doc_id": "4de103682ac64df98ce97c0a535e50dd",
+  "source_filename": "HB-Catalogue.pdf",
+  "source_path": "..\\data\\input\\HB-Catalogue.pdf",
+  "file_size_bytes": 22873313,
+  "sha256": "848260572aa943dbd830b7f87df075fa914e0193338ca6d0de80614ed7c07034",
+  "page_count": 8,
+  "status": "completed",
+  "created_at": "2026-05-28T14:15:38.010068",
+  "completed_at": "2026-05-28T14:15:46.718631",
+  "error_message": null,
+  "markdown_path": "markdown\\4de103682ac64df98ce97c0a535e50dd.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\4de103682ac64df98ce97c0a535e50dd",
+  "total_tables": 12,
+  "total_figures": 23,
+  "total_words": 879,
+  "scanned_pages": 2,
+  "digital_pages": 0,
+  "mixed_pages": 6,
+  "processing_time_ms": 8708.168599987403,
+  "has_scanned_content": true
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "6088f374a44f44fe9caf2246a236085a",
+  "source_filename": "Dynapar Ebook - handover file.pdf",
+  "source_path": "..\\data\\input\\Dynapar Ebook - handover file.pdf",
+  "file_size_bytes": 19270040,
+  "sha256": "7cf0e2bae2cd2ce3e0a803cae7d0dc845bae61d31be91f0f39c597b723666099",
+  "page_count": 13,
+  "status": "completed",
+  "created_at": "2026-05-28T14:15:08.385973",
+  "completed_at": "2026-05-28T14:15:20.882686",
+  "error_message": null,
+  "markdown_path": "markdown\\6088f374a44f44fe9caf2246a236085a.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\6088f374a44f44fe9caf2246a236085a",
+  "total_tables": 47,
+  "total_figures": 61,
+  "total_words": 1509,
+  "scanned_pages": 1,
+  "digital_pages": 0,
+  "mixed_pages": 12,
+  "processing_time_ms": 12496.91480002366,
+  "has_scanned_content": true
+}

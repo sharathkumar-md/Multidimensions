@@ -1,0 +1,23 @@
+{
+  "doc_id": "a28a430b5cb74e8abd20263caa556051",
+  "source_filename": "Maedler Ebook - Final handover (2).pdf",
+  "source_path": "..\\data\\input\\Maedler Ebook - Final handover (2).pdf",
+  "file_size_bytes": 20119965,
+  "sha256": "bd5a3e6c1724c07f2f04bbd86abeece0bf17cf6858aa7f74ef6ef54f132af3fd",
+  "page_count": 23,
+  "status": "completed",
+  "created_at": "2026-05-28T14:16:47.475610",
+  "completed_at": "2026-05-28T14:17:00.891556",
+  "error_message": null,
+  "markdown_path": "markdown\\a28a430b5cb74e8abd20263caa556051.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\a28a430b5cb74e8abd20263caa556051",
+  "total_tables": 47,
+  "total_figures": 153,
+  "total_words": 2969,
+  "scanned_pages": 1,
+  "digital_pages": 0,
+  "mixed_pages": 22,
+  "processing_time_ms": 13408.870700048283,
+  "has_scanned_content": true
+}

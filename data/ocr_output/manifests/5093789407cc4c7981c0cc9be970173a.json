@@ -1,0 +1,23 @@
+{
+  "doc_id": "5093789407cc4c7981c0cc9be970173a",
+  "source_filename": "ISC.pdf",
+  "source_path": "..\\data\\input\\ISC.pdf",
+  "file_size_bytes": 8769123,
+  "sha256": "1742d9054927f9f892b3614b0fe9a6b7ac9dd12e56e915a587ed808e960d2b6f",
+  "page_count": 6,
+  "status": "completed",
+  "created_at": "2026-05-28T14:16:19.944279",
+  "completed_at": "2026-05-28T14:16:22.364107",
+  "error_message": null,
+  "markdown_path": "markdown\\5093789407cc4c7981c0cc9be970173a.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\5093789407cc4c7981c0cc9be970173a",
+  "total_tables": 27,
+  "total_figures": 25,
+  "total_words": 1085,
+  "scanned_pages": 0,
+  "digital_pages": 0,
+  "mixed_pages": 6,
+  "processing_time_ms": 2425.6889999378473,
+  "has_scanned_content": true
+}
