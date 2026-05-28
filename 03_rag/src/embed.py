@@ -11,14 +11,12 @@ from config.settings import settings
 @lru_cache(maxsize=1)
 def get_embed_model(model_name: str | None = None) -> SentenceTransformer:
     model_name = model_name or settings.embed_model
-    logger.info(f"Loading embedding model: {model_name}")
-    model = SentenceTransformer(model_name)
-    logger.info("Embedding model ready")
-    return model
+    logger.info(f"loading embed model: {model_name}")
+    return SentenceTransformer(model_name)
 
 
 def embed_texts(texts: list[str], model_name: str | None = None) -> list[list[float]]:
-    model = get_embed_model(model_name)
-    logger.debug(f"Embedding {len(texts)} texts")
-    vecs = model.encode(texts, show_progress_bar=False, normalize_embeddings=True)
+    vecs = get_embed_model(model_name).encode(
+        texts, show_progress_bar=False, normalize_embeddings=True
+    )
     return vecs.tolist()

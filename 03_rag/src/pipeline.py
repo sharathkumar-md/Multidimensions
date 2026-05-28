@@ -10,22 +10,20 @@ from config.settings import settings
 from src.chunker import chunk_documents
 from src.embed import get_embed_model
 from src.evaluator import score_answer, _get_nli_model
-from src.generator import build_prompt, generate, generate_raw
+from src.generator import generate, generate_raw
 from src.indexer import build_index, load_index
 from src.retriever import RetrievedChunk, load_reranker, retrieve
 
 
 def load_qa_set(qa_path: Path) -> list[dict[str, str]]:
-    """Load QA set from a JSON file with list of {question, answer} dicts."""
     with open(qa_path, encoding="utf-8") as f:
         qa = json.load(f)
-    logger.info(f"Loaded {len(qa)} QA pairs from {qa_path}")
+    logger.info(f"loaded {len(qa)} qa pairs")
     return qa
 
 
 def build_pipeline_index(ocr_output_dir: Path | None = None, index_dir: Path | None = None) -> None:
-    chunks = chunk_documents(ocr_output_dir)
-    build_index(chunks, index_dir)
+    build_index(chunk_documents(ocr_output_dir), index_dir)
 
 
 def run_eval(
@@ -49,7 +47,7 @@ def run_eval(
     for i, qa in enumerate(qa_set):
         question = qa["question"]
         reference = qa.get("answer", "")
-        logger.info(f"[{i+1}/{len(qa_set)}] Q: {question[:80]}")
+        logger.info(f"[{i+1}/{len(qa_set)}] {question[:80]}")
 
         retrieved = retrieve(
             query=question,
@@ -112,5 +110,4 @@ def query_once(
         generator_fn=hyde_fn if settings.hyde_enabled else None,
     )
     context_texts = [r.chunk.text for r in retrieved]
-    answer = generate(question, context_texts, model, tokenizer, model_id)
-    return answer, retrieved
+    return generate(question, context_texts, model, tokenizer, model_id), retrieved

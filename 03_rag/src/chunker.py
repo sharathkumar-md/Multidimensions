@@ -34,10 +34,8 @@ def _page_num(header: str) -> int:
 
 
 def _split_preserving_tables(text: str, chunk_size: int, chunk_overlap: int) -> list[str]:
-    """Split text into token-sized chunks without breaking mid-table."""
     table_pattern = re.compile(r"(\|.+\|[\s\S]*?)(?=\n(?!\|)|\Z)")
     chunks: list[str] = []
-    pos = 0
     buf: list[str] = []
     buf_tokens = 0
 
@@ -55,7 +53,6 @@ def _split_preserving_tables(text: str, chunk_size: int, chunk_overlap: int) -> 
         nonlocal buf, buf_tokens
         if buf:
             chunks.append("".join(buf).strip())
-            # keep overlap
             overlap_words: list[str] = []
             overlap_count = 0
             for seg in reversed(buf):
@@ -94,16 +91,20 @@ def _split_preserving_tables(text: str, chunk_size: int, chunk_overlap: int) -> 
     return [c for c in chunks if c]
 
 
-def _split_section(section_text: str, page: int, doc_hash: str, source: str,
-                   chunk_size: int, chunk_overlap: int) -> list[Chunk]:
-    raw_chunks = _split_preserving_tables(section_text, chunk_size, chunk_overlap)
+def _split_section(
+    section_text: str, page: int, doc_hash: str, source: str,
+    chunk_size: int, chunk_overlap: int,
+) -> list[Chunk]:
     result: list[Chunk] = []
-    for idx, text in enumerate(raw_chunks):
-        if not text.strip():
-            continue
-        cid = f"{doc_hash}_{page}_{idx}"
-        result.append(Chunk(chunk_id=cid, doc_hash=doc_hash, source_doc=source,
-                            page_num=page, text=text))
+    for idx, text in enumerate(_split_preserving_tables(section_text, chunk_size, chunk_overlap)):
+        if text.strip():
+            result.append(Chunk(
+                chunk_id=f"{doc_hash}_{page}_{idx}",
+                doc_hash=doc_hash,
+                source_doc=source,
+                page_num=page,
+                text=text,
+            ))
     return result
 
 
@@ -112,13 +113,12 @@ def chunk_documents(
     chunk_size: int | None = None,
     chunk_overlap: int | None = None,
 ) -> list[Chunk]:
-    ocr_output_dir = ocr_output_dir or settings.ocr_output_dir
+    ocr_output_dir = Path(ocr_output_dir or settings.ocr_output_dir)
     chunk_size = chunk_size or settings.chunk_size
     chunk_overlap = chunk_overlap or settings.chunk_overlap
 
-    ocr_output_dir = Path(ocr_output_dir)
     manifests = sorted(ocr_output_dir.glob("*.json"))
-    logger.info(f"Found {len(manifests)} manifests in {ocr_output_dir}")
+    logger.info(f"{len(manifests)} manifests in {ocr_output_dir}")
 
     all_chunks: list[Chunk] = []
 
@@ -126,18 +126,16 @@ def chunk_documents(
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         md_file = ocr_output_dir / manifest["output_markdown"]
         if not md_file.exists():
-            logger.warning(f"Markdown file missing: {md_file}")
+            logger.warning(f"missing markdown: {md_file}")
             continue
 
         md_text = md_file.read_text(encoding="utf-8")
         doc_hash = _hash(manifest.get("source_pdf", md_file.name))
         source_doc = manifest.get("source_pdf", md_file.stem)
 
-        # Split on ## Page N headers
         page_pattern = re.compile(r"(##\s+Page\s+\d+[^\n]*)", re.IGNORECASE)
         parts = page_pattern.split(md_text)
 
-        # parts alternates: [pre_text, header, section, header, section, ...]
         current_page = 0
         current_text = parts[0]
 
@@ -145,22 +143,21 @@ def chunk_documents(
         while i < len(parts):
             header = parts[i]
             section = parts[i + 1] if i + 1 < len(parts) else ""
-            # flush previous section
             if current_text.strip():
-                chunks = _split_section(current_text, current_page, doc_hash, source_doc,
-                                        chunk_size, chunk_overlap)
-                all_chunks.extend(chunks)
+                all_chunks.extend(_split_section(
+                    current_text, current_page, doc_hash, source_doc, chunk_size, chunk_overlap
+                ))
             current_page = _page_num(header)
             current_text = section
             i += 2
 
-        # flush last section
         if current_text.strip():
-            chunks = _split_section(current_text, current_page, doc_hash, source_doc,
-                                    chunk_size, chunk_overlap)
-            all_chunks.extend(chunks)
+            all_chunks.extend(_split_section(
+                current_text, current_page, doc_hash, source_doc, chunk_size, chunk_overlap
+            ))
 
-        logger.debug(f"{source_doc}: {len([c for c in all_chunks if c.doc_hash == doc_hash])} chunks")
+        n = len([c for c in all_chunks if c.doc_hash == doc_hash])
+        logger.debug(f"{source_doc}: {n} chunks")
 
-    logger.info(f"Total chunks: {len(all_chunks)}")
+    logger.info(f"total chunks: {len(all_chunks)}")
     return all_chunks

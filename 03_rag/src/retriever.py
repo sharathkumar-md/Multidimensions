@@ -30,18 +30,17 @@ def _rrf(ranked_lists: list[list[str]], k: int = _RRF_K) -> dict[str, float]:
 
 
 def _hyde_query(query: str, generator_fn) -> str:
-    """Generate a hypothetical answer to use as the retrieval query."""
     prompt = (
-        "Generate a concise technical answer (2-3 sentences) to the following question. "
-        "Focus on factual details that would appear in engineering documentation.\n\n"
+        "Write a short technical answer (2-3 sentences) to this question based on "
+        "engineering documentation.\n\n"
         f"Question: {query}\n\nAnswer:"
     )
     try:
         hypo = generator_fn(prompt, max_new_tokens=120)
-        logger.debug(f"HyDE hypothesis: {hypo[:100]}...")
+        logger.debug(f"hyde: {hypo[:80]}...")
         return hypo
     except Exception as e:
-        logger.warning(f"HyDE generation failed, falling back to raw query: {e}")
+        logger.warning(f"hyde failed, using raw query: {e}")
         return query
 
 
@@ -66,7 +65,6 @@ def retrieve(
     if hyde_enabled and generator_fn is not None:
         retrieval_query = _hyde_query(query, generator_fn)
 
-    # --- Dense retrieval ---
     query_vec = embed_texts([retrieval_query])[0]
     dense_results = collection.query(
         query_embeddings=[query_vec],
@@ -74,43 +72,33 @@ def retrieve(
         include=["documents", "metadatas", "distances"],
     )
     dense_ids: list[str] = dense_results["ids"][0]
-    logger.debug(f"Dense retrieved {len(dense_ids)} chunks")
 
-    # --- Sparse BM25 retrieval ---
     tokenized_query = retrieval_query.lower().split()
     scores_arr = bm25.get_scores(tokenized_query)
     chunk_id_list = [c.chunk_id for c in chunks]
-    sparse_ranked = sorted(
-        range(len(scores_arr)), key=lambda i: scores_arr[i], reverse=True
-    )
-    sparse_ids: list[str] = [chunk_id_list[i] for i in sparse_ranked[:top_k_sparse]]
-    logger.debug(f"Sparse retrieved {len(sparse_ids)} chunks")
+    sparse_ranked = sorted(range(len(scores_arr)), key=lambda i: scores_arr[i], reverse=True)
+    sparse_ids = [chunk_id_list[i] for i in sparse_ranked[:top_k_sparse]]
 
-    # --- RRF fusion ---
-    fused_scores = _rrf([dense_ids, sparse_ids])
-    fused_ranked = sorted(fused_scores, key=fused_scores.get, reverse=True)
+    fused = _rrf([dense_ids, sparse_ids])
+    fused_ranked = sorted(fused, key=fused.get, reverse=True)
 
     chunk_map = {c.chunk_id: c for c in chunks}
-    candidate_chunks = [chunk_map[cid] for cid in fused_ranked if cid in chunk_map]
-    logger.debug(f"After RRF fusion: {len(candidate_chunks)} candidates")
+    candidates = [chunk_map[cid] for cid in fused_ranked if cid in chunk_map]
 
-    if not candidate_chunks:
+    if not candidates:
         return []
 
-    # --- Cross-encoder reranking ---
-    pairs = [[query, c.text] for c in candidate_chunks]
+    pairs = [[query, c.text] for c in candidates]
     rerank_scores = reranker.predict(pairs)
-    ranked = sorted(zip(candidate_chunks, rerank_scores), key=lambda x: x[1], reverse=True)
+    ranked = sorted(zip(candidates, rerank_scores), key=lambda x: x[1], reverse=True)
 
-    results = [
+    return [
         RetrievedChunk(chunk=c, score=float(s), rank=i + 1)
         for i, (c, s) in enumerate(ranked[:top_k_rerank])
     ]
-    logger.debug(f"Reranked to top {len(results)} chunks")
-    return results
 
 
 def load_reranker(model_name: str | None = None) -> CrossEncoder:
     model_name = model_name or settings.reranker_model
-    logger.info(f"Loading reranker: {model_name}")
+    logger.info(f"loading reranker: {model_name}")
     return CrossEncoder(model_name)
