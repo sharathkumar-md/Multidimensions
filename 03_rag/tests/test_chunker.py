@@ -61,8 +61,8 @@ def test_chunk_documents_uses_manifests(tmp_path):
     """)
 
     manifest = {
-        "source_pdf": "test_doc.pdf",
-        "output_markdown": "test_doc.md",
+        "source_filename": "test_doc.pdf",
+        "markdown_path": "test_doc.md",
     }
 
     (ocr_dir / "test_doc.json").write_text(json.dumps(manifest), encoding="utf-8")
@@ -79,7 +79,7 @@ def test_chunk_documents_uses_manifests(tmp_path):
 def test_chunk_documents_skips_missing_markdown(tmp_path):
     ocr_dir = tmp_path / "ocr_output"
     ocr_dir.mkdir()
-    manifest = {"source_pdf": "ghost.pdf", "output_markdown": "ghost.md"}
+    manifest = {"source_filename": "ghost.pdf", "markdown_path": "ghost.md"}
     (ocr_dir / "ghost.json").write_text(json.dumps(manifest), encoding="utf-8")
     # ghost.md does NOT exist
     chunks = chunk_documents(ocr_output_dir=ocr_dir, chunk_size=50, chunk_overlap=5)

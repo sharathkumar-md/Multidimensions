@@ -117,21 +117,26 @@ def chunk_documents(
     chunk_size = chunk_size or settings.chunk_size
     chunk_overlap = chunk_overlap or settings.chunk_overlap
 
-    manifests = sorted(ocr_output_dir.glob("*.json"))
+    manifest_dir = ocr_output_dir / "manifests"
+    if manifest_dir.exists():
+        manifests = sorted(manifest_dir.glob("*.json"))
+    else:
+        manifests = sorted(ocr_output_dir.glob("*.json"))
     logger.info(f"{len(manifests)} manifests in {ocr_output_dir}")
 
     all_chunks: list[Chunk] = []
 
     for manifest_path in manifests:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        md_file = ocr_output_dir / manifest["output_markdown"]
+        md_rel = manifest.get("markdown_path") or manifest.get("output_markdown", "")
+        md_file = (ocr_output_dir / md_rel).resolve()
         if not md_file.exists():
             logger.warning(f"missing markdown: {md_file}")
             continue
 
         md_text = md_file.read_text(encoding="utf-8")
-        doc_hash = _hash(manifest.get("source_pdf", md_file.name))
-        source_doc = manifest.get("source_pdf", md_file.stem)
+        source_doc = manifest.get("source_filename") or manifest.get("source_pdf", md_file.stem)
+        doc_hash = _hash(source_doc)
 
         page_pattern = re.compile(r"(##\s+Page\s+\d+[^\n]*)", re.IGNORECASE)
         parts = page_pattern.split(md_text)
