@@ -26,6 +26,9 @@ htmlcov/
 .env
 !.env.example
 
+# Input PDFs — store separately, not in git
+data/input/
+
 # OS
 .DS_Store
 Thumbs.db
