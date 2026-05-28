@@ -31,7 +31,7 @@ def load_model(model_id: str) -> tuple:
         quantization_config=_BNB_CONFIG,
         device_map="auto",
         trust_remote_code=True,
-        torch_dtype=torch.bfloat16,
+        dtype=torch.bfloat16,
     )
     model.eval()
     return model, tokenizer

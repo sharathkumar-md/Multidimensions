@@ -101,4 +101,4 @@ def retrieve(
 def load_reranker(model_name: str | None = None) -> CrossEncoder:
     model_name = model_name or settings.reranker_model
     logger.info(f"loading reranker: {model_name}")
-    return CrossEncoder(model_name)
+    return CrossEncoder(model_name, device="cpu")

@@ -12,7 +12,7 @@ from config.settings import settings
 def get_embed_model(model_name: str | None = None) -> SentenceTransformer:
     model_name = model_name or settings.embed_model
     logger.info(f"loading embed model: {model_name}")
-    return SentenceTransformer(model_name)
+    return SentenceTransformer(model_name, device="cpu")
 
 
 def embed_texts(texts: list[str], model_name: str | None = None) -> list[list[float]]:

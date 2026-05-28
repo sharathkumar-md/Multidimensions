@@ -15,7 +15,7 @@ from src.embed import get_embed_model
 def _get_nli_model(model_name: str | None = None) -> CrossEncoder:
     model_name = model_name or settings.nli_model
     logger.info(f"loading nli model: {model_name}")
-    return CrossEncoder(model_name)
+    return CrossEncoder(model_name, device="cpu")
 
 
 def _tokenize(text: str) -> list[str]:

@@ -33,9 +33,8 @@ class RAGSettings(BaseSettings):
 
     models_to_evaluate: list[str] = Field(default=[
         "Qwen/Qwen2.5-7B-Instruct",
-        "Qwen/Qwen3.5-9B",
+        "Qwen/Qwen3-8B",
         "google/gemma-3-12b-it",
-        "google/gemma-4-E4B-it",
         "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
     ])
 
