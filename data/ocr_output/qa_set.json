@@ -1,0 +1,177 @@
+[
+  {
+    "category": "specifications",
+    "question": "What is the backlash range of the Nabtesco RD2 gearhead?",
+    "answer": "The Nabtesco RD2 gearhead has a backlash of 1 arc.min (minimum) to 2 arc.min (maximum)."
+  },
+  {
+    "category": "specifications",
+    "question": "What is the maximum loading capacity of the Nabtesco RVW AGV drive unit?",
+    "answer": "The maximum loading capacity of the Nabtesco RVW AGV drive unit is 2500 Kgf."
+  },
+  {
+    "category": "specifications",
+    "question": "What is the maximum stroke length of the LinMot P10 Series linear motor?",
+    "answer": "The LinMot P10 Series linear motor has a maximum stroke of up to 2240 mm."
+  },
+  {
+    "category": "specifications",
+    "question": "What is the rated torque range for the Nabtesco RVE precision reduction gearbox?",
+    "answer": "The Nabtesco RVE precision reduction gearbox has a rated torque ranging from 58 Nm (minimum) to 14700 Nm (maximum)."
+  },
+  {
+    "category": "specifications",
+    "question": "What are the temperature limits for the Nabtesco auto connector (HNS series)?",
+    "answer": "The Nabtesco HNS auto connector operates in a temperature range of -5°C to 80°C."
+  },
+  {
+    "category": "specifications",
+    "question": "What is the peak velocity of the LinMot P10 Series linear motor?",
+    "answer": "The LinMot P10 Series has a peak velocity ranging from 7.4 m/s to 11.1 m/s."
+  },
+  {
+    "category": "specifications",
+    "question": "What is the constant force range provided by LinMot MagSpring stators?",
+    "answer": "LinMot MagSpring stators provide a constant force between 11 N and 60 N across their operating range."
+  },
+  {
+    "category": "specifications",
+    "question": "What is the maximum coupling speed of the Nabtesco LNS auto connector?",
+    "answer": "The Nabtesco LNS auto connector has a maximum coupling speed of 40 mm/s."
+  },
+  {
+    "category": "specifications",
+    "question": "What wheel diameter range does the Nabtesco RVW AGV drive unit support?",
+    "answer": "The Nabtesco RVW AGV drive unit supports wheel diameters from 254 mm to 508 mm."
+  },
+  {
+    "category": "specifications",
+    "question": "What is the rated output speed range for the Nabtesco RS gearhead?",
+    "answer": "The Nabtesco RS gearhead has a rated output speed of up to 15 rpm."
+  },
+  {
+    "category": "application",
+    "question": "What types of robot and industrial applications use the Nabtesco RS gearhead?",
+    "answer": "The Nabtesco RS gearhead is used in palletizing robots, ball screw drives, tilting axis positioners, rotary axis positioners, welding turntables, index tables, and heavy welding positioners."
+  },
+  {
+    "category": "application",
+    "question": "For which industries is the LinMot P10 Series linear motor suited?",
+    "answer": "The LinMot P10 Series is suited for aerospace and defence, textile and printing, food and beverages, medical and pharmaceutical, packaging and labeling, wood processing, glass processing, and ceramic processing industries."
+  },
+  {
+    "category": "application",
+    "question": "What hydropower applications does GGB serve with its bearing products?",
+    "answer": "GGB serves hydropower applications including trash gates, fish screens, trunnions, blades, injectors, deflectors, ball and butterfly trunnions, hydraulic cylinders, servomotors, operating ring sliding segments, linkages, wicket gates, guide vanes, intake gate sliding segments and rollers, and spillway gates."
+  },
+  {
+    "category": "application",
+    "question": "What industrial applications is the Nabtesco AF-C servo actuator used in?",
+    "answer": "The Nabtesco AF-C servo actuator is used in palletizing robots, index tables, stacker cranes, pipe bending, gantry loaders, ATC magazines, SCARA robots, and cylindrical coordinate robots."
+  },
+  {
+    "category": "application",
+    "question": "In what type of environment is the LinMot ATEX explosion proof motor designed to be used?",
+    "answer": "The LinMot ATEX explosion proof motor is designed for environments where explosive gases, vapor-air mixtures, or combustible dust may occur, such as oil and gas, chemical, and petrochemical industries."
+  },
+  {
+    "category": "application",
+    "question": "What sectors does GGB serve beyond hydropower with its plain bearing solutions?",
+    "answer": "Beyond hydropower, GGB serves aerospace, industrial, automotive, primary metals, energy, construction and agriculture, fluid power, and recreation sectors."
+  },
+  {
+    "category": "material_construction",
+    "question": "What material is used in the LinMot stainless steel linear motor (SSC series)?",
+    "answer": "The LinMot stainless steel linear motor is constructed from stainless steel EN 1.4404/AISI 316, with motor windings fully coated in epoxy resin to protect from moisture and corrosion."
+  },
+  {
+    "category": "material_construction",
+    "question": "How is the GGB HPMB bearing manufactured and what construction technique does it use?",
+    "answer": "The GGB HPMB bearing uses a filament wound construction technique, which GGB pioneered. It features machinable inner and outer diameters, offering superior precision and cylindricity tolerances, with post-installation single-point machining capable of achieving IT7 inner diameter tolerance."
+  },
+  {
+    "category": "material_construction",
+    "question": "What solid lubricants are used in GGB-CBM bearings and how do they work?",
+    "answer": "GGB-CBM bearings are manufactured using a powder metallurgy process with a metallic matrix containing homogeneously distributed solid lubricants, specifically graphite and MoS2, which form a lubricant film during motion to provide self-lubricating, maintenance-free performance."
+  },
+  {
+    "category": "material_construction",
+    "question": "What design features of the LinMot stainless steel motor prevent dirt accumulation in hygienic environments?",
+    "answer": "The LinMot stainless steel motor is manufactured without extra edges, corners, holes, or screw connections to prevent the buildup of dirt. The windings are completely coated in epoxy resin, shielding them from moisture and corrosion."
+  },
+  {
+    "category": "company_brand",
+    "question": "When was NTI AG, the maker of LinMot, founded and when did it become independent?",
+    "answer": "NTI AG was founded in 1993 as part of the Sulzer Group and has been operating independently since 2000."
+  },
+  {
+    "category": "company_brand",
+    "question": "How many countries does LinMot supply its products to?",
+    "answer": "LinMot (NTI AG) supplies its products in 80 countries worldwide."
+  },
+  {
+    "category": "company_brand",
+    "question": "How old is Maedler as a company and where is it headquartered?",
+    "answer": "Maedler is a 138-year-old German brand with its headquarters in Stuttgart, founded in 1882 by Mr. Bruno Maedler."
+  },
+  {
+    "category": "company_brand",
+    "question": "Where is GGB North America headquartered and what is its contact address?",
+    "answer": "GGB North America is headquartered at 700 Mid Atlantic Parkway, P.O. Box 189, Thorofare, New Jersey 08086, USA."
+  },
+  {
+    "category": "comparison",
+    "question": "What is the difference between the Nabtesco RVE and RVC precision reduction gearboxes?",
+    "answer": "The Nabtesco RVE is a solid shaft mounting type of planetary RV gearhead suited for higher torque and lower backlash applications. The RVC is a hollow shaft mounting type, designed for more compact and lightweight applications."
+  },
+  {
+    "category": "comparison",
+    "question": "How does a LinMot MagSpring differ from a conventional mechanical spring?",
+    "answer": "Unlike a conventional mechanical spring where force increases with displacement, a MagSpring produces a constant force across its entire working range, making it particularly suitable for compensating weight forces in vertical drive arrangements."
+  },
+  {
+    "category": "comparison",
+    "question": "What distinguishes the LinMot PR01 from the PR02 linear rotary motor in terms of design?",
+    "answer": "The PR01 combines a linear and rotary motor in series within one housing for the smallest possible footprint, with optional MagSpring, pneumatic brake, and emergency rail kit. The PR02 uses a slim, easy-to-clean housing design with options for a hollow shaft, pneumatic pusher, MagSpring, torque sensor, and force sensor."
+  },
+  {
+    "category": "comparison",
+    "question": "What is the structural difference between the Nabtesco AF-N and AF-C servo actuators?",
+    "answer": "The AF-N is a solid shaft type compact actuator directly mounted with a servomotor, while the AF-C is a hollow shaft type compact actuator with the same direct servo motor mounting. Both are successors to the Precision Reduction Gear RV and share the same rated capacity range."
+  },
+  {
+    "category": "features_capabilities",
+    "question": "What safety features are integrated into the LinMot P01 linear motor?",
+    "answer": "The LinMot P01 linear motors have integrated position measuring and overload protection. They are permanently operated ironless synchronous servo motors."
+  },
+  {
+    "category": "features_capabilities",
+    "question": "Why is the GGB HPMB bearing considered environmentally friendly?",
+    "answer": "The GGB HPMB bearing is environmentally friendly because it operates grease-free, eliminating the need for lubrication while providing low friction and low wear rate for extended bearing life."
+  },
+  {
+    "category": "features_capabilities",
+    "question": "What advantage does the LinMot P04 actuator module have over pneumatic actuators?",
+    "answer": "The LinMot P04 actuator is compatible with all mechanical accessories known from pneumatics, making replacement of pneumatic systems straightforward. It offers free positionability and accelerations of up to 50 m/s², enabling dynamic and precise movements that exceed typical pneumatic capabilities."
+  },
+  {
+    "category": "features_capabilities",
+    "question": "What is the key capability of the Nabtesco RVTM precision reduction gear in industrial robots?",
+    "answer": "The Nabtesco RVTM precision reduction gear enables precise movement while maintaining optimum power in robot joints. Nabtesco holds a major share of the global market for this product, with more than 30 years of experience in the field."
+  },
+  {
+    "category": "features_capabilities",
+    "question": "What advantage does the LinMot DM01 linear module offer over separate drive components?",
+    "answer": "The LinMot DM01 linear modules are complete drive solutions that integrate a linear guide and LinMot stators in one unit, with optional built-in MagSpring magnetic springs and a pneumatic holding brake, reducing assembly complexity."
+  },
+  {
+    "category": "cross_document",
+    "question": "Which GGB bearing types have been approved for use in water turbines by the USA Army Corps of Engineers?",
+    "answer": "The GGB HPMB and HPM/HPF bearing types have been approved for use in water turbines by the USA Army Corps of Engineers."
+  },
+  {
+    "category": "cross_document",
+    "question": "What types of products does Maedler offer in its product range?",
+    "answer": "Maedler offers a varied range including power transmission units such as worms and worm gears, spur racks, shrink disks, locking assemblies, thrust pads with spring retainers, and precision levelling adjusters, along with other mechanical engineering products."
+  }
+]
