@@ -33,7 +33,7 @@ def main() -> None:
 
     model, tokenizer = load_model(args.model)
 
-    print(f"\nmodel: {args.model}  (exit to quit)\n")
+    logger.info(f"model: {args.model}  (exit to quit)")
 
     while True:
         try:
@@ -46,10 +46,9 @@ def main() -> None:
 
         answer, retrieved = query_once(question, model, tokenizer, args.model)
 
-        print(f"\n{answer}\n")
+        logger.info(f"\n{answer}")
         for r in retrieved:
-            print(f"  [{r.rank}] {r.chunk.source_doc} p{r.chunk.page_num}  {r.score:.3f}")
-        print()
+            logger.info(f"  [{r.rank}] {r.chunk.source_doc} p{r.chunk.page_num}  {r.score:.3f}")
 
 
 if __name__ == "__main__":
