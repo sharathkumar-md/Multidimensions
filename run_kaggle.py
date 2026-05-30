@@ -107,20 +107,21 @@ MODELS = [
 
 if __name__ == "__main__":
     os.environ["HF_HUB_DISABLE_XET"] = "1"
+    os.environ["PYTHONUNBUFFERED"] = "1"
 
     github_token = _get_github_token()
 
-    print("=== installing deps ===")
+    print("=== installing deps ===", flush=True)
     _pip_install()
 
-    print("=== cloning/pulling repo ===")
+    print("=== cloning/pulling repo ===", flush=True)
     _clone_or_pull(github_token)
 
     _set_hf_token()
 
     for model in MODELS:
-        print(f"\n=== {model} ===")
+        print(f"\n=== {model} ===", flush=True)
         _run_model(model)
 
-    print("\n=== pushing results ===")
+    print("\n=== pushing results ===", flush=True)
     _push_results(github_token)
