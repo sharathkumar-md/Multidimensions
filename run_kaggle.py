@@ -71,6 +71,7 @@ def _run_model(model_id: str) -> None:
     env["RAG_QA_PATH"] = str(REPO_DIR / "data/ocr_output/qa_set.json")
     env["TOKENIZERS_PARALLELISM"] = "false"
     env["OMP_NUM_THREADS"] = "4"
+    env["HF_HUB_DISABLE_XET"] = "1"
 
     subprocess.run(
         [sys.executable, "-u", str(REPO_DIR / "03_rag/rag_kaggle.py"), "--model", model_id],
@@ -105,6 +106,8 @@ MODELS = [
 ]
 
 if __name__ == "__main__":
+    os.environ["HF_HUB_DISABLE_XET"] = "1"
+
     github_token = _get_github_token()
 
     print("=== installing deps ===")
