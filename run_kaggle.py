@@ -46,6 +46,13 @@ def _clone_or_pull(token: str | None = None) -> None:
     else:
         subprocess.run(["git", "clone", _repo_url(token), str(REPO_DIR)], check=True)
 
+    # wipe stale index so it rebuilds with the current embed model
+    index_dir = Path("/kaggle/working/index")
+    if index_dir.exists():
+        import shutil
+        shutil.rmtree(index_dir)
+        print("cleared stale index")
+
 
 def _set_hf_token() -> None:
     try:
@@ -62,6 +69,8 @@ def _run_model(model_id: str) -> None:
     env["PYTHONUNBUFFERED"] = "1"
     env["RAG_OCR_OUTPUT_DIR"] = str(REPO_DIR / "data/ocr_output")
     env["RAG_QA_PATH"] = str(REPO_DIR / "data/ocr_output/qa_set.json")
+    env["TOKENIZERS_PARALLELISM"] = "false"
+    env["OMP_NUM_THREADS"] = "4"
 
     subprocess.run(
         [sys.executable, "-u", str(REPO_DIR / "03_rag/rag_kaggle.py"), "--model", model_id],
