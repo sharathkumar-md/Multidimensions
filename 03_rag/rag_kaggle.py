@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import gc
 import json
 import os
@@ -91,15 +92,26 @@ def _eval_model(model_id: str, qa_set: list[dict], summary: list[dict]) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model", default=None, help="single model to eval; omit to run all")
+    args = parser.parse_args()
+
     _build_index_if_needed()
 
     if not QA_PATH.exists():
         raise FileNotFoundError(f"qa set not found: {QA_PATH}")
 
+    # warm up embed + reranker into lru_cache before any LLM occupies disk
+    from src.embed import get_embed_model
+    from src.retriever import load_reranker
+    get_embed_model()
+    load_reranker()
+
     qa_set = load_qa_set(QA_PATH)
     summary: list[dict] = []
 
-    for model_id in settings.models_to_evaluate:
+    models = [args.model] if args.model else settings.models_to_evaluate
+    for model_id in models:
         _eval_model(model_id, qa_set, summary)
 
     with open(RESULTS_DIR / "summary.json", "w", encoding="utf-8") as f:
