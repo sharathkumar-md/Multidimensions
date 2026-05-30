@@ -46,7 +46,7 @@ def _set_hf_token() -> None:
 def _run_model(model_id: str) -> None:
     env = os.environ.copy()
     env["PYTHONUNBUFFERED"] = "1"
-    env["RAG_OCR_OUTPUT_DIR"] = "/kaggle/input/multidimensions-ocr/ocr_output"
+    env["RAG_OCR_OUTPUT_DIR"] = str(REPO_DIR / "data/ocr_output")
     env["RAG_QA_PATH"] = str(REPO_DIR / "data/ocr_output/qa_set.json")
 
     subprocess.run(
@@ -59,9 +59,10 @@ def _run_model(model_id: str) -> None:
 def _push_results() -> None:
     try:
         from kaggle_secrets import UserSecretsClient
-        token = UserSecretsClient().get_secret("GITHUB_TOKEN")
-    except Exception:
-        print("no GITHUB_TOKEN secret, skipping push")
+        secrets = UserSecretsClient()
+        token = secrets.get_secret("GITHUB_TOKEN")
+    except Exception as e:
+        print(f"no GITHUB_TOKEN secret ({e}), skipping push")
         return
 
     remote = f"https://{token}@github.com/sharathkumar-md/Multidimensions.git"
