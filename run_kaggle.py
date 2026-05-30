@@ -6,7 +6,21 @@ import sys
 from pathlib import Path
 
 REPO_DIR = Path("/kaggle/working/MultiDimensions")
-REPO_URL = "https://github.com/sharathkumar-md/Multidimensions.git"
+_REPO_HOST = "github.com/sharathkumar-md/Multidimensions.git"
+
+
+def _get_github_token() -> str | None:
+    try:
+        from kaggle_secrets import UserSecretsClient
+        return UserSecretsClient().get_secret("GITHUB_TOKEN")
+    except Exception:
+        return None
+
+
+def _repo_url(token: str | None = None) -> str:
+    if token:
+        return f"https://{token}@{_REPO_HOST}"
+    return f"https://{_REPO_HOST}"
 
 
 def _pip_install() -> None:
@@ -21,16 +35,16 @@ def _pip_install() -> None:
         "pydantic-settings",
     ]
     subprocess.run(
-        [sys.executable, "-u", "-m", "pip", "install", "--quiet"] + packages,
+        [sys.executable, "-u", "-m", "pip", "install"] + packages,
         check=True,
     )
 
 
-def _clone_or_pull() -> None:
+def _clone_or_pull(token: str | None = None) -> None:
     if REPO_DIR.exists():
         subprocess.run(["git", "-C", str(REPO_DIR), "pull"], check=True)
     else:
-        subprocess.run(["git", "clone", REPO_URL, str(REPO_DIR)], check=True)
+        subprocess.run(["git", "clone", _repo_url(token), str(REPO_DIR)], check=True)
 
 
 def _set_hf_token() -> None:
@@ -56,16 +70,12 @@ def _run_model(model_id: str) -> None:
     )
 
 
-def _push_results() -> None:
-    try:
-        from kaggle_secrets import UserSecretsClient
-        secrets = UserSecretsClient()
-        token = secrets.get_secret("GITHUB_TOKEN")
-    except Exception as e:
-        print(f"no GITHUB_TOKEN secret ({e}), skipping push")
+def _push_results(token: str | None = None) -> None:
+    if not token:
+        print("no GITHUB_TOKEN, skipping push")
         return
 
-    remote = f"https://{token}@github.com/sharathkumar-md/Multidimensions.git"
+    remote = _repo_url(token)
     subprocess.run(["git", "-C", str(REPO_DIR), "config", "user.email", "kaggle@run.local"], check=True)
     subprocess.run(["git", "-C", str(REPO_DIR), "config", "user.name", "kaggle"], check=True)
     subprocess.run(["git", "-C", str(REPO_DIR), "add", "03_rag/results/"], check=True)
@@ -86,11 +96,13 @@ MODELS = [
 ]
 
 if __name__ == "__main__":
+    github_token = _get_github_token()
+
     print("=== installing deps ===")
     _pip_install()
 
     print("=== cloning/pulling repo ===")
-    _clone_or_pull()
+    _clone_or_pull(github_token)
 
     _set_hf_token()
 
@@ -99,4 +111,4 @@ if __name__ == "__main__":
         _run_model(model)
 
     print("\n=== pushing results ===")
-    _push_results()
+    _push_results(github_token)
