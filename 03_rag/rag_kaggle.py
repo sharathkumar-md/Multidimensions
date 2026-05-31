@@ -88,7 +88,7 @@ def _eval_model(model_id: str, qa_set: list[dict], summary: list[dict]) -> None:
         except NameError:
             pass
         _free_gpu()
-        delete_model_cache(HF_HOME)
+        delete_model_cache(HF_HOME, model_id)
 
 
 def main() -> None:

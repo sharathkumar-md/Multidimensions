@@ -96,8 +96,16 @@ def generate_raw(prompt_text: str, model, tokenizer, max_new_tokens: int = 128) 
     return tokenizer.decode(new_ids, skip_special_tokens=True).strip()
 
 
-def delete_model_cache(hf_home: str | Path) -> None:
+def delete_model_cache(hf_home: str | Path, model_id: str | None = None) -> None:
     hub_dir = Path(hf_home) / "hub"
-    if hub_dir.exists():
+    if not hub_dir.exists():
+        return
+    if model_id:
+        cache_name = "models--" + model_id.replace("/", "--")
+        model_cache_dir = hub_dir / cache_name
+        if model_cache_dir.exists():
+            shutil.rmtree(model_cache_dir)
+            logger.info(f"cleared cache: {model_cache_dir}")
+    else:
         shutil.rmtree(hub_dir)
         logger.info(f"cleared cache: {hub_dir}")
