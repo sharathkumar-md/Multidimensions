@@ -10,11 +10,11 @@ from pathlib import Path
 import torch
 from loguru import logger
 
-HF_HOME = Path("/kaggle/working/hf_cache")
+HF_HOME = Path(os.environ.get("RAG_HF_HOME", "/kaggle/working/hf_cache"))
 OCR_OUTPUT_DIR = Path(os.environ.get("RAG_OCR_OUTPUT_DIR", "/kaggle/input/multidimensions-ocr/ocr_output"))
 QA_PATH = Path(os.environ.get("RAG_QA_PATH", "/kaggle/input/multidimensions-ocr/qa_set.json"))
-INDEX_DIR = Path("/kaggle/working/index")
-RESULTS_DIR = Path("/kaggle/working/results")
+INDEX_DIR = Path(os.environ.get("RAG_INDEX_DIR", str(Path(__file__).parent / "index")))
+RESULTS_DIR = Path(os.environ.get("RAG_RESULTS_DIR", "/kaggle/working/results"))
 
 os.environ["HF_HOME"] = str(HF_HOME)
 os.environ["TRANSFORMERS_CACHE"] = str(HF_HOME / "hub")
