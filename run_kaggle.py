@@ -46,12 +46,6 @@ def _clone_or_pull(token: str | None = None) -> None:
     else:
         subprocess.run(["git", "clone", _repo_url(token), str(REPO_DIR)], check=True)
 
-    # wipe stale index so it rebuilds with the current embed model
-    index_dir = Path("/kaggle/working/index")
-    if index_dir.exists():
-        import shutil
-        shutil.rmtree(index_dir)
-        print("cleared stale index")
 
 
 def _set_hf_token() -> None:
