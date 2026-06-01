@@ -60,6 +60,7 @@ def _run_model(model_id: str, hf_token: str | None = None) -> None:
     env["PYTHONUNBUFFERED"] = "1"
     env["HF_HUB_DISABLE_XET"] = "1"
     env["TOKENIZERS_PARALLELISM"] = "false"
+    env["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
     env["RAG_OCR_OUTPUT_DIR"] = str(REPO_DIR / "data/ocr_output")
     env["RAG_QA_PATH"] = str(REPO_DIR / "data/ocr_output/qa_set.json")
     env["RAG_INDEX_DIR"] = str(REPO_DIR / "03_rag/index")

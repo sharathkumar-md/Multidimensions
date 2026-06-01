@@ -48,7 +48,7 @@ def generate(
     model,
     tokenizer,
     model_id: str,
-    max_new_tokens: int = 256,
+    max_new_tokens: int = 128,
 ) -> str:
     messages = [
         {"role": "system", "content": _SYSTEM_PROMPT},
@@ -60,7 +60,9 @@ def generate(
         kwargs["enable_thinking"] = False
 
     prompt_text = tokenizer.apply_chat_template(messages, **kwargs)
-    inputs = tokenizer(prompt_text, return_tensors="pt").to(model.device)
+    inputs = tokenizer(
+        prompt_text, return_tensors="pt", truncation=True, max_length=768
+    ).to(model.device)
 
     with torch.no_grad():
         output_ids = model.generate(
