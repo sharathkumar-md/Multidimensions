@@ -1,0 +1,1507 @@
+[
+  {
+    "question_id": "q001",
+    "question": "What is the backlash range of the Nabtesco RD2 gearhead?",
+    "answer": "| Allowable Thrust load 1470 N 2 9 4 0 N |\n| Backlash 1.5 arc.min 2 arc.min |\n\nWhat is the backlash available for the RS type?",
+    "reference": "The Nabtesco RD2 gearhead has a backlash of 1 arc.min (minimum) to 2 arc.min (maximum).",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_2_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 2,
+        "score": 2.8632590770721436
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 1.2031853199005127
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_4_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 4,
+        "score": -0.41229087114334106
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_3_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 3,
+        "score": -2.567965030670166
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_5_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 5,
+        "score": -5.432088375091553
+      }
+    ],
+    "keyword_recall": 0.4,
+    "token_f1": 0.3636,
+    "semantic_sim": 0.7284,
+    "faithfulness": 0.75,
+    "composite": 0.5255
+  },
+  {
+    "question_id": "q002",
+    "question": "What is the maximum loading capacity of the Nabtesco RVW AGV drive unit?",
+    "answer": "png) |\n\nBased on the context, what are the minimum and maximum wheel diameters for an AGV drive unit?",
+    "reference": "The maximum loading capacity of the Nabtesco RVW AGV drive unit is 2500 Kgf.",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_5_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 5,
+        "score": 4.335231781005859
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 1.131237506866455
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_3_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 3,
+        "score": -1.3910436630249023
+      },
+      {
+        "chunk_id": "cd4e8ad7661ee80f_9_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 9,
+        "score": -2.410526990890503
+      },
+      {
+        "chunk_id": "88d14a9daf902596_9_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 9,
+        "score": -2.7601170539855957
+      }
+    ],
+    "keyword_recall": 0.3846,
+    "token_f1": 0.375,
+    "semantic_sim": 0.6207,
+    "faithfulness": 1.0,
+    "composite": 0.5335
+  },
+  {
+    "question_id": "q003",
+    "question": "What is the maximum stroke length of the LinMot P10 Series linear motor?",
+    "answer": "36b09e9904bebbb4329babf86b202_p2_t4 -->|\n\nWhat is the maximum stroke length?",
+    "reference": "The LinMot P10 Series linear motor has a maximum stroke of up to 2240 mm.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_2_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 2,
+        "score": 6.643209457397461
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": 3.72369647026062
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": 2.818450689315796
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": 2.3876426219940186
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": 2.345785617828369
+      }
+    ],
+    "keyword_recall": 0.2,
+    "token_f1": 0.2727,
+    "semantic_sim": 0.6371,
+    "faithfulness": 1.0,
+    "composite": 0.4475
+  },
+  {
+    "question_id": "q004",
+    "question": "What is the rated torque range for the Nabtesco RVE precision reduction gearbox?",
+    "answer": "p4_f1 --> ![(no caption)](figures\\74b3ce7819474c7d9d5421f4b6dc195e\\74b3ce7819474c7d9d5421f4b6dc195e_p4_f1.png) *Figure: (no caption)*\n\nWhat is the maximum torque for the RV-C gearhead?",
+    "reference": "The Nabtesco RVE precision reduction gearbox has a rated torque ranging from 58 Nm (minimum) to 14700 Nm (maximum).",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_4_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 4,
+        "score": 5.012180328369141
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 4.322931289672852
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_3_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 3,
+        "score": 4.054896831512451
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_2_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 2,
+        "score": 3.718581199645996
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_6_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 6,
+        "score": 3.161201000213623
+      }
+    ],
+    "keyword_recall": 0.1667,
+    "token_f1": 0.1538,
+    "semantic_sim": 0.6364,
+    "faithfulness": 1.0,
+    "composite": 0.4059
+  },
+  {
+    "question_id": "q005",
+    "question": "What are the temperature limits for the Nabtesco auto connector (HNS series)?",
+    "answer": "4c7d9d5421f4b6dc195e_f0.png)\n\nWhat is the maximum temperature range?\n\nThe maximum temperature range is 80 °C.",
+    "reference": "The Nabtesco HNS auto connector operates in a temperature range of -5°C to 80°C.",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_7_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 7,
+        "score": 2.38795804977417
+      },
+      {
+        "chunk_id": "45dbef51d404d113_4_0",
+        "source_doc": "Dynapar Ebook - handover file.pdf",
+        "page_num": 4,
+        "score": -3.992765426635742
+      },
+      {
+        "chunk_id": "45dbef51d404d113_7_0",
+        "source_doc": "Dynapar Ebook - handover file.pdf",
+        "page_num": 7,
+        "score": -4.794317722320557
+      },
+      {
+        "chunk_id": "88d14a9daf902596_5_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 5,
+        "score": -4.905174255371094
+      },
+      {
+        "chunk_id": "45dbef51d404d113_10_0",
+        "source_doc": "Dynapar Ebook - handover file.pdf",
+        "page_num": 10,
+        "score": -5.11581563949585
+      }
+    ],
+    "keyword_recall": 0.3333,
+    "token_f1": 0.3226,
+    "semantic_sim": 0.5672,
+    "faithfulness": 1.0,
+    "composite": 0.4891
+  },
+  {
+    "question_id": "q006",
+    "question": "What is the peak velocity of the LinMot P10 Series linear motor?",
+    "answer": "36b09e9904bebbb4329babf86b202_p2_t4 -->|\n\nWhat is the maximum stroke length?",
+    "reference": "The LinMot P10 Series has a peak velocity ranging from 7.4 m/s to 11.1 m/s.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_2_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 2,
+        "score": 7.194825172424316
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": 5.983767986297607
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": 4.185685634613037
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": 2.2383980751037598
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": 1.4423917531967163
+      }
+    ],
+    "keyword_recall": 0.0588,
+    "token_f1": 0.0769,
+    "semantic_sim": 0.5207,
+    "faithfulness": 1.0,
+    "composite": 0.32
+  },
+  {
+    "question_id": "q007",
+    "question": "What is the constant force range provided by LinMot MagSpring stators?",
+    "answer": "0 N Stroke Length 29 mm 255 mm\n\nWhat is the maximum force of a MagSpring?",
+    "reference": "LinMot MagSpring stators provide a constant force between 11 N and 60 N across their operating range.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_8_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 8,
+        "score": 4.436717987060547
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_2_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 2,
+        "score": 1.3236305713653564
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": -0.08784911781549454
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -0.8368544578552246
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": -1.1653424501419067
+      }
+    ],
+    "keyword_recall": 0.25,
+    "token_f1": 0.2424,
+    "semantic_sim": 0.6668,
+    "faithfulness": 0.0,
+    "composite": 0.3148
+  },
+  {
+    "question_id": "q008",
+    "question": "What is the maximum coupling speed of the Nabtesco LNS auto connector?",
+    "answer": "4c7d9d5421f4b6dc195e_f0.png)\n\nWhat is the maximum temperature range?\n\nThe maximum temperature range is 80 °C.",
+    "reference": "The Nabtesco LNS auto connector has a maximum coupling speed of 40 mm/s.",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_7_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 7,
+        "score": 3.7646877765655518
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": -0.8218326568603516
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_12_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 12,
+        "score": -1.637679100036621
+      },
+      {
+        "chunk_id": "40d5bd27e25b26c6_6_0",
+        "source_doc": "ISC.pdf",
+        "page_num": 6,
+        "score": -5.935154914855957
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_15_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 15,
+        "score": -6.559101581573486
+      }
+    ],
+    "keyword_recall": 0.1429,
+    "token_f1": 0.1379,
+    "semantic_sim": 0.4133,
+    "faithfulness": 1.0,
+    "composite": 0.3378
+  },
+  {
+    "question_id": "q009",
+    "question": "What wheel diameter range does the Nabtesco RVW AGV drive unit support?",
+    "answer": "png) |\n\nBased on the context, what are the minimum and maximum wheel diameters for an AGV drive unit?",
+    "reference": "The Nabtesco RVW AGV drive unit supports wheel diameters from 254 mm to 508 mm.",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_5_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 5,
+        "score": 3.017747640609741
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 1.2576419115066528
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_3_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 3,
+        "score": -2.9822864532470703
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_4_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 4,
+        "score": -4.6727447509765625
+      },
+      {
+        "chunk_id": "40d5bd27e25b26c6_5_0",
+        "source_doc": "ISC.pdf",
+        "page_num": 5,
+        "score": -4.977194786071777
+      }
+    ],
+    "keyword_recall": 0.4286,
+    "token_f1": 0.3636,
+    "semantic_sim": 0.7294,
+    "faithfulness": 1.0,
+    "composite": 0.5733
+  },
+  {
+    "question_id": "q010",
+    "question": "What is the rated output speed range for the Nabtesco RS gearhead?",
+    "answer": "| Allowable Thrust load 1470 N 2 9 4 0 N |\n| Backlash 1.5 arc.min 2 arc.min |\n\nWhat is the backlash available for the RS type?",
+    "reference": "The Nabtesco RS gearhead has a rated output speed of up to 15 rpm.",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_2_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 2,
+        "score": 2.3856348991394043
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_4_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 4,
+        "score": 1.350813388824463
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 0.8028736114501953
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_3_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 3,
+        "score": 0.5373042821884155
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_14_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 14,
+        "score": -2.664701223373413
+      }
+    ],
+    "keyword_recall": 0.1429,
+    "token_f1": 0.0976,
+    "semantic_sim": 0.5907,
+    "faithfulness": 0.75,
+    "composite": 0.3346
+  },
+  {
+    "question_id": "q011",
+    "question": "What types of robot and industrial applications use the Nabtesco RS gearhead?",
+    "answer": "819474c7d9d5421f4b6dc195e_p1_f3 --> ![(no caption)](figures\\74b3ce7819474c7d9d5421f4b6dc195e\\74b3ce7819474c7d9d5421f4b6dc195e_p1_f3.png)\n\nWhat are the applications of Nabtesco gears?\n\nThe document mentions expanding applications for Nabtes",
+    "reference": "The Nabtesco RS gearhead is used in palletizing robots, ball screw drives, tilting axis positioners, rotary axis positioners, welding turntables, index tables, and heavy welding positioners.",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 5.769143104553223
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_4_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 4,
+        "score": 1.8497203588485718
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_3_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 3,
+        "score": -0.7538920640945435
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_2_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 2,
+        "score": -0.7700357437133789
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_5_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 5,
+        "score": -1.2588250637054443
+      }
+    ],
+    "keyword_recall": 0.0909,
+    "token_f1": 0.0851,
+    "semantic_sim": 0.6786,
+    "faithfulness": 1.0,
+    "composite": 0.3727
+  },
+  {
+    "question_id": "q012",
+    "question": "For which industries is the LinMot P10 Series linear motor suited?",
+    "answer": "4 Linear Modules And Guides 1.2 1.1.3 Modules DM01 F01/E01 1.2 1.1.4 Modules DM01 F01/E01 1.2.1 Modules DM01 F01/E1 1.2.2 Modules DM01 F01/E1 1.2.3 Modules DM01 F01/E1 1.2.4 Modules DM01 F01/E1 1.2.5 Modules DM01 F01/E1",
+    "reference": "The LinMot P10 Series is suited for aerospace and defence, textile and printing, food and beverages, medical and pharmaceutical, packaging and labeling, wood processing, glass processing, and ceramic processing industries.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": 5.272627830505371
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_2_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 2,
+        "score": 4.6836466789245605
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": 1.7220914363861084
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": 0.3539809584617615
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": -0.3331027626991272
+      }
+    ],
+    "keyword_recall": 0.0435,
+    "token_f1": 0.0227,
+    "semantic_sim": 0.4142,
+    "faithfulness": 1.0,
+    "composite": 0.2745
+  },
+  {
+    "question_id": "q013",
+    "question": "What hydropower applications does GGB serve with its bearing products?",
+    "answer": "993b4cfe85c4f453_p1_f3 --> ![(no caption)](figures\\274fbb105e5148db993b4cfe85c4f453\\274fbb105e5148db993b4cfe85c4f453_p1_f3.jpeg) *Figure: (no caption)*\n\nWhat types of bearings does GGB manufacture?\nGGB manufactures Metal-Polymer, Solid Polymer, Filament Wound, Metal and",
+    "reference": "GGB serves hydropower applications including trash gates, fish screens, trunnions, blades, injectors, deflectors, ball and butterfly trunnions, hydraulic cylinders, servomotors, operating ring sliding segments, linkages, wicket gates, guide vanes, intake gate sliding segments and rollers, and spillway gates.",
+    "sources": [
+      {
+        "chunk_id": "680188b0a8169289_1_0",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 6.058081150054932
+      },
+      {
+        "chunk_id": "680188b0a8169289_2_0",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 5.714418411254883
+      },
+      {
+        "chunk_id": "53de490be4774c80_3_0",
+        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+        "page_num": 3,
+        "score": 4.562141418457031
+      },
+      {
+        "chunk_id": "53de490be4774c80_2_0",
+        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+        "page_num": 2,
+        "score": 3.905850887298584
+      },
+      {
+        "chunk_id": "89f08f1aa59fdf66_1_0",
+        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 3.8441340923309326
+      }
+    ],
+    "keyword_recall": 0.0645,
+    "token_f1": 0.0615,
+    "semantic_sim": 0.6009,
+    "faithfulness": 1.0,
+    "composite": 0.3382
+  },
+  {
+    "question_id": "q014",
+    "question": "What industrial applications is the Nabtesco AF-C servo actuator used in?",
+    "answer": "819474c7d9d5421f4b6dc195e_p1_f3 --> ![(no caption)](figures\\74b3ce7819474c7d9d5421f4b6dc195e\\74b3ce7819474c7d9d5421f4b6dc195e_p1_f3.png)\n\nWhat are the applications of Nabtesco gears?\n\nThe document mentions expanding applications for Nabtes",
+    "reference": "The Nabtesco AF-C servo actuator is used in palletizing robots, index tables, stacker cranes, pipe bending, gantry loaders, ATC magazines, SCARA robots, and cylindrical coordinate robots.",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 4.930566787719727
+      },
+      {
+        "chunk_id": "0dce3159a2b5ebf6_1_0",
+        "source_doc": "HB-Catalogue.pdf",
+        "page_num": 1,
+        "score": 1.8807249069213867
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_6_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 6,
+        "score": 0.8888214826583862
+      },
+      {
+        "chunk_id": "0dce3159a2b5ebf6_3_0",
+        "source_doc": "HB-Catalogue.pdf",
+        "page_num": 3,
+        "score": 0.3688485324382782
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_5_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 5,
+        "score": 0.3025108277797699
+      }
+    ],
+    "keyword_recall": 0.08,
+    "token_f1": 0.0833,
+    "semantic_sim": 0.6058,
+    "faithfulness": 1.0,
+    "composite": 0.3503
+  },
+  {
+    "question_id": "q015",
+    "question": "In what type of environment is the LinMot ATEX explosion proof motor designed to be used?",
+    "answer": "wag AG |\n| filling and sealing |\n| Packaging and Labeling |\n| Wood processing |\n| Glass processing |\n| Ceramic processing |\n| Oil and Gas |\n| Chemical Petrochemical and Pharmaceutical |\n\nBased on the context, what is the maximum stroke for the LinMot ATEX?\nThe maximum stroke is 1530 mm.",
+    "reference": "The LinMot ATEX explosion proof motor is designed for environments where explosive gases, vapor-air mixtures, or combustible dust may occur, such as oil and gas, chemical, and petrochemical industries.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": 2.5951550006866455
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": -0.45231637358665466
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_2_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 2,
+        "score": -2.491525411605835
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": -5.450708389282227
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": -6.040176868438721
+      }
+    ],
+    "keyword_recall": 0.3448,
+    "token_f1": 0.3143,
+    "semantic_sim": 0.6749,
+    "faithfulness": 1.0,
+    "composite": 0.518
+  },
+  {
+    "question_id": "q016",
+    "question": "What sectors does GGB serve beyond hydropower with its plain bearing solutions?",
+    "answer": "993b4cfe85c4f453_p1_f3 --> ![(no caption)](figures\\274fbb105e5148db993b4cfe85c4f453\\274fbb105e5148db993b4cfe85c4f453_p1_f3.jpeg) *Figure: (no caption)*\n\nWhat types of bearings does GGB manufacture?\nGGB manufactures Metal-Polymer, Solid Polymer, Filament Wound, Metal and",
+    "reference": "Beyond hydropower, GGB serves aerospace, industrial, automotive, primary metals, energy, construction and agriculture, fluid power, and recreation sectors.",
+    "sources": [
+      {
+        "chunk_id": "680188b0a8169289_1_0",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 4.993408679962158
+      },
+      {
+        "chunk_id": "cd4e8ad7661ee80f_4_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 4,
+        "score": 3.7180278301239014
+      },
+      {
+        "chunk_id": "53de490be4774c80_4_0",
+        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+        "page_num": 4,
+        "score": 3.4277725219726562
+      },
+      {
+        "chunk_id": "89f08f1aa59fdf66_1_0",
+        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 2.1956284046173096
+      },
+      {
+        "chunk_id": "53de490be4774c80_3_0",
+        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+        "page_num": 3,
+        "score": 2.03092360496521
+      }
+    ],
+    "keyword_recall": 0.1176,
+    "token_f1": 0.0889,
+    "semantic_sim": 0.5349,
+    "faithfulness": 1.0,
+    "composite": 0.3471
+  },
+  {
+    "question_id": "q017",
+    "question": "What material is used in the LinMot stainless steel linear motor (SSC series)?",
+    "answer": "4 Linear Modules And Guides 1.2 1.1.3 Modules DM01 F01/E01 1.2 1.1.4 Modules DM01 F01/E01 1.2.1 Modules DM01 F01/E1 1.2.2 Modules DM01 F01/E1 1.2.3 Modules DM01 F01/E1 1.2.4 Modules DM01 F01/E1 1.2.5 Modules DM01 F01/E1",
+    "reference": "The LinMot stainless steel linear motor is constructed from stainless steel EN 1.4404/AISI 316, with motor windings fully coated in epoxy resin to protect from moisture and corrosion.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": 3.0571746826171875
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": 2.0982182025909424
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_2_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 2,
+        "score": 1.730082392692566
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": 1.529320240020752
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": -0.438982754945755
+      }
+    ],
+    "keyword_recall": 0.1154,
+    "token_f1": 0.0682,
+    "semantic_sim": 0.4527,
+    "faithfulness": 1.0,
+    "composite": 0.3206
+  },
+  {
+    "question_id": "q018",
+    "question": "How is the GGB HPMB bearing manufactured and what construction technique does it use?",
+    "answer": "\\274fbb105e5148db993b4cfe85c4f453\\274fbb105e5148db993b4cfe85c4f453_p2_f2.jpeg) *Figure: (no caption)*\n\nWhat are the key features of HPMB bearings?\n\nHPMB bearings have machinable inner and outer diameters, high load capacity, dithering performance, excellent shock and edge loading capacity, low friction, low wear rate, excellent corrosion resistance, dimensionally stable",
+    "reference": "The GGB HPMB bearing uses a filament wound construction technique, which GGB pioneered. It features machinable inner and outer diameters, offering superior precision and cylindricity tolerances, with post-installation single-point machining capable of achieving IT7 inner diameter tolerance.",
+    "sources": [
+      {
+        "chunk_id": "680188b0a8169289_2_0",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 5.18140172958374
+      },
+      {
+        "chunk_id": "53de490be4774c80_2_0",
+        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+        "page_num": 2,
+        "score": 3.210566759109497
+      },
+      {
+        "chunk_id": "680188b0a8169289_1_0",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 2.8648691177368164
+      },
+      {
+        "chunk_id": "cd4e8ad7661ee80f_5_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 5,
+        "score": 2.780789852142334
+      },
+      {
+        "chunk_id": "cd4e8ad7661ee80f_4_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 4,
+        "score": 2.776484966278076
+      }
+    ],
+    "keyword_recall": 0.25,
+    "token_f1": 0.2439,
+    "semantic_sim": 0.761,
+    "faithfulness": 1.0,
+    "composite": 0.4887
+  },
+  {
+    "question_id": "q019",
+    "question": "What solid lubricants are used in GGB-CBM bearings and how do they work?",
+    "answer": "\\274fbb105e5148db993b4cfe85c4f453\\274fbb105e5148db993b4cfe85c4f453_p2_f2.jpeg) *Figure: (no caption)*\n\nWhat are the key features of HPMB bearings?\n\nHPMB bearings have machinable inner and outer diameters, high load capacity, dithering performance, excellent shock and edge loading capacity, low friction, low wear rate, excellent corrosion resistance, dimensionally stable",
+    "reference": "GGB-CBM bearings are manufactured using a powder metallurgy process with a metallic matrix containing homogeneously distributed solid lubricants, specifically graphite and MoS2, which form a lubricant film during motion to provide self-lubricating, maintenance-free performance.",
+    "sources": [
+      {
+        "chunk_id": "680188b0a8169289_2_0",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 3.5797226428985596
+      },
+      {
+        "chunk_id": "53de490be4774c80_2_0",
+        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+        "page_num": 2,
+        "score": 1.9988397359848022
+      },
+      {
+        "chunk_id": "680188b0a8169289_1_0",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 1.2638320922851562
+      },
+      {
+        "chunk_id": "89f08f1aa59fdf66_1_0",
+        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 0.5226355195045471
+      },
+      {
+        "chunk_id": "53de490be4774c80_3_0",
+        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+        "page_num": 3,
+        "score": -0.005703451111912727
+      }
+    ],
+    "keyword_recall": 0.1143,
+    "token_f1": 0.1,
+    "semantic_sim": 0.654,
+    "faithfulness": 1.0,
+    "composite": 0.3785
+  },
+  {
+    "question_id": "q020",
+    "question": "What design features of the LinMot stainless steel motor prevent dirt accumulation in hygienic environments?",
+    "answer": "wag AG |\n| filling and sealing |\n| Packaging and Labeling |\n| Wood processing |\n| Glass processing |\n| Ceramic processing |\n| Oil and Gas |\n| Chemical Petrochemical and Pharmaceutical |\n\nBased on the context, what is the maximum stroke for the LinMot ATEX?\nThe maximum stroke is 1530 mm.",
+    "reference": "The LinMot stainless steel motor is manufactured without extra edges, corners, holes, or screw connections to prevent the buildup of dirt. The windings are completely coated in epoxy resin, shielding them from moisture and corrosion.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": -0.2453264743089676
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": -3.1517279148101807
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_2_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 2,
+        "score": -5.521450996398926
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -5.568323135375977
+      },
+      {
+        "chunk_id": "89f08f1aa59fdf66_2_0",
+        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+        "page_num": 2,
+        "score": -6.842055320739746
+      }
+    ],
+    "keyword_recall": 0.1212,
+    "token_f1": 0.16,
+    "semantic_sim": 0.5585,
+    "faithfulness": 1.0,
+    "composite": 0.3721
+  },
+  {
+    "question_id": "q021",
+    "question": "When was NTI AG, the maker of LinMot, founded and when did it become independent?",
+    "answer": "4 Linear Modules And Guides 1.2 1.1.3 Modules DM01 F01/E01 1.2 1.1.4 Modules DM01 F01/E01 1.2.1 Modules DM01 F01/E1 1.2.2 Modules DM01 F01/E1 1.2.3 Modules DM01 F01/E1 1.2.4 Modules DM01 F01/E1 1.2.5 Modules DM01 F01/E1",
+    "reference": "NTI AG was founded in 1993 as part of the Sulzer Group and has been operating independently since 2000.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": 4.528890609741211
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_2_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 2,
+        "score": -7.983880519866943
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": -9.464996337890625
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -10.21574592590332
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": -10.931571006774902
+      }
+    ],
+    "keyword_recall": 0.0526,
+    "token_f1": 0.026,
+    "semantic_sim": 0.2799,
+    "faithfulness": 1.0,
+    "composite": 0.2449
+  },
+  {
+    "question_id": "q022",
+    "question": "How many countries does LinMot supply its products to?",
+    "answer": "4 Linear Modules And Guides 1.2 1.1.3 Modules DM01 F01/E01 1.2 1.1.4 Modules DM01 F01/E01 1.2.1 Modules DM01 F01/E1 1.2.2 Modules DM01 F01/E1 1.2.3 Modules DM01 F01/E1 1.2.4 Modules DM01 F01/E1 1.2.5 Modules DM01 F01/E1",
+    "reference": "LinMot (NTI AG) supplies its products in 80 countries worldwide.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": 5.245242595672607
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_2_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 2,
+        "score": -6.670170307159424
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -6.749040603637695
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": -7.637397766113281
+      },
+      {
+        "chunk_id": "53de490be4774c80_2_0",
+        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+        "page_num": 2,
+        "score": -7.934212684631348
+      }
+    ],
+    "keyword_recall": 0.0,
+    "token_f1": 0.0,
+    "semantic_sim": 0.3439,
+    "faithfulness": 1.0,
+    "composite": 0.236
+  },
+  {
+    "question_id": "q023",
+    "question": "How old is Maedler as a company and where is it headquartered?",
+    "answer": "figure: a28a430b5cb74e8abd20263caa556051_p1_f5 --> ![(no caption)](figures\\a28a430b5cb74e8abd20263caa556051\\a28a430b5cb74e8abd20263caa556051_p1_f5.png)\n\nWhat are the main products offered by Maedler?\n\nMaedler offers Power transmission units,",
+    "reference": "Maedler is a 138-year-old German brand with its headquarters in Stuttgart, founded in 1882 by Mr. Bruno Maedler.",
+    "sources": [
+      {
+        "chunk_id": "ae0fffc75d87b265_1_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 1,
+        "score": 5.144289493560791
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_2_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 2,
+        "score": 3.200491428375244
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_9_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 9,
+        "score": -6.256421089172363
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_13_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 13,
+        "score": -6.460446834564209
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_14_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 14,
+        "score": -6.594489574432373
+      }
+    ],
+    "keyword_recall": 0.1111,
+    "token_f1": 0.1463,
+    "semantic_sim": 0.5653,
+    "faithfulness": 1.0,
+    "composite": 0.3668
+  },
+  {
+    "question_id": "q024",
+    "question": "Where is GGB North America headquartered and what is its contact address?",
+    "answer": "Bearing Solutions for Oil & Gas*\n\nHow can GGB North America be contacted?",
+    "reference": "GGB North America is headquartered at 700 Mid Atlantic Parkway, P.O. Box 189, Thorofare, New Jersey 08086, USA.",
+    "sources": [
+      {
+        "chunk_id": "cd4e8ad7661ee80f_12_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 12,
+        "score": 3.2953052520751953
+      },
+      {
+        "chunk_id": "251beb40489e3505_4_0",
+        "source_doc": "ggb-ep-engineered-plastics-bearings-bushings-for-e-bike-applications.pdf",
+        "page_num": 4,
+        "score": 3.101921796798706
+      },
+      {
+        "chunk_id": "89f08f1aa59fdf66_1_0",
+        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 1.3985483646392822
+      },
+      {
+        "chunk_id": "cd4e8ad7661ee80f_11_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 11,
+        "score": 1.083055853843689
+      },
+      {
+        "chunk_id": "680188b0a8169289_1_0",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 1,
+        "score": -0.9410852789878845
+      }
+    ],
+    "keyword_recall": 0.1579,
+    "token_f1": 0.1935,
+    "semantic_sim": 0.5821,
+    "faithfulness": 1.0,
+    "composite": 0.3992
+  },
+  {
+    "question_id": "q025",
+    "question": "What is the difference between the Nabtesco RVE and RVC precision reduction gearboxes?",
+    "answer": "819474c7d9d5421f4b6dc195e_p1_f3 --> ![(no caption)](figures\\74b3ce7819474c7d9d5421f4b6dc195e\\74b3ce7819474c7d9d5421f4b6dc195e_p1_f3.png)\n\nWhat are the applications of Nabtesco gears?\n\nThe document mentions expanding applications for Nabtes",
+    "reference": "The Nabtesco RVE is a solid shaft mounting type of planetary RV gearhead suited for higher torque and lower backlash applications. The RVC is a hollow shaft mounting type, designed for more compact and lightweight applications.",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 5.3701863288879395
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_4_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 4,
+        "score": 3.6456210613250732
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_3_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 3,
+        "score": 1.7790372371673584
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_2_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 2,
+        "score": 1.4520413875579834
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_5_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 5,
+        "score": 1.1755027770996094
+      }
+    ],
+    "keyword_recall": 0.1852,
+    "token_f1": 0.2456,
+    "semantic_sim": 0.6613,
+    "faithfulness": 1.0,
+    "composite": 0.4415
+  },
+  {
+    "question_id": "q026",
+    "question": "How does a LinMot MagSpring differ from a conventional mechanical spring?",
+    "answer": "linear motors and linear motor systems. NTI AG is committed to providing innovative solutions for a wide range of applications, including medical and laboratory automation, food processing, and other industrial applications.\n\nWhat is the minimum constant force of a MagSpring?",
+    "reference": "Unlike a conventional mechanical spring where force increases with displacement, a MagSpring produces a constant force across its entire working range, making it particularly suitable for compensating weight forces in vertical drive arrangements.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_8_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 8,
+        "score": 3.2333621978759766
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": -1.0112884044647217
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": -3.959005117416382
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -5.061786651611328
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": -5.316919326782227
+      }
+    ],
+    "keyword_recall": 0.2,
+    "token_f1": 0.1918,
+    "semantic_sim": 0.6445,
+    "faithfulness": 0.0,
+    "composite": 0.2791
+  },
+  {
+    "question_id": "q027",
+    "question": "What distinguishes the LinMot PR01 from the PR02 linear rotary motor in terms of design?",
+    "answer": "bebbb4329babf86b202_p7_f0.png) |\n\nWhat is the peak velocity of the PR02 motor series?",
+    "reference": "The PR01 combines a linear and rotary motor in series within one housing for the smallest possible footprint, with optional MagSpring, pneumatic brake, and emergency rail kit. The PR02 uses a slim, easy-to-clean housing design with options for a hollow shaft, pneumatic pusher, MagSpring, torque sensor, and force sensor.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": 4.123185634613037
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": 0.7676841616630554
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_2_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 2,
+        "score": -0.12079808115959167
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": -2.063382387161255
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": -2.6193604469299316
+      }
+    ],
+    "keyword_recall": 0.1026,
+    "token_f1": 0.1587,
+    "semantic_sim": 0.6838,
+    "faithfulness": 1.0,
+    "composite": 0.3965
+  },
+  {
+    "question_id": "q028",
+    "question": "What is the structural difference between the Nabtesco AF-N and AF-C servo actuators?",
+    "answer": "5e_p6_t7 -->| Palletizing robot |\n| --- |\n| Index table |\n| Stacker crane |\n| Pipe bending |\n| Gantry loader |\n| ATC magazine |\n| SCARA robot |\n| Cylindrical coordinate robot |\n\nThe document describes two types of servo actuators: AF-N and AF-C. The AF-N is a solid shaft type, while the AF-C is a hollow shaft type. Both are designed to be highly accurate, rigid, and reliable. They are successors to the Precision Reduction Gear RV and allow for a reduction in the design",
+    "reference": "The AF-N is a solid shaft type compact actuator directly mounted with a servomotor, while the AF-C is a hollow shaft type compact actuator with the same direct servo motor mounting. Both are successors to the Precision Reduction Gear RV and share the same rated capacity range.",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_6_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 6,
+        "score": 2.7533326148986816
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": -2.187074899673462
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_5_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 5,
+        "score": -4.103241443634033
+      },
+      {
+        "chunk_id": "0dce3159a2b5ebf6_6_0",
+        "source_doc": "HB-Catalogue.pdf",
+        "page_num": 6,
+        "score": -5.490234375
+      },
+      {
+        "chunk_id": "0dce3159a2b5ebf6_5_0",
+        "source_doc": "HB-Catalogue.pdf",
+        "page_num": 5,
+        "score": -5.518939971923828
+      }
+    ],
+    "keyword_recall": 0.6,
+    "token_f1": 0.5,
+    "semantic_sim": 0.877,
+    "faithfulness": 0.0,
+    "composite": 0.5543
+  },
+  {
+    "question_id": "q029",
+    "question": "What safety features are integrated into the LinMot P01 linear motor?",
+    "answer": "36b09e9904bebbb4329babf86b202_p2_t4 -->|\n\nWhat is the maximum stroke length?",
+    "reference": "The LinMot P01 linear motors have integrated position measuring and overload protection. They are permanently operated ironless synchronous servo motors.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_2_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 2,
+        "score": 2.7064645290374756
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": 2.1864631175994873
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": 1.4698599576950073
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": 1.2491990327835083
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": 0.5491442084312439
+      }
+    ],
+    "keyword_recall": 0.0526,
+    "token_f1": 0.0741,
+    "semantic_sim": 0.4925,
+    "faithfulness": 1.0,
+    "composite": 0.3101
+  },
+  {
+    "question_id": "q030",
+    "question": "Why is the GGB HPMB bearing considered environmentally friendly?",
+    "answer": "8d45a180a3970510d278ce_p5_f3.jpeg)\n\nWhat types of bearings does GGB manufacture?\nMetal-Polymer Bearings, Engineered Plastic Bearings, Fiber Reinforced Composite Bearings, Metal & Bimetal Bearings.",
+    "reference": "The GGB HPMB bearing is environmentally friendly because it operates grease-free, eliminating the need for lubrication while providing low friction and low wear rate for extended bearing life.",
+    "sources": [
+      {
+        "chunk_id": "cd4e8ad7661ee80f_5_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 5,
+        "score": 5.1678056716918945
+      },
+      {
+        "chunk_id": "680188b0a8169289_2_0",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 4.731391906738281
+      },
+      {
+        "chunk_id": "cd4e8ad7661ee80f_2_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 2,
+        "score": 1.8449262380599976
+      },
+      {
+        "chunk_id": "cd4e8ad7661ee80f_4_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 4,
+        "score": 1.7720423936843872
+      },
+      {
+        "chunk_id": "53de490be4774c80_2_0",
+        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+        "page_num": 2,
+        "score": 1.5644195079803467
+      }
+    ],
+    "keyword_recall": 0.04,
+    "token_f1": 0.0392,
+    "semantic_sim": 0.5908,
+    "faithfulness": 1.0,
+    "composite": 0.3215
+  },
+  {
+    "question_id": "q031",
+    "question": "What advantage does the LinMot P04 actuator module have over pneumatic actuators?",
+    "answer": "82ac64df98ce97c0a535e50dd\\4de103682ac64df98ce97c0a535e50dd_p5_f2.png) *Figure: (no caption)*\n\nWhat is the maximum load capacity of the DJ850 actuator?\n\nThe DJ850 actuator can lift upto 0.8 ton of load.",
+    "reference": "The LinMot P04 actuator is compatible with all mechanical accessories known from pneumatics, making replacement of pneumatic systems straightforward. It offers free positionability and accelerations of up to 50 m/s², enabling dynamic and precise movements that exceed typical pneumatic capabilities.",
+    "sources": [
+      {
+        "chunk_id": "0dce3159a2b5ebf6_5_0",
+        "source_doc": "HB-Catalogue.pdf",
+        "page_num": 5,
+        "score": -1.0160417556762695
+      },
+      {
+        "chunk_id": "0dce3159a2b5ebf6_6_0",
+        "source_doc": "HB-Catalogue.pdf",
+        "page_num": 6,
+        "score": -1.093592643737793
+      },
+      {
+        "chunk_id": "0dce3159a2b5ebf6_8_0",
+        "source_doc": "HB-Catalogue.pdf",
+        "page_num": 8,
+        "score": -1.148741602897644
+      },
+      {
+        "chunk_id": "0dce3159a2b5ebf6_4_0",
+        "source_doc": "HB-Catalogue.pdf",
+        "page_num": 4,
+        "score": -1.3054225444793701
+      },
+      {
+        "chunk_id": "88d14a9daf902596_6_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 6,
+        "score": -1.6852635145187378
+      }
+    ],
+    "keyword_recall": 0.1053,
+    "token_f1": 0.1471,
+    "semantic_sim": 0.594,
+    "faithfulness": 1.0,
+    "composite": 0.3721
+  },
+  {
+    "question_id": "q032",
+    "question": "What is the key capability of the Nabtesco RVTM precision reduction gear in industrial robots?",
+    "answer": "819474c7d9d5421f4b6dc195e_p1_f3 --> ![(no caption)](figures\\74b3ce7819474c7d9d5421f4b6dc195e\\74b3ce7819474c7d9d5421f4b6dc195e_p1_f3.png)\n\nWhat are the applications of Nabtesco gears?\n\nThe document mentions expanding applications for Nabtes",
+    "reference": "The Nabtesco RVTM precision reduction gear enables precise movement while maintaining optimum power in robot joints. Nabtesco holds a major share of the global market for this product, with more than 30 years of experience in the field.",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 7.7932658195495605
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_5_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 5,
+        "score": 4.16799783706665
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_4_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 4,
+        "score": 2.5812573432922363
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_6_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 6,
+        "score": 1.9711052179336548
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_3_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 3,
+        "score": 1.64394211769104
+      }
+    ],
+    "keyword_recall": 0.1212,
+    "token_f1": 0.1695,
+    "semantic_sim": 0.6532,
+    "faithfulness": 1.0,
+    "composite": 0.3981
+  },
+  {
+    "question_id": "q033",
+    "question": "What advantage does the LinMot DM01 linear module offer over separate drive components?",
+    "answer": "bebbb4329babf86b202_p7_f0.png) |\n\nWhat is the peak velocity of the PR02 motor series?",
+    "reference": "The LinMot DM01 linear modules are complete drive solutions that integrate a linear guide and LinMot stators in one unit, with optional built-in MagSpring magnetic springs and a pneumatic holding brake, reducing assembly complexity.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": 0.531487762928009
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": 0.42317622900009155
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": 0.04225461184978485
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -0.8890805244445801
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_2_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 2,
+        "score": -1.8450298309326172
+      }
+    ],
+    "keyword_recall": 0.0333,
+    "token_f1": 0.0426,
+    "semantic_sim": 0.4868,
+    "faithfulness": 1.0,
+    "composite": 0.294
+  },
+  {
+    "question_id": "q034",
+    "question": "Which GGB bearing types have been approved for use in water turbines by the USA Army Corps of Engineers?",
+    "answer": "\\274fbb105e5148db993b4cfe85c4f453\\274fbb105e5148db993b4cfe85c4f453_p2_f2.jpeg) *Figure: (no caption)*\n\nWhat are the key features of HPMB bearings?\n\nHPMB bearings have machinable inner and outer diameters, high load capacity, dithering performance, excellent shock and edge loading capacity, low friction, low wear rate, excellent corrosion resistance, dimensionally stable",
+    "reference": "The GGB HPMB and HPM/HPF bearing types have been approved for use in water turbines by the USA Army Corps of Engineers.",
+    "sources": [
+      {
+        "chunk_id": "680188b0a8169289_2_0",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 6.720221519470215
+      },
+      {
+        "chunk_id": "53de490be4774c80_4_0",
+        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+        "page_num": 4,
+        "score": 0.25479185581207275
+      },
+      {
+        "chunk_id": "680188b0a8169289_1_0",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 0.008854793384671211
+      },
+      {
+        "chunk_id": "53de490be4774c80_2_0",
+        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+        "page_num": 2,
+        "score": -0.07294800877571106
+      },
+      {
+        "chunk_id": "cd4e8ad7661ee80f_5_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 5,
+        "score": -0.4826336205005646
+      }
+    ],
+    "keyword_recall": 0.2273,
+    "token_f1": 0.1515,
+    "semantic_sim": 0.6407,
+    "faithfulness": 1.0,
+    "composite": 0.4276
+  },
+  {
+    "question_id": "q035",
+    "question": "What types of products does Maedler offer in its product range?",
+    "answer": "figure: a28a430b5cb74e8abd20263caa556051_p1_f5 --> ![(no caption)](figures\\a28a430b5cb74e8abd20263caa556051\\a28a430b5cb74e8abd20263caa556051_p1_f5.png)\n\nWhat are the main products offered by Maedler?\n\nMaedler offers Power transmission units,",
+    "reference": "Maedler offers a varied range including power transmission units such as worms and worm gears, spur racks, shrink disks, locking assemblies, thrust pads with spring retainers, and precision levelling adjusters, along with other mechanical engineering products.",
+    "sources": [
+      {
+        "chunk_id": "ae0fffc75d87b265_1_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 1,
+        "score": 6.395356178283691
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_2_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 2,
+        "score": 4.957251071929932
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_11_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 11,
+        "score": 3.1016275882720947
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_5_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 5,
+        "score": 2.6235010623931885
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_17_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 17,
+        "score": 2.2087061405181885
+      }
+    ],
+    "keyword_recall": 0.1765,
+    "token_f1": 0.2105,
+    "semantic_sim": 0.7157,
+    "faithfulness": 1.0,
+    "composite": 0.4433
+  }
+]
