@@ -1,7 +1,7 @@
 [
   {
-    "model": "google/gemma-3-4b-it",
-    "avg_composite": 0.3865,
+    "model": "Qwen/Qwen3-8B",
+    "avg_composite": 0.3258,
     "n_questions": 35
   }
 ]
