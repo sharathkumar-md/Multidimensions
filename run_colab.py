@@ -64,7 +64,7 @@ def _run_model(model_id: str, hf_token: str | None = None) -> None:
     env["RAG_OCR_OUTPUT_DIR"] = str(REPO_DIR / "data/ocr_output")
     env["RAG_QA_PATH"] = str(REPO_DIR / "data/ocr_output/qa_set.json")
     env["RAG_INDEX_DIR"] = str(REPO_DIR / "03_rag/index")
-    env["RAG_RESULTS_DIR"] = "/content/results"
+    env["RAG_RESULTS_DIR"] = str(REPO_DIR / "03_rag/results")
     env["RAG_HF_HOME"] = "/content/hf_cache"
     if hf_token:
         env["HF_TOKEN"] = hf_token
