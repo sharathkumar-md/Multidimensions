@@ -28,6 +28,19 @@ def _hash(text: str) -> str:
     return hashlib.sha256(text.encode()).hexdigest()[:16]
 
 
+def _clean_markdown(text: str) -> str:
+    # Remove HTML comments <!-- ... -->
+    text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
+    # Remove figure image lines: ![(caption)](figures\...) and *Figure: ...*
+    text = re.sub(r"!\[[^\]]*\]\(figures[^\)]+\)", "", text)
+    text = re.sub(r"\*Figure:.*?\*", "", text)
+    # Remove bare figure/table hash paths that leak from comments
+    text = re.sub(r"\b[a-f0-9]{16,}_p\d+_[ft]\d+\b", "", text)
+    # Collapse multiple blank lines
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
 def _page_num(header: str) -> int:
     m = re.search(r"##\s+Page\s+(\d+)", header, re.IGNORECASE)
     return int(m.group(1)) if m else 0
@@ -134,7 +147,7 @@ def chunk_documents(
             logger.warning(f"missing markdown: {md_file}")
             continue
 
-        md_text = md_file.read_text(encoding="utf-8")
+        md_text = _clean_markdown(md_file.read_text(encoding="utf-8"))
         source_doc = manifest.get("source_filename") or manifest.get("source_pdf", md_file.stem)
         doc_hash = _hash(source_doc)
 

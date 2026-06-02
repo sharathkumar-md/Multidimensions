@@ -9,6 +9,10 @@ from loguru import logger
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 _THINK_RE = re.compile(r"<think>[\s\S]*?</think>", re.IGNORECASE)
+_FOLLOWUP_RE = re.compile(
+    r"\n\n(?:What|How|Why|When|Where|Which|Based on|The following)[^\n]*",
+    re.IGNORECASE,
+)
 
 _SYSTEM_PROMPT = (
     "You are a technical assistant. Answer using only the provided context. "
@@ -80,6 +84,7 @@ def generate(
     if "deepseek-r1" in model_id.lower():
         text = _THINK_RE.sub("", text).strip()
 
+    text = _FOLLOWUP_RE.split(text)[0].strip()
     return text
 
 
