@@ -10,8 +10,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 _THINK_RE = re.compile(r"<think>[\s\S]*?</think>", re.IGNORECASE)
 _FOLLOWUP_RE = re.compile(
-    r"\n\n(?:What|How|Why|When|Where|Which|Based on|The following)[^\n]*",
-    re.IGNORECASE,
+    r"\n\n(?:What|How|Why|When|Where|Which|Based on|The following).*",
+    re.IGNORECASE | re.DOTALL,
 )
 
 _SYSTEM_PROMPT = (
@@ -35,7 +35,6 @@ def load_model(model_id: str) -> tuple:
         quantization_config=_BNB_CONFIG,
         device_map="auto",
         trust_remote_code=True,
-        dtype=torch.bfloat16,
     )
     model.eval()
     return model, tokenizer
@@ -89,7 +88,7 @@ def generate(
 
 
 def generate_raw(prompt_text: str, model, tokenizer, max_new_tokens: int = 128) -> str:
-    inputs = tokenizer(prompt_text, return_tensors="pt").to(model.device)
+    inputs = tokenizer(prompt_text, return_tensors="pt", truncation=True, max_length=256).to(model.device)
     with torch.no_grad():
         output_ids = model.generate(
             **inputs,
