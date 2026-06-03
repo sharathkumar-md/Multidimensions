@@ -1,0 +1,9 @@
+torch
+transformers>=4.49.0
+qwen-vl-utils
+pymupdf
+Pillow
+bitsandbytes
+accelerate
+pydantic-settings
+loguru
