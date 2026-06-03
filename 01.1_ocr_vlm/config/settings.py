@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     input_dir: Path = Field(default=Path("../../data/input"))
     output_dir: Path = Field(default=Path("../../data/ocr_output_vlm"))
     model_id: str = Field(default="Qwen/Qwen2.5-VL-7B-Instruct")
-    page_dpi: int = Field(default=150)
+    page_dpi: int = Field(default=96)
     max_new_tokens: int = Field(default=1024)
     skip_duplicates: bool = Field(default=True)
     log_level: str = Field(default="INFO")

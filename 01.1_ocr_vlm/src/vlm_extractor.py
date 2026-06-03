@@ -23,6 +23,9 @@ _BNB = BitsAndBytesConfig(
 )
 
 
+_MAX_PIXELS = 512 * 28 * 28  
+
+
 @lru_cache(maxsize=1)
 def _load(model_id: str):
     logger.info(f"loading {model_id}")
@@ -33,7 +36,9 @@ def _load(model_id: str):
         trust_remote_code=True,
     )
     model.eval()
-    processor = AutoProcessor.from_pretrained(model_id, trust_remote_code=True)
+    processor = AutoProcessor.from_pretrained(
+        model_id, trust_remote_code=True, max_pixels=_MAX_PIXELS
+    )
     return model, processor
 
 
@@ -45,7 +50,7 @@ def extract_page(image: Image.Image, model_id: str, max_new_tokens: int = 1024) 
     messages = [{
         "role": "user",
         "content": [
-            {"type": "image", "image": image},
+            {"type": "image", "image": image, "max_pixels": _MAX_PIXELS},
             {"type": "text", "text": _PROMPT},
         ],
     }]
@@ -71,4 +76,9 @@ def extract_page(image: Image.Image, model_id: str, max_new_tokens: int = 1024) 
         )
 
     new_ids = [out[i][len(inputs.input_ids[i]):] for i in range(len(out))]
-    return processor.batch_decode(new_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True)[0].strip()
+    result = processor.batch_decode(new_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True)[0].strip()
+
+    del inputs, out, new_ids
+    torch.cuda.empty_cache()
+
+    return result
