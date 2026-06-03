@@ -6,6 +6,7 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
+import numpy as np
 from loguru import logger
 
 from config.settings import settings
@@ -29,7 +30,6 @@ def _hash(text: str) -> str:
 
 
 def _is_toc_chunk(text: str) -> bool:
-    """Return True if the chunk is mostly table-of-contents numbering."""
     words = text.split()
     if not words:
         return True
@@ -38,14 +38,10 @@ def _is_toc_chunk(text: str) -> bool:
 
 
 def _clean_markdown(text: str) -> str:
-    # Remove HTML comments <!-- ... -->
     text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
-    # Remove figure image lines: ![(caption)](figures\...) and *Figure: ...*
     text = re.sub(r"!\[[^\]]*\]\(figures[^\)]+\)", "", text)
     text = re.sub(r"\*Figure:.*?\*", "", text)
-    # Remove bare figure/table hash paths that leak from comments
     text = re.sub(r"\b[a-f0-9]{16,}_p\d+_[ft]\d+\b", "", text)
-    # Collapse multiple blank lines
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
 
@@ -55,79 +51,125 @@ def _page_num(header: str) -> int:
     return int(m.group(1)) if m else 0
 
 
-def _split_preserving_tables(text: str, chunk_size: int, chunk_overlap: int) -> list[str]:
+def _split_sentences(text: str) -> list[str]:
+    # Split on sentence boundaries and paragraph breaks, keep tables whole
     table_pattern = re.compile(r"(\|.+\|[\s\S]*?)(?=\n(?!\|)|\Z)")
-    chunks: list[str] = []
-    buf: list[str] = []
-    buf_tokens = 0
-
     segments: list[tuple[bool, str]] = []
     last = 0
     for m in table_pattern.finditer(text):
         if m.start() > last:
-            segments.append((False, text[last : m.start()]))
+            segments.append((False, text[last:m.start()]))
         segments.append((True, m.group(0)))
         last = m.end()
     if last < len(text):
         segments.append((False, text[last:]))
 
-    def flush() -> None:
-        nonlocal buf, buf_tokens
-        if buf:
-            chunks.append("".join(buf).strip())
-            overlap_words: list[str] = []
-            overlap_count = 0
-            for seg in reversed(buf):
-                words = seg.split()
-                if overlap_count + len(words) <= chunk_overlap:
-                    overlap_words = words + overlap_words
-                    overlap_count += len(words)
-                else:
-                    need = chunk_overlap - overlap_count
-                    overlap_words = words[-need:] + overlap_words
-                    break
-            buf = [" ".join(overlap_words)] if overlap_words else []
-            buf_tokens = len(overlap_words)
-
+    sentences: list[str] = []
     for is_table, seg in segments:
-        seg_tokens = len(seg.split())
         if is_table:
-            if buf_tokens + seg_tokens > chunk_size and buf:
-                flush()
-            buf.append(seg)
-            buf_tokens += seg_tokens
-            if buf_tokens >= chunk_size:
-                flush()
+            if seg.strip():
+                sentences.append(seg.strip())
         else:
-            words = seg.split()
-            i = 0
-            while i < len(words):
-                take = min(chunk_size - buf_tokens, len(words) - i)
-                buf.append(" ".join(words[i : i + take]))
-                buf_tokens += take
-                i += take
-                if buf_tokens >= chunk_size:
-                    flush()
+            # split on sentence-ending punctuation or double newline
+            parts = re.split(r"(?<=[.!?])\s+|\n\n+", seg)
+            for p in parts:
+                p = p.strip()
+                if p:
+                    sentences.append(p)
+    return sentences
 
-    flush()
-    return [c for c in chunks if c and not _is_toc_chunk(c)]
+
+def _cosine_sim(a: np.ndarray, b: np.ndarray) -> float:
+    na, nb = np.linalg.norm(a), np.linalg.norm(b)
+    if na == 0 or nb == 0:
+        return 0.0
+    return float(np.dot(a, b) / (na * nb))
+
+
+def _semantic_split(
+    sentences: list[str],
+    embed_fn,
+    breakpoint_percentile: int = 80,
+    min_chunk_words: int = 30,
+    max_chunk_words: int = 400,
+) -> list[str]:
+    if not sentences:
+        return []
+    if len(sentences) == 1:
+        return sentences
+
+    # embed with context window of 1 neighbour on each side
+    combined = []
+    for i, s in enumerate(sentences):
+        window = sentences[max(0, i - 1): i + 2]
+        combined.append(" ".join(window))
+
+    vecs = np.array(embed_fn(combined))
+
+    # similarity between consecutive combined embeddings
+    sims = [_cosine_sim(vecs[i], vecs[i + 1]) for i in range(len(vecs) - 1)]
+
+    # breakpoints = positions where similarity falls below threshold
+    threshold = float(np.percentile(sims, 100 - breakpoint_percentile))
+    breakpoints = {i + 1 for i, s in enumerate(sims) if s < threshold}
+
+    # build chunks from sentence groups
+    raw_chunks: list[str] = []
+    buf: list[str] = []
+    for i, sent in enumerate(sentences):
+        if i in breakpoints and buf:
+            raw_chunks.append(" ".join(buf))
+            buf = []
+        buf.append(sent)
+    if buf:
+        raw_chunks.append(" ".join(buf))
+
+    # merge chunks that are too small, split ones that are too large
+    final: list[str] = []
+    carry = ""
+    for chunk in raw_chunks:
+        text = (carry + " " + chunk).strip() if carry else chunk
+        words = text.split()
+        if len(words) < min_chunk_words:
+            carry = text
+        elif len(words) > max_chunk_words:
+            # hard split at max_chunk_words
+            while len(words) > max_chunk_words:
+                final.append(" ".join(words[:max_chunk_words]))
+                words = words[max_chunk_words:]
+            carry = " ".join(words) if words else ""
+        else:
+            final.append(text)
+            carry = ""
+    if carry.strip():
+        if final:
+            final[-1] = final[-1] + " " + carry
+        else:
+            final.append(carry)
+
+    return [c for c in final if c.strip() and not _is_toc_chunk(c)]
 
 
 def _split_section(
-    section_text: str, page: int, doc_hash: str, source: str,
-    chunk_size: int, chunk_overlap: int,
+    section_text: str,
+    page: int,
+    doc_hash: str,
+    source: str,
+    embed_fn,
 ) -> list[Chunk]:
-    result: list[Chunk] = []
-    for idx, text in enumerate(_split_preserving_tables(section_text, chunk_size, chunk_overlap)):
-        if text.strip():
-            result.append(Chunk(
-                chunk_id=f"{doc_hash}_{page}_{idx}",
-                doc_hash=doc_hash,
-                source_doc=source,
-                page_num=page,
-                text=text,
-            ))
-    return result
+    sentences = _split_sentences(section_text)
+    texts = _semantic_split(sentences, embed_fn)
+    return [
+        Chunk(
+            chunk_id=f"{doc_hash}_{page}_{idx}",
+            doc_hash=doc_hash,
+            source_doc=source,
+            page_num=page,
+            text=text,
+        )
+        for idx, text in enumerate(texts)
+        if text.strip()
+    ]
 
 
 def chunk_documents(
@@ -135,15 +177,12 @@ def chunk_documents(
     chunk_size: int | None = None,
     chunk_overlap: int | None = None,
 ) -> list[Chunk]:
+    from src.embed import embed_texts
+
     ocr_output_dir = Path(ocr_output_dir or settings.ocr_output_dir)
-    chunk_size = chunk_size or settings.chunk_size
-    chunk_overlap = chunk_overlap or settings.chunk_overlap
 
     manifest_dir = ocr_output_dir / "manifests"
-    if manifest_dir.exists():
-        manifests = sorted(manifest_dir.glob("*.json"))
-    else:
-        manifests = sorted(ocr_output_dir.glob("*.json"))
+    manifests = sorted(manifest_dir.glob("*.json")) if manifest_dir.exists() else sorted(ocr_output_dir.glob("*.json"))
     logger.info(f"{len(manifests)} manifests in {ocr_output_dir}")
 
     all_chunks: list[Chunk] = []
@@ -171,17 +210,13 @@ def chunk_documents(
             header = parts[i]
             section = parts[i + 1] if i + 1 < len(parts) else ""
             if current_text.strip():
-                all_chunks.extend(_split_section(
-                    current_text, current_page, doc_hash, source_doc, chunk_size, chunk_overlap
-                ))
+                all_chunks.extend(_split_section(current_text, current_page, doc_hash, source_doc, embed_texts))
             current_page = _page_num(header)
             current_text = section
             i += 2
 
         if current_text.strip():
-            all_chunks.extend(_split_section(
-                current_text, current_page, doc_hash, source_doc, chunk_size, chunk_overlap
-            ))
+            all_chunks.extend(_split_section(current_text, current_page, doc_hash, source_doc, embed_texts))
 
         n = len([c for c in all_chunks if c.doc_hash == doc_hash])
         logger.debug(f"{source_doc}: {n} chunks")
