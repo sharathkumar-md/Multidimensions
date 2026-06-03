@@ -1,0 +1,14 @@
+{
+  "doc_id": "e981406796dc44e095f31447da01e541",
+  "source_filename": "Hycomp Ebook.pdf",
+  "source_path": "/content/MultiDimensions/data/input/Hycomp Ebook.pdf",
+  "file_size_bytes": 1224203,
+  "sha256": "f334a89f7c4d2407126f3f47869ba3b31417bf7afbec6c900df822d52c365976",
+  "page_count": 3,
+  "status": "completed",
+  "created_at": "2026-06-03T19:24:47.719973",
+  "completed_at": "2026-06-03T19:24:47.719991",
+  "markdown_path": "markdown/e981406796dc44e095f31447da01e541.md",
+  "processing_time_ms": 137747.63664200008,
+  "vlm_model": "Qwen/Qwen2.5-VL-7B-Instruct"
+}

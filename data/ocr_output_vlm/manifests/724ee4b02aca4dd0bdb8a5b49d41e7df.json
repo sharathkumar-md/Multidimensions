@@ -1,0 +1,14 @@
+{
+  "doc_id": "724ee4b02aca4dd0bdb8a5b49d41e7df",
+  "source_filename": "Nabtesco.pdf",
+  "source_path": "/content/MultiDimensions/data/input/Nabtesco.pdf",
+  "file_size_bytes": 31639784,
+  "sha256": "2146fdf669734e4eb9c57ce9225143386d4b169ce127ed725fadf960a279554c",
+  "page_count": 7,
+  "status": "completed",
+  "created_at": "2026-06-03T20:01:09.166569",
+  "completed_at": "2026-06-03T20:01:09.166590",
+  "markdown_path": "markdown/724ee4b02aca4dd0bdb8a5b49d41e7df.md",
+  "processing_time_ms": 329606.63297100016,
+  "vlm_model": "Qwen/Qwen2.5-VL-7B-Instruct"
+}
