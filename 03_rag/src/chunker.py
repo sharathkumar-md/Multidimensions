@@ -28,6 +28,15 @@ def _hash(text: str) -> str:
     return hashlib.sha256(text.encode()).hexdigest()[:16]
 
 
+def _is_toc_chunk(text: str) -> bool:
+    """Return True if the chunk is mostly table-of-contents numbering."""
+    words = text.split()
+    if not words:
+        return True
+    toc_like = sum(1 for w in words if re.match(r"^\d+(\.\d+)*\.?$", w))
+    return toc_like / len(words) > 0.4
+
+
 def _clean_markdown(text: str) -> str:
     # Remove HTML comments <!-- ... -->
     text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
@@ -101,7 +110,7 @@ def _split_preserving_tables(text: str, chunk_size: int, chunk_overlap: int) -> 
                     flush()
 
     flush()
-    return [c for c in chunks if c]
+    return [c for c in chunks if c and not _is_toc_chunk(c)]
 
 
 def _split_section(

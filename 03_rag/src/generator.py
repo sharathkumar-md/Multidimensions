@@ -10,7 +10,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 _THINK_RE = re.compile(r"<think>[\s\S]*?</think>", re.IGNORECASE)
 _FOLLOWUP_RE = re.compile(
-    r"\n\n(?:What|How|Why|When|Where|Which|Based on|The following).*",
+    r"\n\n(?:What|How|Why|When|Where|Which|Based on|The following|Question|Note|Answer).*",
     re.IGNORECASE | re.DOTALL,
 )
 
@@ -40,8 +40,11 @@ def load_model(model_id: str) -> tuple:
     return model, tokenizer
 
 
-def build_prompt(query: str, context_chunks: list[str]) -> str:
-    context = "\n\n---\n\n".join(context_chunks)
+def build_prompt(query: str, context_chunks: list[str], max_context_chars: int = 2000) -> str:
+    # trim each chunk proportionally so total context stays within budget
+    budget = max_context_chars // max(len(context_chunks), 1)
+    trimmed = [c[:budget] for c in context_chunks]
+    context = "\n\n---\n\n".join(trimmed)
     return f"Context:\n{context}\n\nQuestion: {query}\n\nAnswer:"
 
 
@@ -64,7 +67,7 @@ def generate(
 
     prompt_text = tokenizer.apply_chat_template(messages, **kwargs)
     inputs = tokenizer(
-        prompt_text, return_tensors="pt", truncation=True, max_length=768
+        prompt_text, return_tensors="pt", truncation=True, max_length=1024
     ).to(model.device)
 
     with torch.no_grad():
