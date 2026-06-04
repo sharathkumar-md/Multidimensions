@@ -38,6 +38,9 @@ def _is_toc_chunk(text: str) -> bool:
 
 
 def _clean_markdown(text: str) -> str:
+    # strip ```markdown ... ``` fences added by VLM output
+    text = re.sub(r"```markdown\s*", "", text)
+    text = re.sub(r"```\s*", "", text)
     text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
     text = re.sub(r"!\[[^\]]*\]\(figures[^\)]+\)", "", text)
     text = re.sub(r"\*Figure:.*?\*", "", text)
