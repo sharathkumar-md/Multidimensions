@@ -1,7 +1,7 @@
 [
   {
     "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
-    "avg_composite": 0.3242,
+    "avg_composite": 0.5913,
     "n_questions": 35
   }
 ]

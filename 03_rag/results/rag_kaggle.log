@@ -504,3 +504,513 @@ Bas...
 2026-06-02 17:08:18.907 | INFO     | src.generator:delete_model_cache:114 - cleared cache: /content/hf_cache/hub/models--deepseek-ai--DeepSeek-R1-Distill-Qwen-7B
 2026-06-02 17:08:18.908 | INFO     | __main__:main:120 - results:
 2026-06-02 17:08:18.908 | INFO     | __main__:main:125 -   deepseek-ai/DeepSeek-R1-Distill-Qwen-7B: 0.3242 (35 Qs)
+2026-06-04 16:29:58.069 | INFO     | __main__:_build_index_if_needed:39 - index exists, skipping build
+2026-06-04 16:29:58.069 | INFO     | src.embed:_load_embed_model:13 - loading embed model: BAAI/bge-large-en-v1.5
+2026-06-04 16:30:14.837 | INFO     | src.retriever:load_reranker:103 - loading reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-06-04 16:30:20.558 | INFO     | src.pipeline:load_qa_set:21 - loaded 35 qa pairs
+2026-06-04 16:30:20.558 | INFO     | __main__:_eval_model:53 - --- Qwen/Qwen2.5-7B-Instruct ---
+2026-06-04 16:30:20.558 | INFO     | __main__:_eval_model:59 - already done, skipping
+2026-06-04 16:30:20.560 | INFO     | __main__:main:120 - results:
+2026-06-04 16:30:20.560 | INFO     | __main__:main:125 -   Qwen/Qwen2.5-7B-Instruct: 0.3154 (35 Qs)
+2026-06-04 16:38:38.650 | INFO     | __main__:_build_index_if_needed:39 - index exists, skipping build
+2026-06-04 16:38:38.651 | INFO     | src.embed:_load_embed_model:13 - loading embed model: BAAI/bge-large-en-v1.5
+2026-06-04 16:38:41.334 | INFO     | src.retriever:load_reranker:103 - loading reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-06-04 16:38:44.503 | INFO     | src.pipeline:load_qa_set:21 - loaded 35 qa pairs
+2026-06-04 16:38:44.503 | INFO     | __main__:_eval_model:53 - --- Qwen/Qwen2.5-7B-Instruct ---
+2026-06-04 16:38:44.504 | INFO     | src.generator:load_model:31 - loading Qwen/Qwen2.5-7B-Instruct
+2026-06-04 16:43:01.361 | INFO     | src.indexer:load_index:88 - index loaded: 340 chunks
+2026-06-04 16:43:01.362 | INFO     | src.retriever:load_reranker:103 - loading reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-06-04 16:43:04.745 | INFO     | src.evaluator:_get_nli_model:17 - loading nli model: cross-encoder/nli-deberta-v3-small
+2026-06-04 16:43:11.708 | INFO     | src.pipeline:run_eval:50 - [1/35] What is the backlash range of the Nabtesco RD2 gearhead?
+2026-06-04 16:43:22.859 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The backlash range of the Nabtesco RD2 gearhead is 0.5 to 1.5 arcmin as specifie...
+2026-06-04 16:43:37.456 | INFO     | src.pipeline:run_eval:81 -   composite=0.6909
+2026-06-04 16:43:37.458 | INFO     | src.pipeline:run_eval:50 - [2/35] What is the maximum loading capacity of the Nabtesco RVW AGV drive unit?
+2026-06-04 16:43:47.401 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The maximum loading capacity of the Nabtesco RVW AGV drive unit is 15,000 Nm. Th...
+2026-06-04 16:43:57.735 | INFO     | src.pipeline:run_eval:81 -   composite=0.9521
+2026-06-04 16:43:57.737 | INFO     | src.pipeline:run_eval:50 - [3/35] What is the maximum stroke length of the LinMot P10 Series linear motor?
+2026-06-04 16:44:07.709 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The maximum stroke length for the LinMot P10 Series linear motor is 1,000 mm as ...
+2026-06-04 16:44:17.002 | INFO     | src.pipeline:run_eval:81 -   composite=0.4282
+2026-06-04 16:44:17.004 | INFO     | src.pipeline:run_eval:50 - [4/35] What is the rated torque range for the Nabtesco RVE precision reduction gearbox?
+2026-06-04 16:44:26.950 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The rated torque range for the Nabtesco RVE precision reduction gearbox is from ...
+2026-06-04 16:44:40.580 | INFO     | src.pipeline:run_eval:81 -   composite=0.8042
+2026-06-04 16:44:40.581 | INFO     | src.pipeline:run_eval:50 - [5/35] What are the temperature limits for the Nabtesco auto connector (HNS series)?
+2026-06-04 16:44:47.015 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco auto connector (HNS series) operates within a temperature range of ...
+2026-06-04 16:44:59.101 | INFO     | src.pipeline:run_eval:81 -   composite=0.6065
+2026-06-04 16:44:59.102 | INFO     | src.pipeline:run_eval:50 - [6/35] What is the peak velocity of the LinMot P10 Series linear motor?
+2026-06-04 16:45:09.449 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The peak velocity of the LinMot P10 Series linear motor, as per the engineering ...
+2026-06-04 16:45:21.575 | INFO     | src.pipeline:run_eval:81 -   composite=0.5283
+2026-06-04 16:45:21.577 | INFO     | src.pipeline:run_eval:50 - [7/35] What is the constant force range provided by LinMot MagSpring stators?
+2026-06-04 16:45:31.813 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot MagSpring stators provide a constant force range of up to 10 N over a...
+2026-06-04 16:45:42.878 | INFO     | src.pipeline:run_eval:81 -   composite=0.7435
+2026-06-04 16:45:42.880 | INFO     | src.pipeline:run_eval:50 - [8/35] What is the maximum coupling speed of the Nabtesco LNS auto connector?
+2026-06-04 16:45:53.612 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The maximum coupling speed for the Nabtesco LNS auto connector, as per the engin...
+2026-06-04 16:46:08.090 | INFO     | src.pipeline:run_eval:81 -   composite=0.5514
+2026-06-04 16:46:08.092 | INFO     | src.pipeline:run_eval:50 - [9/35] What wheel diameter range does the Nabtesco RVW AGV drive unit support?
+2026-06-04 16:46:13.698 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco RVW AGV drive unit supports wheel diameters ranging from 150 mm to ...
+2026-06-04 16:46:26.700 | INFO     | src.pipeline:run_eval:81 -   composite=0.8479
+2026-06-04 16:46:26.702 | INFO     | src.pipeline:run_eval:50 - [10/35] What is the rated output speed range for the Nabtesco RS gearhead?
+2026-06-04 16:46:33.137 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The rated output speed for the Nabtesco RS gearhead ranges from 0.5 to 10 RPM, d...
+2026-06-04 16:46:45.977 | INFO     | src.pipeline:run_eval:81 -   composite=0.6165
+2026-06-04 16:46:45.979 | INFO     | src.pipeline:run_eval:50 - [11/35] What types of robot and industrial applications use the Nabtesco RS gearhead?
+2026-06-04 16:46:55.307 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco RS gearhead is commonly used in precision motion control applicatio...
+2026-06-04 16:47:11.886 | INFO     | src.pipeline:run_eval:81 -   composite=0.3996
+2026-06-04 16:47:11.889 | INFO     | src.pipeline:run_eval:50 - [12/35] For which industries is the LinMot P10 Series linear motor suited?
+2026-06-04 16:47:18.462 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot P10 Series linear motor is ideally suited for high-precision applicat...
+2026-06-04 16:47:30.573 | INFO     | src.pipeline:run_eval:81 -   composite=0.4574
+2026-06-04 16:47:30.575 | INFO     | src.pipeline:run_eval:50 - [13/35] What hydropower applications does GGB serve with its bearing products?
+2026-06-04 16:47:41.353 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB's bearing products are used in hydropower applications to support the main s...
+2026-06-04 16:47:54.467 | INFO     | src.pipeline:run_eval:81 -   composite=0.4534
+2026-06-04 16:47:54.469 | INFO     | src.pipeline:run_eval:50 - [14/35] What industrial applications is the Nabtesco AF-C servo actuator used in?
+2026-06-04 16:47:59.478 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco AF-C servo actuator is used in various industrial applications incl...
+2026-06-04 16:48:12.655 | INFO     | src.pipeline:run_eval:81 -   composite=0.469
+2026-06-04 16:48:12.657 | INFO     | src.pipeline:run_eval:50 - [15/35] In what type of environment is the LinMot ATEX explosion proof motor designed to
+2026-06-04 16:48:21.448 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot ATEX explosion-proof motor is designed for use in environments classi...
+2026-06-04 16:48:32.040 | INFO     | src.pipeline:run_eval:81 -   composite=0.8138
+2026-06-04 16:48:32.043 | INFO     | src.pipeline:run_eval:50 - [16/35] What sectors does GGB serve beyond hydropower with its plain bearing solutions?
+2026-06-04 16:48:39.331 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB's plain bearing solutions are utilized in various sectors including wind ene...
+2026-06-04 16:48:49.240 | INFO     | src.pipeline:run_eval:81 -   composite=0.7625
+2026-06-04 16:48:49.242 | INFO     | src.pipeline:run_eval:50 - [17/35] What material is used in the LinMot stainless steel linear motor (SSC series)?
+2026-06-04 16:48:55.964 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot stainless steel linear motor (SSC series) is constructed using stainl...
+2026-06-04 16:49:07.222 | INFO     | src.pipeline:run_eval:81 -   composite=0.457
+2026-06-04 16:49:07.224 | INFO     | src.pipeline:run_eval:50 - [18/35] How is the GGB HPMB bearing manufactured and what construction technique does it
+2026-06-04 16:49:13.599 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The GGB HPMB bearing is manufactured using a high-pressure molding process (HPM)...
+2026-06-04 16:49:23.572 | INFO     | src.pipeline:run_eval:81 -   composite=0.4071
+2026-06-04 16:49:23.574 | INFO     | src.pipeline:run_eval:50 - [19/35] What solid lubricants are used in GGB-CBM bearings and how do they work?
+2026-06-04 16:49:34.200 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB-CBM bearings use molybdenum disulfide (MoS2) as the primary solid lubricant....
+2026-06-04 16:49:48.110 | INFO     | src.pipeline:run_eval:81 -   composite=0.6716
+2026-06-04 16:49:48.112 | INFO     | src.pipeline:run_eval:50 - [20/35] What design features of the LinMot stainless steel motor prevent dirt accumulati
+2026-06-04 16:49:56.210 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot stainless steel motor is designed with a flush surface and nooks-free...
+2026-06-04 16:50:06.704 | INFO     | src.pipeline:run_eval:81 -   composite=0.2995
+2026-06-04 16:50:06.707 | INFO     | src.pipeline:run_eval:50 - [21/35] When was NTI AG, the maker of LinMot, founded and when did it become independent
+2026-06-04 16:50:12.969 | DEBUG    | src.retriever:_hyde_query:40 - hyde: NTI AG, the parent company of LinMot, was founded in 1975 and became independent...
+2026-06-04 16:50:24.828 | INFO     | src.pipeline:run_eval:81 -   composite=0.8029
+2026-06-04 16:50:24.830 | INFO     | src.pipeline:run_eval:50 - [22/35] How many countries does LinMot supply its products to?
+2026-06-04 16:50:29.940 | DEBUG    | src.retriever:_hyde_query:40 - hyde: According to the LinMot product catalog, LinMot supplies its products to over 10...
+2026-06-04 16:50:39.775 | INFO     | src.pipeline:run_eval:81 -   composite=0.3103
+2026-06-04 16:50:39.777 | INFO     | src.pipeline:run_eval:50 - [23/35] How old is Maedler as a company and where is it headquartered?
+2026-06-04 16:50:47.244 | DEBUG    | src.retriever:_hyde_query:40 - hyde: Maedler was founded in 1895, making it over 127 years old as of 2022. The compan...
+2026-06-04 16:51:02.588 | INFO     | src.pipeline:run_eval:81 -   composite=0.4586
+2026-06-04 16:51:02.591 | INFO     | src.pipeline:run_eval:50 - [24/35] Where is GGB North America headquartered and what is its contact address?
+2026-06-04 16:51:08.881 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB North America is headquartered in Cleveland, Ohio. The contact address for G...
+2026-06-04 16:51:22.506 | INFO     | src.pipeline:run_eval:81 -   composite=0.8303
+2026-06-04 16:51:22.509 | INFO     | src.pipeline:run_eval:50 - [25/35] What is the difference between the Nabtesco RVE and RVC precision reduction gear
+2026-06-04 16:51:32.924 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco RVE precision reduction gearbox is designed for high-speed applicat...
+2026-06-04 16:52:00.006 | INFO     | src.pipeline:run_eval:81 -   composite=0.3671
+2026-06-04 16:52:00.010 | INFO     | src.pipeline:run_eval:50 - [26/35] How does a LinMot MagSpring differ from a conventional mechanical spring?
+2026-06-04 16:52:10.396 | DEBUG    | src.retriever:_hyde_query:40 - hyde: A LinMot MagSpring uses magnetic forces instead of physical springs to provide t...
+2026-06-04 16:52:23.791 | INFO     | src.pipeline:run_eval:81 -   composite=0.7655
+2026-06-04 16:52:23.793 | INFO     | src.pipeline:run_eval:50 - [27/35] What distinguishes the LinMot PR01 from the PR02 linear rotary motor in terms of
+2026-06-04 16:52:34.537 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot PR01 linear rotary motor is designed with a direct drive concept, eli...
+2026-06-04 16:52:48.384 | INFO     | src.pipeline:run_eval:81 -   composite=0.4669
+2026-06-04 16:52:48.387 | INFO     | src.pipeline:run_eval:50 - [28/35] What is the structural difference between the Nabtesco AF-N and AF-C servo actua
+2026-06-04 16:52:58.271 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco AF-N and AF-C servo actuators differ in their control systems; the ...
+2026-06-04 16:53:19.693 | INFO     | src.pipeline:run_eval:81 -   composite=0.7118
+2026-06-04 16:53:19.696 | INFO     | src.pipeline:run_eval:50 - [29/35] What safety features are integrated into the LinMot P01 linear motor?
+2026-06-04 16:53:24.514 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot P01 linear motor is equipped with safety features such as thermal mon...
+2026-06-04 16:53:33.590 | INFO     | src.pipeline:run_eval:81 -   composite=0.2884
+2026-06-04 16:53:33.593 | INFO     | src.pipeline:run_eval:50 - [30/35] Why is the GGB HPMB bearing considered environmentally friendly?
+2026-06-04 16:53:44.332 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The GGB HPMB bearing is considered environmentally friendly because it is made f...
+2026-06-04 16:53:55.289 | INFO     | src.pipeline:run_eval:81 -   composite=0.513
+2026-06-04 16:53:55.292 | INFO     | src.pipeline:run_eval:50 - [31/35] What advantage does the LinMot P04 actuator module have over pneumatic actuators
+2026-06-04 16:54:01.275 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot P04 actuator module offers higher precision and faster response times...
+2026-06-04 16:54:13.225 | INFO     | src.pipeline:run_eval:81 -   composite=0.5934
+2026-06-04 16:54:13.228 | INFO     | src.pipeline:run_eval:50 - [32/35] What is the key capability of the Nabtesco RVTM precision reduction gear in indu
+2026-06-04 16:54:19.847 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The key capability of the Nabtesco RVTM precision reduction gear in industrial r...
+2026-06-04 16:54:30.125 | INFO     | src.pipeline:run_eval:81 -   composite=0.2929
+2026-06-04 16:54:30.130 | INFO     | src.pipeline:run_eval:50 - [33/35] What advantage does the LinMot DM01 linear module offer over separate drive comp
+2026-06-04 16:54:36.045 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot DM01 linear module integrates the motor, linear guide, and ball screw...
+2026-06-04 16:54:48.503 | INFO     | src.pipeline:run_eval:81 -   composite=0.4227
+2026-06-04 16:54:48.506 | INFO     | src.pipeline:run_eval:50 - [34/35] Which GGB bearing types have been approved for use in water turbines by the USA 
+2026-06-04 16:54:59.323 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The USA Army Corps of Engineers has approved the use of GGB's 201 and 202 bearin...
+2026-06-04 16:55:10.317 | INFO     | src.pipeline:run_eval:81 -   composite=0.8304
+2026-06-04 16:55:10.320 | INFO     | src.pipeline:run_eval:50 - [35/35] What types of products does Maedler offer in its product range?
+2026-06-04 16:55:20.903 | DEBUG    | src.retriever:_hyde_query:40 - hyde: Maedler offers a wide range of products including electronic components, sensors...
+2026-06-04 16:55:44.298 | INFO     | src.pipeline:run_eval:81 -   composite=0.5975
+2026-06-04 16:55:44.303 | INFO     | __main__:_eval_model:79 - avg_composite=0.5775
+2026-06-04 16:55:45.795 | INFO     | src.generator:delete_model_cache:117 - cleared cache: /content/hf_cache/hub/models--Qwen--Qwen2.5-7B-Instruct
+2026-06-04 16:55:45.796 | INFO     | __main__:main:120 - results:
+2026-06-04 16:55:45.796 | INFO     | __main__:main:125 -   Qwen/Qwen2.5-7B-Instruct: 0.5775 (35 Qs)
+2026-06-04 16:56:56.260 | INFO     | __main__:_build_index_if_needed:39 - index exists, skipping build
+2026-06-04 16:56:56.261 | INFO     | src.embed:_load_embed_model:13 - loading embed model: BAAI/bge-large-en-v1.5
+2026-06-04 16:56:59.617 | INFO     | src.retriever:load_reranker:103 - loading reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-06-04 16:57:02.822 | INFO     | src.pipeline:load_qa_set:21 - loaded 35 qa pairs
+2026-06-04 16:57:02.822 | INFO     | __main__:_eval_model:53 - --- Qwen/Qwen3-8B ---
+2026-06-04 16:57:02.822 | INFO     | __main__:_eval_model:59 - already done, skipping
+2026-06-04 16:57:02.826 | INFO     | __main__:main:120 - results:
+2026-06-04 16:57:02.826 | INFO     | __main__:main:125 -   Qwen/Qwen3-8B: 0.3258 (35 Qs)
+2026-06-04 17:01:08.655 | INFO     | __main__:_build_index_if_needed:39 - index exists, skipping build
+2026-06-04 17:01:08.655 | INFO     | src.embed:_load_embed_model:13 - loading embed model: BAAI/bge-large-en-v1.5
+2026-06-04 17:01:12.280 | INFO     | src.retriever:load_reranker:103 - loading reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-06-04 17:01:15.727 | INFO     | src.pipeline:load_qa_set:21 - loaded 35 qa pairs
+2026-06-04 17:01:15.727 | INFO     | __main__:_eval_model:53 - --- Qwen/Qwen2.5-7B-Instruct ---
+2026-06-04 17:01:15.727 | INFO     | src.generator:load_model:31 - loading Qwen/Qwen2.5-7B-Instruct
+2026-06-04 17:05:06.160 | INFO     | src.indexer:load_index:88 - index loaded: 340 chunks
+2026-06-04 17:05:06.161 | INFO     | src.retriever:load_reranker:103 - loading reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-06-04 17:05:09.568 | INFO     | src.evaluator:_get_nli_model:17 - loading nli model: cross-encoder/nli-deberta-v3-small
+2026-06-04 17:05:12.841 | INFO     | src.pipeline:run_eval:50 - [1/35] What is the backlash range of the Nabtesco RD2 gearhead?
+2026-06-04 17:05:23.877 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The backlash range of the Nabtesco RD2 gearhead is 0.5 to 1.5 arcmin as specifie...
+2026-06-04 17:05:39.505 | INFO     | src.pipeline:run_eval:81 -   composite=0.6909
+2026-06-04 17:05:39.506 | INFO     | src.pipeline:run_eval:50 - [2/35] What is the maximum loading capacity of the Nabtesco RVW AGV drive unit?
+2026-06-04 17:05:49.687 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The maximum loading capacity of the Nabtesco RVW AGV drive unit is 15,000 Nm. Th...
+2026-06-04 17:06:00.410 | INFO     | src.pipeline:run_eval:81 -   composite=0.9521
+2026-06-04 17:06:00.411 | INFO     | src.pipeline:run_eval:50 - [3/35] What is the maximum stroke length of the LinMot P10 Series linear motor?
+2026-06-04 17:06:10.656 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The maximum stroke length for the LinMot P10 Series linear motor is 1,000 mm as ...
+2026-06-04 17:06:20.538 | INFO     | src.pipeline:run_eval:81 -   composite=0.4282
+2026-06-04 17:06:20.539 | INFO     | src.pipeline:run_eval:50 - [4/35] What is the rated torque range for the Nabtesco RVE precision reduction gearbox?
+2026-06-04 17:06:30.274 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The rated torque range for the Nabtesco RVE precision reduction gearbox is from ...
+2026-06-04 17:06:44.425 | INFO     | src.pipeline:run_eval:81 -   composite=0.8042
+2026-06-04 17:06:44.426 | INFO     | src.pipeline:run_eval:50 - [5/35] What are the temperature limits for the Nabtesco auto connector (HNS series)?
+2026-06-04 17:06:50.991 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco auto connector (HNS series) operates within a temperature range of ...
+2026-06-04 17:07:03.302 | INFO     | src.pipeline:run_eval:81 -   composite=0.6065
+2026-06-04 17:07:03.303 | INFO     | src.pipeline:run_eval:50 - [6/35] What is the peak velocity of the LinMot P10 Series linear motor?
+2026-06-04 17:07:13.986 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The peak velocity of the LinMot P10 Series linear motor, as per the engineering ...
+2026-06-04 17:07:25.717 | INFO     | src.pipeline:run_eval:81 -   composite=0.5283
+2026-06-04 17:07:25.718 | INFO     | src.pipeline:run_eval:50 - [7/35] What is the constant force range provided by LinMot MagSpring stators?
+2026-06-04 17:07:36.413 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot MagSpring stators provide a constant force range of up to 10 N over a...
+2026-06-04 17:07:47.478 | INFO     | src.pipeline:run_eval:81 -   composite=0.7435
+2026-06-04 17:07:47.480 | INFO     | src.pipeline:run_eval:50 - [8/35] What is the maximum coupling speed of the Nabtesco LNS auto connector?
+2026-06-04 17:07:58.139 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The maximum coupling speed for the Nabtesco LNS auto connector, as per the engin...
+2026-06-04 17:08:13.774 | INFO     | src.pipeline:run_eval:81 -   composite=0.5514
+2026-06-04 17:08:13.775 | INFO     | src.pipeline:run_eval:50 - [9/35] What wheel diameter range does the Nabtesco RVW AGV drive unit support?
+2026-06-04 17:08:18.809 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco RVW AGV drive unit supports wheel diameters ranging from 150 mm to ...
+2026-06-04 17:08:31.231 | INFO     | src.pipeline:run_eval:81 -   composite=0.8479
+2026-06-04 17:08:31.233 | INFO     | src.pipeline:run_eval:50 - [10/35] What is the rated output speed range for the Nabtesco RS gearhead?
+2026-06-04 17:08:38.148 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The rated output speed for the Nabtesco RS gearhead ranges from 0.5 to 10 RPM, d...
+2026-06-04 17:08:51.154 | INFO     | src.pipeline:run_eval:81 -   composite=0.6165
+2026-06-04 17:08:51.155 | INFO     | src.pipeline:run_eval:50 - [11/35] What types of robot and industrial applications use the Nabtesco RS gearhead?
+2026-06-04 17:09:00.227 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco RS gearhead is commonly used in precision motion control applicatio...
+2026-06-04 17:09:18.935 | INFO     | src.pipeline:run_eval:81 -   composite=0.3996
+2026-06-04 17:09:18.937 | INFO     | src.pipeline:run_eval:50 - [12/35] For which industries is the LinMot P10 Series linear motor suited?
+2026-06-04 17:09:25.171 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot P10 Series linear motor is ideally suited for high-precision applicat...
+2026-06-04 17:09:38.138 | INFO     | src.pipeline:run_eval:81 -   composite=0.4574
+2026-06-04 17:09:38.140 | INFO     | src.pipeline:run_eval:50 - [13/35] What hydropower applications does GGB serve with its bearing products?
+2026-06-04 17:09:49.056 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB's bearing products are used in hydropower applications to support the main s...
+2026-06-04 17:10:02.663 | INFO     | src.pipeline:run_eval:81 -   composite=0.4534
+2026-06-04 17:10:02.665 | INFO     | src.pipeline:run_eval:50 - [14/35] What industrial applications is the Nabtesco AF-C servo actuator used in?
+2026-06-04 17:10:08.224 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco AF-C servo actuator is used in various industrial applications incl...
+2026-06-04 17:10:21.361 | INFO     | src.pipeline:run_eval:81 -   composite=0.469
+2026-06-04 17:10:21.362 | INFO     | src.pipeline:run_eval:50 - [15/35] In what type of environment is the LinMot ATEX explosion proof motor designed to
+2026-06-04 17:10:29.881 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot ATEX explosion-proof motor is designed for use in environments classi...
+2026-06-04 17:10:41.368 | INFO     | src.pipeline:run_eval:81 -   composite=0.8138
+2026-06-04 17:10:41.369 | INFO     | src.pipeline:run_eval:50 - [16/35] What sectors does GGB serve beyond hydropower with its plain bearing solutions?
+2026-06-04 17:10:48.958 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB's plain bearing solutions are utilized in various sectors including wind ene...
+2026-06-04 17:10:59.017 | INFO     | src.pipeline:run_eval:81 -   composite=0.7625
+2026-06-04 17:10:59.019 | INFO     | src.pipeline:run_eval:50 - [17/35] What material is used in the LinMot stainless steel linear motor (SSC series)?
+2026-06-04 17:11:05.384 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot stainless steel linear motor (SSC series) is constructed using stainl...
+2026-06-04 17:11:17.542 | INFO     | src.pipeline:run_eval:81 -   composite=0.457
+2026-06-04 17:11:17.544 | INFO     | src.pipeline:run_eval:50 - [18/35] How is the GGB HPMB bearing manufactured and what construction technique does it
+2026-06-04 17:11:24.474 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The GGB HPMB bearing is manufactured using a high-pressure molding process (HPM)...
+2026-06-04 17:11:35.323 | INFO     | src.pipeline:run_eval:81 -   composite=0.4071
+2026-06-04 17:11:35.325 | INFO     | src.pipeline:run_eval:50 - [19/35] What solid lubricants are used in GGB-CBM bearings and how do they work?
+2026-06-04 17:11:45.763 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB-CBM bearings use molybdenum disulfide (MoS2) as the primary solid lubricant....
+2026-06-04 17:12:01.063 | INFO     | src.pipeline:run_eval:81 -   composite=0.6716
+2026-06-04 17:12:01.064 | INFO     | src.pipeline:run_eval:50 - [20/35] What design features of the LinMot stainless steel motor prevent dirt accumulati
+2026-06-04 17:12:08.141 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot stainless steel motor is designed with a flush surface and nooks-free...
+2026-06-04 17:12:18.454 | INFO     | src.pipeline:run_eval:81 -   composite=0.2995
+2026-06-04 17:12:18.455 | INFO     | src.pipeline:run_eval:50 - [21/35] When was NTI AG, the maker of LinMot, founded and when did it become independent
+2026-06-04 17:12:24.534 | DEBUG    | src.retriever:_hyde_query:40 - hyde: NTI AG, the parent company of LinMot, was founded in 1975 and became independent...
+2026-06-04 17:12:37.205 | INFO     | src.pipeline:run_eval:81 -   composite=0.8029
+2026-06-04 17:12:37.209 | INFO     | src.pipeline:run_eval:50 - [22/35] How many countries does LinMot supply its products to?
+2026-06-04 17:12:42.534 | DEBUG    | src.retriever:_hyde_query:40 - hyde: According to the LinMot product catalog, LinMot supplies its products to over 10...
+2026-06-04 17:12:51.709 | INFO     | src.pipeline:run_eval:81 -   composite=0.3103
+2026-06-04 17:12:51.711 | INFO     | src.pipeline:run_eval:50 - [23/35] How old is Maedler as a company and where is it headquartered?
+2026-06-04 17:12:57.942 | DEBUG    | src.retriever:_hyde_query:40 - hyde: Maedler was founded in 1895, making it over 127 years old as of 2022. The compan...
+2026-06-04 17:13:13.315 | INFO     | src.pipeline:run_eval:81 -   composite=0.4586
+2026-06-04 17:13:13.317 | INFO     | src.pipeline:run_eval:50 - [24/35] Where is GGB North America headquartered and what is its contact address?
+2026-06-04 17:13:19.841 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB North America is headquartered in Cleveland, Ohio. The contact address for G...
+2026-06-04 17:13:32.745 | INFO     | src.pipeline:run_eval:81 -   composite=0.8303
+2026-06-04 17:13:32.747 | INFO     | src.pipeline:run_eval:50 - [25/35] What is the difference between the Nabtesco RVE and RVC precision reduction gear
+2026-06-04 17:13:43.532 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco RVE precision reduction gearbox is designed for high-speed applicat...
+2026-06-04 17:14:10.378 | INFO     | src.pipeline:run_eval:81 -   composite=0.3671
+2026-06-04 17:14:10.381 | INFO     | src.pipeline:run_eval:50 - [26/35] How does a LinMot MagSpring differ from a conventional mechanical spring?
+2026-06-04 17:14:21.114 | DEBUG    | src.retriever:_hyde_query:40 - hyde: A LinMot MagSpring uses magnetic forces instead of physical springs to provide t...
+2026-06-04 17:14:34.224 | INFO     | src.pipeline:run_eval:81 -   composite=0.7655
+2026-06-04 17:14:34.226 | INFO     | src.pipeline:run_eval:50 - [27/35] What distinguishes the LinMot PR01 from the PR02 linear rotary motor in terms of
+2026-06-04 17:14:45.089 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot PR01 linear rotary motor is designed with a direct drive concept, eli...
+2026-06-04 17:14:58.651 | INFO     | src.pipeline:run_eval:81 -   composite=0.4669
+2026-06-04 17:14:58.653 | INFO     | src.pipeline:run_eval:50 - [28/35] What is the structural difference between the Nabtesco AF-N and AF-C servo actua
+2026-06-04 17:15:08.588 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco AF-N and AF-C servo actuators differ in their control systems; the ...
+2026-06-04 17:15:28.560 | INFO     | src.pipeline:run_eval:81 -   composite=0.7118
+2026-06-04 17:15:28.563 | INFO     | src.pipeline:run_eval:50 - [29/35] What safety features are integrated into the LinMot P01 linear motor?
+2026-06-04 17:15:33.849 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot P01 linear motor is equipped with safety features such as thermal mon...
+2026-06-04 17:15:42.884 | INFO     | src.pipeline:run_eval:81 -   composite=0.2884
+2026-06-04 17:15:42.888 | INFO     | src.pipeline:run_eval:50 - [30/35] Why is the GGB HPMB bearing considered environmentally friendly?
+2026-06-04 17:15:53.485 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The GGB HPMB bearing is considered environmentally friendly because it is made f...
+2026-06-04 17:16:05.099 | INFO     | src.pipeline:run_eval:81 -   composite=0.513
+2026-06-04 17:16:05.101 | INFO     | src.pipeline:run_eval:50 - [31/35] What advantage does the LinMot P04 actuator module have over pneumatic actuators
+2026-06-04 17:16:11.538 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot P04 actuator module offers higher precision and faster response times...
+2026-06-04 17:16:23.448 | INFO     | src.pipeline:run_eval:81 -   composite=0.5934
+2026-06-04 17:16:23.450 | INFO     | src.pipeline:run_eval:50 - [32/35] What is the key capability of the Nabtesco RVTM precision reduction gear in indu
+2026-06-04 17:16:29.665 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The key capability of the Nabtesco RVTM precision reduction gear in industrial r...
+2026-06-04 17:16:40.080 | INFO     | src.pipeline:run_eval:81 -   composite=0.2929
+2026-06-04 17:16:40.083 | INFO     | src.pipeline:run_eval:50 - [33/35] What advantage does the LinMot DM01 linear module offer over separate drive comp
+2026-06-04 17:16:46.157 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot DM01 linear module integrates the motor, linear guide, and ball screw...
+2026-06-04 17:16:58.747 | INFO     | src.pipeline:run_eval:81 -   composite=0.4227
+2026-06-04 17:16:58.752 | INFO     | src.pipeline:run_eval:50 - [34/35] Which GGB bearing types have been approved for use in water turbines by the USA 
+2026-06-04 17:17:09.095 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The USA Army Corps of Engineers has approved the use of GGB's 201 and 202 bearin...
+2026-06-04 17:17:20.756 | INFO     | src.pipeline:run_eval:81 -   composite=0.8304
+2026-06-04 17:17:20.760 | INFO     | src.pipeline:run_eval:50 - [35/35] What types of products does Maedler offer in its product range?
+2026-06-04 17:17:31.542 | DEBUG    | src.retriever:_hyde_query:40 - hyde: Maedler offers a wide range of products including electronic components, sensors...
+2026-06-04 17:17:54.896 | INFO     | src.pipeline:run_eval:81 -   composite=0.5975
+2026-06-04 17:17:54.901 | INFO     | __main__:_eval_model:79 - avg_composite=0.5775
+2026-06-04 17:17:56.281 | INFO     | src.generator:delete_model_cache:117 - cleared cache: /content/hf_cache/hub/models--Qwen--Qwen2.5-7B-Instruct
+2026-06-04 17:17:56.281 | INFO     | __main__:main:120 - results:
+2026-06-04 17:17:56.282 | INFO     | __main__:main:125 -   Qwen/Qwen2.5-7B-Instruct: 0.5775 (35 Qs)
+2026-06-04 17:20:39.056 | INFO     | __main__:_build_index_if_needed:39 - index exists, skipping build
+2026-06-04 17:20:39.057 | INFO     | src.embed:_load_embed_model:13 - loading embed model: BAAI/bge-large-en-v1.5
+2026-06-04 17:20:42.242 | INFO     | src.retriever:load_reranker:103 - loading reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-06-04 17:20:45.522 | INFO     | src.pipeline:load_qa_set:21 - loaded 35 qa pairs
+2026-06-04 17:20:45.522 | INFO     | __main__:_eval_model:53 - --- Qwen/Qwen3-8B ---
+2026-06-04 17:20:45.523 | INFO     | src.generator:load_model:31 - loading Qwen/Qwen3-8B
+2026-06-04 17:26:05.229 | ERROR    | __main__:_eval_model:82 - Qwen/Qwen3-8B failed: peer closed connection without sending complete message body (received 3092721843 bytes, expected 3187841392)
+2026-06-04 17:26:06.866 | INFO     | src.generator:delete_model_cache:117 - cleared cache: /content/hf_cache/hub/models--Qwen--Qwen3-8B
+2026-06-04 17:26:06.866 | INFO     | __main__:main:120 - results:
+2026-06-04 17:26:06.867 | INFO     | __main__:main:123 -   Qwen/Qwen3-8B: ERROR - peer closed connection without sending complete message body (received 3092721843 bytes, expected 3187841392)
+2026-06-04 17:31:40.125 | INFO     | __main__:_build_index_if_needed:39 - index exists, skipping build
+2026-06-04 17:31:40.126 | INFO     | src.embed:_load_embed_model:13 - loading embed model: BAAI/bge-large-en-v1.5
+2026-06-04 17:31:43.392 | INFO     | src.retriever:load_reranker:103 - loading reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-06-04 17:31:46.599 | INFO     | src.pipeline:load_qa_set:21 - loaded 35 qa pairs
+2026-06-04 17:31:46.599 | INFO     | __main__:_eval_model:53 - --- Qwen/Qwen3-8B ---
+2026-06-04 17:31:46.599 | INFO     | src.generator:load_model:31 - loading Qwen/Qwen3-8B
+2026-06-04 17:37:04.490 | INFO     | src.indexer:load_index:88 - index loaded: 340 chunks
+2026-06-04 17:37:04.491 | INFO     | src.retriever:load_reranker:103 - loading reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-06-04 17:37:07.859 | INFO     | src.evaluator:_get_nli_model:17 - loading nli model: cross-encoder/nli-deberta-v3-small
+2026-06-04 17:37:11.035 | INFO     | src.pipeline:run_eval:50 - [1/35] What is the backlash range of the Nabtesco RD2 gearhead?
+2026-06-04 17:37:26.107 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The backlash range of the Nabtesco RD2 gearhead is specified as 0.05 to 0.15 mm,...
+2026-06-04 17:37:43.884 | INFO     | src.pipeline:run_eval:81 -   composite=0.7339
+2026-06-04 17:37:43.885 | INFO     | src.pipeline:run_eval:50 - [2/35] What is the maximum loading capacity of the Nabtesco RVW AGV drive unit?
+2026-06-04 17:37:57.597 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The maximum loading capacity of the Nabtesco RVW AGV drive unit is 1000 kg, as s...
+2026-06-04 17:38:09.570 | INFO     | src.pipeline:run_eval:81 -   composite=0.9521
+2026-06-04 17:38:09.571 | INFO     | src.pipeline:run_eval:50 - [3/35] What is the maximum stroke length of the LinMot P10 Series linear motor?
+2026-06-04 17:38:23.463 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The maximum stroke length of the LinMot P10 Series linear motor is 1000 mm, as s...
+2026-06-04 17:38:35.501 | INFO     | src.pipeline:run_eval:81 -   composite=0.8374
+2026-06-04 17:38:35.502 | INFO     | src.pipeline:run_eval:50 - [4/35] What is the rated torque range for the Nabtesco RVE precision reduction gearbox?
+2026-06-04 17:38:49.757 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The rated torque range for the Nabtesco RVE precision reduction gearbox is from ...
+2026-06-04 17:39:05.511 | INFO     | src.pipeline:run_eval:81 -   composite=0.8042
+2026-06-04 17:39:05.512 | INFO     | src.pipeline:run_eval:50 - [5/35] What are the temperature limits for the Nabtesco auto connector (HNS series)?
+2026-06-04 17:39:20.110 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The temperature limits for the Nabtesco auto connector (HNS series) are -40°C to...
+2026-06-04 17:39:33.943 | INFO     | src.pipeline:run_eval:81 -   composite=0.6101
+2026-06-04 17:39:33.945 | INFO     | src.pipeline:run_eval:50 - [6/35] What is the peak velocity of the LinMot P10 Series linear motor?
+2026-06-04 17:39:48.244 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The peak velocity of the LinMot P10 Series linear motor is 10 m/s, as specified ...
+2026-06-04 17:40:02.016 | INFO     | src.pipeline:run_eval:81 -   composite=0.6855
+2026-06-04 17:40:02.017 | INFO     | src.pipeline:run_eval:50 - [7/35] What is the constant force range provided by LinMot MagSpring stators?
+2026-06-04 17:40:16.407 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The constant force range of LinMot MagSpring stators is specified as 0.5 N to 50...
+2026-06-04 17:40:27.837 | INFO     | src.pipeline:run_eval:81 -   composite=0.7435
+2026-06-04 17:40:27.838 | INFO     | src.pipeline:run_eval:50 - [8/35] What is the maximum coupling speed of the Nabtesco LNS auto connector?
+2026-06-04 17:40:41.895 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The maximum coupling speed of the Nabtesco LNS auto connector is 0.3 m/s, as spe...
+2026-06-04 17:40:54.805 | INFO     | src.pipeline:run_eval:81 -   composite=0.8449
+2026-06-04 17:40:54.806 | INFO     | src.pipeline:run_eval:50 - [9/35] What wheel diameter range does the Nabtesco RVW AGV drive unit support?
+2026-06-04 17:41:08.643 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco RVW AGV drive unit supports wheel diameters ranging from 100 mm to ...
+2026-06-04 17:41:23.873 | INFO     | src.pipeline:run_eval:81 -   composite=0.8999
+2026-06-04 17:41:23.875 | INFO     | src.pipeline:run_eval:50 - [10/35] What is the rated output speed range for the Nabtesco RS gearhead?
+2026-06-04 17:41:38.015 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The rated output speed range for the Nabtesco RS gearhead is 100 to 10,000 rpm, ...
+2026-06-04 17:41:51.820 | INFO     | src.pipeline:run_eval:81 -   composite=0.6195
+2026-06-04 17:41:51.821 | INFO     | src.pipeline:run_eval:50 - [11/35] What types of robot and industrial applications use the Nabtesco RS gearhead?
+2026-06-04 17:42:05.725 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco RS gearhead is used in applications requiring high torque and preci...
+2026-06-04 17:42:17.342 | INFO     | src.pipeline:run_eval:81 -   composite=0.4502
+2026-06-04 17:42:17.343 | INFO     | src.pipeline:run_eval:50 - [12/35] For which industries is the LinMot P10 Series linear motor suited?
+2026-06-04 17:42:31.174 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot P10 Series linear motor is suited for industries requiring high preci...
+2026-06-04 17:42:44.422 | INFO     | src.pipeline:run_eval:81 -   composite=0.5191
+2026-06-04 17:42:44.424 | INFO     | src.pipeline:run_eval:50 - [13/35] What hydropower applications does GGB serve with its bearing products?
+2026-06-04 17:42:58.241 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB's bearing products are used in various hydropower applications, including Fr...
+2026-06-04 17:43:13.313 | INFO     | src.pipeline:run_eval:81 -   composite=0.4603
+2026-06-04 17:43:13.315 | INFO     | src.pipeline:run_eval:50 - [14/35] What industrial applications is the Nabtesco AF-C servo actuator used in?
+2026-06-04 17:43:27.461 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco AF-C servo actuator is used in industrial applications such as ____...
+2026-06-04 17:43:46.128 | INFO     | src.pipeline:run_eval:81 -   composite=0.9775
+2026-06-04 17:43:46.130 | INFO     | src.pipeline:run_eval:50 - [15/35] In what type of environment is the LinMot ATEX explosion proof motor designed to
+2026-06-04 17:44:00.061 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot ATEX explosion proof motor is designed for use in hazardous environme...
+2026-06-04 17:44:12.468 | INFO     | src.pipeline:run_eval:81 -   composite=0.8235
+2026-06-04 17:44:12.470 | INFO     | src.pipeline:run_eval:50 - [16/35] What sectors does GGB serve beyond hydropower with its plain bearing solutions?
+2026-06-04 17:44:26.366 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB's plain bearing solutions are used in the offshore and onshore wind sectors,...
+2026-06-04 17:44:39.836 | INFO     | src.pipeline:run_eval:81 -   composite=0.9374
+2026-06-04 17:44:39.837 | INFO     | src.pipeline:run_eval:50 - [17/35] What material is used in the LinMot stainless steel linear motor (SSC series)?
+2026-06-04 17:44:54.213 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot stainless steel linear motor (SSC series) uses a combination of stain...
+2026-06-04 17:45:09.844 | INFO     | src.pipeline:run_eval:81 -   composite=0.6906
+2026-06-04 17:45:09.846 | INFO     | src.pipeline:run_eval:50 - [18/35] How is the GGB HPMB bearing manufactured and what construction technique does it
+2026-06-04 17:45:23.681 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The GGB HPMB bearing is manufactured using a precision grinding process, and it ...
+2026-06-04 17:45:35.715 | INFO     | src.pipeline:run_eval:81 -   composite=0.444
+2026-06-04 17:45:35.716 | INFO     | src.pipeline:run_eval:50 - [19/35] What solid lubricants are used in GGB-CBM bearings and how do they work?
+2026-06-04 17:45:49.626 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB-CBM bearings utilize solid lubricants such as graphite and molybdenum disulf...
+2026-06-04 17:46:07.307 | INFO     | src.pipeline:run_eval:81 -   composite=0.473
+2026-06-04 17:46:07.310 | INFO     | src.pipeline:run_eval:50 - [20/35] What design features of the LinMot stainless steel motor prevent dirt accumulati
+2026-06-04 17:46:21.575 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot stainless steel motor features a sealed housing and smooth, non-porou...
+2026-06-04 17:46:41.099 | INFO     | src.pipeline:run_eval:81 -   composite=0.5574
+2026-06-04 17:46:41.101 | INFO     | src.pipeline:run_eval:50 - [21/35] When was NTI AG, the maker of LinMot, founded and when did it become independent
+2026-06-04 17:46:54.991 | DEBUG    | src.retriever:_hyde_query:40 - hyde: NTI AG, the maker of LinMot, was founded in 1985 and became independent in 1993....
+2026-06-04 17:47:09.005 | INFO     | src.pipeline:run_eval:81 -   composite=0.6534
+2026-06-04 17:47:09.007 | INFO     | src.pipeline:run_eval:50 - [22/35] How many countries does LinMot supply its products to?
+2026-06-04 17:47:23.057 | DEBUG    | src.retriever:_hyde_query:40 - hyde: LinMot supplies its products to 35 countries across Europe, Asia, and the Americ...
+2026-06-04 17:47:36.200 | INFO     | src.pipeline:run_eval:81 -   composite=0.5954
+2026-06-04 17:47:36.204 | INFO     | src.pipeline:run_eval:50 - [23/35] How old is Maedler as a company and where is it headquartered?
+2026-06-04 17:47:50.354 | DEBUG    | src.retriever:_hyde_query:40 - hyde: Maedler is a company founded in 1993 and is headquartered in [location] accordin...
+2026-06-04 17:48:05.124 | INFO     | src.pipeline:run_eval:81 -   composite=0.2874
+2026-06-04 17:48:05.126 | INFO     | src.pipeline:run_eval:50 - [24/35] Where is GGB North America headquartered and what is its contact address?
+2026-06-04 17:48:19.126 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB North America is headquartered in [City, State], and its contact address is ...
+2026-06-04 17:48:33.588 | INFO     | src.pipeline:run_eval:81 -   composite=0.7992
+2026-06-04 17:48:33.591 | INFO     | src.pipeline:run_eval:50 - [25/35] What is the difference between the Nabtesco RVE and RVC precision reduction gear
+2026-06-04 17:48:47.476 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco RVE and RVC precision reduction gearboxes differ primarily in their...
+2026-06-04 17:49:17.669 | INFO     | src.pipeline:run_eval:81 -   composite=0.4754
+2026-06-04 17:49:17.671 | INFO     | src.pipeline:run_eval:50 - [26/35] How does a LinMot MagSpring differ from a conventional mechanical spring?
+2026-06-04 17:49:31.541 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot MagSpring is a magnetic spring that uses electromagnetic forces to pr...
+2026-06-04 17:49:45.351 | INFO     | src.pipeline:run_eval:81 -   composite=0.7186
+2026-06-04 17:49:45.353 | INFO     | src.pipeline:run_eval:50 - [27/35] What distinguishes the LinMot PR01 from the PR02 linear rotary motor in terms of
+2026-06-04 17:49:59.316 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot PR01 is a single-phase motor, while the PR02 is a three-phase motor. ...
+2026-06-04 17:50:15.483 | INFO     | src.pipeline:run_eval:81 -   composite=0.4593
+2026-06-04 17:50:15.485 | INFO     | src.pipeline:run_eval:50 - [28/35] What is the structural difference between the Nabtesco AF-N and AF-C servo actua
+2026-06-04 17:50:29.710 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The AF-N and AF-C servo actuators differ in their structural design, with the AF...
+2026-06-04 17:50:49.626 | INFO     | src.pipeline:run_eval:81 -   composite=0.6965
+2026-06-04 17:50:49.628 | INFO     | src.pipeline:run_eval:50 - [29/35] What safety features are integrated into the LinMot P01 linear motor?
+2026-06-04 17:51:03.540 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot P01 linear motor integrates several safety features, including a buil...
+2026-06-04 17:51:15.025 | INFO     | src.pipeline:run_eval:81 -   composite=0.4676
+2026-06-04 17:51:15.027 | INFO     | src.pipeline:run_eval:50 - [30/35] Why is the GGB HPMB bearing considered environmentally friendly?
+2026-06-04 17:51:28.572 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The GGB HPMB bearing is considered environmentally friendly because it is made f...
+2026-06-04 17:51:39.340 | INFO     | src.pipeline:run_eval:81 -   composite=0.513
+2026-06-04 17:51:39.343 | INFO     | src.pipeline:run_eval:50 - [31/35] What advantage does the LinMot P04 actuator module have over pneumatic actuators
+2026-06-04 17:51:53.110 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot P04 actuator module provides higher precision and repeatability compa...
+2026-06-04 17:52:07.607 | INFO     | src.pipeline:run_eval:81 -   composite=0.5959
+2026-06-04 17:52:07.610 | INFO     | src.pipeline:run_eval:50 - [32/35] What is the key capability of the Nabtesco RVTM precision reduction gear in indu
+2026-06-04 17:52:21.932 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco RVTM precision reduction gear is designed to provide high torque de...
+2026-06-04 17:52:35.826 | INFO     | src.pipeline:run_eval:81 -   composite=0.4977
+2026-06-04 17:52:35.830 | INFO     | src.pipeline:run_eval:50 - [33/35] What advantage does the LinMot DM01 linear module offer over separate drive comp
+2026-06-04 17:52:50.452 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot DM01 linear module integrates a drive, motor, and guide in a single u...
+2026-06-04 17:53:03.871 | INFO     | src.pipeline:run_eval:81 -   composite=0.5408
+2026-06-04 17:53:03.874 | INFO     | src.pipeline:run_eval:50 - [34/35] Which GGB bearing types have been approved for use in water turbines by the USA 
+2026-06-04 17:53:17.807 | DEBUG    | src.retriever:_hyde_query:40 - hyde: Based on the engineering documentation, the GGB bearing types that have been app...
+2026-06-04 17:53:29.023 | INFO     | src.pipeline:run_eval:81 -   composite=0.8346
+2026-06-04 17:53:29.026 | INFO     | src.pipeline:run_eval:50 - [35/35] What types of products does Maedler offer in its product range?
+2026-06-04 17:53:42.859 | DEBUG    | src.retriever:_hyde_query:40 - hyde: Maedler offers a range of products including [list of product types], which are ...
+2026-06-04 17:54:00.206 | INFO     | src.pipeline:run_eval:81 -   composite=0.5517
+2026-06-04 17:54:00.210 | INFO     | __main__:_eval_model:79 - avg_composite=0.6500
+2026-06-04 17:54:02.181 | INFO     | src.generator:delete_model_cache:117 - cleared cache: /content/hf_cache/hub/models--Qwen--Qwen3-8B
+2026-06-04 17:54:02.182 | INFO     | __main__:main:120 - results:
+2026-06-04 17:54:02.182 | INFO     | __main__:main:125 -   Qwen/Qwen3-8B: 0.6500 (35 Qs)
+2026-06-04 17:55:08.636 | INFO     | __main__:_build_index_if_needed:39 - index exists, skipping build
+2026-06-04 17:55:08.636 | INFO     | src.embed:_load_embed_model:13 - loading embed model: BAAI/bge-large-en-v1.5
+2026-06-04 17:55:12.068 | INFO     | src.retriever:load_reranker:103 - loading reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-06-04 17:55:15.458 | INFO     | src.pipeline:load_qa_set:21 - loaded 35 qa pairs
+2026-06-04 17:55:15.458 | INFO     | __main__:_eval_model:53 - --- deepseek-ai/DeepSeek-R1-Distill-Qwen-7B ---
+2026-06-04 17:55:15.458 | INFO     | src.generator:load_model:31 - loading deepseek-ai/DeepSeek-R1-Distill-Qwen-7B
+2026-06-04 18:00:04.600 | INFO     | src.indexer:load_index:88 - index loaded: 340 chunks
+2026-06-04 18:00:04.601 | INFO     | src.retriever:load_reranker:103 - loading reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-06-04 18:00:08.120 | INFO     | src.evaluator:_get_nli_model:17 - loading nli model: cross-encoder/nli-deberta-v3-small
+2026-06-04 18:00:11.617 | INFO     | src.pipeline:run_eval:50 - [1/35] What is the backlash range of the Nabtesco RD2 gearhead?
+2026-06-04 18:00:19.473 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The backlash range is the difference between the number of teeth engaged when th...
+2026-06-04 18:00:55.394 | INFO     | src.pipeline:run_eval:81 -   composite=0.6422
+2026-06-04 18:00:55.395 | INFO     | src.pipeline:run_eval:50 - [2/35] What is the maximum loading capacity of the Nabtesco RVW AGV drive unit?
+2026-06-04 18:01:05.870 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The maximum loading capacity of the Nabtesco RVW AGV drive unit is 1,000 kN. Thi...
+2026-06-04 18:01:36.700 | INFO     | src.pipeline:run_eval:81 -   composite=0.6996
+2026-06-04 18:01:36.702 | INFO     | src.pipeline:run_eval:50 - [3/35] What is the maximum stroke length of the LinMot P10 Series linear motor?
+2026-06-04 18:01:47.383 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The maximum stroke length of the LinMot P10 Series linear motor is 100 millimete...
+2026-06-04 18:02:16.560 | INFO     | src.pipeline:run_eval:81 -   composite=0.6528
+2026-06-04 18:02:16.562 | INFO     | src.pipeline:run_eval:50 - [4/35] What is the rated torque range for the Nabtesco RVE precision reduction gearbox?
+2026-06-04 18:02:27.363 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The rated torque range is 10 Nm to 50 Nm.
+
+But the user wants the answer to be b...
+2026-06-04 18:03:01.088 | INFO     | src.pipeline:run_eval:81 -   composite=0.5847
+2026-06-04 18:03:01.089 | INFO     | src.pipeline:run_eval:50 - [5/35] What are the temperature limits for the Nabtesco auto connector (HNS series)?
+2026-06-04 18:03:11.757 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco auto connector (HNS series) is designed to operate within a tempera...
+2026-06-04 18:03:42.272 | INFO     | src.pipeline:run_eval:81 -   composite=0.6228
+2026-06-04 18:03:42.273 | INFO     | src.pipeline:run_eval:50 - [6/35] What is the peak velocity of the LinMot P10 Series linear motor?
+2026-06-04 18:03:53.211 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The peak velocity of the LinMot P10 Series linear motor is 1.5 m/s.
+
+But I need ...
+2026-06-04 18:04:24.447 | INFO     | src.pipeline:run_eval:81 -   composite=0.5641
+2026-06-04 18:04:24.448 | INFO     | src.pipeline:run_eval:50 - [7/35] What is the constant force range provided by LinMot MagSpring stators?
+2026-06-04 18:04:34.891 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The stators provide a constant force range of 1 to 5 Newtons.
+
+But I need to mak...
+2026-06-04 18:05:03.074 | INFO     | src.pipeline:run_eval:81 -   composite=0.5886
+2026-06-04 18:05:03.076 | INFO     | src.pipeline:run_eval:50 - [8/35] What is the maximum coupling speed of the Nabtesco LNS auto connector?
+2026-06-04 18:05:13.997 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The maximum coupling speed is 120 mm/s.
+
+But I need to make sure that this is co...
+2026-06-04 18:05:45.235 | INFO     | src.pipeline:run_eval:81 -   composite=0.6462
+2026-06-04 18:05:45.237 | INFO     | src.pipeline:run_eval:50 - [9/35] What wheel diameter range does the Nabtesco RVW AGV drive unit support?
+2026-06-04 18:05:52.443 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The AGV drive unit supports wheel diameters from 18 inches to 24 inches.
+
+But I ...
+2026-06-04 18:06:25.417 | INFO     | src.pipeline:run_eval:81 -   composite=0.6004
+2026-06-04 18:06:25.419 | INFO     | src.pipeline:run_eval:50 - [10/35] What is the rated output speed range for the Nabtesco RS gearhead?
+2026-06-04 18:06:36.323 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The rated output speed range for the Nabtesco RS gearhead is 100 RPM to 1500 RPM...
+2026-06-04 18:07:08.544 | INFO     | src.pipeline:run_eval:81 -   composite=0.6376
+2026-06-04 18:07:08.546 | INFO     | src.pipeline:run_eval:50 - [11/35] What types of robot and industrial applications use the Nabtesco RS gearhead?
+2026-06-04 18:07:19.171 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco RS gearhead is used in robots and industrial applications that requ...
+2026-06-04 18:07:49.949 | INFO     | src.pipeline:run_eval:81 -   composite=0.5141
+2026-06-04 18:07:49.951 | INFO     | src.pipeline:run_eval:50 - [12/35] For which industries is the LinMot P10 Series linear motor suited?
+2026-06-04 18:07:59.971 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot P10 Series linear motor is suited for industries requiring high preci...
+2026-06-04 18:08:29.337 | INFO     | src.pipeline:run_eval:81 -   composite=0.5105
+2026-06-04 18:08:29.339 | INFO     | src.pipeline:run_eval:50 - [13/35] What hydropower applications does GGB serve with its bearing products?
+2026-06-04 18:08:40.180 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB serves as a bearing manufacturer for various hydropower applications, includ...
+2026-06-04 18:09:07.656 | INFO     | src.pipeline:run_eval:81 -   composite=0.4114
+2026-06-04 18:09:07.657 | INFO     | src.pipeline:run_eval:50 - [14/35] What industrial applications is the Nabtesco AF-C servo actuator used in?
+2026-06-04 18:09:18.536 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The Nabtesco AF-C servo actuator is used in various industrial applications, suc...
+2026-06-04 18:09:50.402 | INFO     | src.pipeline:run_eval:81 -   composite=0.8265
+2026-06-04 18:09:50.404 | INFO     | src.pipeline:run_eval:50 - [15/35] In what type of environment is the LinMot ATEX explosion proof motor designed to
+2026-06-04 18:10:01.225 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot ATEX explosion proof motor is designed for use in environments where ...
+2026-06-04 18:10:31.134 | INFO     | src.pipeline:run_eval:81 -   composite=0.7168
+2026-06-04 18:10:31.136 | INFO     | src.pipeline:run_eval:50 - [16/35] What sectors does GGB serve beyond hydropower with its plain bearing solutions?
+2026-06-04 18:10:42.064 | DEBUG    | src.retriever:_hyde_query:40 - hyde: GGB serves various sectors beyond hydropower with its plain bearing solutions, i...
+2026-06-04 18:11:10.350 | INFO     | src.pipeline:run_eval:81 -   composite=0.757
+2026-06-04 18:11:10.352 | INFO     | src.pipeline:run_eval:50 - [17/35] What material is used in the LinMot stainless steel linear motor (SSC series)?
+2026-06-04 18:11:21.217 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The materials used in the LinMot stainless steel linear motor (SSC series) are 3...
+2026-06-04 18:11:49.834 | INFO     | src.pipeline:run_eval:81 -   composite=0.5274
+2026-06-04 18:11:49.836 | INFO     | src.pipeline:run_eval:50 - [18/35] How is the GGB HPMB bearing manufactured and what construction technique does it
+2026-06-04 18:12:00.676 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The GGB HPMB bearing uses a construction technique that involves high-precision ...
+2026-06-04 18:12:27.368 | INFO     | src.pipeline:run_eval:81 -   composite=0.5035
+2026-06-04 18:12:27.370 | INFO     | src.pipeline:run_eval:50 - [19/35] What solid lubricants are used in GGB-CBM bearings and how do they work?
+2026-06-04 18:12:38.184 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The solid lubricants used in GGB-CBM bearings are typically made of a combinatio...
+2026-06-04 18:13:07.329 | INFO     | src.pipeline:run_eval:81 -   composite=0.728
+2026-06-04 18:13:07.332 | INFO     | src.pipeline:run_eval:50 - [20/35] What design features of the LinMot stainless steel motor prevent dirt accumulati
+2026-06-04 18:13:17.993 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The design features of the LinMot stainless steel motor that prevent dirt accumu...
+2026-06-04 18:13:49.364 | INFO     | src.pipeline:run_eval:81 -   composite=0.5487
+2026-06-04 18:13:49.367 | INFO     | src.pipeline:run_eval:50 - [21/35] When was NTI AG, the maker of LinMot, founded and when did it become independent
+2026-06-04 18:14:00.127 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The engineering documentation states that NTI AG was founded in 1995 and became ...
+2026-06-04 18:14:28.952 | INFO     | src.pipeline:run_eval:81 -   composite=0.7762
+2026-06-04 18:14:28.954 | INFO     | src.pipeline:run_eval:50 - [22/35] How many countries does LinMot supply its products to?
+2026-06-04 18:14:39.835 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The information is not available in the provided engineering documentation.
+
+Bas...
+2026-06-04 18:15:08.620 | INFO     | src.pipeline:run_eval:81 -   composite=0.5719
+2026-06-04 18:15:08.622 | INFO     | src.pipeline:run_eval:50 - [23/35] How old is Maedler as a company and where is it headquartered?
+2026-06-04 18:15:19.406 | DEBUG    | src.retriever:_hyde_query:40 - hyde: Maedler is a company that has been around for over 100 years. It is headquartere...
+2026-06-04 18:15:53.215 | INFO     | src.pipeline:run_eval:81 -   composite=0.4571
+2026-06-04 18:15:53.218 | INFO     | src.pipeline:run_eval:50 - [24/35] Where is GGB North America headquartered and what is its contact address?
+2026-06-04 18:16:03.814 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The GGB North America headquarters is located in Dallas, Texas, and the contact ...
+2026-06-04 18:16:35.662 | INFO     | src.pipeline:run_eval:81 -   composite=0.5844
+2026-06-04 18:16:35.664 | INFO     | src.pipeline:run_eval:50 - [25/35] What is the difference between the Nabtesco RVE and RVC precision reduction gear
+2026-06-04 18:16:46.395 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The RVE and RVC are both precision reduction gearboxes, but the RVE uses a diffe...
+2026-06-04 18:17:22.415 | INFO     | src.pipeline:run_eval:81 -   composite=0.3609
+2026-06-04 18:17:22.418 | INFO     | src.pipeline:run_eval:50 - [26/35] How does a LinMot MagSpring differ from a conventional mechanical spring?
+2026-06-04 18:17:33.254 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot MagSpring is a type of mechanical spring that uses a permanent magnet...
+2026-06-04 18:18:03.449 | INFO     | src.pipeline:run_eval:81 -   composite=0.5968
+2026-06-04 18:18:03.452 | INFO     | src.pipeline:run_eval:50 - [27/35] What distinguishes the LinMot PR01 from the PR02 linear rotary motor in terms of
+2026-06-04 18:18:14.110 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The PR01 has a shorter rotor, which makes it more compact and reduces the overal...
+2026-06-04 18:18:43.534 | INFO     | src.pipeline:run_eval:81 -   composite=0.4868
+2026-06-04 18:18:43.537 | INFO     | src.pipeline:run_eval:50 - [28/35] What is the structural difference between the Nabtesco AF-N and AF-C servo actua
+2026-06-04 18:18:54.492 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The AF-N has a 24V DC power supply, while the AF-C uses 24V AC. The AF-N uses a ...
+2026-06-04 18:19:26.118 | INFO     | src.pipeline:run_eval:81 -   composite=0.6644
+2026-06-04 18:19:26.121 | INFO     | src.pipeline:run_eval:50 - [29/35] What safety features are integrated into the LinMot P01 linear motor?
+2026-06-04 18:19:33.077 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot P01 linear motor integrates several safety features, including over-c...
+2026-06-04 18:20:00.193 | INFO     | src.pipeline:run_eval:81 -   composite=0.5563
+2026-06-04 18:20:00.197 | INFO     | src.pipeline:run_eval:50 - [30/35] Why is the GGB HPMB bearing considered environmentally friendly?
+2026-06-04 18:20:10.806 | DEBUG    | src.retriever:_hyde_query:40 - hyde: Because it uses a combination of materials that are both durable and have low en...
+2026-06-04 18:20:41.015 | INFO     | src.pipeline:run_eval:81 -   composite=0.5638
+2026-06-04 18:20:41.018 | INFO     | src.pipeline:run_eval:50 - [31/35] What advantage does the LinMot P04 actuator module have over pneumatic actuators
+2026-06-04 18:20:51.527 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot P04 actuator module has several advantages over pneumatic actuators. ...
+2026-06-04 18:21:20.486 | INFO     | src.pipeline:run_eval:81 -   composite=0.5102
+2026-06-04 18:21:20.489 | INFO     | src.pipeline:run_eval:50 - [32/35] What is the key capability of the Nabtesco RVTM precision reduction gear in indu
+2026-06-04 18:21:31.306 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The key capability is the reduction of transmission error, which is achieved by ...
+2026-06-04 18:22:02.438 | INFO     | src.pipeline:run_eval:81 -   composite=0.6178
+2026-06-04 18:22:02.442 | INFO     | src.pipeline:run_eval:50 - [33/35] What advantage does the LinMot DM01 linear module offer over separate drive comp
+2026-06-04 18:22:13.094 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The LinMot DM01 linear module offers several advantages over separate drive comp...
+2026-06-04 18:22:40.897 | INFO     | src.pipeline:run_eval:81 -   composite=0.5249
+2026-06-04 18:22:40.902 | INFO     | src.pipeline:run_eval:50 - [34/35] Which GGB bearing types have been approved for use in water turbines by the USA 
+2026-06-04 18:22:51.725 | DEBUG    | src.retriever:_hyde_query:40 - hyde: The GGB type 1 and GGB type 2 bearings have been approved for use in water turbi...
+2026-06-04 18:23:16.424 | INFO     | src.pipeline:run_eval:81 -   composite=0.6995
+2026-06-04 18:23:16.428 | INFO     | src.pipeline:run_eval:50 - [35/35] What types of products does Maedler offer in its product range?
+2026-06-04 18:23:27.329 | DEBUG    | src.retriever:_hyde_query:40 - hyde: Maedler offers a wide range of products, including sensors, measurement systems,...
+2026-06-04 18:24:00.064 | INFO     | src.pipeline:run_eval:81 -   composite=0.4415
+2026-06-04 18:24:00.071 | INFO     | __main__:_eval_model:79 - avg_composite=0.5913
+2026-06-04 18:24:01.429 | INFO     | src.generator:delete_model_cache:117 - cleared cache: /content/hf_cache/hub/models--deepseek-ai--DeepSeek-R1-Distill-Qwen-7B
+2026-06-04 18:24:01.430 | INFO     | __main__:main:120 - results:
+2026-06-04 18:24:01.430 | INFO     | __main__:main:125 -   deepseek-ai/DeepSeek-R1-Distill-Qwen-7B: 0.5913 (35 Qs)
