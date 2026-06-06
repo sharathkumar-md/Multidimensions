@@ -145,15 +145,6 @@ st.markdown(f"### {active.title}")
 for msg in active.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
-        if msg["role"] == "assistant" and msg.get("sources"):
-            with st.expander(f"📄 Sources ({len(msg['sources'])})"):
-                for src in msg["sources"]:
-                    st.markdown(
-                        f"**{src['source_doc']}** — page {src['page_num']}  "
-                        f"*(score: {src['score']:.3f})*"
-                    )
-                    st.caption(src["snippet"])
-                    st.divider()
 
 question = st.chat_input("Ask about the product catalog…")
 
@@ -170,29 +161,9 @@ if question:
 
         st.markdown(answer)
 
-        sources = [
-            {
-                "source_doc": r.chunk.source_doc,
-                "page_num": r.chunk.page_num,
-                "score": r.score,
-                "snippet": r.chunk.text[:200] + "…",
-            }
-            for r in retrieved
-        ]
-
-        with st.expander(f"📄 Sources ({len(sources)})"):
-            for src in sources:
-                st.markdown(
-                    f"**{src['source_doc']}** — page {src['page_num']}  "
-                    f"*(score: {src['score']:.3f})*"
-                )
-                st.caption(src["snippet"])
-                st.divider()
-
     active.messages.append({
         "role": "assistant",
         "content": answer,
-        "sources": sources,
     })
 
     _update_summary(active, question, answer)
