@@ -54,7 +54,7 @@ def generate(
     model,
     tokenizer,
     model_id: str,
-    max_new_tokens: int = 128,
+    max_new_tokens: int = 512,
 ) -> str:
     messages = [
         {"role": "system", "content": _SYSTEM_PROMPT},
