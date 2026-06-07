@@ -14,13 +14,13 @@ build/
 .coverage
 htmlcov/
 
-# OCR pipeline outputs (generated)
+# Generated outputs
 01_ocr/output/
-01_ocr/logs/
-
-# LLM eval outputs (generated)
 02_llm_eval/results/
-02_llm_eval/logs/
+
+# Logs — all modules
+logs/
+**/logs/
 
 # Env files — keep .env.example, ignore actual .env
 .env
