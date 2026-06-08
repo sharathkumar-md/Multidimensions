@@ -86,7 +86,7 @@ def _ask(question: str, summary: str) -> tuple[str, list]:
 
     # inject summary into context budget so history doesn't crowd out docs
     summary_note = f"\nConversation so far:\n{summary}\n" if summary else ""
-    budget = (1800 - len(summary_note)) // max(len(context_texts), 1)
+    budget = (2800 - len(summary_note)) // max(len(context_texts), 1)
     trimmed = [c[:budget] for c in context_texts]
     context = "\n\n---\n\n".join(trimmed) + summary_note
 

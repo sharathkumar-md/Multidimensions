@@ -9,14 +9,26 @@ from loguru import logger
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 _THINK_RE = re.compile(r"<think>[\s\S]*?</think>", re.IGNORECASE)
+# strip trailing hallucinated meta blocks (the model inventing its own follow-up Q&A)
 _FOLLOWUP_RE = re.compile(
-    r"\n\n(?:What|How|Why|When|Where|Which|Based on|The following|Question|Note|Answer).*",
+    r"\n\n(?:Question|Note|Q:|Follow-up|Additional question)\b.*",
     re.IGNORECASE | re.DOTALL,
 )
 
 _SYSTEM_PROMPT = (
-    "You are a technical assistant. Answer using only the provided context. "
-    "If the answer isn't there, say so. Be concise."
+    "You are a product specialist for an industrial and mechanical parts catalog, "
+    "helping a sales representative answer a customer's question. "
+    "Answer using only the provided catalog context.\n"
+    "- Be technically precise: quote exact figures, units, model names, and material "
+    "grades exactly as written (e.g. Nm, mm, °C, rpm, arc.min, AISI 316). Never invent, "
+    "round, or estimate a specification.\n"
+    "- Present multi-value or numeric specifications as a markdown table. Use short prose "
+    "or bullet points for descriptions, features, and applications.\n"
+    "- Keep a balanced voice: lead with the technical facts, then, where the context "
+    "supports it, note the key selling point or where the product fits. Do not oversell "
+    "or claim anything not in the context.\n"
+    "- If the answer is not in the catalog, say so plainly and suggest a next step — a "
+    "related product from the context, or contacting the supplier for details. Do not guess."
 )
 
 _BNB_CONFIG = BitsAndBytesConfig(
@@ -40,12 +52,12 @@ def load_model(model_id: str) -> tuple:
     return model, tokenizer
 
 
-def build_prompt(query: str, context_chunks: list[str], max_context_chars: int = 2000) -> str:
+def build_prompt(query: str, context_chunks: list[str], max_context_chars: int = 2800) -> str:
     # trim each chunk proportionally so total context stays within budget
     budget = max_context_chars // max(len(context_chunks), 1)
     trimmed = [c[:budget] for c in context_chunks]
     context = "\n\n---\n\n".join(trimmed)
-    return f"Context:\n{context}\n\nQuestion: {query}\n\nAnswer:"
+    return f"Catalog context:\n{context}\n\nCustomer question: {query}\n\nAnswer:"
 
 
 def generate(
@@ -67,7 +79,7 @@ def generate(
 
     prompt_text = tokenizer.apply_chat_template(messages, **kwargs)
     inputs = tokenizer(
-        prompt_text, return_tensors="pt", truncation=True, max_length=1024
+        prompt_text, return_tensors="pt", truncation=True, max_length=2048
     ).to(model.device)
 
     with torch.no_grad():
