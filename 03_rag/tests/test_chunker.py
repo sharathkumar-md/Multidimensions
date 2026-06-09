@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from src.chunker import Chunk, _page_num, _split_preserving_tables, chunk_documents
+from src.chunker import Chunk, _page_num, _split_sentences, _semantic_split, chunk_documents
 
 
 def test_chunk_dataclass_word_count():
@@ -20,30 +20,25 @@ def test_page_num_extraction():
     assert _page_num("some other text") == 0
 
 
-def test_split_no_tables():
-    words = " ".join(f"word{i}" for i in range(200))
-    chunks = _split_preserving_tables(words, chunk_size=50, chunk_overlap=10)
-    assert len(chunks) > 1
-    for c in chunks:
-        assert len(c.split()) <= 60  # allow slight overlap
+def test_split_sentences():
+    text = "Sentence one. Sentence two! Sentence three? \n\n| Col |\n|---|\n| A |\n\nSentence four."
+    sents = _split_sentences(text)
+    assert "Sentence one." in sents
+    assert "Sentence two!" in sents
+    assert "Sentence three?" in sents
+    assert "| Col |\n|---|\n| A |" in sents
+    assert "Sentence four." in sents
 
 
-def test_split_preserves_table_integrity():
-    table = (
-        "| Col1 | Col2 |\n"
-        "|------|------|\n"
-        "| A    | B    |\n"
-        "| C    | D    |\n"
-    )
-    preamble = " ".join(f"word{i}" for i in range(100))
-    text = preamble + "\n\n" + table
-    chunks = _split_preserving_tables(text, chunk_size=50, chunk_overlap=5)
-    # table rows should appear in the same chunk (not split mid-table)
-    table_chunks = [c for c in chunks if "|" in c]
-    for tc in table_chunks:
-        rows = [ln for ln in tc.splitlines() if "|" in ln]
-        # all rows of the same table block appear together
-        assert len(rows) >= 2
+def test_semantic_split():
+    sentences = [f"This is sentence {i} to make it long enough." for i in range(20)]
+    def dummy_embed(texts):
+        import numpy as np
+        return np.ones((len(texts), 384)).tolist()
+
+    chunks = _semantic_split(sentences, dummy_embed, min_chunk_words=10, max_chunk_words=100)
+    assert len(chunks) > 0
+
 
 
 def test_chunk_documents_uses_manifests(tmp_path):
