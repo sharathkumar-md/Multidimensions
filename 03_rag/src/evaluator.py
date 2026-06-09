@@ -47,14 +47,21 @@ def semantic_sim(answer: str, reference: str, embed_model: SentenceTransformer |
 
 
 def faithfulness(answer: str, context_chunks: list[str], nli_model: CrossEncoder | None = None) -> float:
-    # label index 2 = entailment for nli-deberta-v3-small
+    # nli-deberta-v3-small label order is [contradiction, entailment, neutral] -> index 1 = entailment
     nli = nli_model or _get_nli_model()
-    context = " ".join(context_chunks)
     sentences = [s.strip() for s in re.split(r"[.!?]+", answer) if s.strip()]
     if not sentences:
         return 0.0
-    logits = nli.predict([[context, s] for s in sentences], apply_softmax=True)
-    entailed = sum(1 for row in logits if row[2] > 0.5)
+    if not context_chunks:
+        return 0.0
+    # deberta-v3-small caps at 512 tokens, so score each sentence against every chunk
+    # separately and keep the best entailment - avoids silently dropping later chunks
+    entailed = 0
+    for s in sentences:
+        scores = nli.predict([[chunk, s] for chunk in context_chunks], apply_softmax=True)
+        best_entail = max((row[1] for row in scores), default=0.0)
+        if best_entail > 0.5:
+            entailed += 1
     return entailed / len(sentences)
 
 

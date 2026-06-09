@@ -62,7 +62,6 @@ def _load_index():
 # ── answer generation ─────────────────────────────────────────────────────────
 
 def _ask(question: str, summary: str) -> tuple[str, list]:
-    import torch
     from src.retriever import retrieve
     from src.generator import generate, generate_raw
     from config.settings import settings
@@ -84,11 +83,16 @@ def _ask(question: str, summary: str) -> tuple[str, list]:
 
     context_texts = [r.chunk.text for r in retrieved]
 
-    # inject summary into context budget so history doesn't crowd out docs
+    # inject summary into context budget so history doesn't crowd out docs.
+    # reserve room for the separators too, otherwise generate()'s 2800-char clip
+    # eats the tail of the summary appended at the end.
+    sep = "\n\n---\n\n"
     summary_note = f"\nConversation so far:\n{summary}\n" if summary else ""
-    budget = (2800 - len(summary_note)) // max(len(context_texts), 1)
+    n = max(len(context_texts), 1)
+    sep_overhead = len(sep) * (len(context_texts) - 1) if context_texts else 0
+    budget = (2800 - len(summary_note) - sep_overhead) // n
     trimmed = [c[:budget] for c in context_texts]
-    context = "\n\n---\n\n".join(trimmed) + summary_note
+    context = sep.join(trimmed) + summary_note
 
     answer = generate(question, [context], model, tokenizer, "Qwen/Qwen3-8B")
     return answer, retrieved

@@ -9,7 +9,7 @@ from sentence_transformers import CrossEncoder
 
 from config.settings import settings
 from src.chunker import Chunk
-from src.embed import embed_texts
+from src.embed import embed_queries
 
 _RRF_K = 60
 
@@ -65,7 +65,7 @@ def retrieve(
     if hyde_enabled and generator_fn is not None:
         retrieval_query = _hyde_query(query, generator_fn)
 
-    query_vec = embed_texts([retrieval_query])[0]
+    query_vec = embed_queries([retrieval_query])[0]
     dense_results = collection.query(
         query_embeddings=[query_vec],
         n_results=top_k_dense,
