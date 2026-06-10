@@ -9,7 +9,7 @@ from loguru import logger
 from config.settings import settings
 from src.chunker import chunk_documents
 from src.embed import get_embed_model
-from src.evaluator import score_answer, _get_nli_model
+from src.evaluator import score_answer
 from src.generator import generate, generate_raw
 from src.indexer import build_index, load_index
 from src.retriever import RetrievedChunk, load_reranker, retrieve
@@ -37,7 +37,6 @@ def run_eval(
     collection, bm25, chunks = load_index(index_dir)
     reranker = load_reranker()
     embed_model = get_embed_model()
-    nli_model = _get_nli_model()
 
     def hyde_fn(prompt: str, max_new_tokens: int = 120) -> str:
         return generate_raw(prompt, model, tokenizer, max_new_tokens=max_new_tokens)
@@ -63,7 +62,7 @@ def run_eval(
 
         scores: dict = {}
         if reference:
-            scores = score_answer(answer, reference, context_texts, embed_model, nli_model)
+            scores = score_answer(answer, reference, context_texts, embed_model)
 
         record = {
             "question_id": f"q{i+1:03d}",

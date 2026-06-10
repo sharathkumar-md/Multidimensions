@@ -39,8 +39,8 @@
     "keyword_recall": 0.7333,
     "token_f1": 0.0996,
     "semantic_sim": 0.8599,
-    "faithfulness": 0.2941,
-    "composite": 0.5407
+    "composite": 0.614,
+    "groundedness": 0.7832
   },
   {
     "question_id": "q002",
@@ -82,8 +82,8 @@
     "keyword_recall": 0.9231,
     "token_f1": 0.1166,
     "semantic_sim": 0.8735,
-    "faithfulness": 0.25,
-    "composite": 0.6081
+    "composite": 0.6823,
+    "groundedness": 0.7448
   },
   {
     "question_id": "q003",
@@ -125,8 +125,8 @@
     "keyword_recall": 0.8667,
     "token_f1": 0.0858,
     "semantic_sim": 0.8176,
-    "faithfulness": 0.2174,
-    "composite": 0.5618
+    "composite": 0.6382,
+    "groundedness": 0.7267
   },
   {
     "question_id": "q004",
@@ -168,8 +168,8 @@
     "keyword_recall": 0.9444,
     "token_f1": 0.1043,
     "semantic_sim": 0.8874,
-    "faithfulness": 0.2963,
-    "composite": 0.6229
+    "composite": 0.6835,
+    "groundedness": 0.7005
   },
   {
     "question_id": "q005",
@@ -211,8 +211,8 @@
     "keyword_recall": 0.9333,
     "token_f1": 0.0984,
     "semantic_sim": 0.8248,
-    "faithfulness": 0.3636,
-    "composite": 0.612
+    "composite": 0.6693,
+    "groundedness": 0.7459
   },
   {
     "question_id": "q006",
@@ -254,8 +254,8 @@
     "keyword_recall": 0.7647,
     "token_f1": 0.067,
     "semantic_sim": 0.7506,
-    "faithfulness": 0.2,
-    "composite": 0.502
+    "composite": 0.5837,
+    "groundedness": 0.7446
   },
   {
     "question_id": "q007",
@@ -297,8 +297,8 @@
     "keyword_recall": 0.75,
     "token_f1": 0.0741,
     "semantic_sim": 0.8188,
-    "faithfulness": 0.4118,
-    "composite": 0.5475
+    "composite": 0.6008,
+    "groundedness": 0.7672
   },
   {
     "question_id": "q008",
@@ -340,8 +340,8 @@
     "keyword_recall": 0.9286,
     "token_f1": 0.0622,
     "semantic_sim": 0.7781,
-    "faithfulness": 0.2069,
-    "composite": 0.5661
+    "composite": 0.6439,
+    "groundedness": 0.7256
   },
   {
     "question_id": "q009",
@@ -383,8 +383,8 @@
     "keyword_recall": 1.0,
     "token_f1": 0.0761,
     "semantic_sim": 0.8717,
-    "faithfulness": 0.2692,
-    "composite": 0.6273
+    "composite": 0.689,
+    "groundedness": 0.6802
   },
   {
     "question_id": "q010",
@@ -426,8 +426,8 @@
     "keyword_recall": 0.8571,
     "token_f1": 0.0672,
     "semantic_sim": 0.7641,
-    "faithfulness": 0.1364,
-    "composite": 0.5283
+    "composite": 0.6147,
+    "groundedness": 0.7127
   },
   {
     "question_id": "q011",
@@ -469,8 +469,8 @@
     "keyword_recall": 0.5455,
     "token_f1": 0.0652,
     "semantic_sim": 0.8321,
-    "faithfulness": 0.0909,
-    "composite": 0.4288
+    "composite": 0.4856,
+    "groundedness": 0.4689
   },
   {
     "question_id": "q012",
@@ -512,8 +512,8 @@
     "keyword_recall": 0.7391,
     "token_f1": 0.1165,
     "semantic_sim": 0.7539,
-    "faithfulness": 0.2105,
-    "composite": 0.5079
+    "composite": 0.5742,
+    "groundedness": 0.6527
   },
   {
     "question_id": "q013",
@@ -555,8 +555,8 @@
     "keyword_recall": 0.2258,
     "token_f1": 0.046,
     "semantic_sim": 0.7666,
-    "faithfulness": 0.2727,
-    "composite": 0.3231
+    "composite": 0.3677,
+    "groundedness": 0.5702
   },
   {
     "question_id": "q014",
@@ -598,8 +598,8 @@
     "keyword_recall": 1.0,
     "token_f1": 0.1301,
     "semantic_sim": 0.87,
-    "faithfulness": 0.2069,
-    "composite": 0.6311
+    "composite": 0.7009,
+    "groundedness": 0.6727
   },
   {
     "question_id": "q015",
@@ -641,8 +641,8 @@
     "keyword_recall": 0.8276,
     "token_f1": 0.1129,
     "semantic_sim": 0.8695,
-    "faithfulness": 0.087,
-    "composite": 0.5483
+    "composite": 0.6513,
+    "groundedness": 0.7734
   },
   {
     "question_id": "q016",
@@ -684,8 +684,8 @@
     "keyword_recall": 0.9412,
     "token_f1": 0.0861,
     "semantic_sim": 0.7276,
-    "faithfulness": 0.125,
-    "composite": 0.5516
+    "composite": 0.6398,
+    "groundedness": 0.7133
   },
   {
     "question_id": "q017",
@@ -727,7 +727,7 @@
     "keyword_recall": 0.6923,
     "token_f1": 0.1212,
     "semantic_sim": 0.8103,
-    "faithfulness": 0.2273,
-    "composite": 0.5093
+    "composite": 0.5745,
+    "groundedness": 0.6622
   }
 ]

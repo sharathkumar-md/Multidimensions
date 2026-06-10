@@ -39,8 +39,8 @@
     "keyword_recall": 0.6,
     "token_f1": 0.5806,
     "semantic_sim": 0.9148,
-    "faithfulness": 0.0,
-    "composite": 0.5839
+    "composite": 0.7245,
+    "groundedness": 0.9375
   },
   {
     "question_id": "q002",
@@ -82,8 +82,8 @@
     "keyword_recall": 0.9231,
     "token_f1": 0.9286,
     "semantic_sim": 0.975,
-    "faithfulness": 0.0,
-    "composite": 0.799
+    "composite": 0.949,
+    "groundedness": 1.0
   },
   {
     "question_id": "q003",
@@ -125,8 +125,8 @@
     "keyword_recall": 0.7333,
     "token_f1": 0.7586,
     "semantic_sim": 0.9535,
-    "faithfulness": 0.0,
-    "composite": 0.6847
+    "composite": 0.818,
+    "groundedness": 0.8889
   },
   {
     "question_id": "q004",
@@ -168,8 +168,8 @@
     "keyword_recall": 0.6667,
     "token_f1": 0.7222,
     "semantic_sim": 0.9616,
-    "faithfulness": 0.0,
-    "composite": 0.6543
+    "composite": 0.8043,
+    "groundedness": 1.0
   },
   {
     "question_id": "q005",
@@ -211,8 +211,8 @@
     "keyword_recall": 0.5333,
     "token_f1": 0.5294,
     "semantic_sim": 0.8524,
-    "faithfulness": 0.0,
-    "composite": 0.5321
+    "composite": 0.6746,
+    "groundedness": 0.95
   },
   {
     "question_id": "q006",
@@ -254,8 +254,8 @@
     "keyword_recall": 0.5294,
     "token_f1": 0.5294,
     "semantic_sim": 0.8621,
-    "faithfulness": 0.5,
-    "composite": 0.6082
+    "composite": 0.6748,
+    "groundedness": 0.9444
   },
   {
     "question_id": "q007",
@@ -297,8 +297,8 @@
     "keyword_recall": 0.5625,
     "token_f1": 0.6061,
     "semantic_sim": 0.9587,
-    "faithfulness": 0.0,
-    "composite": 0.5881
+    "composite": 0.7287,
+    "groundedness": 0.9375
   },
   {
     "question_id": "q008",
@@ -340,8 +340,8 @@
     "keyword_recall": 0.7857,
     "token_f1": 0.7857,
     "semantic_sim": 0.9046,
-    "faithfulness": 0.0,
-    "composite": 0.6976
+    "composite": 0.8392,
+    "groundedness": 0.9444
   },
   {
     "question_id": "q009",
@@ -383,8 +383,8 @@
     "keyword_recall": 0.8571,
     "token_f1": 0.8125,
     "semantic_sim": 0.9782,
-    "faithfulness": 0.0,
-    "composite": 0.7477
+    "composite": 0.8902,
+    "groundedness": 0.95
   },
   {
     "question_id": "q010",
@@ -426,8 +426,8 @@
     "keyword_recall": 0.5714,
     "token_f1": 0.3636,
     "semantic_sim": 0.8479,
-    "faithfulness": 0.0,
-    "composite": 0.5029
+    "composite": 0.6129,
+    "groundedness": 0.7333
   },
   {
     "question_id": "q011",
@@ -469,8 +469,8 @@
     "keyword_recall": 0.5,
     "token_f1": 0.1705,
     "semantic_sim": 0.8635,
-    "faithfulness": 0.3333,
-    "composite": 0.4835
+    "composite": 0.5409,
+    "groundedness": 0.7162
   },
   {
     "question_id": "q012",
@@ -512,8 +512,8 @@
     "keyword_recall": 0.7391,
     "token_f1": 0.32,
     "semantic_sim": 0.8238,
-    "faithfulness": 0.0,
-    "composite": 0.5446
+    "composite": 0.6396,
+    "groundedness": 0.6333
   },
   {
     "question_id": "q013",
@@ -555,8 +555,8 @@
     "keyword_recall": 0.3226,
     "token_f1": 0.2115,
     "semantic_sim": 0.8239,
-    "faithfulness": 0.0,
-    "composite": 0.3718
+    "composite": 0.5128,
+    "groundedness": 0.94
   },
   {
     "question_id": "q014",
@@ -598,8 +598,8 @@
     "keyword_recall": 0.8,
     "token_f1": 0.4819,
     "semantic_sim": 0.9479,
-    "faithfulness": 0.0,
-    "composite": 0.6374
+    "composite": 0.7641,
+    "groundedness": 0.8444
   },
   {
     "question_id": "q015",
@@ -641,8 +641,8 @@
     "keyword_recall": 0.6897,
     "token_f1": 0.7547,
     "semantic_sim": 0.9736,
-    "faithfulness": 0.0,
-    "composite": 0.6735
+    "composite": 0.8235,
+    "groundedness": 1.0
   },
   {
     "question_id": "q016",
@@ -684,8 +684,8 @@
     "keyword_recall": 1.0,
     "token_f1": 0.4675,
     "semantic_sim": 0.7743,
-    "faithfulness": 1.0,
-    "composite": 0.8105
+    "composite": 0.7917,
+    "groundedness": 0.875
   },
   {
     "question_id": "q017",
@@ -727,8 +727,8 @@
     "keyword_recall": 0.5769,
     "token_f1": 0.5075,
     "semantic_sim": 0.861,
-    "faithfulness": 0.6667,
-    "composite": 0.644
+    "composite": 0.677,
+    "groundedness": 0.8864
   },
   {
     "question_id": "q018",
@@ -770,8 +770,8 @@
     "keyword_recall": 0.2222,
     "token_f1": 0.1636,
     "semantic_sim": 0.7982,
-    "faithfulness": 0.3333,
-    "composite": 0.3682
+    "composite": 0.3888,
+    "groundedness": 0.4706
   },
   {
     "question_id": "q019",
@@ -813,8 +813,8 @@
     "keyword_recall": 0.7714,
     "token_f1": 0.4203,
     "semantic_sim": 0.9399,
-    "faithfulness": 0.0,
-    "composite": 0.61
+    "composite": 0.6809,
+    "groundedness": 0.4722
   },
   {
     "question_id": "q020",
@@ -856,8 +856,8 @@
     "keyword_recall": 0.7273,
     "token_f1": 0.391,
     "semantic_sim": 0.883,
-    "faithfulness": 0.1667,
-    "composite": 0.598
+    "composite": 0.6892,
+    "groundedness": 0.7746
   },
   {
     "question_id": "q021",
@@ -899,8 +899,8 @@
     "keyword_recall": 0.7368,
     "token_f1": 0.7778,
     "semantic_sim": 0.9642,
-    "faithfulness": 1.0,
-    "composite": 0.8434
+    "composite": 0.8246,
+    "groundedness": 0.875
   },
   {
     "question_id": "q022",
@@ -942,8 +942,8 @@
     "keyword_recall": 0.7,
     "token_f1": 0.7778,
     "semantic_sim": 0.9583,
-    "faithfulness": 1.0,
-    "composite": 0.829
+    "composite": 0.829,
+    "groundedness": 1.0
   },
   {
     "question_id": "q023",
@@ -985,8 +985,8 @@
     "keyword_recall": 0.5,
     "token_f1": 0.3922,
     "semantic_sim": 0.8173,
-    "faithfulness": 0.25,
-    "composite": 0.5149
+    "composite": 0.5774,
+    "groundedness": 0.6667
   },
   {
     "question_id": "q024",
@@ -1028,8 +1028,8 @@
     "keyword_recall": 0.6842,
     "token_f1": 0.3714,
     "semantic_sim": 0.8426,
-    "faithfulness": 1.0,
-    "composite": 0.693
+    "composite": 0.6659,
+    "groundedness": 0.8194
   },
   {
     "question_id": "q025",
@@ -1071,8 +1071,8 @@
     "keyword_recall": 0.7407,
     "token_f1": 0.2269,
     "semantic_sim": 0.8788,
-    "faithfulness": 0.0769,
-    "composite": 0.5472
+    "composite": 0.6567,
+    "groundedness": 0.8071
   },
   {
     "question_id": "q026",
@@ -1114,8 +1114,8 @@
     "keyword_recall": 0.7333,
     "token_f1": 0.3546,
     "semantic_sim": 0.7948,
-    "faithfulness": 0.6,
-    "composite": 0.634
+    "composite": 0.6416,
+    "groundedness": 0.6506
   },
   {
     "question_id": "q027",
@@ -1157,8 +1157,8 @@
     "keyword_recall": 0.4103,
     "token_f1": 0.2418,
     "semantic_sim": 0.8303,
-    "faithfulness": 0.4545,
-    "composite": 0.4798
+    "composite": 0.5307,
+    "groundedness": 0.7941
   },
   {
     "question_id": "q028",
@@ -1200,8 +1200,8 @@
     "keyword_recall": 0.6286,
     "token_f1": 0.3596,
     "semantic_sim": 0.9325,
-    "faithfulness": 0.0,
-    "composite": 0.543
+    "composite": 0.6323,
+    "groundedness": 0.5949
   },
   {
     "question_id": "q029",
@@ -1243,8 +1243,8 @@
     "keyword_recall": 0.4211,
     "token_f1": 0.1928,
     "semantic_sim": 0.7699,
-    "faithfulness": 0.0,
-    "composite": 0.388
+    "composite": 0.4978,
+    "groundedness": 0.7317
   },
   {
     "question_id": "q030",
@@ -1286,8 +1286,8 @@
     "keyword_recall": 0.64,
     "token_f1": 0.3167,
     "semantic_sim": 0.8709,
-    "faithfulness": 0.25,
-    "composite": 0.5584
+    "composite": 0.6209,
+    "groundedness": 0.6667
   },
   {
     "question_id": "q031",
@@ -1329,8 +1329,8 @@
     "keyword_recall": 0.8158,
     "token_f1": 0.335,
     "semantic_sim": 0.8991,
-    "faithfulness": 0.1667,
-    "composite": 0.6191
+    "composite": 0.7079,
+    "groundedness": 0.7589
   },
   {
     "question_id": "q032",
@@ -1372,8 +1372,8 @@
     "keyword_recall": 0.4848,
     "token_f1": 0.4211,
     "semantic_sim": 0.9379,
-    "faithfulness": 0.6667,
-    "composite": 0.6094
+    "composite": 0.6407,
+    "groundedness": 0.875
   },
   {
     "question_id": "q033",
@@ -1415,8 +1415,8 @@
     "keyword_recall": 0.3667,
     "token_f1": 0.186,
     "semantic_sim": 0.8643,
-    "faithfulness": 0.6667,
-    "composite": 0.4909
+    "composite": 0.5071,
+    "groundedness": 0.7745
   },
   {
     "question_id": "q034",
@@ -1458,8 +1458,8 @@
     "keyword_recall": 0.8182,
     "token_f1": 0.8837,
     "semantic_sim": 0.9342,
-    "faithfulness": 0.0,
-    "composite": 0.7408
+    "composite": 0.8908,
+    "groundedness": 1.0
   },
   {
     "question_id": "q035",
@@ -1501,7 +1501,7 @@
     "keyword_recall": 0.3529,
     "token_f1": 0.1346,
     "semantic_sim": 0.7659,
-    "faithfulness": 0.4,
-    "composite": 0.4087
+    "composite": 0.4946,
+    "groundedness": 0.9729
   }
 ]

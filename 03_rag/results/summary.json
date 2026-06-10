@@ -1,0 +1,17 @@
+[
+  {
+    "model": "Qwen/Qwen3-8B",
+    "avg_composite": 0.6841,
+    "n_questions": 35
+  },
+  {
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "avg_composite": 0.666,
+    "n_questions": 35
+  },
+  {
+    "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+    "avg_composite": 0.6126,
+    "n_questions": 17
+  }
+]
