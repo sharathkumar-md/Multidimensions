@@ -10,8 +10,13 @@
     "n_questions": 35
   },
   {
+    "model": "google/gemma-3-4b-it",
+    "avg_composite": 0.6158,
+    "n_questions": 35
+  },
+  {
     "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
-    "avg_composite": 0.6126,
-    "n_questions": 17
+    "avg_composite": 0.5857,
+    "n_questions": 35
   }
 ]

@@ -39,8 +39,8 @@
     "keyword_recall": 0.7333,
     "token_f1": 0.0996,
     "semantic_sim": 0.8599,
-    "composite": 0.614,
-    "groundedness": 0.7832
+    "groundedness": 0.7832,
+    "composite": 0.614
   },
   {
     "question_id": "q002",
@@ -82,8 +82,8 @@
     "keyword_recall": 0.9231,
     "token_f1": 0.1166,
     "semantic_sim": 0.8735,
-    "composite": 0.6823,
-    "groundedness": 0.7448
+    "groundedness": 0.7448,
+    "composite": 0.6823
   },
   {
     "question_id": "q003",
@@ -125,8 +125,8 @@
     "keyword_recall": 0.8667,
     "token_f1": 0.0858,
     "semantic_sim": 0.8176,
-    "composite": 0.6382,
-    "groundedness": 0.7267
+    "groundedness": 0.7267,
+    "composite": 0.6382
   },
   {
     "question_id": "q004",
@@ -168,8 +168,8 @@
     "keyword_recall": 0.9444,
     "token_f1": 0.1043,
     "semantic_sim": 0.8874,
-    "composite": 0.6835,
-    "groundedness": 0.7005
+    "groundedness": 0.7005,
+    "composite": 0.6836
   },
   {
     "question_id": "q005",
@@ -211,8 +211,8 @@
     "keyword_recall": 0.9333,
     "token_f1": 0.0984,
     "semantic_sim": 0.8248,
-    "composite": 0.6693,
-    "groundedness": 0.7459
+    "groundedness": 0.7459,
+    "composite": 0.6693
   },
   {
     "question_id": "q006",
@@ -254,8 +254,8 @@
     "keyword_recall": 0.7647,
     "token_f1": 0.067,
     "semantic_sim": 0.7506,
-    "composite": 0.5837,
-    "groundedness": 0.7446
+    "groundedness": 0.7446,
+    "composite": 0.5837
   },
   {
     "question_id": "q007",
@@ -297,8 +297,8 @@
     "keyword_recall": 0.75,
     "token_f1": 0.0741,
     "semantic_sim": 0.8188,
-    "composite": 0.6008,
-    "groundedness": 0.7672
+    "groundedness": 0.7672,
+    "composite": 0.6008
   },
   {
     "question_id": "q008",
@@ -340,8 +340,8 @@
     "keyword_recall": 0.9286,
     "token_f1": 0.0622,
     "semantic_sim": 0.7781,
-    "composite": 0.6439,
-    "groundedness": 0.7256
+    "groundedness": 0.7256,
+    "composite": 0.6439
   },
   {
     "question_id": "q009",
@@ -383,8 +383,8 @@
     "keyword_recall": 1.0,
     "token_f1": 0.0761,
     "semantic_sim": 0.8717,
-    "composite": 0.689,
-    "groundedness": 0.6802
+    "groundedness": 0.6802,
+    "composite": 0.689
   },
   {
     "question_id": "q010",
@@ -426,8 +426,8 @@
     "keyword_recall": 0.8571,
     "token_f1": 0.0672,
     "semantic_sim": 0.7641,
-    "composite": 0.6147,
-    "groundedness": 0.7127
+    "groundedness": 0.7127,
+    "composite": 0.6147
   },
   {
     "question_id": "q011",
@@ -469,8 +469,8 @@
     "keyword_recall": 0.5455,
     "token_f1": 0.0652,
     "semantic_sim": 0.8321,
-    "composite": 0.4856,
-    "groundedness": 0.4689
+    "groundedness": 0.4689,
+    "composite": 0.4855
   },
   {
     "question_id": "q012",
@@ -512,8 +512,8 @@
     "keyword_recall": 0.7391,
     "token_f1": 0.1165,
     "semantic_sim": 0.7539,
-    "composite": 0.5742,
-    "groundedness": 0.6527
+    "groundedness": 0.6527,
+    "composite": 0.5742
   },
   {
     "question_id": "q013",
@@ -555,8 +555,8 @@
     "keyword_recall": 0.2258,
     "token_f1": 0.046,
     "semantic_sim": 0.7666,
-    "composite": 0.3677,
-    "groundedness": 0.5702
+    "groundedness": 0.5702,
+    "composite": 0.3677
   },
   {
     "question_id": "q014",
@@ -598,8 +598,8 @@
     "keyword_recall": 1.0,
     "token_f1": 0.1301,
     "semantic_sim": 0.87,
-    "composite": 0.7009,
-    "groundedness": 0.6727
+    "groundedness": 0.6727,
+    "composite": 0.7009
   },
   {
     "question_id": "q015",
@@ -641,8 +641,8 @@
     "keyword_recall": 0.8276,
     "token_f1": 0.1129,
     "semantic_sim": 0.8695,
-    "composite": 0.6513,
-    "groundedness": 0.7734
+    "groundedness": 0.7734,
+    "composite": 0.6513
   },
   {
     "question_id": "q016",
@@ -684,8 +684,8 @@
     "keyword_recall": 0.9412,
     "token_f1": 0.0861,
     "semantic_sim": 0.7276,
-    "composite": 0.6398,
-    "groundedness": 0.7133
+    "groundedness": 0.7133,
+    "composite": 0.6398
   },
   {
     "question_id": "q017",
@@ -727,7 +727,781 @@
     "keyword_recall": 0.6923,
     "token_f1": 0.1212,
     "semantic_sim": 0.8103,
-    "composite": 0.5745,
-    "groundedness": 0.6622
+    "groundedness": 0.6622,
+    "composite": 0.5745
+  },
+  {
+    "question_id": "q018",
+    "question": "How is the GGB HPMB bearing manufactured and what construction technique does it use?",
+    "answer": "Okay, so I need to figure out how the GGB HPMB bearing is manufactured and what construction technique it uses. Let me start by looking through the provided catalog context to gather the necessary information.\n\nFirst, I see that the catalog mentions several types of bearings, including Metal-Polymer Bearings, Engineered Plastic Bearings, Fiber Reinforced Composite Bearings, Metal & Bimetal Bearings, and Metal-Polymer Bearings again. Then there's a mention of GGB-CGM® and HPM™/HPF™, which are described as composite bearing materials for hydro power applications.\n\nLooking further down, under the \"Aerospace applications\" section, it lists various industries like Actuators, Airframe, Civil Aircraft, etc. But I'm more interested in the manufacturing process.\n\nIn the \"Your Complete Bearing Solutions Provider\" section, it mentions that GGB offers a comprehensive selection of plain bearing solutions, manufacturing various types including Metal-Polymer Bearings. It also lists industries served, but I'm not sure if that's relevant here.\n\nWait, the customer question is specifically about the HPMB bearing. I need to find where HPMB is mentioned. Scanning through, I see \"HPM™/HPF™\" are composite materials for hydro power. But HPMB isn't directly mentioned. Maybe HPMB is another name for HPM or HPF? Or perhaps it's a typo. Alternatively, maybe HPMB is a specific type of bearing made using a certain technique.\n\nLooking back, the GGB-CGM® is a self-lubricating bearing using a homogeneous distribution of graphite and MoS₂, which forms a lubricant film. But that's a different product.\n\nWait, the customer is asking about HPMB, but in the context, I don't see HPMB being explicitly mentioned. The closest is HPM and HPF, which are composite materials. Maybe HPMB is a typo for HPM or HMF? Or perhaps it's a specific type of Metal-Polymer Bearing.\n\nSince the catalog doesn't mention HPMB, I should consider that the information isn't available. However, the user wants a technically precise answer, so I need to check if HPMB is a standard product or if it's a made-up term.\n\nLooking at the \"Your Complete Bearing Solutions Provider\" section again, it mentions Metal-Polymer Bearings, Engineered Plastic Bearings, Fiber Reinforced Composite Bearings, Metal & Bimetal Bearings. So HPMB might be a type of Metal-Polymer Bearing,",
+    "reference": "The GGB HPMB bearing uses a filament wound construction technique, which GGB pioneered. It features machinable inner and outer diameters, offering superior precision and cylindricity tolerances, with post-installation single-point machining capable of achieving IT7 inner diameter tolerance.",
+    "sources": [
+      {
+        "chunk_id": "680188b0a8169289_2_4",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 4.917394161224365
+      },
+      {
+        "chunk_id": "cd4e8ad7661ee80f_5_2",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 5,
+        "score": 3.012709379196167
+      },
+      {
+        "chunk_id": "cd4e8ad7661ee80f_4_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 4,
+        "score": 2.7045884132385254
+      },
+      {
+        "chunk_id": "53de490be4774c80_4_0",
+        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+        "page_num": 4,
+        "score": 2.7019124031066895
+      },
+      {
+        "chunk_id": "89f08f1aa59fdf66_1_0",
+        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 2.662707805633545
+      }
+    ],
+    "keyword_recall": 0.3333,
+    "token_f1": 0.0673,
+    "semantic_sim": 0.7939,
+    "groundedness": 0.4229,
+    "composite": 0.3954
+  },
+  {
+    "question_id": "q019",
+    "question": "What solid lubricants are used in GGB-CBM bearings and how do they work?",
+    "answer": "Okay, so I need to figure out what solid lubricants are used in GGB-CBM bearings and how they work. I remember from the context that GGB products are for hydro power applications and use a self-lubricating material with graphite and MoS₂. But the customer is asking about GGB-CBM bearings specifically.\n\nFirst, I should check the catalog context provided. It mentions that GGB-CGM® uses a homogeneous distribution of solid lubricant (graphite, MoS₂) which forms a lubricant film. The self-lubricating property allows for maintenance-free performance, high load capacity, and corrosion resistance.\n\nNow, the customer is asking about GGB-CBM. I don't see specific information about GGB-CBM in the provided context. The context only talks about GGB-CGM® and HPM/HPF materials. So, I might need to infer or state that the information isn't available.\n\nIf I can't find specific details on GGB-CBM, I should advise the customer to contact the supplier for more information. Alternatively, if there's a related product, like GGB-CGM, I can mention that as an alternative source.\n\nWait, the customer is specifically asking about GGB-CBM, so I should focus on that. Since the context doesn't provide details on GGB-CBM, the answer should reflect that the information isn't available and suggest contacting the supplier.\n\nI should structure the answer to first state that the information isn't provided, then offer the next step, which is contacting the supplier. I need to keep it clear and concise, avoiding any technical jargon that isn't in the context.\n\nSo, putting it all together, the answer should inform the customer that the specific details about GGB-CBM's solid lubricants aren't available in the provided context and suggest reaching out to the supplier for more information.\n</think>\n\nThe information regarding the solid lubricants used in GGB-CBM bearings is not provided in the given context. For more details, please contact the supplier.",
+    "reference": "GGB-CBM bearings are manufactured using a powder metallurgy process with a metallic matrix containing homogeneously distributed solid lubricants, specifically graphite and MoS2, which form a lubricant film during motion to provide self-lubricating, maintenance-free performance.",
+    "sources": [
+      {
+        "chunk_id": "680188b0a8169289_2_4",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 4.551860332489014
+      },
+      {
+        "chunk_id": "89f08f1aa59fdf66_2_0",
+        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 2.6610448360443115
+      },
+      {
+        "chunk_id": "89f08f1aa59fdf66_1_0",
+        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 0.7994994521141052
+      },
+      {
+        "chunk_id": "680188b0a8169289_1_0",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 0.7920425534248352
+      },
+      {
+        "chunk_id": "89f08f1aa59fdf66_2_1",
+        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 0.6316820979118347
+      }
+    ],
+    "keyword_recall": 0.6,
+    "token_f1": 0.1264,
+    "semantic_sim": 0.8378,
+    "groundedness": 0.2664,
+    "composite": 0.491
+  },
+  {
+    "question_id": "q020",
+    "question": "What design features of the LinMot stainless steel motor prevent dirt accumulation in hygienic environments?",
+    "answer": "Okay, so I need to figure out the design features of the LinMot stainless steel motor that prevent dirt accumulation in hygienic environments. Let me start by looking at the provided catalog context to gather relevant information.\n\nFirst, I see that the product is a linear motor, specifically the LinMot stainless steel motor. It's used in various applications like pick and place, packaging, and printing presses. The key points about its design are that it's constructed of stainless steel EN 1.4404/AISI 316, which is a common material for hygienic applications because it's resistant to rust and bacteria. The catalog mentions that these motors were designed for harsh environments, emphasizing a hygienic design.\n\nLooking further, the motors are made without extra edges, corners, holes, or screw connections. This is important because any protrusions could trap or attract dirt, leading to clogging or contamination. The windings are completely coated in epoxy, which probably helps in reducing dirt buildup by encapsulating the windings and preventing them from coming into contact with external dirt.\n\nAdditionally, the materials used are likely to be non-porous and have a smooth surface, which would help in preventing dirt from adhering and causing blockages. The lack of any additional features like edges or connections that could become entry points for dirt is a significant design feature.\n\nI should also consider the manufacturing process. Since the windings are coated in epoxy, this might be a deliberate step to ensure that the motor remains clean and functional without requiring additional maintenance or cleaning steps. This coating would act as a barrier against dirt and moisture, maintaining the motor's performance in a hygienic environment.\n\nPutting this all together, the key design features that prevent dirt accumulation are the use of stainless steel with epoxy-coated windings, the absence of protruding parts, and the overall construction that minimizes dirt entry. These features work together to ensure the motor remains clean and hygienic, which is crucial for applications where contamination control is a priority.\n</think>\n\nThe LinMot stainless steel motor prevents dirt accumulation in hygienic environments through several key design features:\n\n1. **Material Selection**: Constructed from stainless steel EN 1.4404/AISI 316, which is known for its resistance to rust and bacteria, making it ideal for hygienic applications.\n\n2. **Design for Cleanliness**: The motor is designed without any protruding edges, corners, holes, or screw connections, which could trap or attract dirt, thus",
+    "reference": "The LinMot stainless steel motor is manufactured without extra edges, corners, holes, or screw connections to prevent the buildup of dirt. The windings are completely coated in epoxy resin, shielding them from moisture and corrosion.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": 6.260515213012695
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": -2.050123453140259
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": -3.6889452934265137
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -3.778846502304077
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": -5.647826194763184
+      }
+    ],
+    "keyword_recall": 0.8788,
+    "token_f1": 0.1406,
+    "semantic_sim": 0.8482,
+    "groundedness": 0.5985,
+    "composite": 0.6446
+  },
+  {
+    "question_id": "q021",
+    "question": "When was NTI AG, the maker of LinMot, founded and when did it become independent?",
+    "answer": "Okay, so I need to figure out when NTI AG was founded and when it became independent. The user is a product specialist for an industrial and mechanical parts catalog, and they're helping a sales rep answer a customer's question. The customer is asking about the founding year of NTI AG and when they became independent.\n\nFirst, I'll look through the provided catalog context to find any information related to the founding year and independence. I'll start by reading the first paragraph of the context. It says, \"NTI AG has been operating independently since 2000.\" That seems relevant because it directly mentions the year it became independent.\n\nNext, I'll check the other parts of the context to see if there's any mention of when NTI AG was founded. The first paragraph mentions that NTI AG was established in 1993 as part of the Sulzer Group. So, the founding year is 1993.\n\nI don't see any other information in the context that would contradict or provide additional details about these two points. The rest of the context talks about their product lineup, certifications, and applications, which aren't necessary for answering the specific question about founding and independence.\n\nSo, putting it together, NTI AG was founded in 1993 and became independent in 2000. I should present this information clearly, using the exact figures and years as they appear in the context without adding any extra information or rounding the numbers.\n\nI should also make sure to structure the answer in a way that's easy to understand, perhaps in a short paragraph or bullet points, but since the user specified to use markdown tables for numeric specs and bullet points for descriptions, I'll follow that format. However, since the question is straightforward, a simple statement should suffice.\n\nI need to ensure that I'm not making any assumptions or adding information not present in the context. For example, I shouldn't assume that the founding year is different or that they became independent earlier or later than stated. I'll stick strictly to the information given.\n\nIn summary, the answer should clearly state the founding year as 1993 and the independence year as 2000, using the exact terms from the context without any alterations.\n</think>\n\nNTI AG, the manufacturer of LinMot, was founded in 1993 as part of the Sulzer Group. It became independent in 2000.",
+    "reference": "NTI AG was founded in 1993 as part of the Sulzer Group and has been operating independently since 2000.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": 5.910458564758301
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": -5.611002445220947
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": -6.2701334953308105
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_2_1",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 2,
+        "score": -6.347089767456055
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_1_1",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 1,
+        "score": -6.604211330413818
+      }
+    ],
+    "keyword_recall": 1.0,
+    "token_f1": 0.09,
+    "semantic_sim": 0.6805,
+    "groundedness": 0.5856,
+    "composite": 0.6305
+  },
+  {
+    "question_id": "q022",
+    "question": "How many countries does LinMot supply its products to?",
+    "answer": "Okay, so I need to figure out how many countries LinMot supplies its products to based on the provided catalog context. Let me start by reading through the context carefully.\n\nThe context begins by introducing NTI AG, a company that specializes in manufacturing linear direct drives for industrial applications. It was established in 1993 as part of the Sulzer Group and became independent in 2000. Their product lineup includes LinMot® for linear motors and MagSpring® for magnetic springs. They supply products to 80 countries worldwide.\n\nNext, the context details the Linear Rotary Motors, specifically the LinMot product line. It mentions various applications like packaging, printing, CNC, industrial robots, and others. However, the key point about the number of countries is right at the beginning when it states that LinMot supplies products to 80 countries worldwide.\n\nI don't see any other mentions of the number of countries in the rest of the context. The product applications and specifications don't provide additional information on the number of countries. So, the answer should be based solely on the first sentence.\n\nI need to make sure I'm not adding any information that's not in the context. The user wants a precise answer using exact figures and details from the catalog. Since the context clearly states 80 countries, that's the answer I should provide.\n</think>\n\nLinMot supplies its products to **80 countries worldwide**.",
+    "reference": "LinMot (NTI AG) supplies its products in 80 countries worldwide.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": 4.869349956512451
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": -3.3147127628326416
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": -5.201803684234619
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": -5.28693151473999
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -5.372439861297607
+      }
+    ],
+    "keyword_recall": 1.0,
+    "token_f1": 0.0823,
+    "semantic_sim": 0.7499,
+    "groundedness": 0.7019,
+    "composite": 0.6633
+  },
+  {
+    "question_id": "q023",
+    "question": "How old is Maedler as a company and where is it headquartered?",
+    "answer": "Okay, so I need to answer the customer's question about how old Maedler is as a company and where it's headquartered. Let me start by looking through the provided catalog context to find the relevant information.\n\nFirst, I'll scan the text for any mentions of the company's founding year or headquarters. I see that the first paragraph mentions it was founded by Mr. Bruno Maedler in 1882. That's a key detail. Next, I check if there's any information about the headquarters. The second paragraph says they are like Walmart in the industrial mechanical products retailing space, but it doesn't specify where Walmart is located. However, the third paragraph mentions that they cater to industries like cement, textile, steel, and power plants, but again, no location is given there.\n\nI don't see any other mentions of the headquarters in the rest of the text. The parameters and tables provided don't include any information about location or founding year beyond what's already stated. So, I can confidently state the founding year from the first paragraph and note that the location isn't provided in the context.\n\nI should present the answer clearly, stating the age as of 2023, which would be 141 years, and mention the lack of headquarters location in the provided context. If the location isn't available, I should suggest that the user might need to refer to another product or contact the supplier for more details, but since the question is about the company's info, I'll stick to what's given.\n</think>\n\nMaedler has been in operation since 1882, making it 141 years old as of 2023. However, the catalog context does not provide information about the company's headquarters location. For more details on the location, the user may need to consult additional resources or contact the supplier.",
+    "reference": "Maedler is a 138-year-old German brand with its headquarters in Stuttgart, founded in 1882 by Mr. Bruno Maedler.",
+    "sources": [
+      {
+        "chunk_id": "ae0fffc75d87b265_1_1",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 1,
+        "score": -0.12619081139564514
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_2_1",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 2,
+        "score": -0.2234536111354828
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_1_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 1,
+        "score": -0.798481822013855
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_2_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 2,
+        "score": -1.6936633586883545
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_13_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 13,
+        "score": -3.868224620819092
+      }
+    ],
+    "keyword_recall": 0.6667,
+    "token_f1": 0.0841,
+    "semantic_sim": 0.7066,
+    "groundedness": 0.2429,
+    "composite": 0.4674
+  },
+  {
+    "question_id": "q024",
+    "question": "Where is GGB North America headquartered and what is its contact address?",
+    "answer": "Okay, so I need to figure out where GGB North America is headquartered and provide its contact address based on the provided catalog context. Let me start by reading through the information given.\n\nFirst, I see that GGB North America is listed under the \"Glossary\" section with the address: 700 Mid Atlantic Parkway, Thorofare, NJ 08086 USA. That seems straightforward. The contact details are also provided there: phone number +1-856-848-3000, fax +1-856-848-5115, and email usa@gbearings.com.\n\nI should make sure to present this information clearly, using the exact figures and names as they appear in the catalog. There's no need to add any extra information or round the numbers. Also, the address is in the U.S., so I should include the state abbreviation (NJ) and the ZIP code (08086).\n\nI don't see any other headquarters locations mentioned in the catalog, so I can confidently state that this is where GGB North America is headquartered. There's no need to mention other regions or countries unless the catalog specifies, which it doesn't here.\n\nSo, putting it all together, the answer should include the headquarters address, contact phone number, fax number, and email. I'll format it in a clear, concise manner without any unnecessary details.\n</think>\n\nGGB North America is headquartered at 700 Mid Atlantic Parkway, Thorofare, NJ 08086 USA. Their contact details include:  \n- Phone: +1-856-848-3000  \n- Fax: +1-856-848-5115  \n- Email: usa@gbearings.com  \n\nThis information is directly provided in the catalog context.",
+    "reference": "GGB North America is headquartered at 700 Mid Atlantic Parkway, P.O. Box 189, Thorofare, New Jersey 08086, USA.",
+    "sources": [
+      {
+        "chunk_id": "cd4e8ad7661ee80f_12_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 12,
+        "score": 5.765965938568115
+      },
+      {
+        "chunk_id": "251beb40489e3505_4_0",
+        "source_doc": "ggb-ep-engineered-plastics-bearings-bushings-for-e-bike-applications.pdf",
+        "page_num": 4,
+        "score": 5.093870639801025
+      },
+      {
+        "chunk_id": "cd4e8ad7661ee80f_11_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 11,
+        "score": 4.7429728507995605
+      },
+      {
+        "chunk_id": "680188b0a8169289_1_2",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 2.126431941986084
+      },
+      {
+        "chunk_id": "680188b0a8169289_1_1",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 0.2590673863887787
+      }
+    ],
+    "keyword_recall": 0.6842,
+    "token_f1": 0.0942,
+    "semantic_sim": 0.7626,
+    "groundedness": 0.642,
+    "composite": 0.55
+  },
+  {
+    "question_id": "q025",
+    "question": "What is the difference between the Nabtesco RVE and RVC precision reduction gearboxes?",
+    "answer": "Okay, so I need to figure out the difference between the Nabtesco RVE and RVC precision reduction gearboxes. I'm not very familiar with these products, but I'll try to break it down step by step.\n\nFirst, I'll look at the information provided in the catalog. The RVE and RVC are both precision reduction gearboxes, but they have some differences. Let me start by listing out the specifications for each.\n\nFor the RVE:\n- Standard Ratio: 27 to 37.34\n- Rated Torque: 98 Nm to 1176 Nm\n- Rated Output Speed: Not specified for RVE, but for RVC it's up to 15 rpm\n- Allowable Thrust Load: 5880 N for RVE, 51000 N for RVC\n- Backlash: 1 arcminute for both\n- Industries: Steel, Tyre, Material Handling, Automobile, Aviation\n- Applications: Robot swing axis, Robot arm, Indexing table\n\nFor the RVC:\n- Standard Ratio: Same as RVE, 27 to 37.34\n- Rated Torque: Same range, 98 Nm to 1176 Nm\n- Rated Output Speed: Up to 15 rpm\n- Allowable Thrust Load: 5880 N for RVE, 51000 N for RVC\n- Backlash: 1 arcminute for both\n- Industries: Same as RVE\n- Applications: Same as RVE\n\nWait, that seems similar. But the customer is asking about the difference. Maybe I'm missing something. Let me check again.\n\nLooking back, the RVE and RVC both have the same standard ratio, rated torque, backlash, industries, and applications. The only difference I can see is in the thrust load, but both have the same values. Hmm, maybe I'm misunderstanding the data.\n\nWait, perhaps the RVE and RVC have different features beyond the specs. Maybe one is for a specific application or has different mounting options. But in the catalog, it just says RVC is a hollow shaft mounting type of planetary RV gearhead, same as RVE.\n\nAlternatively, maybe the RVE is for a different type of automation, like robots, while RVC is for machine tools or something else. But the industries listed are the same.\n\nWait, maybe the RVE",
+    "reference": "The Nabtesco RVE is a solid shaft mounting type of planetary RV gearhead suited for higher torque and lower backlash applications. The RVC is a hollow shaft mounting type, designed for more compact and lightweight applications.",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_1",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 4.326355457305908
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 3.8459086418151855
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_2_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 2,
+        "score": 3.5295064449310303
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_2",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 2.3128786087036133
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_4_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 4,
+        "score": 1.8699085712432861
+      }
+    ],
+    "keyword_recall": 0.7037,
+    "token_f1": 0.1484,
+    "semantic_sim": 0.8349,
+    "groundedness": 0.7419,
+    "composite": 0.6034
+  },
+  {
+    "question_id": "q026",
+    "question": "How does a LinMot MagSpring differ from a conventional mechanical spring?",
+    "answer": "Okay, so I need to figure out how a LinMot MagSpring differs from a conventional mechanical spring based on the provided catalog context. Let me start by reading through the relevant sections carefully.\n\nFirst, the catalog mentions that MagSpring products are referred to as \"magnetic springs,\" but they are different from traditional mechanical springs. The key difference is in their force characteristics. Unlike mechanical springs, where force increases with displacement, MagSpring components exert a constant force across their entire working range. That's a crucial point.\n\nLooking at the product application section, it says that MagSprings are suitable for compensating weight forces in vertical drive arrangements. This makes them ideal for balancing weight forces because their force doesn't change with displacement. In contrast, mechanical springs would require more force as they compress or extend, which might not be ideal for maintaining balance in vertical systems.\n\nThe catalog also mentions that MagSpring components are used in linear modules, specifically SM01 and SM02, which are part of the Valka's grading and sorting systems. These modules are designed for industries like food and pharmaceutical where durability and precision are important. The fact that they use MagSprings suggests that the constant force is beneficial for these applications.\n\nIn terms of specifications, the product line includes various sizes and strength classes to allow precise load adjustments. The stroke lengths range from 60 mm to 575 mm, and the force ranges from 67 N to 572 N. These precise specifications indicate that MagSprings are designed for specific load requirements, which might not be as precise with traditional springs.\n\nThe selection parameters table shows that the minimum stroke is 60 mm and the maximum is 575 mm, with corresponding force ranges. This shows that MagSprings can handle a wide range of forces, which is another advantage over traditional springs that might not vary as widely.\n\nThe applications listed for MagSprings include Kraft VPS100, PARO-Blitz, CNC, and material handling. These applications likely benefit from the constant force, which helps maintain performance without wear or imbalance.\n\nPutting this all together, the main differences are the constant force output, suitability for vertical drives, precise load adjustments, and the wide range of specifications. These factors make MagSprings more suitable for specific industrial applications compared to traditional mechanical springs, which might vary in force with displacement and not offer the same level of precision or durability.\n</think>\n\nThe LinMot MagSpring differs from a conventional mechanical spring in several key aspects:\n\n1. **Force Characteristics",
+    "reference": "Unlike a conventional mechanical spring where force increases with displacement, a MagSpring produces a constant force across its entire working range, making it particularly suitable for compensating weight forces in vertical drive arrangements.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_8_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 8,
+        "score": 5.098094940185547
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_8_2",
+        "source_doc": "LinMot.pdf",
+        "page_num": 8,
+        "score": 1.60340416431427
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": -2.2354795932769775
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -2.958613634109497
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": -4.3046040534973145
+      }
+    ],
+    "keyword_recall": 0.8667,
+    "token_f1": 0.1298,
+    "semantic_sim": 0.7656,
+    "groundedness": 0.7702,
+    "composite": 0.6427
+  },
+  {
+    "question_id": "q027",
+    "question": "What distinguishes the LinMot PR01 from the PR02 linear rotary motor in terms of design?",
+    "answer": "Okay, so I need to figure out what distinguishes the LinMot PR01 from the PR02 linear rotary motor. I'm not very familiar with these products, but I'll try to use the information provided in the catalog to answer the question.\n\nFirst, I'll look through the catalog context to gather relevant details. The catalog mentions two product families: the PR01 and PR02. Both are linear rotary motors made by LinMot. They are used in various applications like packaging, electronics, and automation.\n\nLooking at the product applications section, both PR01 and PR02 are used in packaging, electronics, and automation. So, they share similar use cases. But I need to find specific design differences.\n\nIn the selection parameters table, both models have the same peak velocity (3.9m/s), peak torque (1.5m/s² to 8.9m/s²), and maximum RPM (1000rpm). Since these parameters are the same, it suggests that the main differences lie elsewhere.\n\nThe packaging section mentions that the PR01 combines a linear and a rotary motor in one housing, whereas the PR02 is designed for specific industries like food and pharmaceutical. Wait, no, that's not exactly clear. Let me check again.\n\nIn the product applications for PR01, it's mentioned that they combine a linear and a rotary motor in one housing. For PR02, the applications include packaging, electronics, and automation, but there's no specific mention of industries like food or pharmaceutical. However, in the PR02's product application, it's noted that they are used in industries such as packaging, electronics, and automation, but not specifically highlighted for any particular industry.\n\nWait, looking back, the PR01 is described as combining a linear and a rotary motor in one housing, which might imply a more integrated design compared to the PR02, which might be more modular or separate. Also, the PR02 is mentioned to be used in the food and pharmaceutical industries, but the PR01 isn't specified for those.\n\nAdditionally, the packaging section for PR01 mentions that they are designed for harsh environments, which might suggest durability and hygienic design, possibly catering to industries where cleanliness is crucial, like food processing. The PR02, on the other hand, might be more general-purpose.\n\nSo, putting this together, the PR01 likely has an integrated design, combining linear and rotary movements in one housing, making it suitable",
+    "reference": "The PR01 combines a linear and rotary motor in series within one housing for the smallest possible footprint, with optional MagSpring, pneumatic brake, and emergency rail kit. The PR02 uses a slim, easy-to-clean housing design with options for a hollow shaft, pneumatic pusher, MagSpring, torque sensor, and force sensor.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": 4.511962890625
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": 0.1251053512096405
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": 0.05067664757370949
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -0.32149285078048706
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": -0.35818517208099365
+      }
+    ],
+    "keyword_recall": 0.4359,
+    "token_f1": 0.1131,
+    "semantic_sim": 0.8243,
+    "groundedness": 0.7322,
+    "composite": 0.4967
+  },
+  {
+    "question_id": "q028",
+    "question": "What is the structural difference between the Nabtesco AF-N and AF-C servo actuators?",
+    "answer": "Okay, so I need to figure out the structural differences between the Nabtesco AF-N and AF-C servo actuators based on the provided catalog context. Let me start by looking through the information given.\n\nFirst, I see that both AF-N and AF-C are part of the 1.4 Servo Actuator category. The AF-N is described as a solid shaft type compact actuator, directly mounted with a servomotor. It's noted for being highly accurate, rigid, and reliable, and it's a successor to the Precision Reduction Gear RV. The AF series allows for a reduction in the design and assembly of gears and motors for customers.\n\nNow, looking at the AF-C, I don't see it mentioned in the same way. The selection parameters table only lists AF-N, and the product applications for AF-N include things like palletizing robots, index tables, etc. There's no specific mention of AF-C in the provided context. This makes me think that AF-C might not be a standard product listed, or perhaps it's a different model within the same series.\n\nSince the catalog doesn't provide details on AF-C, I can't quote exact specifications for it. However, I can infer that AF-C might be a different variant or perhaps a component within the AF series. Maybe it's a smaller or different configuration compared to AF-N.\n\nPutting this together, the structural difference likely lies in the design and size. AF-N is a solid shaft, compact actuator, while AF-C might be a different configuration, possibly with a different shaft size or design. Without exact specs, I can't be precise, but based on the context, AF-N is a more advanced version with specific benefits, whereas AF-C might be a different model that's not detailed here.\n\nI should also consider that AF-C might not be a standard product, so if the customer is asking about it, they might need to look into other sources or contact the supplier for more information. But since the catalog doesn't mention AF-C, I can't provide a detailed answer about it.\n\nIn summary, AF-N is a solid shaft, compact, high-accuracy actuator, while AF-C might be a different model, possibly with a different design or not detailed in the provided context. Without more information, I can't specify the exact structural differences beyond what's given.\n</think>\n\nThe structural differences between the Nabtesco AF-N and AF-C servo actuators can be summarized as follows:\n\n1. **AF-N**:\n   - **Design**: Solid",
+    "reference": "The AF-N is a solid shaft type compact actuator directly mounted with a servomotor, while the AF-C is a hollow shaft type compact actuator with the same direct servo motor mounting. Both are successors to the Precision Reduction Gear RV and share the same rated capacity range.",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_1",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 1.914524793624878
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_6_2",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 6,
+        "score": 1.8587223291397095
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_5_3",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 5,
+        "score": -1.2258286476135254
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_6_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 6,
+        "score": -1.9355329275131226
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_2",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": -2.72737717628479
+      }
+    ],
+    "keyword_recall": 0.7429,
+    "token_f1": 0.1615,
+    "semantic_sim": 0.8916,
+    "groundedness": 0.7164,
+    "composite": 0.6307
+  },
+  {
+    "question_id": "q029",
+    "question": "What safety features are integrated into the LinMot P01 linear motor?",
+    "answer": "Okay, so I need to figure out what safety features are integrated into the LinMot P01 linear motor based on the provided catalog context. Let me start by reading through the context carefully.\n\nFirst, I see that the product line includes various modules like the P01, P04, and DM01. Each module has different applications, such as packaging, CNC, material handling, and others. The P01 is mentioned in the product applications section, but I need to look for specific safety features.\n\nLooking at the packaging section, the P01 is used in applications like Kraft VPS100 and PARO-Blitz. Kraft VPS100 is for flexible filling and closing, and PARO-Blitz is for assembly. These applications might require some safety features, but I'm not sure if they're explicitly stated.\n\nIn the product applications, the P01 is used in CNC and material handling. CNC machines often require safety features like emergency stop mechanisms, over-speed protection, and mechanical guards. Material handling might involve lifting or moving parts, so there could be features like guardrails or anti-slip features.\n\nThe packaging section mentions that the P01 is used in flexible applications, which might require tamper resistance or tamper proofing, but that's more about security than safety in terms of machinery.\n\nLooking at the product specifications, the P01 has a stroke length and force range, but nothing about safety features. The selection parameters table mentions max stroke, force, total weight, and carriage length, but again, no safety specs.\n\nI don't see any mention of safety features like emergency stop mechanisms, over-speed protection, or guardrails in the provided context. The catalog doesn't provide technical details on safety features, only on the motor's performance and applications.\n\nSince the catalog doesn't specify any safety features for the P01, I can't provide exact details. I should note that the information isn't available in the provided context and suggest checking the product specifications or contacting the supplier for more details.\n</think>\n\nThe LinMot P01 linear motor does not have any specific safety features mentioned in the provided catalog context. The information about safety mechanisms like emergency stops, over-speed protection, or guardrails is not detailed. Therefore, it is not possible to provide exact specifications for safety features based on the given context. For more detailed information, please refer to the product specifications or contact the supplier.",
+    "reference": "The LinMot P01 linear motors have integrated position measuring and overload protection. They are permanently operated ironless synchronous servo motors.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": 3.2669005393981934
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": 2.8300390243530273
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": 2.3923914432525635
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": 1.5286744832992554
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": 1.23499596118927
+      }
+    ],
+    "keyword_recall": 0.5263,
+    "token_f1": 0.0482,
+    "semantic_sim": 0.7965,
+    "groundedness": 0.6404,
+    "composite": 0.4914
+  },
+  {
+    "question_id": "q030",
+    "question": "Why is the GGB HPMB bearing considered environmentally friendly?",
+    "answer": "Okay, so I need to figure out why the GGB HPMB bearing is considered environmentally friendly. Let me start by looking at the information provided in the catalog context. \n\nFirst, I see that there are two products mentioned: GGB-CGM® and HPM™/HPF™. The customer is asking about the HPMB bearing, which I think is another name for HPM or HPF. The context says that HPM and HPF are environmentally friendly composite bearing materials designed for hydro power applications. They mention being environmentally friendly, but I need to understand exactly why.\n\nLooking at the table provided, there's a section on Weight Savings. It says that GGB bearings have a compact one-piece construction, which provides space and weight savings compared to traditional roller bearings or greased bronze bearings. That's a good point because weight savings can contribute to energy efficiency, which is part of environmental friendliness.\n\nThen, in the Oil & Gas section, it mentions that in the oil and gas industry, high stress, heat, and contamination are challenges. GGB bearings deliver superior performance and durability, which helps keep operations running smoothly and reduces downtime. Reduced downtime is definitely a plus for the environment because it means less equipment failure and more efficient resource use.\n\nThe Construction section also talks about the same benefits as Oil & Gas, so GGB bearings are suitable there too. Again, the self-lubricating and easy-to-mount features help with maintenance, reducing the need for frequent oil changes, which cuts down on emissions and waste.\n\nLooking at the Aerospace section, it's mentioned that GGB bearings are used there as well. Aerospace applications often have strict environmental regulations, so using bearings that don't require as much maintenance or are self-lubricating would help reduce emissions and comply with standards.\n\nThe table also mentions Weight Savings, which ties into fuel savings because lighter equipment uses less fuel. This contributes to environmental friendliness by reducing energy consumption and carbon footprint.\n\nAdditionally, the fact that these bearings are made using composite materials might be a point. Composites are often more durable and lightweight than traditional materials, which can reduce environmental impact by minimizing resource use and waste.\n\nPutting it all together, the reasons seem to be:\n1. Weight savings leading to fuel efficiency and energy savings.\n2. Self-lubricating properties reducing maintenance and oil use, thus lowering emissions.\n3. Designed for harsh environments like oil and gas, aerospace, and construction, where durability and reliability are crucial, contributing to longer equipment life and reduced downtime.\n4.",
+    "reference": "The GGB HPMB bearing is environmentally friendly because it operates grease-free, eliminating the need for lubrication while providing low friction and low wear rate for extended bearing life.",
+    "sources": [
+      {
+        "chunk_id": "680188b0a8169289_2_4",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 5.32833194732666
+      },
+      {
+        "chunk_id": "cd4e8ad7661ee80f_5_0",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 5,
+        "score": 4.277463912963867
+      },
+      {
+        "chunk_id": "89f08f1aa59fdf66_1_1",
+        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+        "page_num": 1,
+        "score": 2.308772087097168
+      },
+      {
+        "chunk_id": "89f08f1aa59fdf66_2_1",
+        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 2.1411120891571045
+      },
+      {
+        "chunk_id": "89f08f1aa59fdf66_2_0",
+        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 1.8365802764892578
+      }
+    ],
+    "keyword_recall": 0.52,
+    "token_f1": 0.0714,
+    "semantic_sim": 0.8608,
+    "groundedness": 0.2715,
+    "composite": 0.4558
+  },
+  {
+    "question_id": "q031",
+    "question": "What advantage does the LinMot P04 actuator module have over pneumatic actuators?",
+    "answer": "Okay, so I need to figure out the advantages of the LinMot P04 actuator module compared to pneumatic actuators. Let me start by recalling what I know about both types of actuators.\n\nFirst, pneumatic actuators use compressed air to create force. They're commonly used in industrial settings because they can handle a wide range of pressures and are reliable. But I remember hearing that they can be noisy, require regular maintenance, and might not be as precise or efficient as other options.\n\nOn the other hand, the LinMot P04 is an electric actuator, specifically using linear motors. From the context provided, it mentions things like free positionability, accelerations up to 50 m/s², and the ability to use existing mounting options from pneumatics. It also talks about dynamic and precise movements, which suggests better control and smoother operation.\n\nLooking at the product applications, the P04 can be equipped with mechanical accessories like pneumatics, making it easier to replace or switch between systems. It's used in CNC, packaging, and other automation applications. The key specs include high precision, high acceleration, and energy efficiency.\n\nSo, comparing these, the LinMot P04 likely offers higher precision because electric motors are generally more precise than pneumatic systems. It probably has faster response times since electric systems don't rely on compressed air, which can lag. The acceleration of up to 50 m/s² seems like a big advantage, making it suitable for applications that require quick movements.\n\nEnergy efficiency is another point. Electric motors are typically more efficient than pneumatic systems, which can consume a lot of energy, especially when compressing air. The P04 also mentions dynamic movements, which means it can handle varying loads and speeds more effectively than pneumatic actuators, which might struggle with dynamic changes.\n\nDurability and reliability are mentioned too. Electric systems are generally more durable and don't wear out as quickly as pneumatic components, which can degrade over time. The P04 can handle external forces, torques, and bending moments better, making it suitable for harsher environments.\n\nCustomization is another advantage. The context says LinMot offers customization options, which might allow the P04 to be tailored to specific needs, something that might not be as easily done with pneumatic actuators.\n\nPutting this all together, the main advantages of the LinMot P04 over pneumatic actuators would be higher precision, faster response times, higher acceleration, energy efficiency, durability, and better handling of",
+    "reference": "The LinMot P04 actuator is compatible with all mechanical accessories known from pneumatics, making replacement of pneumatic systems straightforward. It offers free positionability and accelerations of up to 50 m/s², enabling dynamic and precise movements that exceed typical pneumatic capabilities.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": 3.146113634109497
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": 1.0693042278289795
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -0.35468268394470215
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": -1.732875108718872
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_2",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": -2.0749270915985107
+      }
+    ],
+    "keyword_recall": 0.7895,
+    "token_f1": 0.149,
+    "semantic_sim": 0.8559,
+    "groundedness": 0.6655,
+    "composite": 0.6274
+  },
+  {
+    "question_id": "q032",
+    "question": "What is the key capability of the Nabtesco RVTM precision reduction gear in industrial robots?",
+    "answer": "Okay, so I need to figure out the key capability of the Nabtesco RVTM precision reduction gear in industrial robots based on the provided catalog context. Let me start by going through the information given.\n\nFirst, the context mentions that precision reduction gears, like the RVTM, are key components in the joints of industrial robots. They enable precise movement while maintaining optimum power. It also notes that Nabtesco has over 30 years of experience and a major market share, which suggests reliability and expertise.\n\nLooking at the product applications section, it lists autonomous mobile robots, railroad vehicles, and aerial work platforms. But the focus here is on industrial robots, so I'll concentrate on that. The RVTM is used in robot swing axis, robot arm, and indexing table applications. That gives me specific uses in robotics.\n\nThe technical specifications include a standard ratio ranging from 27 to 37.34, which indicates the gear ratio range. The rated torque goes from 98 Nm to 1176 Nm, showing the torque capacity. The output speed is up to 15 rpm, which is the speed the gears can handle. The allowable thrust load is from 5880 N to 51000 N, showing the range of forces it can manage. Backlash is up to 1 arcminute, which is quite precise.\n\nNabtesco's experience and market presence suggest that this gear is reliable and high-performing. The fact that it's used in robot joints means it's critical for precise and powerful movements, which is essential for industrial automation.\n\nPutting this together, the key capability is the precise and reliable reduction of speed while increasing torque, which is vital for the smooth and efficient operation of industrial robots. The gear's high torque, precise speed control, and durability make it a standout component.\n</think>\n\nThe key capability of the Nabtesco RVTM precision reduction gear in industrial robots is its ability to reduce speed while increasing torque, enabling precise and powerful movements essential for industrial automation. With a range of torque from 98 Nm to 1176 Nm and a maximum output speed of 15 rpm, the RVTM provides reliable performance, making it a critical component for applications like robot swing axes, arms, and indexing tables. Its 30+ years of experience and market presence ensure durability and precision, enhancing the efficiency and effectiveness of industrial robots.",
+    "reference": "The Nabtesco RVTM precision reduction gear enables precise movement while maintaining optimum power in robot joints. Nabtesco holds a major share of the global market for this product, with more than 30 years of experience in the field.",
+    "sources": [
+      {
+        "chunk_id": "d69ee2dd3cbaa771_1_1",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": 6.943585395812988
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_5_2",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 5,
+        "score": 4.124894618988037
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_2_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 2,
+        "score": 1.8343859910964966
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_4_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 4,
+        "score": 1.4860618114471436
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_6_2",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 6,
+        "score": 1.3034391403198242
+      }
+    ],
+    "keyword_recall": 0.8182,
+    "token_f1": 0.1502,
+    "semantic_sim": 0.8979,
+    "groundedness": 0.792,
+    "composite": 0.6672
+  },
+  {
+    "question_id": "q033",
+    "question": "What advantage does the LinMot DM01 linear module offer over separate drive components?",
+    "answer": "Okay, so I need to figure out the advantage of the LinMot DM01 linear module over separate drive components. Let me start by understanding what the DM01 is. From the context, it's a linear module with a 60 mm stroke, 67 N force, and weighs 1039 g. It's made of linear guides and has LinMot motors. It's used in applications like packaging, electronics, laboratory automation, etc.\n\nNow, the question is about the advantage over separate drives. Separate drives would mean using individual motor and encoder setups, right? So, what are the downsides of using separate drives?\n\nFirst, I think about the benefits of using a module. Modules are probably pre-assembled, which would save time and effort. If you have to install separate components, you'd have to connect the motor, encoder, and other parts yourself, which takes time and requires more expertise.\n\nAnother point is reliability. The module is designed to work together, so it's probably more durable and less prone to wear and tear. Separate drives might not be as optimized for the specific application, leading to potential failures if not properly configured.\n\nPrecision is another factor. The module is likely designed with precise engineering in mind, ensuring accurate positioning. Separate drives might require additional calibration, which could introduce errors.\n\nCost is also a consideration. Modules might be more cost-effective because they're a ready-to-install solution. Buying separate components could be more expensive, especially if you need multiple units.\n\nWeight and size could be another advantage. The module is probably lightweight and compact, making installation easier and reducing the overall system weight. Separate drives might be bulkier and require more space.\n\nDurability and maintenance: Since the module is designed for specific use cases, it's likely more reliable and requires less maintenance. Separate drives might need more customizations, leading to more maintenance needs.\n\nIntegration: The module is probably designed to integrate seamlessly with other parts of the system, reducing the need for additional wiring or connections. Separate drives would need to be connected individually, which could complicate the system.\n\nSo, putting it all together, the LinMot DM01 offers advantages like time-saving, reliability, precision, cost-effectiveness, compactness, durability, easier integration, and reduced maintenance compared to using separate drive components.\n</think>\n\nThe LinMot DM01 linear module offers several advantages over using separate drive components:\n\n1. **Time Efficiency**: The module is pre-assembled, reducing installation time and the need for manual setup of motors and",
+    "reference": "The LinMot DM01 linear modules are complete drive solutions that integrate a linear guide and LinMot stators in one unit, with optional built-in MagSpring magnetic springs and a pneumatic holding brake, reducing assembly complexity.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": 2.6829183101654053
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_2",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": 1.4229902029037476
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": 1.3773994445800781
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": 1.0648113489151
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": 0.7462601065635681
+      }
+    ],
+    "keyword_recall": 0.4333,
+    "token_f1": 0.0805,
+    "semantic_sim": 0.7926,
+    "groundedness": 0.6136,
+    "composite": 0.462
+  },
+  {
+    "question_id": "q034",
+    "question": "Which GGB bearing types have been approved for use in water turbines by the USA Army Corps of Engineers?",
+    "answer": "Okay, so I need to figure out which GGB bearing types have been approved for use in water turbines by the USA Army Corps of Engineers. Let me start by going through the provided catalog context to gather the necessary information.\n\nFirst, I see that the catalog mentions GGB-CGM® bearings, which are manufactured using a powder metallurgy process with a metallic matrix and solid lubricant. These bearings are self-lubricating, providing high load capacity, a broad temperature range, and corrosion resistance. They're also noted for their maintenance-free performance.\n\nThen, there's HPM™/HPF™ composite materials, which are environmentally friendly and approved for water turbines by the USA Army Corps of Engineers. The catalog highlights that these materials offer a wide temperature range and low thermal expansion, ensuring consistent performance under varying conditions. Additionally, HPM and HPM2 are specifically mentioned as being approved for water turbines.\n\nLooking further, the applications section lists various uses, including water turbines, and specifically mentions that HPM and HPM2 are approved for water turbines by the USA Army Corps of Engineers. This seems to be the key point.\n\nI also notice that other GGB products like Metal-Polymer Bearings, Engineered Plastic Bearings, etc., are mentioned, but the specific approval for water turbines is tied to HPM and HPM2. The advantages section also supports this, noting that these materials are ideal for oil and gas operations, including water turbines.\n\nSo, putting it all together, the GGB bearing types approved for water turbines by the USA Army Corps of Engineers are HPM and HPM2. These materials meet the necessary performance and environmental criteria for such applications.\n</think>\n\nThe GGB bearing types approved for use in water turbines by the USA Army Corps of Engineers are **HPM (High-Pass Material)** and **HPM2 (High-Pass Material 2)**. These materials are specifically designed for water turbines, offering a wide temperature range, low thermal expansion, and excellent corrosion resistance, ensuring optimal performance under various conditions.",
+    "reference": "The GGB HPMB and HPM/HPF bearing types have been approved for use in water turbines by the USA Army Corps of Engineers.",
+    "sources": [
+      {
+        "chunk_id": "680188b0a8169289_2_4",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 6.572031021118164
+      },
+      {
+        "chunk_id": "680188b0a8169289_2_1",
+        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 3.0378170013427734
+      },
+      {
+        "chunk_id": "cd4e8ad7661ee80f_5_2",
+        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
+        "page_num": 5,
+        "score": 1.0750049352645874
+      },
+      {
+        "chunk_id": "53de490be4774c80_3_1",
+        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+        "page_num": 3,
+        "score": 0.4948858618736267
+      },
+      {
+        "chunk_id": "89f08f1aa59fdf66_2_0",
+        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
+        "page_num": 2,
+        "score": 0.4500475823879242
+      }
+    ],
+    "keyword_recall": 0.9545,
+    "token_f1": 0.1261,
+    "semantic_sim": 0.825,
+    "groundedness": 0.3119,
+    "composite": 0.6187
+  },
+  {
+    "question_id": "q035",
+    "question": "What types of products does Maedler offer in its product range?",
+    "answer": "Okay, so I need to figure out what products Maedler offers based on the provided catalog context. Let me start by reading through the context carefully.\n\nFirst, I see that Maedler is described as an industrial and mechanical parts catalog, similar to Walmart for such products. They have a varied range, including power transmission units, their accessories, and other mechanical engineering products. That's a broad category, but I need to get specific.\n\nLooking further down, there's a section about Maedler Couplings under 2.15. It mentions two types: one-piece MAS and two-piece MAT couplings made of steel C45 with a black oxide finish and stainless steel I.4305. They come with or without keyways and have different torsionally stiff types like HU, HB, HZ, HF, HZD, and HFD. Also, elastic couplings with various types like RN, RNG, RNI, RNT, RNK, RNH, and DXA. Curved-tooth gear couplings are also available.\n\nThen, under 2.16, Maedler Gearboxes offers helical, bevel, and worm gearboxes made from special steel. The industries they cater to include cement, textile, steel, and power plants. There's also a product application for metering and mixing machines.\n\nNext, in the product application section, 2.14 Maedler Shrink Disks are mentioned. They support quick mounting and dismounting, available for medium to very high torque. The selection parameters include inner diameter, shaft diameter, torque, and axial load, with industries like material handling, printing, and conveyor systems.\n\nPutting this together, Maedler offers couplings, gearboxes, and shrink disks. Each has specific types and materials, and they cater to various industries. The customer question is about the product range, so the answer should list these products with their types, materials, and industries.\n\nI need to make sure I don't add any information not in the context, just summarize it. Also, the answer should be technically precise, using exact terms like C45 steel, I.4305 stainless steel, specific torque values, and industries mentioned.\n\nSo, the answer should list the products, their types, materials, and the industries they serve. I should present this in a clear, concise manner, possibly using bullet points or a table if needed, but since the user prefers markdown tables, I'll format it accordingly",
+    "reference": "Maedler offers a varied range including power transmission units such as worms and worm gears, spur racks, shrink disks, locking assemblies, thrust pads with spring retainers, and precision levelling adjusters, along with other mechanical engineering products.",
+    "sources": [
+      {
+        "chunk_id": "ae0fffc75d87b265_1_1",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 1,
+        "score": 5.43154764175415
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_2_1",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 2,
+        "score": 5.331958293914795
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_11_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 11,
+        "score": 3.8981521129608154
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_13_0",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 13,
+        "score": 3.767641067504883
+      },
+      {
+        "chunk_id": "ae0fffc75d87b265_10_3",
+        "source_doc": "Maedler Ebook - Final handover (2).pdf",
+        "page_num": 10,
+        "score": 2.850416660308838
+      }
+    ],
+    "keyword_recall": 0.5882,
+    "token_f1": 0.1086,
+    "semantic_sim": 0.7904,
+    "groundedness": 0.7821,
+    "composite": 0.5479
   }
 ]
