@@ -1,0 +1,14 @@
+{
+  "doc_id": "be2607045db44873b5341c85475a4b98",
+  "source_filename": "NSK Ebook - handover file (1).pdf",
+  "source_path": "/content/MultiDimensions/Brand Resources/NSK Ebook - handover file (1).pdf",
+  "file_size_bytes": 13589547,
+  "sha256": "7ef38a554466809c2b2f2a3299e22585c0049c7897194e0f6434a54140a79bfa",
+  "page_count": 20,
+  "status": "completed",
+  "created_at": "2026-06-10T16:53:19.046672",
+  "completed_at": "2026-06-10T16:53:19.046693",
+  "markdown_path": "markdown/be2607045db44873b5341c85475a4b98.md",
+  "processing_time_ms": 979572.0906519998,
+  "vlm_model": "Qwen/Qwen2.5-VL-7B-Instruct"
+}
