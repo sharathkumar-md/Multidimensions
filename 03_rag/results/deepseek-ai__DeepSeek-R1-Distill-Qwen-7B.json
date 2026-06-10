@@ -2,7 +2,7 @@
   {
     "question_id": "q001",
     "question": "What is the backlash range of the Nabtesco RD2 gearhead?",
-    "answer": "Okay, so I need to figure out the backlash range of the Nabtesco RD2 gearhead. Let me start by looking through the provided context to find any relevant information.\n\nFirst, I see that the context is divided into sections about the RD Series and RS type gearheads, along with some product brochures from NABTESCO. The RD Series is described as a pre-lubricated model with a sealed structure, easily mountable on various motors, offering high accuracy and shock resistance. It mentions that the backlash is less than 1 arc minute. It's available in different types like straight, right angle, and",
+    "answer": "Okay, so I need to figure out the backlash range of the Nabtesco RD2 gearhead. Let me start by looking at the information provided in the catalog context. \n\nFirst, I see that there's a section about the RD Series. It mentions that it's a pre-lubricated model with a sealed structure and can be mounted on major motors. It offers high accuracy and shock load resistance. The backlash available is less than 1 arc minute. It's available in straight, right angle, and pulley type input. \n\nThen, looking at the product brochure, the RD2 is listed under 1.13 in the product application section. It's used for robot swing axis and robot arm R/V/E gearhead. It's a solid shaft mounting type of planetary RV gearhead, known for higher torque capacity and lower backlash, making it suitable for various industrial and commercial applications.\n\nIn the selection parameters table for RD2, the Backlash is listed as less than 1 arc minute. So that's the key point here. \n\nI don't see any conflicting information. The RS type has a different backlash range, but the question is specifically about RD2. So the answer should be that the backlash range is less than 1 arc minute.\n</think>\n\nThe backlash range of the Nabtesco RD2 gearhead is less than 1 arc minute.",
     "reference": "The Nabtesco RD2 gearhead has a backlash of 1 arc.min (minimum) to 2 arc.min (maximum).",
     "sources": [
       {
@@ -21,7 +21,7 @@
         "chunk_id": "d69ee2dd3cbaa771_1_0",
         "source_doc": "Nabtesco.pdf",
         "page_num": 1,
-        "score": 0.8242835998535156
+        "score": 0.8242830038070679
       },
       {
         "chunk_id": "d69ee2dd3cbaa771_3_3",
@@ -36,16 +36,16 @@
         "score": -1.7169523239135742
       }
     ],
-    "keyword_recall": 0.6667,
-    "token_f1": 0.1695,
-    "semantic_sim": 0.8662,
-    "faithfulness": 1.0,
-    "composite": 0.6422
+    "keyword_recall": 0.7333,
+    "token_f1": 0.0996,
+    "semantic_sim": 0.8599,
+    "faithfulness": 0.2941,
+    "composite": 0.5407
   },
   {
     "question_id": "q002",
     "question": "What is the maximum loading capacity of the Nabtesco RVW AGV drive unit?",
-    "answer": "Okay, so I need to figure out the maximum loading capacity of the Nabtesco RVW AGV drive unit. Let me start by looking through the provided context to find any relevant information.\n\nFirst, I see a table labeled \"1.3.1 RVW\" which seems to be about the RVW AGV drive unit. The table lists several parameters with their minimum and maximum values. Under \"Loading capacity,\" it shows 500 Kg as the minimum and 2500 Kg as the maximum. That seems like the key information I'm looking for.\n\nI also notice that the RVW AGV drive unit",
+    "answer": "Okay, so I need to figure out the maximum loading capacity of the Nabtesco RVW AGV drive unit. Let me start by looking through the provided catalog context to find the relevant information.\n\nFirst, I see that the RVW AGV drive unit is listed under the 1.3 section. The parameters table under 1.3.1 RVW shows several specifications. I'm looking for the \"Loading capacity\" row. \n\nIn the table, under \"Loading capacity,\" the minimum is 500 Kg and the maximum is 2500 Kg. So, the RVW AGV drive unit can handle a minimum load of 500 Kg and a maximum of 2500 Kg. \n\nI should make sure I'm not missing any other specifications that might affect this. The table also mentions wheel diameter, thickness, total length, maximum speed, motor capacity, and other details, but those don't seem relevant to the loading capacity. \n\nThe industries it caters to are steel, material handling, and automation, which are all areas where heavy loads are common, so this makes sense. \n\nI don't see any conflicting information or specifications that would lower the maximum loading capacity. Therefore, the maximum loading capacity is 2500 Kg.\n</think>\n\nThe maximum loading capacity of the Nabtesco RVW AGV drive unit is **2500 Kg**.",
     "reference": "The maximum loading capacity of the Nabtesco RVW AGV drive unit is 2500 Kgf.",
     "sources": [
       {
@@ -64,7 +64,7 @@
         "chunk_id": "d69ee2dd3cbaa771_1_0",
         "source_doc": "Nabtesco.pdf",
         "page_num": 1,
-        "score": -0.7475348711013794
+        "score": -0.7475337982177734
       },
       {
         "chunk_id": "d69ee2dd3cbaa771_5_2",
@@ -76,19 +76,19 @@
         "chunk_id": "d69ee2dd3cbaa771_1_2",
         "source_doc": "Nabtesco.pdf",
         "page_num": 1,
-        "score": -1.781145453453064
+        "score": -1.7811455726623535
       }
     ],
-    "keyword_recall": 0.8462,
-    "token_f1": 0.2143,
-    "semantic_sim": 0.8662,
-    "faithfulness": 0.8889,
-    "composite": 0.6996
+    "keyword_recall": 0.9231,
+    "token_f1": 0.1166,
+    "semantic_sim": 0.8735,
+    "faithfulness": 0.25,
+    "composite": 0.6081
   },
   {
     "question_id": "q003",
     "question": "What is the maximum stroke length of the LinMot P10 Series linear motor?",
-    "answer": "Okay, so I need to figure out the maximum stroke length of the LinMot P10 Series linear motor. I remember that the user provided some context about linear motors, and I should use that to find the answer. Let me go through the context step by step.\n\nFirst, I see that the context is divided into sections about different linear motors. The first section is about Series P01, then there's a table with selection parameters for various products. The parameters include things like Max Stroke, Force, Nominal Force, Stator Length, and Peak Velocity. \n\nLooking at the first table under Series P01, the",
+    "answer": "Okay, so I need to figure out the maximum stroke length of the LinMot P10 Series linear motor based on the provided catalog context. Let me start by reading through the context carefully.\n\nI see that the catalog is divided into sections about linear motors, specifically discussing different series and their parameters. The first section is about the 1.1 Series P01, which has a max stroke of 1860 mm. Then there's another section about the 1.1.3 Stainless Steel series with a max stroke of 1530 mm. The 1.1.5 With integrated Drive series has a max stroke of 400 mm. \n\nLooking at the selection parameters tables, the P01 series has a max stroke of 1860 mm, and the P10 series, which is mentioned in another table, has a max stroke of 400 mm. The modules like DM01, F01/E01, and P04 all have max strokes ranging from 1.3 to 1.7, but these are in terms of a ratio, not in millimeters.\n\nThe customer is asking specifically about the P10 Series. From the context, the P10 Series has a max stroke of 400 mm. So, I should make sure to reference that correctly. I should present this information clearly, using the exact figure from the catalog without any rounding or estimation.\n\nI also need to ensure that I'm only using the information provided and not adding any external knowledge. The answer should be concise, using the exact specifications from the catalog. \n\nSo, putting it all together, the maximum stroke length for the LinMot P10 Series linear motor is 400 mm, as stated in the selection parameters.\n</think>\n\nThe maximum stroke length of the LinMot P10 Series linear motor is **400 mm**.",
     "reference": "The LinMot P10 Series linear motor has a maximum stroke of up to 2240 mm.",
     "sources": [
       {
@@ -122,16 +122,16 @@
         "score": -1.0573322772979736
       }
     ],
-    "keyword_recall": 0.7333,
-    "token_f1": 0.1864,
-    "semantic_sim": 0.798,
-    "faithfulness": 1.0,
-    "composite": 0.6528
+    "keyword_recall": 0.8667,
+    "token_f1": 0.0858,
+    "semantic_sim": 0.8176,
+    "faithfulness": 0.2174,
+    "composite": 0.5618
   },
   {
     "question_id": "q004",
     "question": "What is the rated torque range for the Nabtesco RVE precision reduction gearbox?",
-    "answer": "Okay, so I need to figure out the rated torque range for the Nabtesco RVE precision reduction gearbox. Let me start by looking through the context provided. \n\nFirst, I see that the context is divided into sections, each with different parts. The RVE is mentioned in section 1.2.1 under the RVE subsection. There's a table there labeled \"Selection Parameters\" for the RVE. The table lists several parameters, and under \"Rated Torque,\" it shows the minimum and maximum values. \n\nLooking at the RVE table, the minimum rated torque is 58 Nm, and the maximum",
+    "answer": "Okay, so I need to figure out the rated torque range for the Nabtesco RVE precision reduction gearbox. Let me start by looking through the provided catalog context to find the relevant information.\n\nFirst, I'll scan the sections provided. I see sections about 1.2 Precision Reduction Gearbox, 1.2.1 RVE, and 1.2.3 RV. Each of these sections has selection parameters tables. \n\nLooking at the RVE section (1.2.1 RVE), the selection parameters table lists several parameters. The \"Rated Torque\" column has a minimum of 58 Nm and a maximum of 14700 Nm. That seems pretty straightforward. \n\nI also notice that in the RV section (1.2.3 RV), the rated torque is listed as a minimum of 137 Nm and a maximum of 8820 Nm. But wait, the RVE has a much higher range, so I think the RVE's torque range is more relevant to the customer's question.\n\nThe customer is specifically asking about the RVE model, so I should focus on that section. The minimum torque is 58 Nm, and the maximum is 14700 Nm. That's a wide range, which makes sense for different applications needing varying torque requirements.\n\nI should also check if there are any other sections that might have conflicting information, but looking through the rest, the other sections talk about different gearboxes like the Advanced Precision Reduction Gearhead, which has a torque range of 69 Nm to 980 Nm, but that's a different model. The customer is asking about RVE, so I can safely ignore the other models.\n\nSo, putting it all together, the RVE has a rated torque range from 58 Nm to 14700 Nm. That's the answer I should provide.\n</think>\n\nThe rated torque range for the Nabtesco RVE precision reduction gearbox is as follows:\n\n- **Minimum Rated Torque:** 58 Nm\n- **Maximum Rated Torque:** 14700 Nm\n\nThis range is ideal for applications requiring precise control and high torque output.",
     "reference": "The Nabtesco RVE precision reduction gearbox has a rated torque ranging from 58 Nm (minimum) to 14700 Nm (maximum).",
     "sources": [
       {
@@ -165,16 +165,16 @@
         "score": -1.42031729221344
       }
     ],
-    "keyword_recall": 0.7778,
-    "token_f1": 0.2435,
-    "semantic_sim": 0.8731,
-    "faithfulness": 0.2222,
-    "composite": 0.5847
+    "keyword_recall": 0.9444,
+    "token_f1": 0.1043,
+    "semantic_sim": 0.8874,
+    "faithfulness": 0.2963,
+    "composite": 0.6229
   },
   {
     "question_id": "q005",
     "question": "What are the temperature limits for the Nabtesco auto connector (HNS series)?",
-    "answer": "Okay, so I need to figure out the temperature limits for the Nabtesco auto connector, specifically the HNS series. I remember from the context that there's a table with selection parameters for different products, and each product has its own set of temperature ranges. \n\nLooking through the context, I see several tables. The first table mentions the Nabtesco precision reduction gear RVTM, which isn't directly related to the auto connector. Then there are tables for different products like the die exchanger, molding, etc. \n\nI notice a table labeled \"Selection parameters\" with a column for Temperature range. The rows under this column",
+    "answer": "Okay, so I need to figure out the temperature limits for the Nabtesco HNS series auto connector based on the provided catalog context. Let me start by looking through the information given.\n\nFirst, I see that there are two tables in the context. The first table is about the 1.5.1 HNS product application, which includes various uses like die exchanger, molding, etc. But I'm not sure if this directly gives the temperature limits.\n\nThen, there's another table under \"Selection parameters\" for the 1.5.2 LNS product. This table lists parameters like nominal sizes, specified pressure, etc. However, I'm looking for temperature limits, and I don't see a temperature range here either.\n\nWait, there's also a section titled \"NABTESCO Product Brochure\" which lists the V203MAY product. It mentions \"1.1 Advanced Precision Reduction Gearhead\" and \"1.2 Precision Reduction Gearbox.\" The parameters listed under this include temperature range from -5 °C to 80 °C. That seems relevant because the gear components are used in joints of industrial robots, which aligns with the customer's question about temperature limits for the HNS series.\n\nSo, putting it together, the HNS series, being part of the precision reduction gear, likely inherits the temperature range specified in the product brochure. Therefore, the temperature limits for the Nabtesco HNS auto connector should be from -5 °C to 80 °C.\n</think>\n\nThe temperature limits for the Nabtesco HNS series auto connector are from -5 °C to 80 °C. This information is derived from the temperature range specified in the product brochure for the advanced precision reduction gear, which is relevant to the HNS series as it is part of the precision reduction gear used in industrial robot joints.",
     "reference": "The Nabtesco HNS auto connector operates in a temperature range of -5°C to 80°C.",
     "sources": [
       {
@@ -202,22 +202,22 @@
         "score": -3.8204219341278076
       },
       {
-        "chunk_id": "45dbef51d404d113_5_1",
-        "source_doc": "Dynapar Ebook - handover file.pdf",
-        "page_num": 5,
-        "score": -4.549760818481445
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": -4.232573509216309
       }
     ],
-    "keyword_recall": 0.6667,
-    "token_f1": 0.1681,
-    "semantic_sim": 0.79,
-    "faithfulness": 1.0,
-    "composite": 0.6228
+    "keyword_recall": 0.9333,
+    "token_f1": 0.0984,
+    "semantic_sim": 0.8248,
+    "faithfulness": 0.3636,
+    "composite": 0.612
   },
   {
     "question_id": "q006",
     "question": "What is the peak velocity of the LinMot P10 Series linear motor?",
-    "answer": "Okay, so I need to figure out the peak velocity of the LinMot P10 Series linear motor. Let me start by looking through the provided context to find any relevant information.\n\nFirst, I see that the context is divided into sections about linear motors, specifically mentioning Series P01, P10, and others. Each section has selection parameters like max stroke, force, nominal force, stator length, and peak velocity. \n\nLooking at the first section about Series P01, I see a table with selection parameters. Under \"Peak Velocity,\" it lists the values as 6.9 and 8.2,",
+    "answer": "Okay, so I need to figure out the peak velocity of the LinMot P10 Series linear motor based on the provided catalog context. Let me start by reading through the information given.\n\nFirst, I see that the catalog is divided into sections: Linear Motors, Linear Rotary Motors, and then specific product series like P01, P10, etc. The Linear Motors section mentions the 1.1 Series P01 with specific parameters, but the question is about the LinMot P10 Series, which is in the Linear Rotary Motors section.\n\nLooking at the Linear Rotary Motors section, there's a brief description about LinMot's linear rotary motors combining two electromagnetic servo motors in a compact housing. It mentions flexibility, dynamics, speed, and durability. However, I don't see any specific parameters listed for the P10 Series there.\n\nThen, in the last section, there's a table with various parameters and their min and max values. The parameters listed are Series P01, P10 – 3x400VAC, Stainless Steel, Explosion Proof, With integrated Drive, Modules DM01, F01/E01 – Moving Stator, Modules P04, Modules Stainless Steel, and Linear Guides. The values range from 1.2 to 1.7.\n\nWait, the question is about peak velocity. I don't see a peak velocity parameter in this table. The Linear Motors section has peak velocity for the P01 series, but that's under the Linear Motors section, not the Rotary Motors. Since the P10 is a Rotary motor, maybe the peak velocity is mentioned elsewhere.\n\nLooking back, the Linear Rotary Motors section doesn't have any specific peak velocity numbers. The table only lists series and material options with min and max values, but no velocity. So, it seems like the peak velocity isn't provided in the catalog for the P10 Series.\n\nIf the peak velocity isn't listed, I should inform the user that the information isn't available in the catalog and suggest checking the product page or contacting the supplier for more details. Alternatively, if there's another parameter that might be related, but I don't see anything else that would indicate peak velocity.\n\nSo, my conclusion is that the peak velocity for the LinMot P10 Series isn't listed in the provided catalog context. I should advise the user to look for additional information or contact the supplier.\n</think>\n\nThe peak velocity of the LinMot P10 Series linear motor is not provided in",
     "reference": "The LinMot P10 Series has a peak velocity ranging from 7.4 m/s to 11.1 m/s.",
     "sources": [
       {
@@ -251,16 +251,16 @@
         "score": -0.8201197385787964
       }
     ],
-    "keyword_recall": 0.5294,
-    "token_f1": 0.1579,
-    "semantic_sim": 0.7572,
-    "faithfulness": 1.0,
-    "composite": 0.5641
+    "keyword_recall": 0.7647,
+    "token_f1": 0.067,
+    "semantic_sim": 0.7506,
+    "faithfulness": 0.2,
+    "composite": 0.502
   },
   {
     "question_id": "q007",
     "question": "What is the constant force range provided by LinMot MagSpring stators?",
-    "answer": "Okay, so I need to figure out the constant force range provided by LinMot MagSpring stators. Let me start by looking through the context provided. \n\nFirst, I see that the context is divided into sections, including Product Application and Selection Parameters. In the Product Application section, it mentions that MagSpring components are used in various industries like packaging, medical automation, and automotive. But that doesn't directly answer the question about the constant force range.\n\nLooking further, there's a section titled \"Selection Parameters\" with two tables. The first table has parameters like Max Stroke and Force, with values ranging from 60 mm to",
+    "answer": "Okay, so I need to figure out the constant force range provided by the LinMot MagSpring stators based on the given catalog context. Let me start by reading through the relevant sections carefully.\n\nFirst, I see that the product is called the MagSpring, and it's used for producing a constant force across its entire working range. Unlike traditional springs where force increases with displacement, MagSpring components maintain a constant force, making them ideal for balancing weights in vertical drives.\n\nLooking at the product application section, it mentions that MagSprings are suitable for balancing weight forces in vertical drive systems. The catalog also talks about the product line including various stroke lengths and strength classes for precise load adjustments.\n\nNow, focusing on the selection parameters for the stators, I see a table with several parameters. The \"Constant Force\" parameter has a minimum of 11 N and a maximum of 60 N. So, the range of constant force provided by the stators is from 11 Newtons to 60 Newtons.\n\nI should make sure I'm not missing any other parameters that might affect the force range. The other parameters listed are Stator mass and Slider mass, which are 75g to 2200g and 75g to 420g respectively. These don't seem to directly impact the force range. The industries it caters to are packaging, medical and laboratory automation, and food processing, but again, not directly related to the force range.\n\nSo, putting it all together, the constant force range is clearly stated in the selection parameters as 11 N to 60 N. There's no mention of any other specifications that would expand or reduce this range, so I can confidently state that this is the range provided by the LinMot MagSpring stators.\n</think>\n\nThe constant force range provided by the LinMot MagSpring stators is **11 N to 60 N**. This range is explicitly stated in the selection parameters, where the \"Constant Force\" parameter has a minimum of 11 N and a maximum of 60 N.",
     "reference": "LinMot MagSpring stators provide a constant force between 11 N and 60 N across their operating range.",
     "sources": [
       {
@@ -285,7 +285,7 @@
         "chunk_id": "bb5b3ebdef6e5e83_8_1",
         "source_doc": "LinMot.pdf",
         "page_num": 8,
-        "score": -2.8494625091552734
+        "score": -2.8494601249694824
       },
       {
         "chunk_id": "bb5b3ebdef6e5e83_7_0",
@@ -294,16 +294,16 @@
         "score": -5.0774312019348145
       }
     ],
-    "keyword_recall": 0.5625,
-    "token_f1": 0.1488,
-    "semantic_sim": 0.8183,
-    "faithfulness": 1.0,
-    "composite": 0.5886
+    "keyword_recall": 0.75,
+    "token_f1": 0.0741,
+    "semantic_sim": 0.8188,
+    "faithfulness": 0.4118,
+    "composite": 0.5475
   },
   {
     "question_id": "q008",
     "question": "What is the maximum coupling speed of the Nabtesco LNS auto connector?",
-    "answer": "Okay, so I need to figure out the maximum coupling speed of the Nabtesco LNS auto connector. Let me start by looking through the provided context to find any relevant information.\n\nFirst, I see a table labeled \"NABTESCO Product Brochure\" with product numbers and sections. The entries under 1.15.3 ELASTIC COUPLINGS mention \"Product application\" with options like Small Light Generators, Small Machine Tools, and Centrifug. But I'm looking for coupling speed, so I should check the parameters section.\n\nLooking at the parameters table for ELASTIC COUPLINGS,",
+    "answer": "Okay, so I need to figure out the maximum coupling speed of the Nabtesco LNS auto connector based on the provided catalog context. Let me start by going through the information given.\n\nFirst, I see that the product in question is the \"1.5.2 LNS Auto Connector.\" The catalog context mentions that this product is used in various applications like die exchangers, molding, die cast, pallet exchangers, and tool exchangers. It also lists the industries it caters to, such as steel, automobile, and automation.\n\nLooking at the selection parameters table for the LNS, I see that the parameters include temperature range, nominal sizes, specified pressure, withstanding pressure, coupling speed, and pressure during coupling. The coupling speed is marked as a hyphen in both min and max, which I think means it's not specified or applicable. However, I also notice that there's another table for the HNS product, which has similar parameters but with coupling speed listed as a hyphen in min and 50 mm/s in max.\n\nWait, that's confusing. The LNS doesn't specify the coupling speed, but the HNS does. Since the customer is asking about the LNS, I should focus on that. But the LNS doesn't have a specified coupling speed in the selection parameters. Maybe I need to look elsewhere in the catalog.\n\nLooking back, I see a section titled \"1.5.2 LNS\" which lists parameters like outer diameter, inner diameter, nominal torque, max speed at 30m/s, etc. But coupling speed isn't listed there. Hmm, maybe the coupling speed isn't specified for the LNS auto connector. \n\nI should check if there's any other information that might relate to coupling speed. The product applications include small machine tools and centrifugal pumps, which might have their own speed requirements, but that's not directly helpful.\n\nSince the selection parameters for LNS don't mention coupling speed, and the HNS does, but the customer is asking about LNS, I might have to say that the information isn't provided in the catalog. However, the user mentioned that if the answer isn't in the catalog, I should suggest a related product or contacting the supplier. But maybe the user expects me to note that the coupling speed isn't specified for LNS.\n\nAlternatively, perhaps the coupling speed is part of the elastic couplings section, which is under 2.15.3 ELASTIC COUPLINGS. But",
     "reference": "The Nabtesco LNS auto connector has a maximum coupling speed of 40 mm/s.",
     "sources": [
       {
@@ -337,16 +337,16 @@
         "score": -4.186591625213623
       }
     ],
-    "keyword_recall": 0.7143,
-    "token_f1": 0.1942,
-    "semantic_sim": 0.7906,
-    "faithfulness": 1.0,
-    "composite": 0.6462
+    "keyword_recall": 0.9286,
+    "token_f1": 0.0622,
+    "semantic_sim": 0.7781,
+    "faithfulness": 0.2069,
+    "composite": 0.5661
   },
   {
     "question_id": "q009",
     "question": "What wheel diameter range does the Nabtesco RVW AGV drive unit support?",
-    "answer": "Okay, so I need to figure out the wheel diameter range supported by the Nabtesco RVW AGV drive unit. Let me start by looking through the provided context to find any relevant information.\n\nFirst, I see that the context mentions an AGV Drive Unit with several components like 1.31 RW, 1.41 AF-N, 1.42 AF-C, and 1.51 HNS, 1.52 LNS. But the question is about the wheel diameter, so I should focus on the section that talks about the wheels.\n\nLooking further down, there's a table labeled",
+    "answer": "Okay, so I need to figure out the wheel diameter range supported by the Nabtesco RVW AGV drive unit. Let me start by looking through the provided catalog context to find the relevant information.\n\nFirst, I see that the AGV Drive Unit is listed under the 1.3 section with the model 1.31 RW. That's probably the specific model we're focusing on. Now, I need to find where the wheel diameter is mentioned. Scanning through the details, I notice a table under the 1.3.1 RVW section. This table lists several parameters for the RVW model.\n\nLooking at the table, under the \"Wheel diameter\" column, the minimum value is 254 mm and the maximum is 508 mm. So, the RVW AGV drive unit supports wheel diameters ranging from 254 mm up to 508 mm. \n\nI should make sure I'm not missing any other specifications that might affect this. The table also mentions wheel thickness, total length, maximum speed, motor capacity, loading capacity, and the industries it caters to. But since the question is specifically about the wheel diameter, I can focus on that part.\n\nI don't see any conflicting information or additional specifications that would change this range. The customer is asking for the wheel diameter range, and the table clearly states 254 mm to 508 mm. There's no indication that this information is approximate or that it's rounded. The catalog is precise, so I should quote the exact figures as given.\n\nAlso, the context mentions that Nabtesco has over 30 years of experience and holds a major share in the global market, but that's more about their reputation and market presence, not directly relevant to the wheel diameter. The industries they cater to include steel, material handling, and automation, but again, not directly related to the specific question.\n\nSo, putting it all together, the RVW AGV drive unit supports wheel diameters from 254 mm to 508 mm. I should present this information clearly, using the exact figures from the catalog without adding any extra information or claims.\n</think>\n\nThe Nabtesco RVW AGV drive unit supports wheel diameters ranging from 254 mm to 508 mm. This information is directly provided in the catalog context, ensuring accuracy and precision as required.",
     "reference": "The Nabtesco RVW AGV drive unit supports wheel diameters from 254 mm to 508 mm.",
     "sources": [
       {
@@ -362,6 +362,12 @@
         "score": 1.1449607610702515
       },
       {
+        "chunk_id": "d69ee2dd3cbaa771_1_0",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 1,
+        "score": -0.44154563546180725
+      },
+      {
         "chunk_id": "d69ee2dd3cbaa771_5_2",
         "source_doc": "Nabtesco.pdf",
         "page_num": 5,
@@ -372,24 +378,18 @@
         "source_doc": "Nabtesco.pdf",
         "page_num": 1,
         "score": -1.413049578666687
-      },
-      {
-        "chunk_id": "d69ee2dd3cbaa771_5_0",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 5,
-        "score": -4.0852370262146
       }
     ],
-    "keyword_recall": 0.5714,
-    "token_f1": 0.1468,
-    "semantic_sim": 0.8549,
-    "faithfulness": 1.0,
-    "composite": 0.6004
+    "keyword_recall": 1.0,
+    "token_f1": 0.0761,
+    "semantic_sim": 0.8717,
+    "faithfulness": 0.2692,
+    "composite": 0.6273
   },
   {
     "question_id": "q010",
     "question": "What is the rated output speed range for the Nabtesco RS gearhead?",
-    "answer": "Okay, so I need to figure out the rated output speed range for the Nabtesco RS gearhead. Let me start by looking through the provided context to find any relevant information.\n\nFirst, I see that there are several sections in the context, each dealing with different components. The question is specifically about the RS gearhead, so I should focus on the section that mentions the RS parameter.\n\nLooking through the context, I find a table under the section labeled \"1.11 RD 2\" which includes the parameter \"RS\" with a value of 1372 N. That seems to be the rated thrust load for",
+    "answer": "Okay, so I need to figure out the rated output speed range for the Nabtesco RS gearhead based on the provided catalog context. Let me start by going through the information given.\n\nFirst, I see that the context is divided into sections about different products. There's a section about the Advanced Precision Reduction Gearhead (GH) and another about the Precision Reduction Gearbox (RVC). Then there's a section about the RV-C gearhead and some other components like the AGV Drive Unit, Servo Actuator, and Auto Connector.\n\nLooking at the selection parameters table for the 1.1 Advanced Precision Reduction Gearhead (GH), the Rated Output speed is listed as ranging from - to 50 rpm. The Min and Max for this parameter are not specified, but the range goes up to 50 rpm. However, this is for the GH, not the RS gearhead.\n\nNext, I check the section about the Precision Reduction Gearbox (RVC). Its selection parameters show that the Rated Output speed is also listed as - to 15 rpm. Again, this is for the RVC, not the RS gearhead.\n\nThen, I look at the RV-C gearhead, which is a different model. Its output speed isn't mentioned in the selection parameters provided. The customer is asking about the RS gearhead, which I don't see in the selection parameters tables. \n\nI also see that the AGV Drive Unit and Servo Actuator are mentioned, but they don't provide output speed information. The Auto Connector section doesn't have relevant details either.\n\nSince the RS gearhead isn't explicitly listed in the selection parameters, I can't find the exact output speed range from the provided context. I should inform the user that the information isn't available and suggest checking the product page or contacting the supplier for details.\n</think>\n\nThe rated output speed range for the Nabtesco RS gearhead is not explicitly provided in the given catalog context. The information is not available from the provided data. Please refer to the product page or contact the supplier for further details.",
     "reference": "The Nabtesco RS gearhead has a rated output speed of up to 15 rpm.",
     "sources": [
       {
@@ -423,16 +423,16 @@
         "score": -0.9839304089546204
       }
     ],
-    "keyword_recall": 0.7143,
-    "token_f1": 0.1709,
-    "semantic_sim": 0.7794,
-    "faithfulness": 1.0,
-    "composite": 0.6376
+    "keyword_recall": 0.8571,
+    "token_f1": 0.0672,
+    "semantic_sim": 0.7641,
+    "faithfulness": 0.1364,
+    "composite": 0.5283
   },
   {
     "question_id": "q011",
     "question": "What types of robot and industrial applications use the Nabtesco RS gearhead?",
-    "answer": "Okay, so I need to figure out what types of robot and industrial applications use the Nabtesco RS gearhead. Let me start by going through the context provided.\n\nFirst, I see that the context is divided into two main sections: Product application and NABTESCO Product Brochure. In the Product application section, there are two tables. The first table lists components like AGV Drive Unit, Servo Actuator, and Auto Connector, but it doesn't mention the RS gearhead. The second table talks about precision reduction gearboxes and mentions the RVC, which is a specific model. It also lists industries such as Steel",
+    "answer": "Okay, so I need to figure out what types of robot and industrial applications use the Nabtesco RS gearhead. Let me start by going through the provided catalog context to gather the necessary information.\n\nFirst, I see that the product application section mentions \"Robot swing axis\" and \"Robot arm R/V/E gearhead\" for the RS gearhead. That's a direct mention, so that's a good starting point.\n\nLooking further down, there's a table labeled \"Product application\" that lists several applications, including \"Robot swing axis\" and \"Robot arm.\" This table is part of the context, so I should include that as well.\n\nAdditionally, in the \"Product application\" section, it specifically mentions \"Robot swing axis\" and \"Robot arm\" under the RS gearhead. This reinforces the use in robotics.\n\nThe industries section lists \"Steel,\" \"Tyre,\" \"Material Handling,\" \"Automobile,\" and \"Aviation.\" These are broad industries, but I need to connect them to the specific applications. For example, \"Material Handling\" likely involves robots moving heavy loads, so the RS gearhead would be used there.\n\nThe \"Product application\" section also mentions \"AGV drive/handle\" and \"Transfer conveyor,\" which are automation and conveyor systems. These are part of industrial applications, so the RS gearhead would be used in those contexts.\n\nPutting this all together, the RS gearhead is used in various industrial and robotic applications, specifically in robot swing axes, robot arms, indexing tables, and automation systems. It's also used in material handling, which is a key industry.\n\nI should structure this information clearly, perhaps in bullet points or a table, to make it easy to understand. I'll make sure to quote the exact specifications and models from the context without adding any extra information or estimations.\n</think>\n\nThe Nabtesco RS gearhead is utilized in a variety of industrial and robotic applications, as detailed below:\n\n- **Robot Applications**: \n  - **Robot Swing Axis**: Used for precise rotational movements in robotic systems.\n  - **Robot Arm**: Integral for high-precision robotic arm movements, ensuring accurate positioning and load handling.\n\n- **Industrial Applications**:\n  - **AGV (Automated Guided Vehicle) Drive/Handle**: Supports automated conveyor systems and vehicle guidance with high accuracy.\n  - **Transfer Conveyor**: Enhances material handling with efficient load transfer and automation.\n\n- **Key Industries**:\n  - **Steel**: Involves robotic and automation systems for material handling and processing.",
     "reference": "The Nabtesco RS gearhead is used in palletizing robots, ball screw drives, tilting axis positioners, rotary axis positioners, welding turntables, index tables, and heavy welding positioners.",
     "sources": [
       {
@@ -463,19 +463,19 @@
         "chunk_id": "d69ee2dd3cbaa771_1_0",
         "source_doc": "Nabtesco.pdf",
         "page_num": 1,
-        "score": 0.3965413570404053
+        "score": 0.3965413272380829
       }
     ],
-    "keyword_recall": 0.3636,
-    "token_f1": 0.126,
-    "semantic_sim": 0.8212,
-    "faithfulness": 1.0,
-    "composite": 0.5141
+    "keyword_recall": 0.5455,
+    "token_f1": 0.0652,
+    "semantic_sim": 0.8321,
+    "faithfulness": 0.0909,
+    "composite": 0.4288
   },
   {
     "question_id": "q012",
     "question": "For which industries is the LinMot P10 Series linear motor suited?",
-    "answer": "Okay, so I need to figure out for which industries the LinMot P10 Series linear motor is suited. Let me start by looking at the context provided. \n\nFirst, I see that LinMot is a company that specializes in linear direct drives for industrial applications. They were established in 1993 as part of the Sulzer Group and have been operating independently since 2000. Their product lineup includes LinMot® for industrial linear motors and MagSpring® for magnetic springs.\n\nLooking at the product applications mentioned, I see several industries listed. For the linear modules, the applications include Valka's grading and sorting",
+    "answer": "Okay, so I need to figure out for which industries the LinMot P10 Series linear motor is suited based on the provided catalog context. Let me start by reading through the context carefully.\n\nFirst, the catalog is about linear rotary motors from LinMot, a company that specializes in high-quality industrial linear drives. They have different product lines like SM01, SM02, P04, FM01, EM01, SSC, and P10. Each module has specific applications mentioned.\n\nLooking at the product applications section, I see that SM01 and SM02 are used in the food and pharmaceutical industries because they require stainless steel and high protection. Then, there's a mention of modules P04, which are used in packaging, electronics, laboratory automation, food processing, automotive, printing, CNC, inspection, and industrial robots. \n\nNext, the FM01 and EM01 modules use linear tubular motors in moving stator applications, with applications in pick and place, vertical slicer for roast meat, VX-6 machine, wood processing, glass processing, and ceramic processing. The SSC series is for harsh environments, used in stainless steel processing without extra edges or screw connections to prevent dirt buildup, and their windings are epoxy-coated.\n\nThe P10 series isn't explicitly mentioned in the product applications section, but I notice that the packaging section is listed under P04. However, the P10 might be a different series altogether. Since the catalog doesn't provide specific details about the P10 Series, I might need to infer based on the existing information.\n\nWait, the catalog context doesn't mention the P10 Series in the product applications. It only talks about other modules like SM01, SM02, P04, FM01, EM01, and SSC. So, without specific information about the P10 Series, I can't list its industries. But maybe the P10 is part of the same lineup as the other modules, so it might have similar applications.\n\nAlternatively, perhaps the P10 is a different series with its own set of applications. Since the catalog doesn't specify, I should note that the information isn't provided and suggest looking into the MagSpring or other series if applicable.\n\nSo, my answer should state that the LinMot P10 Series isn't detailed in the provided context, but if it's part of the same lineup, it might be suited for industries like packaging, electronics, laboratory automation,",
     "reference": "The LinMot P10 Series is suited for aerospace and defence, textile and printing, food and beverages, medical and pharmaceutical, packaging and labeling, wood processing, glass processing, and ceramic processing industries.",
     "sources": [
       {
@@ -509,16 +509,16 @@
         "score": 1.3799479007720947
       }
     ],
-    "keyword_recall": 0.3913,
-    "token_f1": 0.1705,
-    "semantic_sim": 0.7237,
-    "faithfulness": 1.0,
-    "composite": 0.5105
+    "keyword_recall": 0.7391,
+    "token_f1": 0.1165,
+    "semantic_sim": 0.7539,
+    "faithfulness": 0.2105,
+    "composite": 0.5079
   },
   {
     "question_id": "q013",
     "question": "What hydropower applications does GGB serve with its bearing products?",
-    "answer": "Okay, so I need to figure out what hydropower applications GGB serves with its bearing products. Let me start by looking at the context provided. \n\nFirst, I see that GGB has a global footprint with manufacturing, sales, service, and support locations worldwide. That's good because it means they can handle bearing needs wherever they are needed. \n\nNext, the context mentions that GGB-CGM® bearings are self-lubricating, using a powder metallurgy process with a metallic matrix and solid lubricant like graphite or MoS₂. These bearings are for maintenance-free performance and have high load capacity, broad temperature range",
+    "answer": "Okay, so I need to figure out what hydropower applications GGB serves with its bearing products. Let me start by looking at the provided catalog context. \n\nFirst, I see that GGB offers bearings for various industries, including aerospace, automotive, energy, fluid power, industrial, primary metals, construction/agriculture, and recreation. But the question is specifically about hydropower applications.\n\nLooking through the context, I notice a section titled \"Other GGB Products for Hydro Power Applications.\" It mentions two specific products: GGB-CGM® and HPM™/HPF™. These are described as being manufactured using different materials—GGB-CGM® uses a powder metallurgy process with a metallic matrix and solid lubricant, while HPM and HPF are composite materials designed for environmental friendliness.\n\nThe applications section lists that GGB bearings are used in hydraulic roughneck units and top drive units. These are parts of machinery in oil and gas operations. So, GGB is providing bearings for equipment used in oil and gas operations, which falls under the broader category of industrial applications.\n\nAdditionally, in the \"Aerospace\" section, it mentions various aerospace applications, but that's a separate industry. The key here is that GDB is supplying bearings for oil and gas machinery, which is a subset of the industrial applications.\n\nSo, putting it all together, GGB serves hydropower applications by providing specific bearing products like GGB-CGM® and HPM/HPF, which are used in hydraulic roughneck and top drive units. These are part of the industrial sector, specifically in oil and gas operations.\n</think>\n\nGGB serves hydropower applications by providing specialized bearing products designed for oil and gas machinery. Specifically, they offer:\n\n1. **GGB-CGM®**: A self-lubricating bearing using a metallic matrix and graphite-lubricant, ideal for high load capacity, corrosion resistance, and maintenance-free performance.\n2. **HPM™/HPF™**: Environmentally friendly composite materials resistant to wear, chemicals, and fatigue, suitable for various industrial uses.\n\nThese bearings are applied in:\n- **Hydraulic Roughneck Units**: Essential for moving equipment in oil and gas operations.\n- **Top Drive Units**: Used in pipeline and surface operations.\n\nGGB's solutions are part of their comprehensive bearing offerings, tailored for industries requiring durable and efficient machinery.",
     "reference": "GGB serves hydropower applications including trash gates, fish screens, trunnions, blades, injectors, deflectors, ball and butterfly trunnions, hydraulic cylinders, servomotors, operating ring sliding segments, linkages, wicket gates, guide vanes, intake gate sliding segments and rollers, and spillway gates.",
     "sources": [
       {
@@ -552,16 +552,16 @@
         "score": 3.720393657684326
       }
     ],
-    "keyword_recall": 0.1613,
-    "token_f1": 0.1022,
-    "semantic_sim": 0.7176,
-    "faithfulness": 1.0,
-    "composite": 0.4114
+    "keyword_recall": 0.2258,
+    "token_f1": 0.046,
+    "semantic_sim": 0.7666,
+    "faithfulness": 0.2727,
+    "composite": 0.3231
   },
   {
     "question_id": "q014",
     "question": "What industrial applications is the Nabtesco AF-C servo actuator used in?",
-    "answer": "Okay, so I need to figure out what industrial applications the Nabtesco AF-C servo actuator is used in. Let me start by looking through the provided context to gather relevant information.\n\nFirst, I see that the context is divided into sections about different components and their applications. The main focus is on the 1.4 Servo Actuator, specifically the AF-N and AF-C models. The AF-N is described as a solid shaft type compact actuator used in applications like palletizing robots, index tables, stacker cranes, pipe bending, gantry loaders, ATC magazines, SCARA robots, and cylindrical coordinate robots",
+    "answer": "Okay, so I need to figure out what industrial applications the Nabtesco AF-C servo actuator is used in. Let me start by looking at the information provided in the catalog context.\n\nFirst, I see that the AF-C is part of the 1.4 Servo Actuator category. The product application section lists several uses: palletizing robot, index table, stacker crane, pipe bending, gantry loader, ATC magazine, SCARA robot, and cylindrical coordinate robot. That's a good starting point.\n\nBut wait, the AF-C specifically mentions being a solid shaft type compact actuator, which is directly mounted with a servomotor. It's a successor to the Precision Reduction Gear RV. So, maybe the applications are similar but perhaps more specialized.\n\nLooking at the industries it caters to, the AF-N is for automation, tyre, and aviation. But the AF-C might have different industries. The selection parameters for AF-C mention dynamic load up to 2000 N, speed up to 45 mm/s, and stroke up to 500 mm. These are pretty high, so it's likely used in heavy-duty applications.\n\nThe applications listed for AF-C include palletizing robots, index tables, stacker cranes, pipe bending, gantry loaders, ATC magazines, SCARA robots, and cylindrical coordinate robots. These are all industrial automation roles, which makes sense given the high torque and precision required.\n\nAdditionally, the product is used in special vehicle industry applications, as mentioned in the AF-N description. So, maybe it's used in vehicles or heavy machinery.\n\nPutting it all together, the AF-C is used in various industrial automation roles, particularly those requiring high torque and precision, such as palletizing, indexing, lifting, bending pipes, and handling heavy loads in vehicles or machinery.\n</think>\n\nThe Nabtesco AF-C servo actuator is used in a variety of industrial automation applications, particularly those requiring high torque and precision. These applications include:\n\n1. **Palletizing Robots**: Used in logistics and warehouse settings to load and unload pallets efficiently.\n2. **Index Tables**: Employed in manufacturing to position workpieces accurately for operations like grinding or inspection.\n3. **Stacker Cranes**: Utilized in material handling to load and unload heavy pallets or goods from trucks or ships.\n4. **Pipe Bending**: Applied in construction and automotive industries to bend pipes and tubes with precision.\n5. **Gantry Loaders**: Used in ports and airports for handling",
     "reference": "The Nabtesco AF-C servo actuator is used in palletizing robots, index tables, stacker cranes, pipe bending, gantry loaders, ATC magazines, SCARA robots, and cylindrical coordinate robots.",
     "sources": [
       {
@@ -596,15 +596,15 @@
       }
     ],
     "keyword_recall": 1.0,
-    "token_f1": 0.4252,
-    "semantic_sim": 0.881,
-    "faithfulness": 1.0,
-    "composite": 0.8265
+    "token_f1": 0.1301,
+    "semantic_sim": 0.87,
+    "faithfulness": 0.2069,
+    "composite": 0.6311
   },
   {
     "question_id": "q015",
     "question": "In what type of environment is the LinMot ATEX explosion proof motor designed to be used?",
-    "answer": "Okay, so I need to figure out where the LinMot ATEX explosion-proof motor is used. Let me start by looking at the context provided. \n\nIn the Product Application section, it mentions that these motors are used in environments where explosive gases, vapor-air mixtures, or combustible dust can occur. The context specifically talks about wood processing, glass processing, and ceramic processing. It also mentions that these motors are part of the LinMot ATEX family, which is designed for such explosive environments. \n\nI don't see any other mentions of different environments, so it's likely that the ATEX motor is specifically for explosive or fl",
+    "answer": "Okay, so I need to figure out where the LinMot ATEX explosion-proof motor is used based on the provided catalog context. Let me start by reading through the context carefully.\n\nFirst, I see that the product applications for LinMot ATEX are listed under the \"Product Application\" section. It says that these motors are used in environments where explosive gases, vapor-air mixtures, or combustible dust can occur. That's a pretty specific and dangerous environment, so I should note that.\n\nLooking further down, there's another section about product applications that mentions the LinMot ATEX motor. It's part of the linear rotary motors and is designed for harsh environments. The catalog emphasizes that these motors are constructed of stainless steel and AISI 316, which are materials known for their durability and resistance to corrosion. It also mentions that they are made without extra edges, corners, holes, or screw connections to prevent dirt buildup, which is important for maintaining hygiene in tough conditions.\n\nAdditionally, the windings are completely coated in epoxy, which probably helps in protecting against dust and moisture. This level of detail suggests that the motor is specifically built to handle the accumulation of dust or moisture, which are common issues in explosive environments.\n\nThe company, NTI AG, specializes in high-quality linear direct drives for industrial applications, and they've been operating since 2000. They supply their products globally, which means they have a wide range of applications across different industries.\n\nPutting this all together, the LinMot ATEX motor is designed for industrial environments where there's a risk of explosions or dust. This includes industries like printing presses, packaging, wood processing, and others mentioned in the context. The motor's construction and materials are tailored to handle the harsh conditions, making it suitable for applications where reliability and durability are critical.\n\nI should make sure to present this information clearly, using the exact specifications from the catalog without adding any extra information or rounding the figures. The key points are the environment (explosive gases, dust), the materials used (stainless steel, epoxy), and the industries it's applicable for.\n</think>\n\nThe LinMot ATEX explosion-proof motor is designed for industrial environments where explosive gases, vapor-air mixtures, or combustible dust can occur. These environments include industries such as printing presses, packaging, wood processing, and others. The motor is constructed using stainless steel (EN 1.4404/AISI 316) and features an epoxy-coated winding to prevent dirt buildup. Its robust",
     "reference": "The LinMot ATEX explosion proof motor is designed for environments where explosive gases, vapor-air mixtures, or combustible dust may occur, such as oil and gas, chemical, and petrochemical industries.",
     "sources": [
       {
@@ -638,16 +638,16 @@
         "score": -4.224221229553223
       }
     ],
-    "keyword_recall": 0.7586,
-    "token_f1": 0.3235,
-    "semantic_sim": 0.8815,
-    "faithfulness": 1.0,
-    "composite": 0.7168
+    "keyword_recall": 0.8276,
+    "token_f1": 0.1129,
+    "semantic_sim": 0.8695,
+    "faithfulness": 0.087,
+    "composite": 0.5483
   },
   {
     "question_id": "q016",
     "question": "What sectors does GGB serve beyond hydropower with its plain bearing solutions?",
-    "answer": "Okay, so I need to figure out what sectors GGB serves beyond hydropower based on the provided context. Let me read through the context again carefully.\n\nThe context mentions that GGB is a bearing solutions provider and lists several industries they serve. It starts with \"Aerospace, Industrial, Automotive, Primary Metals, Energy, Construction/Agriculture, Fluid Power, Recreation.\" Then it talks about a GLOBAL FOOTPRINT with locations around the globe, and mentions hydropower as part of their expertise. But the question is asking about sectors beyond hydropower.\n\nLooking at the list, the industries listed are Aerospace, Industrial, Automotive",
+    "answer": "Okay, so I need to figure out what sectors GGB serves beyond hydropower using their plain bearing solutions. Let me start by going through the provided catalog context carefully.\n\nFirst, I see that GGB offers a wide range of plain bearing solutions, including Metal-Polymer, Solid Polymer, Filament Wound, Metal, and Bi-Metal bearings. They also provide supporting assemblies like bushing blocks and thrust plates. The industries they serve are listed, but I need to focus on those beyond hydropower.\n\nLooking through the industries served, I see Aerospace, Industrial, Automotive, Primary Metals, Energy, Construction/Agriculture, and Fluid Power. Hydropower isn't listed here, so these must be the sectors beyond it. I should make sure I'm not missing any other industries mentioned elsewhere in the context.\n\nWait, there's a mention of the Global Leader in High Performance Bearing Solutions, and they're certified to AS 9100C. That's for aerospace, so that's already covered. The other industries listed are clear: Industrial, Automotive, Primary Metals, Energy, Construction/Agriculture, and Fluid Power.\n\nI should present this information clearly, using bullet points or a table as specified. I need to make sure I'm only quoting exact figures, model names, and material grades from the context. Since there's no specific data on these sectors beyond their general description, I'll just list them out.\n\nI should also ensure that I'm not adding any extra information or making claims not supported by the context. The answer should be concise and technically precise, using the exact terms provided.\n</think>\n\nGGB serves several sectors beyond hydropower with its plain bearing solutions, including:\n\n- **Aerospace**: Utilizes high-performance plain bearings for servomotors and operating ring sliding segments, adhering to AS 9100C standards.\n- **Industrial**: Supports a wide range of applications with durable and reliable bearings.\n- **Automotive**: Provides bearings for various automotive components, enhancing performance and durability.\n- **Primary Metals**: Relies on bearings for industrial machinery and equipment.\n- **Energy**: Uses bearings in energy-related applications, contributing to efficiency and reliability.\n- **Construction/Agriculture**: Employs bearings in construction and agricultural machinery for strength and longevity.\n- **Fluid Power**: Utilizes bearings in fluid power systems for optimal performance.\n\nThese sectors benefit from GGB's expertise in delivering high-quality, plain bearing solutions tailored to their specific needs.",
     "reference": "Beyond hydropower, GGB serves aerospace, industrial, automotive, primary metals, energy, construction and agriculture, fluid power, and recreation sectors.",
     "sources": [
       {
@@ -681,16 +681,16 @@
         "score": 3.3758280277252197
       }
     ],
-    "keyword_recall": 1.0,
-    "token_f1": 0.3158,
-    "semantic_sim": 0.7978,
-    "faithfulness": 0.8571,
-    "composite": 0.757
+    "keyword_recall": 0.9412,
+    "token_f1": 0.0861,
+    "semantic_sim": 0.7276,
+    "faithfulness": 0.125,
+    "composite": 0.5516
   },
   {
     "question_id": "q017",
     "question": "What material is used in the LinMot stainless steel linear motor (SSC series)?",
-    "answer": "Okay, so I need to figure out what material is used in the LinMot stainless steel linear motor (SSC series). Let me start by looking through the provided context to find any relevant information.\n\nFirst, I see the context is divided into sections: Product Application and Linear Rotary Motors. Under Product Application, there are several applications listed, but none specifically mention the SSC series. However, in the Linear Rotary Motors section, there's a subsection titled \"1.3 Linear Rotary motors\" which talks about the SSC series.\n\nLooking at that part, it says: \"LinMot's linear rotary motors are renowned for their exceptional flexibility, dynamics",
+    "answer": "Okay, so I need to figure out what material is used in the LinMot stainless steel linear motor (SSC series). Let me start by looking through the provided catalog context to find the relevant information.\n\nFirst, I see a section titled \"Product Application\" that mentions the SSC series. It says the motors are constructed of stainless steel EN 1.4404/AISI 316. That seems pretty specific. EN 1.4404 is a standard for stainless steel, and AISI 316 is another common designation for a specific type of stainless steel.\n\nI should make sure I'm not missing any other mentions of materials. There's another section about the linear rotary motors, but that's a different product. The packaging and electronics section also talks about linear tubular motors, but again, that's a different series.\n\nSo, the key point is that the SSC series uses stainless steel with the specific grades EN 1.4404 and AISI 316. I should present this information clearly, using the exact terms from the catalog without adding any extra information or rounding the figures.\n\nI need to structure the answer in a way that's easy to understand, maybe using bullet points or a table if necessary. But since the user mentioned to use markdown tables for numeric specs, I'll format that part accordingly. However, for the material, it's more descriptive, so I'll just state it clearly.\n\nI should also make sure to note that this information is directly from the catalog and not my own interpretation or estimation. That way, it's transparent and meets the user's requirements.\n\nSo, putting it all together, the answer should mention the stainless steel material, the specific grades, and reference the catalog context to back it up.\n</think>\n\nThe LinMot stainless steel linear motor (SSC series) is constructed of stainless steel with the following specifications:\n\n- **Material Grade**: EN 1.4404 and AISI 316\n\nThis information is directly sourced from the provided catalog context, ensuring accuracy and transparency.",
     "reference": "The LinMot stainless steel linear motor is constructed from stainless steel EN 1.4404/AISI 316, with motor windings fully coated in epoxy resin to protect from moisture and corrosion.",
     "sources": [
       {
@@ -724,784 +724,10 @@
         "score": 0.44865453243255615
       }
     ],
-    "keyword_recall": 0.4231,
-    "token_f1": 0.163,
-    "semantic_sim": 0.7543,
-    "faithfulness": 1.0,
-    "composite": 0.5274
-  },
-  {
-    "question_id": "q018",
-    "question": "How is the GGB HPMB bearing manufactured and what construction technique does it use?",
-    "answer": "Okay, so I need to figure out how the GGB HPMB bearing is manufactured and what construction technique it uses. Let me start by looking through the provided context to find any relevant information.\n\nFirst, I see that the context mentions GGB offers a comprehensive selection of plain bearing solutions, including Metal-Polymer Bearings, Engineered Plastic Bearings, Fiber Reinforced Composite Bearings, Metal & Bimetal Bearings, and others. It also talks about their aerospace applications, such as actuators, airframe, and civil aircraft.\n\nLooking further down, there's a section that says GGB provides high-performance plain bearing solutions for various industries,",
-    "reference": "The GGB HPMB bearing uses a filament wound construction technique, which GGB pioneered. It features machinable inner and outer diameters, offering superior precision and cylindricity tolerances, with post-installation single-point machining capable of achieving IT7 inner diameter tolerance.",
-    "sources": [
-      {
-        "chunk_id": "680188b0a8169289_2_4",
-        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
-        "page_num": 2,
-        "score": 4.917394161224365
-      },
-      {
-        "chunk_id": "cd4e8ad7661ee80f_5_2",
-        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
-        "page_num": 5,
-        "score": 3.012709379196167
-      },
-      {
-        "chunk_id": "cd4e8ad7661ee80f_4_0",
-        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
-        "page_num": 4,
-        "score": 2.7045884132385254
-      },
-      {
-        "chunk_id": "53de490be4774c80_4_0",
-        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
-        "page_num": 4,
-        "score": 2.7019124031066895
-      },
-      {
-        "chunk_id": "89f08f1aa59fdf66_1_0",
-        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
-        "page_num": 1,
-        "score": 2.662707805633545
-      }
-    ],
-    "keyword_recall": 0.3056,
-    "token_f1": 0.1884,
-    "semantic_sim": 0.798,
-    "faithfulness": 1.0,
-    "composite": 0.5035
-  },
-  {
-    "question_id": "q019",
-    "question": "What solid lubricants are used in GGB-CBM bearings and how do they work?",
-    "answer": "Okay, so I need to figure out what solid lubricants are used in GGB-CBM bearings and how they work. I remember from the context that GGB products use a powder metallurgy process with a metallic matrix and solid lubricant like graphite or MoS₂. These form a lubricant film during motion, making the bearings self-lubricating. \n\nWait, the user is asking specifically about GGB-CBM bearings. I think CBM might be a different product line, maybe a specific type of bearing. But in the context provided, the focus is on GGB-CGM® bearings, which use graphite or Mo",
-    "reference": "GGB-CBM bearings are manufactured using a powder metallurgy process with a metallic matrix containing homogeneously distributed solid lubricants, specifically graphite and MoS2, which form a lubricant film during motion to provide self-lubricating, maintenance-free performance.",
-    "sources": [
-      {
-        "chunk_id": "680188b0a8169289_2_4",
-        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
-        "page_num": 2,
-        "score": 4.551860332489014
-      },
-      {
-        "chunk_id": "89f08f1aa59fdf66_2_0",
-        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
-        "page_num": 2,
-        "score": 2.6610448360443115
-      },
-      {
-        "chunk_id": "89f08f1aa59fdf66_1_0",
-        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
-        "page_num": 1,
-        "score": 0.7994994521141052
-      },
-      {
-        "chunk_id": "680188b0a8169289_1_0",
-        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
-        "page_num": 1,
-        "score": 0.7920425534248352
-      },
-      {
-        "chunk_id": "89f08f1aa59fdf66_2_1",
-        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
-        "page_num": 2,
-        "score": 0.6316820979118347
-      }
-    ],
-    "keyword_recall": 0.7143,
-    "token_f1": 0.4,
-    "semantic_sim": 0.9122,
-    "faithfulness": 1.0,
-    "composite": 0.728
-  },
-  {
-    "question_id": "q020",
-    "question": "What design features of the LinMot stainless steel motor prevent dirt accumulation in hygienic environments?",
-    "answer": "Okay, so I need to figure out what design features of the LinMot stainless steel motor prevent dirt accumulation in hygienic environments. Let me start by looking at the context provided.\n\nIn the first Product Application section, it mentions that the LinMot SSC linear motors are made of stainless steel EN 1.4404/AISI 316 and were designed for harsh environments. The emphasis was on hygienic design. So, the material itself is likely a key feature here because stainless steel is known for being resistant to rust and bacteria, which helps prevent dirt accumulation.\n\nLooking further, the second Product Application section talks",
-    "reference": "The LinMot stainless steel motor is manufactured without extra edges, corners, holes, or screw connections to prevent the buildup of dirt. The windings are completely coated in epoxy resin, shielding them from moisture and corrosion.",
-    "sources": [
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_3_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 3,
-        "score": 6.260515213012695
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_3_3",
-        "source_doc": "LinMot.pdf",
-        "page_num": 3,
-        "score": -2.050123453140259
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_7_0",
-        "source_doc": "LinMot.pdf",
-        "page_num": 7,
-        "score": -3.6889452934265137
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_6_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 6,
-        "score": -3.778846502304077
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_5_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 5,
-        "score": -5.647826194763184
-      }
-    ],
-    "keyword_recall": 0.3939,
-    "token_f1": 0.219,
-    "semantic_sim": 0.8243,
-    "faithfulness": 1.0,
-    "composite": 0.5487
-  },
-  {
-    "question_id": "q021",
-    "question": "When was NTI AG, the maker of LinMot, founded and when did it become independent?",
-    "answer": "Okay, so I need to figure out when NTI AG was founded and when it became independent. Let me start by reading the context provided. \n\nThe context mentions that NTI AG was initially established in 1993 as part of the Sulzer Group. Then, it says that NTI AG has been operating independently since 2000. So, putting that together, the founding year is 1993, and independence is 2000.\n\nI should make sure I'm not missing any other details. The context doesn't mention any other founding dates or independence periods, so I think that's",
-    "reference": "NTI AG was founded in 1993 as part of the Sulzer Group and has been operating independently since 2000.",
-    "sources": [
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_1_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 1,
-        "score": 5.910458564758301
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_1_0",
-        "source_doc": "LinMot.pdf",
-        "page_num": 1,
-        "score": -5.611002445220947
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_3_3",
-        "source_doc": "LinMot.pdf",
-        "page_num": 3,
-        "score": -6.2701334953308105
-      },
-      {
-        "chunk_id": "ae0fffc75d87b265_2_1",
-        "source_doc": "Maedler Ebook - Final handover (2).pdf",
-        "page_num": 2,
-        "score": -6.347089767456055
-      },
-      {
-        "chunk_id": "ae0fffc75d87b265_1_1",
-        "source_doc": "Maedler Ebook - Final handover (2).pdf",
-        "page_num": 1,
-        "score": -6.604211330413818
-      }
-    ],
-    "keyword_recall": 1.0,
-    "token_f1": 0.3333,
-    "semantic_sim": 0.7716,
-    "faithfulness": 1.0,
-    "composite": 0.7762
-  },
-  {
-    "question_id": "q022",
-    "question": "How many countries does LinMot supply its products to?",
-    "answer": "Okay, so I need to figure out how many countries LinMot supplies its products to. Let me start by looking at the context provided. The context mentions several product applications for LinMot, including packaging, laboratory automation, food processing, automotive, printing, CNC, inspection, industrial robots, and more. \n\nI don't see any direct information about the number of countries they supply to. The context talks about their product applications in various industries but doesn't specify regions or countries. It mentions that they are part of the Sulzer Group and have been operating independently since 2000, but that's more about their history than their",
-    "reference": "LinMot (NTI AG) supplies its products in 80 countries worldwide.",
-    "sources": [
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_1_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 1,
-        "score": 4.869349956512451
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_7_0",
-        "source_doc": "LinMot.pdf",
-        "page_num": 7,
-        "score": -3.3147127628326416
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_5_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 5,
-        "score": -5.201803684234619
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_3_3",
-        "source_doc": "LinMot.pdf",
-        "page_num": 3,
-        "score": -5.28693151473999
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_6_3",
-        "source_doc": "LinMot.pdf",
-        "page_num": 6,
-        "score": -5.372439861297607
-      }
-    ],
-    "keyword_recall": 0.6,
-    "token_f1": 0.1053,
-    "semantic_sim": 0.7425,
-    "faithfulness": 1.0,
-    "composite": 0.5719
-  },
-  {
-    "question_id": "q023",
-    "question": "How old is Maedler as a company and where is it headquartered?",
-    "answer": "Okay, so I need to figure out how old Maedler is as a company and where it's headquartered. Let me start by looking through the context provided.\n\nFirst, I see that the context mentions that Maedler was founded by Mr. Bruno Maedler in 1882. That's a key point. So, the company's age would be the current year minus 1882. Since the current year isn't specified here, but the question doesn't ask for the current age, just the fact that it was founded in 1882, I can note that.\n\nNext, I need",
-    "reference": "Maedler is a 138-year-old German brand with its headquarters in Stuttgart, founded in 1882 by Mr. Bruno Maedler.",
-    "sources": [
-      {
-        "chunk_id": "ae0fffc75d87b265_1_1",
-        "source_doc": "Maedler Ebook - Final handover (2).pdf",
-        "page_num": 1,
-        "score": -0.12619081139564514
-      },
-      {
-        "chunk_id": "ae0fffc75d87b265_2_1",
-        "source_doc": "Maedler Ebook - Final handover (2).pdf",
-        "page_num": 2,
-        "score": -0.2234536111354828
-      },
-      {
-        "chunk_id": "ae0fffc75d87b265_1_0",
-        "source_doc": "Maedler Ebook - Final handover (2).pdf",
-        "page_num": 1,
-        "score": -0.7984814047813416
-      },
-      {
-        "chunk_id": "ae0fffc75d87b265_2_0",
-        "source_doc": "Maedler Ebook - Final handover (2).pdf",
-        "page_num": 2,
-        "score": -1.6936619281768799
-      },
-      {
-        "chunk_id": "ae0fffc75d87b265_13_0",
-        "source_doc": "Maedler Ebook - Final handover (2).pdf",
-        "page_num": 13,
-        "score": -3.868224620819092
-      }
-    ],
-    "keyword_recall": 0.6111,
-    "token_f1": 0.2241,
-    "semantic_sim": 0.7486,
-    "faithfulness": 0.0,
-    "composite": 0.4571
-  },
-  {
-    "question_id": "q024",
-    "question": "Where is GGB North America headquartered and what is its contact address?",
-    "answer": "Okay, so I need to figure out where GGB North America is headquartered and what their contact address is. Let me look through the provided context carefully.\n\nFirst, I see that there are multiple sections in the context, each providing different information about GGB North America. The first part mentions the address: 700 Mid Atlantic Parkway, Thorofare, NJ 08086, USA. There's also a phone number and fax listed there. Then, further down, there's another section labeled \"Contact GGB\" with the same address and contact details. \n\nI notice that the context includes several contact points for",
-    "reference": "GGB North America is headquartered at 700 Mid Atlantic Parkway, P.O. Box 189, Thorofare, New Jersey 08086, USA.",
-    "sources": [
-      {
-        "chunk_id": "cd4e8ad7661ee80f_12_0",
-        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
-        "page_num": 12,
-        "score": 5.765965938568115
-      },
-      {
-        "chunk_id": "251beb40489e3505_4_0",
-        "source_doc": "ggb-ep-engineered-plastics-bearings-bushings-for-e-bike-applications.pdf",
-        "page_num": 4,
-        "score": 5.093870639801025
-      },
-      {
-        "chunk_id": "cd4e8ad7661ee80f_11_0",
-        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
-        "page_num": 11,
-        "score": 4.7429728507995605
-      },
-      {
-        "chunk_id": "680188b0a8169289_1_2",
-        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
-        "page_num": 1,
-        "score": 2.126431941986084
-      },
-      {
-        "chunk_id": "680188b0a8169289_1_1",
-        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
-        "page_num": 1,
-        "score": 0.2590673863887787
-      }
-    ],
-    "keyword_recall": 0.6316,
-    "token_f1": 0.2069,
-    "semantic_sim": 0.818,
-    "faithfulness": 0.7143,
-    "composite": 0.5844
-  },
-  {
-    "question_id": "q025",
-    "question": "What is the difference between the Nabtesco RVE and RVC precision reduction gearboxes?",
-    "answer": "Okay, so I need to figure out the difference between the Nabtesco RVE and RVC precision reduction gearboxes. Let me start by looking at the context provided.\n\nFirst, I see that the product brochure for Nabtesco lists two products under the Precision Reduction Gearbox category: RVE and RVC. The RVE is listed under 1.2 RVC, and RVC is under 1.22 RVC. Wait, that seems a bit confusing. Maybe it's a typo? Let me check again.\n\nLooking at the table under the Precision Reduction Gearbox section, I see that 1.",
-    "reference": "The Nabtesco RVE is a solid shaft mounting type of planetary RV gearhead suited for higher torque and lower backlash applications. The RVC is a hollow shaft mounting type, designed for more compact and lightweight applications.",
-    "sources": [
-      {
-        "chunk_id": "d69ee2dd3cbaa771_1_1",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 1,
-        "score": 4.326355457305908
-      },
-      {
-        "chunk_id": "d69ee2dd3cbaa771_1_0",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 1,
-        "score": 3.8459086418151855
-      },
-      {
-        "chunk_id": "d69ee2dd3cbaa771_2_0",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 2,
-        "score": 3.5295064449310303
-      },
-      {
-        "chunk_id": "d69ee2dd3cbaa771_1_2",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 1,
-        "score": 2.3128786087036133
-      },
-      {
-        "chunk_id": "d69ee2dd3cbaa771_4_0",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 4,
-        "score": 1.8699085712432861
-      }
-    ],
-    "keyword_recall": 0.2963,
-    "token_f1": 0.1875,
-    "semantic_sim": 0.7813,
-    "faithfulness": 0.1,
-    "composite": 0.3609
-  },
-  {
-    "question_id": "q026",
-    "question": "How does a LinMot MagSpring differ from a conventional mechanical spring?",
-    "answer": "Okay, so I need to figure out how a LinMot MagSpring differs from a conventional mechanical spring. Let me start by recalling what I know from the context provided.\n\nFrom the context, I remember that MagSpring products are called \"magnetic springs,\" but they aren't traditional mechanical springs. The key difference is in their force characteristics. Traditional mechanical springs exert force that increases with displacement, meaning the more you compress or extend them, the more force they apply. But MagSpring components, like the ones used in linear modules, exert a constant force across their entire working range. So, unlike mechanical springs, where force increases with displacement,",
-    "reference": "Unlike a conventional mechanical spring where force increases with displacement, a MagSpring produces a constant force across its entire working range, making it particularly suitable for compensating weight forces in vertical drive arrangements.",
-    "sources": [
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_8_0",
-        "source_doc": "LinMot.pdf",
-        "page_num": 8,
-        "score": 5.098094940185547
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_8_2",
-        "source_doc": "LinMot.pdf",
-        "page_num": 8,
-        "score": 1.60340416431427
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_1_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 1,
-        "score": -2.2354795932769775
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_6_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 6,
-        "score": -2.958613634109497
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_4_3",
-        "source_doc": "LinMot.pdf",
-        "page_num": 4,
-        "score": -4.3046040534973145
-      }
-    ],
-    "keyword_recall": 0.5667,
-    "token_f1": 0.2878,
-    "semantic_sim": 0.7062,
-    "faithfulness": 1.0,
-    "composite": 0.5968
-  },
-  {
-    "question_id": "q027",
-    "question": "What distinguishes the LinMot PR01 from the PR02 linear rotary motor in terms of design?",
-    "answer": "Okay, so I need to figure out what distinguishes the LinMot PR01 from the PR02 linear rotary motor in terms of design. Let me start by looking at the context provided.\n\nFirst, I see that there are two products mentioned: PR01 and PR02. Both are part of the Linear Rotary Motors product line. The context doesn't give specific details about their design differences, but I can infer based on the information given.\n\nLooking at the product applications, PR01 is used in Assembly, Packaging/Capping, Milk and Icecream Packing. PR02 isn't explicitly mentioned in the applications, but",
-    "reference": "The PR01 combines a linear and rotary motor in series within one housing for the smallest possible footprint, with optional MagSpring, pneumatic brake, and emergency rail kit. The PR02 uses a slim, easy-to-clean housing design with options for a hollow shaft, pneumatic pusher, MagSpring, torque sensor, and force sensor.",
-    "sources": [
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_7_0",
-        "source_doc": "LinMot.pdf",
-        "page_num": 7,
-        "score": 4.511962890625
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_3_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 3,
-        "score": 0.1251053512096405
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_5_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 5,
-        "score": 0.05067664757370949
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_6_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 6,
-        "score": -0.32149285078048706
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_7_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 7,
-        "score": -0.35818517208099365
-      }
-    ],
-    "keyword_recall": 0.2564,
-    "token_f1": 0.1745,
-    "semantic_sim": 0.8136,
-    "faithfulness": 1.0,
-    "composite": 0.4868
-  },
-  {
-    "question_id": "q028",
-    "question": "What is the structural difference between the Nabtesco AF-N and AF-C servo actuators?",
-    "answer": "Okay, so I need to figure out the structural difference between the Nabtesco AF-N and AF-C servo actuators. I remember from the context that both are part of a servo actuator, which is a machine that uses electrical signals to control the movement of a mechanical part. The AF-N is described as a solid shaft type compact actuator, directly mounted with a servomotor, and it's a successor to the Precision Reduction Gear RV. It's known for being accurate, rigid, and reliable.\n\nLooking at the details provided, the AF-N has a standard ratio of 8:1 to 1525:",
-    "reference": "The AF-N is a solid shaft type compact actuator directly mounted with a servomotor, while the AF-C is a hollow shaft type compact actuator with the same direct servo motor mounting. Both are successors to the Precision Reduction Gear RV and share the same rated capacity range.",
-    "sources": [
-      {
-        "chunk_id": "d69ee2dd3cbaa771_1_1",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 1,
-        "score": 1.914524793624878
-      },
-      {
-        "chunk_id": "d69ee2dd3cbaa771_6_2",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 6,
-        "score": 1.8587223291397095
-      },
-      {
-        "chunk_id": "d69ee2dd3cbaa771_5_3",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 5,
-        "score": -1.2258286476135254
-      },
-      {
-        "chunk_id": "d69ee2dd3cbaa771_6_0",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 6,
-        "score": -1.9355329275131226
-      },
-      {
-        "chunk_id": "d69ee2dd3cbaa771_1_2",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 1,
-        "score": -2.72737717628479
-      }
-    ],
-    "keyword_recall": 0.6857,
-    "token_f1": 0.4342,
-    "semantic_sim": 0.9033,
-    "faithfulness": 0.6,
-    "composite": 0.6644
-  },
-  {
-    "question_id": "q029",
-    "question": "What safety features are integrated into the LinMot P01 linear motor?",
-    "answer": "Okay, so I need to figure out what safety features are integrated into the LinMot P01 linear motor. I remember from the context that LinMot is known for their linear and rotary motors, and they have various product applications. The context mentions specific modules like SM01 and SM02 with features like \"MagSpring\" for load compensation, which is used in industries like food processing. There's also talk about different product lines with features like stainless steel and hygienic design.\n\nLooking at the product applications, I see mentions of modules with load compensating devices, which might include safety features. The selection parameters table mentions force",
-    "reference": "The LinMot P01 linear motors have integrated position measuring and overload protection. They are permanently operated ironless synchronous servo motors.",
-    "sources": [
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_7_0",
-        "source_doc": "LinMot.pdf",
-        "page_num": 7,
-        "score": 3.2669005393981934
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_5_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 5,
-        "score": 2.8300390243530273
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_6_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 6,
-        "score": 2.3923914432525635
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_4_3",
-        "source_doc": "LinMot.pdf",
-        "page_num": 4,
-        "score": 1.5286744832992554
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_3_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 3,
-        "score": 1.23499596118927
-      }
-    ],
-    "keyword_recall": 0.5263,
-    "token_f1": 0.1613,
-    "semantic_sim": 0.8272,
-    "faithfulness": 0.8333,
-    "composite": 0.5563
-  },
-  {
-    "question_id": "q030",
-    "question": "Why is the GGB HPMB bearing considered environmentally friendly?",
-    "answer": "Okay, so I need to figure out why the GGB HPMB bearing is considered environmentally friendly. Let me start by looking at the context provided. The context mentions GGB products for hydro power applications, specifically the GGB-CGM® bearings. These are made using a powder metallurgy process with a metallic matrix and solid lubricant like graphite or MoS₂. The key points here are self-lubrication, which leads to maintenance-free performance, high load capacity, broad temperature range, and corrosion resistance.\n\nWait, the question is about the HPMB bearing, but the context provided is about GGB-CGM®. Are",
-    "reference": "The GGB HPMB bearing is environmentally friendly because it operates grease-free, eliminating the need for lubrication while providing low friction and low wear rate for extended bearing life.",
-    "sources": [
-      {
-        "chunk_id": "680188b0a8169289_2_4",
-        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
-        "page_num": 2,
-        "score": 5.32833194732666
-      },
-      {
-        "chunk_id": "cd4e8ad7661ee80f_5_0",
-        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
-        "page_num": 5,
-        "score": 4.277463912963867
-      },
-      {
-        "chunk_id": "89f08f1aa59fdf66_1_1",
-        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
-        "page_num": 1,
-        "score": 2.308772087097168
-      },
-      {
-        "chunk_id": "89f08f1aa59fdf66_2_1",
-        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
-        "page_num": 2,
-        "score": 2.1411120891571045
-      },
-      {
-        "chunk_id": "89f08f1aa59fdf66_2_0",
-        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
-        "page_num": 2,
-        "score": 1.8365802764892578
-      }
-    ],
-    "keyword_recall": 0.48,
-    "token_f1": 0.2222,
-    "semantic_sim": 0.8467,
-    "faithfulness": 0.8571,
-    "composite": 0.5638
-  },
-  {
-    "question_id": "q031",
-    "question": "What advantage does the LinMot P04 actuator module have over pneumatic actuators?",
-    "answer": "Okay, so I need to figure out what advantage the LinMot P04 actuator module has over pneumatic actuators. Let me start by recalling what I know about both types of actuators.\n\nFirst, pneumatic actuators use compressed air to create force. They're commonly used in various industries because they're reliable and can handle a lot of pressure. But they do have some downsides, like higher maintenance costs, potential for leaks, and they can be noisier compared to electric or motor-based solutions.\n\nOn the other hand, the LinMot P04 is an actuator module that uses linear motors. From the",
-    "reference": "The LinMot P04 actuator is compatible with all mechanical accessories known from pneumatics, making replacement of pneumatic systems straightforward. It offers free positionability and accelerations of up to 50 m/s², enabling dynamic and precise movements that exceed typical pneumatic capabilities.",
-    "sources": [
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_5_3",
-        "source_doc": "LinMot.pdf",
-        "page_num": 5,
-        "score": 3.146113634109497
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_5_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 5,
-        "score": 1.0693042278289795
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_6_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 6,
-        "score": -0.35468268394470215
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_7_0",
-        "source_doc": "LinMot.pdf",
-        "page_num": 7,
-        "score": -1.732875108718872
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_4_2",
-        "source_doc": "LinMot.pdf",
-        "page_num": 4,
-        "score": -2.0749270915985107
-      }
-    ],
-    "keyword_recall": 0.2895,
-    "token_f1": 0.1986,
-    "semantic_sim": 0.8369,
-    "faithfulness": 1.0,
-    "composite": 0.5102
-  },
-  {
-    "question_id": "q032",
-    "question": "What is the key capability of the Nabtesco RVTM precision reduction gear in industrial robots?",
-    "answer": "Okay, so I need to figure out what the key capability of the Nabtesco RVTM precision reduction gear is in industrial robots. Let me start by looking at the context provided.\n\nFirst, I see that the context mentions that Nabtesco precision reduction gears, specifically the RVTM, are key components in the joints of industrial robots. It says they enable precise movement while maintaining optimum power. That sounds like the main point.\n\nLooking further, the context also talks about the experience Nabtesco has, with over 30 years in the field and a major share in the global market. But the key capability isn't about",
-    "reference": "The Nabtesco RVTM precision reduction gear enables precise movement while maintaining optimum power in robot joints. Nabtesco holds a major share of the global market for this product, with more than 30 years of experience in the field.",
-    "sources": [
-      {
-        "chunk_id": "d69ee2dd3cbaa771_1_1",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 1,
-        "score": 6.943585395812988
-      },
-      {
-        "chunk_id": "d69ee2dd3cbaa771_5_2",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 5,
-        "score": 4.124894618988037
-      },
-      {
-        "chunk_id": "d69ee2dd3cbaa771_2_0",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 2,
-        "score": 1.8343859910964966
-      },
-      {
-        "chunk_id": "d69ee2dd3cbaa771_4_0",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 4,
-        "score": 1.4860618114471436
-      },
-      {
-        "chunk_id": "d69ee2dd3cbaa771_6_2",
-        "source_doc": "Nabtesco.pdf",
-        "page_num": 6,
-        "score": 1.3034391403198242
-      }
-    ],
-    "keyword_recall": 0.7576,
-    "token_f1": 0.4225,
-    "semantic_sim": 0.9022,
-    "faithfulness": 0.1429,
-    "composite": 0.6178
-  },
-  {
-    "question_id": "q033",
-    "question": "What advantage does the LinMot DM01 linear module offer over separate drive components?",
-    "answer": "Okay, so I need to figure out what advantage the LinMot DM01 linear module offers over separate drive components. Let me start by looking at the context provided.\n\nFirst, I see that LinMot products are mentioned in two sections: Linear Rotary Motors and Linear Modules and Guides. The modules are described as precise, easy to install, energy-efficient, and capable of handling external forces, torques, and bending moments. They also mention that these modules support dynamic and precise load positioning.\n\nLooking at the product line, the DM01 is part of the modules. The context doesn't explicitly state the features of the DM01,",
-    "reference": "The LinMot DM01 linear modules are complete drive solutions that integrate a linear guide and LinMot stators in one unit, with optional built-in MagSpring magnetic springs and a pneumatic holding brake, reducing assembly complexity.",
-    "sources": [
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_7_0",
-        "source_doc": "LinMot.pdf",
-        "page_num": 7,
-        "score": 2.6829183101654053
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_4_2",
-        "source_doc": "LinMot.pdf",
-        "page_num": 4,
-        "score": 1.4229902029037476
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_4_3",
-        "source_doc": "LinMot.pdf",
-        "page_num": 4,
-        "score": 1.3773994445800781
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_6_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 6,
-        "score": 1.0648113489151
-      },
-      {
-        "chunk_id": "bb5b3ebdef6e5e83_5_1",
-        "source_doc": "LinMot.pdf",
-        "page_num": 5,
-        "score": 0.7462601065635681
-      }
-    ],
-    "keyword_recall": 0.3333,
-    "token_f1": 0.1884,
-    "semantic_sim": 0.8445,
-    "faithfulness": 1.0,
-    "composite": 0.5249
-  },
-  {
-    "question_id": "q034",
-    "question": "Which GGB bearing types have been approved for use in water turbines by the USA Army Corps of Engineers?",
-    "answer": "Okay, so I need to figure out which GGB bearing types have been approved for use in water turbines by the USA Army Corps of Engineers. Let me start by looking at the context provided.\n\nThe context mentions that GGB offers a comprehensive selection of plain bearing solutions, including Metal-Polymer Bearings, Engineered Plastic Bearings, Fiber Reinforced Composite Bearings, Metal & Bimetal Bearings, and various assemblies like bushing blocks and thrust plates. It also lists applications such as actuators, airframe, civil aircraft, and specific components like rear output shaft bearing, main shaft bearing, reverse idler bearing, etc.",
-    "reference": "The GGB HPMB and HPM/HPF bearing types have been approved for use in water turbines by the USA Army Corps of Engineers.",
-    "sources": [
-      {
-        "chunk_id": "680188b0a8169289_2_4",
-        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
-        "page_num": 2,
-        "score": 6.572031021118164
-      },
-      {
-        "chunk_id": "680188b0a8169289_2_1",
-        "source_doc": "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf",
-        "page_num": 2,
-        "score": 3.0378170013427734
-      },
-      {
-        "chunk_id": "cd4e8ad7661ee80f_5_2",
-        "source_doc": "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf",
-        "page_num": 5,
-        "score": 1.0750049352645874
-      },
-      {
-        "chunk_id": "53de490be4774c80_3_1",
-        "source_doc": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
-        "page_num": 3,
-        "score": 0.4948858618736267
-      },
-      {
-        "chunk_id": "89f08f1aa59fdf66_2_0",
-        "source_doc": "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf",
-        "page_num": 2,
-        "score": 0.4500475823879242
-      }
-    ],
-    "keyword_recall": 0.8636,
-    "token_f1": 0.3361,
-    "semantic_sim": 0.8028,
-    "faithfulness": 0.75,
-    "composite": 0.6995
-  },
-  {
-    "question_id": "q035",
-    "question": "What types of products does Maedler offer in its product range?",
-    "answer": "Okay, so I need to figure out what products Maedler offers based on the provided context. Let me start by reading through the context carefully.\n\nFirst, I see that Maedler was founded in 1882 and is referred to as an \"industrial mechanical products retailer,\" similar to Walmart but for industrial products. So, they're a retailer in this field.\n\nLooking further down, there are specific sections about their products. Section 2.15 talks about Maedler Couplings, which include different types like rigid couplings made from steel with specific finishes and keyways. They also have torsionally stiff",
-    "reference": "Maedler offers a varied range including power transmission units such as worms and worm gears, spur racks, shrink disks, locking assemblies, thrust pads with spring retainers, and precision levelling adjusters, along with other mechanical engineering products.",
-    "sources": [
-      {
-        "chunk_id": "ae0fffc75d87b265_1_1",
-        "source_doc": "Maedler Ebook - Final handover (2).pdf",
-        "page_num": 1,
-        "score": 5.43154764175415
-      },
-      {
-        "chunk_id": "ae0fffc75d87b265_2_1",
-        "source_doc": "Maedler Ebook - Final handover (2).pdf",
-        "page_num": 2,
-        "score": 5.331958293914795
-      },
-      {
-        "chunk_id": "ae0fffc75d87b265_11_0",
-        "source_doc": "Maedler Ebook - Final handover (2).pdf",
-        "page_num": 11,
-        "score": 3.8981521129608154
-      },
-      {
-        "chunk_id": "ae0fffc75d87b265_13_0",
-        "source_doc": "Maedler Ebook - Final handover (2).pdf",
-        "page_num": 13,
-        "score": 3.767641067504883
-      },
-      {
-        "chunk_id": "ae0fffc75d87b265_10_3",
-        "source_doc": "Maedler Ebook - Final handover (2).pdf",
-        "page_num": 10,
-        "score": 2.850416660308838
-      }
-    ],
-    "keyword_recall": 0.2353,
-    "token_f1": 0.1364,
-    "semantic_sim": 0.7001,
-    "faithfulness": 1.0,
-    "composite": 0.4415
+    "keyword_recall": 0.6923,
+    "token_f1": 0.1212,
+    "semantic_sim": 0.8103,
+    "faithfulness": 0.2273,
+    "composite": 0.5093
   }
 ]
