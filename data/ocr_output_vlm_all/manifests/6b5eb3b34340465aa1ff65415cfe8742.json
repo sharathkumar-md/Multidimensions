@@ -1,0 +1,14 @@
+{
+  "doc_id": "6b5eb3b34340465aa1ff65415cfe8742",
+  "source_filename": "Dynapar Ebook - handover file.pdf",
+  "source_path": "/content/MultiDimensions/data/input/Dynapar Ebook - handover file.pdf",
+  "file_size_bytes": 19270040,
+  "sha256": "7cf0e2bae2cd2ce3e0a803cae7d0dc845bae61d31be91f0f39c597b723666099",
+  "page_count": 13,
+  "status": "completed",
+  "created_at": "2026-06-03T20:29:13.413687",
+  "completed_at": "2026-06-03T20:29:13.413705",
+  "markdown_path": "markdown/6b5eb3b34340465aa1ff65415cfe8742.md",
+  "processing_time_ms": 691206.0217910003,
+  "vlm_model": "Qwen/Qwen2.5-VL-7B-Instruct"
+}

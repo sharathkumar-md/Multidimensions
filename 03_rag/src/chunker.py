@@ -42,7 +42,7 @@ def _clean_markdown(text: str) -> str:
     text = re.sub(r"```markdown\s*", "", text)
     text = re.sub(r"```\s*", "", text)
     text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
-    text = re.sub(r"!\[[^\]]*\]\(figures[^\)]+\)", "", text)
+    text = re.sub(r"!\[[^\]]*\]\([^\)]*\)", "", text)  # strip all image markdown (figures + bare filenames)
     text = re.sub(r"\*Figure:.*?\*", "", text)
     text = re.sub(r"\b[a-f0-9]{16,}_p\d+_[ft]\d+\b", "", text)
     text = re.sub(r"\n{3,}", "\n\n", text)

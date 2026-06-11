@@ -1,0 +1,14 @@
+{
+  "doc_id": "c5033e2ed6164be6992b222b3a121c1c",
+  "source_filename": "FISSO  Ebook - handover file.pdf",
+  "source_path": "/content/MultiDimensions/data/input/FISSO  Ebook - handover file.pdf",
+  "file_size_bytes": 6890328,
+  "sha256": "9cfb88c1d69520814cf86cf5dcf19120f216cbd541fc57fd26a5f88ea3bc667d",
+  "page_count": 4,
+  "status": "completed",
+  "created_at": "2026-06-03T20:37:57.101228",
+  "completed_at": "2026-06-03T20:37:57.101245",
+  "markdown_path": "markdown/c5033e2ed6164be6992b222b3a121c1c.md",
+  "processing_time_ms": 107209.40508500006,
+  "vlm_model": "Qwen/Qwen2.5-VL-7B-Instruct"
+}
