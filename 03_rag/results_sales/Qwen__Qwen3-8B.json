@@ -1,0 +1,1679 @@
+[
+  {
+    "question_id": "q001",
+    "question": "I'm visiting a food and beverage plant. Which products should I pitch for washdown environments and why?",
+    "answer": "Industry: Food and Beverage\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Warner Electric | Enclosed Unimodule Washdown (EUM-W) | Food processing equipment, washdown environments | These units feature sealed enclosures to keep contaminants out and wear particles in, making them suitable for harsh washdown environments. They are constructed with stainless steel materials to resist corrosion from caustic cleaning solutions. |\n| Warner Electric | Clutch/Brake Modules (EM, UM, EUM) | Food processing machinery, conveying systems | These modules are designed for washdown environments and are built with stainless steel components to withstand corrosion. They offer application versatility, including rapid cycling, accurate positioning, and soft starts/stops, which are essential in food processing applications. |\n\nBasic Product Understanding Before Visit:\n- **Enclosed Unimodule Washdown (EUM-W)**: This product is a clutch or brake unit with a sealed enclosure that protects against contaminants while containing wear particles. It is constructed from stainless steel and has an IP67 washdown rating, making it suitable for harsh environments like food processing.\n- **Clutch/Brake Modules (EM, UM, EUM)**: These are pre-assembled, pre-aligned, and pre-burnished modules designed for washdown environments. They are built with stainless steel components and are suitable for applications requiring rapid cycling, accurate positioning, and soft starts/stops.\n\nCustomer Discovery Questions:\n- What is the required washdown rating for the equipment?\n- What type of cleaning solution is used in the environment?\n- What is the maximum operating temperature the equipment will be exposed to?\n- What is the required stroke length or operating speed for the application?\n- Are there any specific certifications or standards the equipment must meet?",
+    "reference": "For food and beverage washdown environments, pitch Warner Electric's Washdown Electro Pack Clutch/Brakes (EPW) and the Enclosed Unimodule Washdown (EUM-W) series. Both are totally enclosed in smooth, completely sealed, rugged enclosures that keep wear particles in and contaminants out, with an IP67 washdown rating and stainless steel construction. For caustic washdown applications such as meat and poultry, pitch the all stainless steel clutches and brakes, which feature stainless steel bearings and housing and are designed to run 24/7.",
+    "sources": [
+      {
+        "chunk_id": "d3324406b2a031fc_4_2",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 4,
+        "score": -6.0082221031188965
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_2_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 2,
+        "score": -6.830120086669922
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_1_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 1,
+        "score": -7.150844573974609
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_3_1",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 3,
+        "score": -9.084547996520996
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_4_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 4,
+        "score": -10.12478256225586
+      }
+    ],
+    "keyword_recall": 0.6167,
+    "token_f1": 0.3343,
+    "semantic_sim": 0.8986,
+    "groundedness": 0.8201,
+    "composite": 0.6471
+  },
+  {
+    "question_id": "q002",
+    "question": "What is the washdown rating and enclosure material of the Enclosed Unimodule Washdown clutch/brake?",
+    "answer": "The washdown rating of the Enclosed Unimodule Washdown clutch/brake is **IP67**, and the enclosure material is **Stainless Steel**.",
+    "reference": "The Enclosed Unimodule Washdown (EUM-W) clutch/brake has a washdown rating of IP67 and a stainless steel enclosure material.",
+    "sources": [
+      {
+        "chunk_id": "d3324406b2a031fc_4_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 4,
+        "score": 7.668905258178711
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_3_1",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 3,
+        "score": 4.505106449127197
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_2_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 2,
+        "score": 3.9707252979278564
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_2_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 2,
+        "score": 3.007455825805664
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_4_2",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 4,
+        "score": 2.730436086654663
+      }
+    ],
+    "keyword_recall": 0.7778,
+    "token_f1": 0.7692,
+    "semantic_sim": 0.9402,
+    "groundedness": 1.0,
+    "composite": 0.8496
+  },
+  {
+    "question_id": "q003",
+    "question": "What is the Warner Electric magnetic capping headset's key differentiator I can mention to a beverage customer?",
+    "answer": "The provided product documents do not mention a \"Warner Electric magnetic capping headset\" or any product with that name. Therefore, I cannot provide specific information about the key differentiator of a product that is not referenced in the provided documents.\n\n**This information is not available in the provided product documents.**  \nYou may need to check with the manufacturer/supplier for details about the \"Warner Electric magnetic capping headset.\"",
+    "reference": "Warner Electric magnetic capping headsets feature constant Smooth Torque Technology. This differs from most competitor OEM headsets that use two opposing magnets, which causes pulsating torque. The pounding effect of a pulsating clutch increases cap tightness during the capping process, so the Smooth Torque design gives more consistent capping.",
+    "sources": [
+      {
+        "chunk_id": "e3b2b3fda4148bf5_1_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 1,
+        "score": 0.26912474632263184
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_1_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 1,
+        "score": -1.035124659538269
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_3_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 3,
+        "score": -5.260898113250732
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_2_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 2,
+        "score": -5.88962984085083
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_4_1",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 4,
+        "score": -6.461260795593262
+      }
+    ],
+    "keyword_recall": 0.225,
+    "token_f1": 0.2051,
+    "semantic_sim": 0.764,
+    "groundedness": 0.4889,
+    "composite": 0.3944
+  },
+  {
+    "question_id": "q004",
+    "question": "A dairy customer needs an emergency stop along their conveyor. What can I offer and how far does it reach?",
+    "answer": "Industry: Dairy\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Warner Electric | CLUTCH/BRAKE MODULES (EM,UM,EUM) | Conveyor systems | These modules provide rapid cycling and accurate positioning, and are pre-assembled, pre-aligned, and pre-burnished for maximum performance. They are suitable for emergency stop applications. |\n\nBasic Product Understanding Before Visit:\n- The CLUTCH/BRAKE MODULES (EM,UM,EUM) are pre-assembled, pre-aligned, and pre-burnished modules that provide application versatility for rapid cycling, accurate positioning, and soft controlled starts and stops. They are suitable for emergency stop applications in conveyor systems.\n\nCustomer Discovery Questions:\n- What is the maximum distance the emergency stop needs to reach?\n- What is the required torque capacity for the conveyor system?\n- What is the operating environment like (e.g., dry, wet, or corrosive)?",
+    "reference": "Offer the SR cable pull switch. It is designed to give personnel ready access to a machine stop switch up to 245 feet away by simply pulling on the cable. It is ideal for use along conveyors or on the perimeter of a packaging assembly. The machine stops when the cable is pulled or when the cable breaks, and it cannot restart until the switch is reset.",
+    "sources": [
+      {
+        "chunk_id": "d3324406b2a031fc_3_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 3,
+        "score": -6.123431205749512
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_1_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 1,
+        "score": -10.257967948913574
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_2_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 2,
+        "score": -10.83814811706543
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_2_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 2,
+        "score": -10.948953628540039
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_4_1",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 4,
+        "score": -11.080474853515625
+      }
+    ],
+    "keyword_recall": 0.2045,
+    "token_f1": 0.1616,
+    "semantic_sim": 0.5882,
+    "groundedness": 0.703,
+    "composite": 0.3645
+  },
+  {
+    "question_id": "q005",
+    "question": "For a crane and hoist customer who needs power-off load holding, what should I pitch?",
+    "answer": "Industry: Crane and Hoist\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Warner Electric | Electrically Released Brakes (ERS) | Cranes, Hoists, Gantry Cranes, Traveling Bridge Cranes | These brakes provide reliable, cost-effective power-off load holding. They are ideal for dynamic stopping when power is lost and deliver heavy-duty braking with no residual torque in the disengaged position. Perfect for dry environments requiring dependable performance. |\n\nBasic Product Understanding Before Visit:\n- The Electrically Released Brakes (ERS) from Warner Electric are designed for power-off load holding applications.\n- These brakes are used in cranes, hoists, gantry cranes, and traveling bridge cranes.\n- They provide heavy-duty braking with no residual torque when disengaged.\n- The torque capacity range is from 5 lb-in to 1300 lb-ft, and they support horsepower capability up to 100 HP.\n- These brakes are suitable for dry environments and are ideal for dynamic stopping when power is lost.\n\nCustomer Discovery Questions:\n- What is the required torque capacity for the application?\n- What is the maximum horsepower requirement?\n- What is the working environment like (e.g., dry, wet, or dusty)?\n- Is the application in a dry environment?\n- Are there any specific requirements for dynamic stopping when power is lost?",
+    "reference": "Pitch Warner Electric's ERD electrically released brakes. They provide a reliable, cost-effective solution for power-off load holding and are ideal for dynamic stopping when power is lost. They deliver heavy-duty braking with no residual torque in the disengaged position and are suited to dry environments. They apply across chain and wire rope hoists, gantry cranes, monorail lifting systems, steel mill cranes, traveling bridge cranes, and top slewing lifting cranes.",
+    "sources": [
+      {
+        "chunk_id": "5c472db231be0418_1_0",
+        "source_doc": "Crane & Hoist.pdf",
+        "page_num": 1,
+        "score": -0.6254128217697144
+      },
+      {
+        "chunk_id": "5c472db231be0418_2_0",
+        "source_doc": "Crane & Hoist.pdf",
+        "page_num": 2,
+        "score": -1.610752820968628
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_4_1",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 4,
+        "score": -5.131847858428955
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_3_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 3,
+        "score": -5.501459121704102
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_1_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 1,
+        "score": -10.568151473999023
+      }
+    ],
+    "keyword_recall": 0.7377,
+    "token_f1": 0.4103,
+    "semantic_sim": 0.8627,
+    "groundedness": 0.9034,
+    "composite": 0.712
+  },
+  {
+    "question_id": "q006",
+    "question": "What is the CBCx-001 switch and where does it fit in crane applications?",
+    "answer": "The CBCx-001 switch is a sensor and safety switch offered by Warner Electric, specifically designed for use in motion control applications. It is part of Warner Electric's range of sensors and safety switches, which are used to ensure safe and reliable operation in industrial automation systems.\n\n### Where Does It Fit in Crane Applications?\nThe CBCx-001 switch is suitable for crane applications where safety and control are critical. It can be used in various parts of the crane system, such as:\n- Limit switches for end-of-travel detection\n- Safety switches for emergency stop or overload detection\n- Position sensing for precise control of crane movements\n\n### Why Pitch This Product?\nThe CBCx-001 switch is ideal for crane applications due to its:\n- **Reliable performance** in industrial environments\n- **Safety features** that ensure safe operation\n- **Certification** for use in motion control systems\n- **Customizable options** to fit specific application needs\n\n### Basic Product Understanding Before Visit:\n- The CBCx-001 switch is a safety switch designed for use in motion control systems.\n- It provides reliable and accurate detection of position, limit, or emergency stop conditions.\n- It is certified for use in industrial environments and can be customized to meet specific application requirements.\n\n### Important Technical Questions to Ask the Customer:\n- What type of motion control system are you using?\n- Are there specific safety requirements for the crane application?\n- What is the operating environment like (e.g., temperature, humidity, presence of dust or moisture)?\n- Do you have any specific requirements for the switch's mounting or installation?",
+    "reference": "The CBCx-001 is a power supply AC rectifier with programmable over-excitation voltage and an integrated On/Off switch. It is ideal for elevator brakes and ERD/ERS brakes. It can switch between full bridge and single wave rectification, is controlled by an external PLC or board, and enables quick engagement for security applications. In cranes it is used on jib workshop cranes and truck-mounted and crawler cranes.",
+    "sources": [
+      {
+        "chunk_id": "5c472db231be0418_2_0",
+        "source_doc": "Crane & Hoist.pdf",
+        "page_num": 2,
+        "score": 1.952796459197998
+      },
+      {
+        "chunk_id": "5c472db231be0418_1_0",
+        "source_doc": "Crane & Hoist.pdf",
+        "page_num": 1,
+        "score": 0.7862303853034973
+      },
+      {
+        "chunk_id": "d69ee2dd3cbaa771_6_2",
+        "source_doc": "Nabtesco.pdf",
+        "page_num": 6,
+        "score": -6.405731201171875
+      },
+      {
+        "chunk_id": "0dce3159a2b5ebf6_4_1",
+        "source_doc": "HB-Catalogue.pdf",
+        "page_num": 4,
+        "score": -7.555062770843506
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_2_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 2,
+        "score": -7.670633792877197
+      }
+    ],
+    "keyword_recall": 0.3019,
+    "token_f1": 0.175,
+    "semantic_sim": 0.8311,
+    "groundedness": 0.7758,
+    "composite": 0.4735
+  },
+  {
+    "question_id": "q007",
+    "question": "Where does the EUM-FBB brake module mount and how many sizes are available?",
+    "answer": "The EUM-FBB brake module is designed for mounting on machines where clean, quiet, and reliable motion control is required, particularly in environments where washdown or exposure to contaminants is a concern. It is suitable for applications such as assembly, material handling, CNC machines, and other industrial settings where precise control and durability are essential.\n\nThe product documents do not specify the exact number of sizes available for the EUM-FBB brake module. To determine the appropriate size, it is important to consider the specific requirements of the application, such as the required torque, stroke length, and environmental conditions.\n\nImportant technical questions to ask the customer during the discussion include:\n- What is the required torque for the application?\n- What is the operating environment like (e.g., exposure to water, dust, or chemicals)?\n- What is the maximum stroke length needed?\n- What is the required force or load capacity?\n- Are there any specific mounting constraints or space limitations?",
+    "reference": "The EUM-FBB Series Electrically Released Brake Module is used in brake-only applications and mounts between a C-face motor and a gear box or reducer. It is available in four sizes.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": -2.4667131900787354
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_2_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 2,
+        "score": -2.997119903564453
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_4_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 4,
+        "score": -3.131342887878418
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_4_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 4,
+        "score": -3.4731435775756836
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_3_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 3,
+        "score": -3.5148236751556396
+      }
+    ],
+    "keyword_recall": 0.5,
+    "token_f1": 0.1799,
+    "semantic_sim": 0.8317,
+    "groundedness": 0.3942,
+    "composite": 0.487
+  },
+  {
+    "question_id": "q008",
+    "question": "What is the torque and horsepower range of Warner Electric's basic clutches and brakes for packaging machinery?",
+    "answer": "The torque and horsepower range of Warner Electric's basic clutches and brakes for packaging machinery is as follows:\n\n- **Torque capacity range**: 5 lb-in to 1300 lb-ft  \n- **Horsepower capability**: Up to 100 HP  \n\nThese clutches and brakes are designed for packaging machinery applications, offering versatility in rapid cycling, accurate positioning, and soft controlled starts and stops. They are user-assembled from standard components to provide optimal performance in the smallest possible package size.",
+    "reference": "Warner Electric basic clutches and brakes have a torque capacity range from 5 lb-in to 1300 lb-ft, with horsepower capability up to 100 HP. They are user-assembled from standard components for optimum performance in the smallest possible package size.",
+    "sources": [
+      {
+        "chunk_id": "e3b2b3fda4148bf5_4_1",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 4,
+        "score": 4.762991428375244
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_1_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 1,
+        "score": 2.5942370891571045
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_4_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 4,
+        "score": 2.034766912460327
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_3_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 3,
+        "score": 0.8250553011894226
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_1_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 1,
+        "score": 0.7481815218925476
+      }
+    ],
+    "keyword_recall": 0.8947,
+    "token_f1": 0.6325,
+    "semantic_sim": 0.9237,
+    "groundedness": 0.9255,
+    "composite": 0.841
+  },
+  {
+    "question_id": "q009",
+    "question": "A packaging customer runs unwind and rewind tension control with flying splices. What should I pitch?",
+    "answer": "Industry: Packaging\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Warner Electric | CLUTCH/BRAKE MODULES (FM,LM,LUM) | Unwind and rewind tension control | These modules provide application versatility for rapid cycling and accurate positioning, which is essential for maintaining consistent tension in unwind and rewind processes. They are pre-assembled, pre-aligned, and pre-burnished for maximum performance right out of the box. |\n\nBasic Product Understanding Before Visit:\n- The CLUTCH/BRAKE MODULES (FM,LM,LUM) from Warner Electric are designed for applications requiring rapid cycling and accurate positioning. They are pre-assembled, pre-aligned, and pre-burnished at the factory to ensure maximum performance right out of the box. These modules are suitable for use in environments where precise control of tension is required, such as in unwind and rewind processes.\n\nCustomer Discovery Questions:\n- What is the required torque capacity for the unwind and rewind process?\n- What is the operating speed requirement for the unwind and rewind process?\n- What is the working environment like (e.g., dry, wet, or corrosive)?\n- What is the required stroke length for the flying splices?\n- What is the required load capacity for the unwind and rewind process?",
+    "reference": "Pitch Warner Electric's Tension Brakes and Controls. This is a comprehensive line of tension control products including electric and pneumatic friction brakes, magnetic particle and permanent magnet brakes, and both analog and digital controls. Several brake types are specifically designed for unwind/rewind/tension applications to provide consistent tension, even during flying splices and emergency stops.",
+    "sources": [
+      {
+        "chunk_id": "e3b2b3fda4148bf5_1_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 1,
+        "score": -0.8087418675422668
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_2_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 2,
+        "score": -1.5603735446929932
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_4_1",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 4,
+        "score": -6.278112411499023
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_3_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 3,
+        "score": -7.707669258117676
+      },
+      {
+        "chunk_id": "81d3bb0b8867c890_5_1",
+        "source_doc": "KSK V2022 NOV.pdf",
+        "page_num": 5,
+        "score": -8.682785987854004
+      }
+    ],
+    "keyword_recall": 0.4889,
+    "token_f1": 0.239,
+    "semantic_sim": 0.7301,
+    "groundedness": 0.7313,
+    "composite": 0.5231
+  },
+  {
+    "question_id": "q010",
+    "question": "What does Warner Electric offer for palletizing in packaging lines?",
+    "answer": "Industry: Packaging\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Warner Electric | CLUTCH/BRAKE MODULES (FM,LM,LUM) | Palletizing machines | These modules provide versatility for rapid cycling and accurate positioning, which is essential for palletizing applications. They are pre-assembled, pre-aligned, and pre-burnished for maximum performance. |\n| Warner Electric | CLUTCH/BRAKE MODULES (EM,UM,EUM) | Palletizing machines | These modules are designed for application versatility, including rapid cycling and accurate positioning, and are pre-assembled, pre-aligned, and pre-burnished for maximum performance. |\n\nBasic Product Understanding Before Visit:\n- Warner Electric's Clutch/Brake Modules (FM, LM, LUM and EM, UM, EUM) are pre-assembled, pre-aligned, and pre-burnished at the factory to ensure maximum performance right out of the box.\n- These modules are designed for applications requiring rapid cycling, accurate positioning, and soft controlled starts and stops, which are essential in palletizing operations.\n- The modules are suitable for both standard and washdown environments, depending on the specific model.\n\nCustomer Discovery Questions:\n- What is the required operating speed for the palletizing machine?\n- What is the maximum load that the clutch/brake module needs to handle?\n- Is the working environment in the palletizing line washdown or non-washdown?\n- What is the required stroke length for the application?\n- Are there any specific temperature or environmental conditions that the module needs to withstand?",
+    "reference": "For palletizing, Warner Electric offers its line of electrically released, dynamic, spring-set brakes (ERS). These offer a high-performance, cost-effective solution for power-off load holding applications and will hold the full weight of the load when electrical power is accidentally or intentionally removed. They can be applied in any dry environment requiring dependable heavy-duty braking with no residual torque in the disengaged position.",
+    "sources": [
+      {
+        "chunk_id": "e3b2b3fda4148bf5_2_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 2,
+        "score": 1.959275484085083
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_1_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 1,
+        "score": 1.659490942955017
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_3_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 3,
+        "score": -0.07008948177099228
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_1_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 1,
+        "score": -0.29793936014175415
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_2_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 2,
+        "score": -0.551223874092102
+      }
+    ],
+    "keyword_recall": 0.3167,
+    "token_f1": 0.1592,
+    "semantic_sim": 0.7416,
+    "groundedness": 0.7025,
+    "composite": 0.4414
+  },
+  {
+    "question_id": "q011",
+    "question": "How should I introduce NSK to a machine tools customer? Give me the background.",
+    "answer": "Industry: Machine Tools\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| NSK | Cylindrical Roller Bearings (E44 specification) | Machine Tools | These bearings are suitable for machine tools due to their high load capacity, oil lubrication capability, and precision. They are designed for heavy-duty applications and can handle both radial and axial loads. |\n| NSK | Angular Contact Thrust Ball Bearings | Machine Tools | These bearings offer superior high-speed capability and are ideal for applications requiring axial load support. They are suitable for machine tools where high-speed operation and precision are critical. |\n| NSK | Thrust Roller Bearings | Machine Tools | These bearings are designed to sustain only axial loads and are suitable for heavy loads. They provide high axial rigidity, making them ideal for machine tools that require precise and stable operation. |\n\nBasic Product Understanding Before Visit:\n- **Cylindrical Roller Bearings (E44 specification):** These bearings are used in machine tools where high radial and axial loads are present. They are oil-lubricated and have lubrication holes and oil in the groove at the center of the outer ring. They are available in a wide range of bore diameters (25mm to 800mm) and outside diameters (47mm to 1060mm). The bearings have high basic dynamic and static load ratings, making them suitable for heavy-duty applications.\n- **Angular Contact Thrust Ball Bearings:** These bearings are designed for high-speed applications and are ideal for machine tools where axial load support is required. They are suitable for applications that require precision and stability.\n- **Thrust Roller Bearings:** These bearings are designed to sustain only axial loads and are suitable for heavy loads. They provide high axial rigidity, making them ideal for machine tools that require precise and stable operation.\n\nCustomer Discovery Questions:\n- What is the required bore diameter for the bearing?\n- What is the maximum outside diameter required for the bearing?\n- What is the expected load capacity (radial and axial) for the application?\n- What is the operating temperature range for the bearing?\n- What type of lubrication is required for the bearing?\n- What is the required speed for the application?\n- What is the working environment like (e.g., dusty, wet, etc.)?\n- Are there any specific alignment requirements for the bearing?",
+    "reference": "NSK Ltd. (Nippon Seiko Kabushiki-gaisha) is a Japanese multinational and the largest bearing manufacturer in Japan, with 104 years of history. They are world leaders with more than 27% market share for CNC and machine tool ball screws. NSK produces bearings such as super precision and SPACEA bearings, precision machinery and parts like linear guides and ball screws, and automotive bearings and components.",
+    "sources": [
+      {
+        "chunk_id": "5160d1e5d0b5cb23_17_1",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 17,
+        "score": -3.5807485580444336
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_19_2",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 19,
+        "score": -3.7400174140930176
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_19_1",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 19,
+        "score": -6.662588596343994
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_20_1",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 20,
+        "score": -6.921710014343262
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_20_5",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 20,
+        "score": -7.02572774887085
+      }
+    ],
+    "keyword_recall": 0.3137,
+    "token_f1": 0.1271,
+    "semantic_sim": 0.7508,
+    "groundedness": 0.8176,
+    "composite": 0.4519
+  },
+  {
+    "question_id": "q012",
+    "question": "What are the rail width and load capacity ranges of the NSK Square Type Roller Linear Guide?",
+    "answer": "The rail width and load capacity ranges of the NSK Square Type Roller Linear Guide are as follows:\n\n- **Rail Width**: 10mm to 42mm  \n- **Dynamic Load**: 470 N to 8200 N  \n- **Static Load**: 835 N to 16000 N  \n\nThese values are directly specified in the product documentation.",
+    "reference": "The NSK Square Type Roller Linear Guide has a rail width from 15 mm to 65 mm, an assembly height from 28 mm to 90 mm, a dynamic load from 10300 N to 288000 N, and a static load from 27500 N to 756000 N.",
+    "sources": [
+      {
+        "chunk_id": "5160d1e5d0b5cb23_7_0",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 7,
+        "score": 5.512046813964844
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_6_1",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 6,
+        "score": 3.314293622970581
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_4_0",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 4,
+        "score": 3.2048592567443848
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_6_2",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 6,
+        "score": 2.581573724746704
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_20_1",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 20,
+        "score": 2.46403169631958
+      }
+    ],
+    "keyword_recall": 0.5,
+    "token_f1": 0.4615,
+    "semantic_sim": 0.9432,
+    "groundedness": 0.8929,
+    "composite": 0.6601
+  },
+  {
+    "question_id": "q013",
+    "question": "Brief me on the NSK SPACEA Series before I meet a pharmaceutical customer.",
+    "answer": "Industry: Pharmaceutical\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| NSK | SPACEA™ Series Bearings | Pharmaceutical equipment, clean room environments, precision motion systems | These bearings are specifically designed for special environments, including sanitary and clean environments, which are critical in the pharmaceutical industry. They are suitable for applications where contamination must be avoided. |\n\nBasic Product Understanding Before Visit:\n- The NSK SPACEA™ Series bearings are engineered for special environments such as sanitary and clean environments. They are ideal for use in the pharmaceutical industry where contamination must be avoided.\n- These bearings are suitable for applications that require high precision and reliability in clean environments, such as pharmaceutical equipment and precision motion systems.\n- The bearings are available in various configurations to meet specific application needs, including different bore diameters and load capacities.\n\nCustomer Discovery Questions:\n- What is the required working environment for the equipment?\n- What is the maximum load the bearing will need to support?\n- What is the required bore diameter for the bearing?\n- Are there any specific contamination or cleanliness requirements for the application?",
+    "reference": "NSK's SPACEA Series bearings are designed for special environments, with product variations applicable to vacuum, corrosive, clean, sanitary, high-temperature, dust-contaminated, and non-magnetic requirements. They offer high quality and high performance in severe operating environments. They cater to the food and pharmaceutical industries, with applications including food processing machinery and pharmaceutical manufacturing equipment.",
+    "sources": [
+      {
+        "chunk_id": "5160d1e5d0b5cb23_13_0",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 13,
+        "score": -0.8390743732452393
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_14_0",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 14,
+        "score": -2.854595184326172
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_1_0",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 1,
+        "score": -5.2913432121276855
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_2_0",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 2,
+        "score": -7.125711917877197
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_17_1",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 17,
+        "score": -8.178186416625977
+      }
+    ],
+    "keyword_recall": 0.5111,
+    "token_f1": 0.2609,
+    "semantic_sim": 0.9161,
+    "groundedness": 0.5984,
+    "composite": 0.5629
+  },
+  {
+    "question_id": "q014",
+    "question": "What is the operating temperature range of NSK Grease LR3?",
+    "answer": "The operating temperature range of NSK Grease LR3 is -10°C to 110°C.",
+    "reference": "NSK Grease LR3 has a temperature range of -30 degrees C to 130 degrees C. It contains a special synthetic oil for high temperature and stability and dramatically increases lubrication life under high temperature conditions.",
+    "sources": [
+      {
+        "chunk_id": "5160d1e5d0b5cb23_19_0",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 19,
+        "score": 6.24214506149292
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_9_2",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 9,
+        "score": 5.8558831214904785
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_9_3",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 9,
+        "score": 5.671311378479004
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_11_0",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 11,
+        "score": 5.126330375671387
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_10_0",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 10,
+        "score": 4.984968662261963
+      }
+    ],
+    "keyword_recall": 0.2857,
+    "token_f1": 0.3673,
+    "semantic_sim": 0.896,
+    "groundedness": 1.0,
+    "composite": 0.5658
+  },
+  {
+    "question_id": "q015",
+    "question": "What are the body diameter and mass of the NSK Hand Grease Pump, and how many nozzles does it include?",
+    "answer": "The body diameter of the NSK Hand Grease Pump is 38.1mm, and its mass is 240g. The provided documents do not specify the number of nozzles included in the NSK Hand Grease Pump.",
+    "reference": "The NSK Hand Grease Pump has a body diameter of 38.1 mm and a mass of 240 g. It is lightweight and leakproof, and it comes with 5 different nozzle attachments.",
+    "sources": [
+      {
+        "chunk_id": "5160d1e5d0b5cb23_11_1",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 11,
+        "score": 2.8509416580200195
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_19_0",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 19,
+        "score": -0.9644801616668701
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_12_3",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 12,
+        "score": -1.4784103631973267
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_7_0",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 7,
+        "score": -2.8574378490448
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_12_1",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 12,
+        "score": -3.903432846069336
+      }
+    ],
+    "keyword_recall": 0.4444,
+    "token_f1": 0.3939,
+    "semantic_sim": 0.9541,
+    "groundedness": 0.7857,
+    "composite": 0.6104
+  },
+  {
+    "question_id": "q016",
+    "question": "Which industries and applications use the NSK Ball Linear Guide?",
+    "answer": "Industry: Automation Industries Manufacturer\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| NSK | Ball Linear Guide | Industrial Robots, AGVs, CNC Machines | The Ball Linear Guide is designed for high-precision applications. It features improved rated life, rolling direction, accuracy, and impact load resistance. It is suitable for applications requiring precise linear motion and dynamic positioning. |\n\nBasic Product Understanding Before Visit:\n- The NSK Ball Linear Guide is a precision linear motion system that uses ball bearings to achieve high accuracy and smooth motion.\n- It is designed for applications where high precision, stability, and durability are required.\n- The product features improved rated life, enhanced accuracy, and resistance to impact loads.\n- It is suitable for use in environments with moderate to high speeds and loads.\n\nCustomer Discovery Questions:\n- What is the required operating temperature range for the application?\n- What is the maximum load capacity required for the linear guide?\n- What is the required stroke length or travel distance?\n- What is the expected operating speed of the linear guide?\n- What is the working environment like (e.g., clean, dusty, wet, etc.)?",
+    "reference": "The NSK Ball Linear Guide is used across many industries including packaging equipment, material handling equipment, electronic part manufacturing, industrial robots, woodworking machines, laser cutting machines, electric discharge machines, medical equipment, printing equipment, LCD manufacturing equipment, and PCB-drilling machines. Applications include laser cutting machines and material handling equipment.",
+    "sources": [
+      {
+        "chunk_id": "5160d1e5d0b5cb23_9_4",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 9,
+        "score": 6.262517929077148
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_1_0",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 1,
+        "score": 5.130834102630615
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_7_1",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 7,
+        "score": 4.9908270835876465
+      },
+      {
+        "chunk_id": "5160d1e5d0b5cb23_5_0",
+        "source_doc": "NSK Ebook - handover file (1).pdf",
+        "page_num": 5,
+        "score": 4.966153621673584
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": 4.147869110107422
+      }
+    ],
+    "keyword_recall": 0.3529,
+    "token_f1": 0.114,
+    "semantic_sim": 0.8768,
+    "groundedness": 0.5923,
+    "composite": 0.4601
+  },
+  {
+    "question_id": "q017",
+    "question": "Give me Winkel's company background for a heavy material handling customer.",
+    "answer": "Christian Winkel GmbH is a company with over 38 years of experience in the field of linear systems and material handling. They are a market leader in heavy load linear lifting systems and have delivered thousands of material handling systems. The company specializes in manufacturing Combined Bearings and U Shaped Profiles, which are widely used in material handling systems for both vertical and horizontal movement. Their products are suitable for a wide range of industries, including Material Handling, where they provide reliable and durable solutions for heavy-duty applications.",
+    "reference": "Winkel GmbH is a Germany-based company currently managed by Mr. Christian Winkel. It has served the industry for more than 38 years in linear systems and material handling. Winkel is a market leader in heavy load linear lifting systems and has delivered thousands of material handling systems. It also manufactures combined bearings and U-shaped profiles widely used in material handling systems for vertical or horizontal movement.",
+    "sources": [
+      {
+        "chunk_id": "56ff89acaeaf0f47_1_1",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 1,
+        "score": 3.1288912296295166
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_20_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 20,
+        "score": -1.7760756015777588
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_21_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 21,
+        "score": -1.8088994026184082
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_19_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 19,
+        "score": -4.626739978790283
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_1_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 1,
+        "score": -4.6976704597473145
+      }
+    ],
+    "keyword_recall": 0.6939,
+    "token_f1": 0.6115,
+    "semantic_sim": 0.955,
+    "groundedness": 0.8534,
+    "composite": 0.7625
+  },
+  {
+    "question_id": "q018",
+    "question": "What is the working temperature and load capacity of WINKEL Combined Bearings (axial bearing fixed)?",
+    "answer": "Industry: Industrial Machinery\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| WINKEL | Combined Bearings (axial bearing fixed) | Industrial machinery with axial loading | These bearings are designed for unsteady operations and have a working temperature range of -20 °C up to +80 °C. They are lubricated for a lifetime for one shift, making them suitable for applications where maintenance is difficult. |\n\nBasic Product Understanding Before Visit:\n- The WINKEL Combined Bearings (axial bearing fixed) are designed for applications with axial loading.\n- They are lubricated for a lifetime for one shift, reducing the need for frequent maintenance.\n- The working temperature range is from -20 °C up to +80 °C, making them suitable for a wide range of environments.\n- The bearings are constructed using full complement cylindrical rollers, which provide stability and durability under axial loads.\n\nCustomer Discovery Questions:\n- What is the required working temperature range for your application?\n- What is the maximum axial load that the bearing will need to support?\n- Are there any specific environmental conditions (e.g., dust, moisture) that the bearing will be exposed to?\n- What is the required outer diameter for the bearing?",
+    "reference": "WINKEL Combined Bearings (axial bearing fixed) have a working temperature of -20 degrees C up to +80 degrees C. They are based on full complement cylindrical rollers and lubricated with grade 3 grease (for example Shell Gadus S2 V100 3). The radial bearing load capacity ranges from 5.23 kN to 59.20 kN and the axial bearing load capacity from 1.68 kN to 18.50 kN.",
+    "sources": [
+      {
+        "chunk_id": "56ff89acaeaf0f47_4_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 4,
+        "score": 9.28000259399414
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_7_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 7,
+        "score": 9.103144645690918
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_9_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 9,
+        "score": 8.564188957214355
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_17_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 17,
+        "score": 8.271232604980469
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_8_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 8,
+        "score": 7.962016582489014
+      }
+    ],
+    "keyword_recall": 0.5686,
+    "token_f1": 0.2992,
+    "semantic_sim": 0.8818,
+    "groundedness": 0.7167,
+    "composite": 0.6018
+  },
+  {
+    "question_id": "q019",
+    "question": "What material and standard lengths does the Winkel Standard U Profile come in?",
+    "answer": "The Winkel Standard U Profile is made from high quality hot rolled steel S450 J2 Mod. The standard lengths available are 6 Mts or 12 Mts.",
+    "reference": "The Winkel Standard U-shaped profiles are made from high quality hot rolled steel S450 J2 Mod. in a sandblasted version, suitable for Winkel bearings. The standard lengths are 6 metres or 12 metres, and standard profiles are straightened to plus or minus 1.0 mm/m. The inner width ranges from 40.5 mm to 88.4 mm and the outer width from 86.7 mm to 185.1 mm.",
+    "sources": [
+      {
+        "chunk_id": "56ff89acaeaf0f47_3_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 3,
+        "score": 8.47167682647705
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_24_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 24,
+        "score": 7.461540222167969
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_25_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 25,
+        "score": 6.129331111907959
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_2_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 2,
+        "score": 2.9605321884155273
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_1_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 1,
+        "score": 2.3618133068084717
+      }
+    ],
+    "keyword_recall": 0.3878,
+    "token_f1": 0.433,
+    "semantic_sim": 0.9218,
+    "groundedness": 1.0,
+    "composite": 0.6244
+  },
+  {
+    "question_id": "q020",
+    "question": "Which industries and machines does Winkel serve that I can reference in a steel plant pitch?",
+    "answer": "Industry: Steel Industry\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| WINKEL | Precision WINKEL Radial Bearing Type PR | Material Handling Systems | Suitable for steel plant applications requiring radial load capacity up to 59.20 kN and outer diameters between 64.8 mm and 153.8 mm. |\n| WINKEL | Precision Heavy Duty WINKEL Bearing | Material Handling Systems | Suitable for steel plant applications requiring radial load capacity up to 39.20 kN and axial load capacity up to 18.50 kN. |\n| WINKEL | Heavy Duty WINKEL Bearing | Material Handling Systems | Suitable for steel plant applications requiring radial load capacity up to 39.20 kN and axial load capacity up to 18.50 kN. |\n| WINKEL | Precision WINKEL Bearing (with combined bolt) Type KB PR | Material Handling Systems | Suitable for steel plant applications requiring radial load capacity up to 39.30 kN and axial load capacity up to 18.50 kN. |\n\nBasic Product Understanding Before Visit:\n- The Precision WINKEL Radial Bearing Type PR is a radial bearing designed for applications requiring high radial load capacity (up to 59.20 kN) and specific outer diameters (64.8 mm to 153.8 mm). It is suitable for material handling systems in steel plants.\n- The Precision Heavy Duty WINKEL Bearing and Heavy Duty WINKEL Bearing are both designed for heavy-duty applications, with radial load capacities up to 39.20 kN and axial load capacities up to 18.50 kN. They are suitable for material handling systems in steel plants.\n- The Precision WINKEL Bearing (with combined bolt) Type KB PR is a radial bearing with combined bolt design, suitable for applications requiring radial load capacity up to 39.30 kN and axial load capacity up to 18.50 kN. It is suitable for material handling systems in steel plants.\n\nCustomer Discovery Questions:\n- What is the required outer diameter for the bearing?\n- What is the required radial load capacity for the bearing?\n- What is the required axial load capacity for the bearing?\n- What is the working environment like in your steel plant?",
+    "reference": "Winkel serves industries including automobile, cement, conveyor equipment, wood, paper, steel and glass, general machine building, special engineering, petrochemicals and refinery, material handling, metals such as steel and aluminium, and packing machines. Relevant machines and applications include automatic guided vehicles, ingot casting machines, ladle cranes, cold rolled mills, hot strip mills, and blast furnaces.",
+    "sources": [
+      {
+        "chunk_id": "56ff89acaeaf0f47_19_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 19,
+        "score": 1.084164023399353
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_21_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 21,
+        "score": 0.9899463653564453
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_20_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 20,
+        "score": 0.876580536365509
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_1_1",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 1,
+        "score": 0.7332427501678467
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_14_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 14,
+        "score": 0.5235859751701355
+      }
+    ],
+    "keyword_recall": 0.1556,
+    "token_f1": 0.067,
+    "semantic_sim": 0.7063,
+    "groundedness": 0.8597,
+    "composite": 0.3767
+  },
+  {
+    "question_id": "q021",
+    "question": "Before recommending a WINKEL combined bearing, what should I ask the customer about their application?",
+    "answer": "Customer Discovery Questions:\n- What is the required operating temperature range for your application?\n- What is the maximum speed at which the bearing will operate?\n- Is the application subject to unsteady or shock loads?\n- What is the required load capacity for the bearing?\n- Does the application require an adjustable axial bearing?",
+    "reference": "Based on the documented selection parameters, ask the customer about their required radial and axial load capacity (the bearing covers radial 5.23 kN to 59.20 kN and axial 1.68 kN to 18.50 kN), the operating temperature of their application (the bearing works from -20 degrees C to +80 degrees C), the required outer diameter and total width for their mounting, and their lubrication and duty cycle expectations.",
+    "sources": [
+      {
+        "chunk_id": "56ff89acaeaf0f47_26_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 26,
+        "score": 0.34539538621902466
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_4_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 4,
+        "score": -0.06196732819080353
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_9_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 9,
+        "score": -0.32649579644203186
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_11_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 11,
+        "score": -0.35999971628189087
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_17_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 17,
+        "score": -0.5972080230712891
+      }
+    ],
+    "keyword_recall": 0.2553,
+    "token_f1": 0.314,
+    "semantic_sim": 0.8074,
+    "groundedness": 0.2667,
+    "composite": 0.4097
+  },
+  {
+    "question_id": "q022",
+    "question": "How do I introduce Ewellix to a customer looking for linear motion solutions?",
+    "answer": "Industry: Surgical Robotics\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Ewellix | CAWD Linear Actuators | Surgical Robotics | These actuators are engineered for severe environmental conditions, operating from -40 to +85 °C with IP69K/67 protection. They are suitable for manual or electrical operation and are ideal for applications requiring robustness and reliability in challenging environments. |\n| Ewellix | CAHB Linear Actuators | Surgical Robotics | These actuators are designed for severe environments with temperatures from -40 to +85 °C. They are maintenance-free, self-locking up to 2 times the rated load, and offer IP69K/67 protection, making them ideal for surgical robotics where precision and reliability are critical. |\n\nBasic Product Understanding Before Visit:\n- **CAWD Linear Actuators**: These are electromechanical linear actuators designed for severe environments. They operate in temperatures ranging from -40 to +85 °C and are available in manual or electrical operation. They feature robust metal gears in a corrosion-resistant housing, providing IP69K/67 protection. These actuators are ideal for applications requiring high durability and reliability in challenging conditions.\n- **CAHB Linear Actuators**: These are electromechanical linear actuators designed for severe environments with temperatures from -40 to +85 °C. They are maintenance-free, self-locking up to 2 times the rated load, and offer IP69K/67 protection. These actuators are ideal for applications where precision, reliability, and durability are critical, such as in surgical robotics.\n\nCustomer Discovery Questions:\n- What is the required operating temperature range for the application?\n- Is the application subject to harsh environmental conditions such as moisture, dust, or chemical exposure?\n- What type of operation is required: manual or electrical?\n- What is the maximum load that needs to be supported?\n- What is the required stroke length for the actuator?\n- What is the required precision or positioning accuracy?",
+    "reference": "Ewellix is the leading global manufacturer and supplier of linear motion solutions, incorporating state-of-the-art designs, components, and digital technology. They design, manufacture, and customise linear motion and linear actuators, including smart actuators, linear guides, and ball and roller screws for a variety of industrial applications.",
+    "sources": [
+      {
+        "chunk_id": "88d14a9daf902596_1_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 1,
+        "score": 0.7082221508026123
+      },
+      {
+        "chunk_id": "88d14a9daf902596_5_3",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 5,
+        "score": -2.5061655044555664
+      },
+      {
+        "chunk_id": "88d14a9daf902596_8_3",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 8,
+        "score": -3.516810655593872
+      },
+      {
+        "chunk_id": "88d14a9daf902596_4_1",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 4,
+        "score": -3.680009365081787
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_2",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": -6.966586589813232
+      }
+    ],
+    "keyword_recall": 0.3143,
+    "token_f1": 0.1246,
+    "semantic_sim": 0.705,
+    "groundedness": 0.8414,
+    "composite": 0.4436
+  },
+  {
+    "question_id": "q023",
+    "question": "What are the load, stroke, and temperature ratings of the Ewellix CAHB series linear actuator?",
+    "answer": "The Ewellix CAHB series linear actuator has the following specifications:\n\n- **Push load**: Up to 10,000 N  \n- **Pull load**: Up to 10,000 N  \n- **Max stroke**: 50 mm to 700 mm  \n- **Temperature rating**: -40 to +85 °C  \n- **Duty cycle**: 25% (for CAHB series)  \n\nThese actuators are designed for use in severe environments and are maintenance-free with no oil leakage. They are suitable for applications requiring precise linear motion in challenging conditions.",
+    "reference": "The Ewellix CAHB series linear actuator has a push and pull load up to 10000 N and a maximum stroke from 50 mm to 700 mm. It is engineered for severe environments at temperatures from -40 to 85 degrees Celsius with a maximum duty cycle of 25%. It is virtually maintenance-free, self-locking up to 2 times the rated load, and rated up to IP69K.",
+    "sources": [
+      {
+        "chunk_id": "88d14a9daf902596_5_3",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 5,
+        "score": 5.466000556945801
+      },
+      {
+        "chunk_id": "88d14a9daf902596_4_1",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 4,
+        "score": 4.986506462097168
+      },
+      {
+        "chunk_id": "88d14a9daf902596_4_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 4,
+        "score": 1.7191529273986816
+      },
+      {
+        "chunk_id": "88d14a9daf902596_5_2",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 5,
+        "score": 0.7078675031661987
+      },
+      {
+        "chunk_id": "88d14a9daf902596_1_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 1,
+        "score": 0.2563435733318329
+      }
+    ],
+    "keyword_recall": 0.6042,
+    "token_f1": 0.5217,
+    "semantic_sim": 0.9687,
+    "groundedness": 0.8239,
+    "composite": 0.7077
+  },
+  {
+    "question_id": "q024",
+    "question": "What stroke and load capacity does the Ewellix CASM-100 high-performance actuator offer?",
+    "answer": "The Ewellix CASM-100 high-performance actuator offers a **maximum stroke of 2000 mm** and a **dynamic load capacity of 106 kN**.\n\nBasic Product Understanding Before Visit:\n- The CASM-100 is a high-performance electromechanical linear actuator designed for applications requiring high load capacities and fast operating speeds.\n- It is suitable for industries such as Automation, Medical, and Mobile Machinery.\n- The actuator is capable of operating in severe environmental conditions, with a temperature range of -40 to +85 °C.\n- It features a robust design with IP69K/67 protection rating, making it suitable for harsh environments.\n- The actuator is part of the High-performance actuators series, offering exceptional sealing performance and precise motion control.\n\nCustomer Discovery Questions:\n- What is the required maximum stroke length for your application?\n- What is the maximum dynamic load capacity required for your application?",
+    "reference": "The Ewellix CASM-100 high-performance actuator has a maximum stroke up to 2000 mm, a linear speed at no load up to 890 mm/s, a dynamic load capacity up to 106 kN, and a 100% duty cycle. The CASM range provides positioning precision of up to plus or minus 0.01 mm, has an IP54 sealing level, and complies with ISO-15552. It is a flexible replacement for hydraulic cylinders.",
+    "sources": [
+      {
+        "chunk_id": "88d14a9daf902596_7_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 7,
+        "score": 3.781959295272827
+      },
+      {
+        "chunk_id": "88d14a9daf902596_6_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 6,
+        "score": 3.3815321922302246
+      },
+      {
+        "chunk_id": "88d14a9daf902596_8_3",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 8,
+        "score": 2.48219633102417
+      },
+      {
+        "chunk_id": "88d14a9daf902596_5_3",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 5,
+        "score": 1.2377662658691406
+      },
+      {
+        "chunk_id": "88d14a9daf902596_1_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 1,
+        "score": 1.0663783550262451
+      }
+    ],
+    "keyword_recall": 0.5,
+    "token_f1": 0.3445,
+    "semantic_sim": 0.942,
+    "groundedness": 0.8539,
+    "composite": 0.6247
+  },
+  {
+    "question_id": "q025",
+    "question": "Brief me on Ewellix planetary roller screws before I meet a servo press customer.",
+    "answer": "Industry: Servo Press\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Ewellix | Planetary Roller Screws | Servo Press | These screws are ideal for high-speed, high-acceleration applications with heavy loads and long duty cycles. They offer high precision, rigidity, and durability, making them suitable for the demanding conditions of a servo press. |\n\nBasic Product Understanding Before Visit:\n- The Ewellix Planetary Roller Screws are a type of electromechanical drive system that provides high precision and rigidity.\n- They are designed for heavy loads, long duty cycles, high speeds, and harsh operating conditions.\n- The product is suitable for applications requiring high linear speeds and high accelerations.\n- The screws are robust and reliable, with a sealing system that ensures durability in adverse conditions.\n\nCustomer Discovery Questions:\n- What is the required nominal diameter for the roller screw?\n- What is the maximum lead requirement for the application?\n- What is the expected load capacity?\n- What is the operating speed requirement?\n- What is the working environment like (e.g., temperature, humidity, presence of dust or chemicals)?",
+    "reference": "Ewellix planetary roller screws have a nominal diameter from 8 mm to 240 mm and a lead from 2 mm to 30 mm, with a basic dynamic load capacity up to 3994 kN and a basic static load capacity up to 23187 kN. They drive without roller recirculation for ultimate drive performance, are extremely robust and load-bearing, offer high speed and acceleration, and are durable, reliable, less noisy, and capable of high rotational speed. They suit applications such as spot welding, riveting, servo press, and hexapods.",
+    "sources": [
+      {
+        "chunk_id": "88d14a9daf902596_8_3",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 8,
+        "score": 1.0584716796875
+      },
+      {
+        "chunk_id": "88d14a9daf902596_8_1",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 8,
+        "score": -0.32491588592529297
+      },
+      {
+        "chunk_id": "88d14a9daf902596_1_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 1,
+        "score": -2.912208318710327
+      },
+      {
+        "chunk_id": "88d14a9daf902596_8_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 8,
+        "score": -3.921218156814575
+      },
+      {
+        "chunk_id": "88d14a9daf902596_7_3",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 7,
+        "score": -7.763833045959473
+      }
+    ],
+    "keyword_recall": 0.4576,
+    "token_f1": 0.3035,
+    "semantic_sim": 0.8777,
+    "groundedness": 0.6667,
+    "composite": 0.5555
+  },
+  {
+    "question_id": "q026",
+    "question": "I'm visiting a medical equipment customer. What Ewellix products can I pitch and where do they fit?",
+    "answer": "Industry: Medical Equipment\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Ewellix | CAHB Linear Actuators | Surgical Robotics, Surgical Table, Mobile C arm / X arm | These actuators are engineered for severe environments, including medical settings, with IP69K/67 protection rating, making them suitable for clean and sterile conditions. They are maintenance-free, self-locking, and operate in a wide temperature range (-40 to +85 °C). |\n| Ewellix | CAWD Linear Actuators | Surgical Robotics, Surgical Table, Mobile C arm / X arm | These actuators are designed for severe environmental conditions, including medical applications, with IP69K/67 protection rating. They are available for manual or electrical operation and are suitable for applications requiring high durability and reliability in clean environments. |\n\nBasic Product Understanding Before Visit:\n- **CAHB Linear Actuators**: These are electromechanical linear actuators designed for severe environments. They are maintenance-free, self-locking up to 2 times the rated load, and offer IP69K/67 protection. They are suitable for applications requiring high durability and reliability in clean environments.\n- **CAWD Linear Actuators**: These are linear actuators available in two versions: manual operation by winch or electrical operation controlled by a switch. They are engineered for severe environmental conditions, including medical applications, with IP69K/67 protection. They are suitable for applications requiring high durability and reliability in clean environments.\n\nCustomer Discovery Questions:\n- What is the required operating temperature range for the application?\n- What is the required IP protection rating for the environment?\n- What is the maximum load capacity required for the actuator?\n- What is the required stroke length for the actuator?\n- What is the required operating speed for the actuator?\n- What is the required type of operation (manual or electrical)?",
+    "reference": "For a medical equipment customer, pitch Ewellix lifting columns and actuators. The THG lifting column lifts medium loads up to 2000 N for imaging equipment, infant incubators, and radiant warmers. The TLT lifting column handles push loads up to 4000 N for surgical tables and physiotherapy devices. The CAMT linear actuator is maintenance-free with no oil leakage for surgical tables and procedure chairs, and the CAWD actuator suits surgical robotics and mobile C-arm/X-arm. These give smooth, precise motion for patient-facing equipment.",
+    "sources": [
+      {
+        "chunk_id": "88d14a9daf902596_8_3",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 8,
+        "score": -1.9988404512405396
+      },
+      {
+        "chunk_id": "88d14a9daf902596_1_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 1,
+        "score": -4.3330254554748535
+      },
+      {
+        "chunk_id": "88d14a9daf902596_4_1",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 4,
+        "score": -4.627864360809326
+      },
+      {
+        "chunk_id": "88d14a9daf902596_5_3",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 5,
+        "score": -4.718438625335693
+      },
+      {
+        "chunk_id": "45dbef51d404d113_3_1",
+        "source_doc": "Dynapar Ebook - handover file.pdf",
+        "page_num": 3,
+        "score": -7.854588508605957
+      }
+    ],
+    "keyword_recall": 0.4333,
+    "token_f1": 0.2389,
+    "semantic_sim": 0.7622,
+    "groundedness": 0.8691,
+    "composite": 0.5323
+  },
+  {
+    "question_id": "q027",
+    "question": "What is the push load and stroke of the Ewellix THG lifting column, and what is it used for?",
+    "answer": "Industry: Medical\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Ewellix | THG | Imaging Equipment, Infant Incubator, Radiant Warmer | The THG series is designed for medical applications requiring lifting of medium loads (up to 2000 N) with a stroke range of 100 mm to 700 mm. It is suitable for off-center loads and features a DC motor with optional position feedback, making it ideal for compact and precise medical equipment. |\n\nBasic Product Understanding Before Visit:\n- The THG series is a compact lifting column designed for medical applications.\n- It can lift medium loads up to 2000 N.\n- The stroke length can be adjusted between 100 mm and 700 mm.\n- It is suitable for off-center loads.\n- It features a DC motor with optional position feedback for precise control.\n\nCustomer Discovery Questions:\n- What is the maximum load requirement for your application?\n- What is the required stroke length for your equipment?\n- Are there any specific requirements for the working environment (e.g., temperature, humidity)?\n- Is there a need for position feedback in your application?",
+    "reference": "The Ewellix THG lifting column has a push load up to 2000 N, a stroke from 100 mm to 700 mm, a no-load linear speed up to 15 mm/s, and a 10% duty cycle. It is slim and compact, designed for off-center loads, and uses a DC motor with optional position feedback. It caters to the medical industry, with applications including imaging equipment, infant incubators, and radiant warmers.",
+    "sources": [
+      {
+        "chunk_id": "88d14a9daf902596_2_1",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 2,
+        "score": 1.5190343856811523
+      },
+      {
+        "chunk_id": "88d14a9daf902596_3_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 3,
+        "score": 0.4579324424266815
+      },
+      {
+        "chunk_id": "88d14a9daf902596_1_0",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 1,
+        "score": 0.03926868736743927
+      },
+      {
+        "chunk_id": "88d14a9daf902596_3_1",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 3,
+        "score": -0.593695342540741
+      },
+      {
+        "chunk_id": "88d14a9daf902596_2_3",
+        "source_doc": "Ewellix V2023MAR.pdf",
+        "page_num": 2,
+        "score": -1.5966171026229858
+      }
+    ],
+    "keyword_recall": 0.6852,
+    "token_f1": 0.418,
+    "semantic_sim": 0.8983,
+    "groundedness": 0.823,
+    "composite": 0.6924
+  },
+  {
+    "question_id": "q028",
+    "question": "Give me the background on LinMot and its maker for a customer introduction.",
+    "answer": "LinMot is a globally recognized brand specializing in high-performance linear direct drives for industrial applications. It is part of NTI AG, a company established in 1993 as part of the Sulzer Group and operating independently since 2000. NTI AG is known for its expertise in the advancement, manufacturing, and distribution of precision linear direct drives. The LinMot brand is specifically focused on industrial linear motors, offering solutions that combine linear and rotary movements in a compact, durable, and customizable form. LinMot motors are designed for harsh environments, with options such as the ATEX-certified version for explosive atmospheres and the hygienic stainless steel SSC series for applications requiring cleanliness and resistance to dirt buildup.",
+    "reference": "LinMot linear motors are made by NTI AG, a renowned worldwide producer of tubular-style linear motors and linear motor systems. NTI AG was initially established in 1993 as part of the Sulzer Group and has been operating independently since 2000. Its product lineup includes the globally recognized brands LinMot for industrial linear motors and MagSpring for magnetic springs. NTI AG supplies its products in 80 countries worldwide.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": -3.0396311283111572
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": -3.350620985031128
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": -6.498016357421875
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": -6.576648235321045
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_2",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": -6.654911994934082
+      }
+    ],
+    "keyword_recall": 0.52,
+    "token_f1": 0.4262,
+    "semantic_sim": 0.9051,
+    "groundedness": 0.8784,
+    "composite": 0.6466
+  },
+  {
+    "question_id": "q029",
+    "question": "What is the maximum stroke, force, and peak velocity of the LinMot P10 series linear motor?",
+    "answer": "The information about the LinMot P10 series linear motor is not available in the provided product documents.",
+    "reference": "The LinMot Series P10 (3x400VAC) linear motor has a maximum stroke from 1770 mm to 2240 mm, a force from 892 N to 2720 N, and a peak velocity from 7.4 m/s to 11.1 m/s. It is used in printing presses, packaging and labeling, and wood, glass, and ceramic processing.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_2_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 2,
+        "score": 4.7094573974609375
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": 1.8302186727523804
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_4_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 4,
+        "score": 1.4060002565383911
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": 1.3387900590896606
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_2",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": 1.0020501613616943
+      }
+    ],
+    "keyword_recall": 0.1951,
+    "token_f1": 0.2254,
+    "semantic_sim": 0.7165,
+    "groundedness": 0.1818,
+    "composite": 0.331
+  },
+  {
+    "question_id": "q030",
+    "question": "Brief me on the LinMot stainless steel linear motor for a food hygiene customer.",
+    "answer": "Industry: Food Processing\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| LinMot | SSC Linear Motors | Food Processing | The SSC linear motors are constructed of stainless steel EN 1.4404/AISI 316 and are designed for harsh environments. They feature a hygienic design with no extra edges, corners, holes, or screw connections to prevent dirt buildup. The windings are completely coated in epoxy, making them suitable for food hygiene applications. |\n\nBasic Product Understanding Before Visit:\n- The LinMot SSC linear motors are designed for hygienic environments and are made from stainless steel EN 1.4404/AISI 316.\n- They have a hygienic design with no extra edges, corners, holes, or screw connections to prevent dirt buildup.\n- The windings are completely coated in epoxy to protect against contamination.\n- These motors are suitable for applications where cleanliness and resistance to harsh environments are critical.\n\nCustomer Discovery Questions:\n- What is the required operating temperature range for the application?\n- What type of environment will the motor be used in (e.g., clean room, high humidity)?\n- Are there any specific hygiene requirements or certifications needed for the application?\n- What is the maximum load capacity required for the application?\n- What is the required stroke length for the application?",
+    "reference": "The LinMot SSC stainless steel linear motors are constructed of stainless steel EN 1.4404/AISI 316 and designed for harsh environments with an emphasis on hygienic design. They are made without extra edges, corners, holes, or screw connections to prevent the buildup of dirt. The windings are completely coated in epoxy resin, shielding the copper filling and stator package from moisture and corrosion. They have a maximum stroke from 780 mm to 1530 mm and serve marine, medical and pharmaceutical, food, and automation industries.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": 2.182739734649658
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": 1.2706093788146973
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": 0.1597457379102707
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": -0.8094348907470703
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_1_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 1,
+        "score": -2.3383896350860596
+      }
+    ],
+    "keyword_recall": 0.6912,
+    "token_f1": 0.4126,
+    "semantic_sim": 0.9167,
+    "groundedness": 0.8102,
+    "composite": 0.6958
+  },
+  {
+    "question_id": "q031",
+    "question": "A customer works in oil and gas with explosive atmospheres. Which LinMot motor should I pitch?",
+    "answer": "Industry: Oil and Gas\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| LinMot | Linear Motor ATEX | Oil and Gas Equipment | The LinMot ATEX linear motor is specifically designed for environments where explosive gases, vapor-air mixtures, or combustible dust can occur. It meets the necessary safety standards for explosive atmospheres, making it suitable for use in the oil and gas industry. |\n\nBasic Product Understanding Before Visit:\n- The LinMot ATEX linear motor is a specialized motor designed for use in hazardous environments where there is a risk of explosion due to the presence of explosive gases, vapor-air mixtures, or combustible dust.\n- It is constructed to meet the required safety standards for such environments, ensuring safe and reliable operation.\n- The motor is part of a family of linear motors that combine two electromagnetic servo motors in a compact housing, enabling seamless integration of linear and rotary movements.\n- It is designed for high durability and reliability, with near-zero wear characteristics.\n\nCustomer Discovery Questions:\n- What type of explosive atmosphere do you have in your facility?\n- Are there any specific safety standards or certifications that your equipment must meet?\n- What is the required operating temperature range for the motor?\n- What is the maximum load capacity that the motor must handle?\n- What is the required stroke length for the motor?",
+    "reference": "Pitch the LinMot Explosion Proof linear motor. It is designed for the oil and gas industry and environments with explosive atmospheres. It has a maximum stroke from 860 mm to 980 mm, a force from 310 N to 721 N, and a velocity from 2.3 m/s to 3.4 m/s.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": -3.577021360397339
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": -4.468315601348877
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": -6.579373359680176
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -8.455737113952637
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": -9.050515174865723
+      }
+    ],
+    "keyword_recall": 0.5789,
+    "token_f1": 0.214,
+    "semantic_sim": 0.8625,
+    "groundedness": 0.56,
+    "composite": 0.5558
+  },
+  {
+    "question_id": "q032",
+    "question": "Which industries and applications does the LinMot P10 series serve that I can reference in a packaging pitch?",
+    "answer": "Industry: Packaging\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| LinMot | P10 series | Packaging machinery, labeling systems, conveyor systems | The P10 series is designed for high-precision linear motion in packaging applications. It uses linear tubular motors and is suitable for environments requiring clean, corrosion-resistant materials. The modules are ideal for applications where high accuracy, dynamic performance, and reliability are essential. |\n\nBasic Product Understanding Before Visit:\n- The LinMot P10 series is a linear motion system that uses linear tubular motors. It is designed for high-precision applications in packaging machinery.\n- The system includes linear guides with built-in ball bearings, ensuring dependable and error-free operation while absorbing outside stresses, torques, and bending moments.\n- The modules are made from stainless steel, making them suitable for food and pharmaceutical industries where hygiene and corrosion resistance are critical.\n- The P10 series is known for its near-zero wear characteristics, offering long-term reliability and minimal maintenance.\n\nCustomer Discovery Questions:\n- What is the required stroke length for the linear motion system?\n- What is the maximum load capacity that the system needs to handle?\n- What is the operating speed requirement for the packaging machinery?\n- What is the working environment like (e.g., clean room, humid, corrosive)?\n- Are there any specific hygiene or corrosion resistance requirements for the materials used?",
+    "reference": "The LinMot P10 series serves industries including food and beverage, pharmaceutical, automation and robotics, packaging and printing, aerospace and defence, and textile and printing. Its applications include printing presses, filling and sealing, packaging and labeling, and wood, glass, and ceramic processing.",
+    "sources": [
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_5_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 5,
+        "score": 2.2705366611480713
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -1.0652384757995605
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_3_3",
+        "source_doc": "LinMot.pdf",
+        "page_num": 3,
+        "score": -2.078903913497925
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_7_0",
+        "source_doc": "LinMot.pdf",
+        "page_num": 7,
+        "score": -2.666605234146118
+      },
+      {
+        "chunk_id": "bb5b3ebdef6e5e83_6_1",
+        "source_doc": "LinMot.pdf",
+        "page_num": 6,
+        "score": -3.6655571460723877
+      }
+    ],
+    "keyword_recall": 0.4138,
+    "token_f1": 0.1467,
+    "semantic_sim": 0.8133,
+    "groundedness": 0.2531,
+    "composite": 0.4228
+  },
+  {
+    "question_id": "q033",
+    "question": "What are the benefits of Warner Electric Clutch/Brake Modules (EM, UM, EUM) for a food line?",
+    "answer": "Industry: Food Line\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Warner Electric | CLUTCH/BRAKE MODULES (EM, UM, EUM) | Food processing equipment, conveyor systems, packaging lines | These modules provide application versatility for rapid cycling, accurate positioning, and soft starts/stops. They are pre-assembled, pre-aligned, and pre-burnished at the factory for maximum performance. |\n\nBasic Product Understanding Before Visit:\n- The Warner Electric Clutch/Brake Modules (EM, UM, EUM) are designed for versatile motion control applications.\n- They are pre-assembled, pre-aligned, and pre-burnished at the factory to ensure maximum performance right out of the box.\n- These modules are suitable for applications requiring rapid cycling, accurate positioning, and soft starts and stops.\n\nCustomer Discovery Questions:\n- What is the required operating speed for the application?\n- What is the maximum load that the clutch/brake module needs to handle?\n- What is the required stroke length for the application?\n- What is the working environment like (e.g., clean, humid, or washdown conditions)?\n- Are there any specific temperature or environmental conditions that the module needs to withstand?",
+    "reference": "Warner Electric's Unimodule Clutch/Brake modules (EM, UM, EUM) provide the ultimate in application versatility, from rapid cycling and accurate positioning to soft controlled starts and stops. They come completely pre-assembled, pre-aligned, and pre-burnished at the factory for maximum performance right out of the box.",
+    "sources": [
+      {
+        "chunk_id": "d3324406b2a031fc_1_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 1,
+        "score": 5.608719348907471
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_3_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 3,
+        "score": 4.942461013793945
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_2_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 2,
+        "score": 4.875158786773682
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_3_1",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 3,
+        "score": 3.8038711547851562
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_2_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 2,
+        "score": 3.5160739421844482
+      }
+    ],
+    "keyword_recall": 0.814,
+    "token_f1": 0.3644,
+    "semantic_sim": 0.9008,
+    "groundedness": 0.6231,
+    "composite": 0.6947
+  },
+  {
+    "question_id": "q034",
+    "question": "A meat and poultry processor uses caustic washdown. What should I pitch?",
+    "answer": "Industry: Meat and Poultry\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Warner Electric | Stainless Steel Clutches and Brakes | Meat and poultry processing equipment | These clutches and brakes are specifically designed for caustic washdown environments. They feature stainless steel bearings and housing, making them corrosion-resistant and suitable for 24/7 operation in harsh conditions. |\n| Warner Electric | Enclosed Unimodule Washdown (EUM-W) | Meat and poultry processing equipment | These units are designed for washdown environments and have sealed enclosures to protect against contaminants. They are ideal for applications requiring clean, quiet motion control technology. |\n\nBasic Product Understanding Before Visit:\n- **Stainless Steel Clutches and Brakes**: These are designed for harsh environments like meat and poultry processing. They are made from stainless steel, which resists corrosion from caustic washdown solutions. They are built for continuous operation and are suitable for applications requiring rapid cycling, accurate positioning, and soft starts/stops.\n- **Enclosed Unimodule Washdown (EUM-W)**: These are motion control units with sealed enclosures that protect against contaminants. They are ideal for washdown environments and provide clean, quiet operation.\n\nCustomer Discovery Questions:\n- What is the required load capacity for the clutch or brake?\n- What is the operating speed requirement?\n- What is the working environment like (e.g., temperature, humidity)?\n- What type of contaminants are present in the washdown process?\n- Are there any specific certifications or standards the equipment must meet?",
+    "reference": "Pitch Warner Electric's all stainless steel clutches and brakes. Caustic washdown solutions can cause corrosion and eventual failure in food processing applications such as meat and poultry, so these units feature stainless steel bearings and stainless steel housing and are designed to handle the most hostile washdown, tough enough to perform 24/7.",
+    "sources": [
+      {
+        "chunk_id": "d3324406b2a031fc_4_2",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 4,
+        "score": 0.9354444742202759
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_2_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 2,
+        "score": -9.614745140075684
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_3_1",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 3,
+        "score": -9.712881088256836
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_1_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 1,
+        "score": -10.457958221435547
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_4_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 4,
+        "score": -10.601127624511719
+      }
+    ],
+    "keyword_recall": 0.6364,
+    "token_f1": 0.2624,
+    "semantic_sim": 0.8538,
+    "groundedness": 0.8024,
+    "composite": 0.6221
+  },
+  {
+    "question_id": "q035",
+    "question": "Which crane and hoist machine types can I target with Warner Electric ERD brakes?",
+    "answer": "Industry: Crane and Hoist\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Warner Electric | Electrically Released Brakes (ERD) | Chain and wire rope hoists, Gantry cranes, Top slewing lifting cranes, Traveling bridge cranes | These brakes provide reliable, cost-effective power-off load holding. They are ideal for dynamic stopping when power is lost, deliver heavy-duty braking with no residual torque in the disengated position, and are suitable for dry environments requiring dependable performance. |\n\nBasic Product Understanding Before Visit:\n- The Electrically Released Brakes (ERD) from Warner Electric are designed for power-off load holding. They ensure that the load remains stationary when power is lost, which is critical in crane and hoist applications.\n- These brakes are suitable for dynamic stopping scenarios where the load must be held securely without residual torque when the brake is disengaged.\n- They are designed for use in dry environments and are ideal for applications where dependable performance is required.\n- The brakes are part of a broader range of products, including clutch/brake modules and sensors, which can be used in various motion control applications.\n\nCustomer Discovery Questions:\n- What type of crane or hoist machine are you using?\n- Do you require the brake to hold the load securely when power is lost?\n- Is the operating environment dry?\n- Are there any specific requirements for dynamic stopping or residual torque in the disengaged position?",
+    "reference": "Warner Electric ERD electrically released brakes apply across chain and wire rope hoists, gantry cranes, jib workshop cranes, monorail lifting systems, steel mill cranes, top slewing lifting cranes, traveling bridge cranes, and truck-mounted and crawler cranes.",
+    "sources": [
+      {
+        "chunk_id": "5c472db231be0418_1_0",
+        "source_doc": "Crane & Hoist.pdf",
+        "page_num": 1,
+        "score": 2.8559930324554443
+      },
+      {
+        "chunk_id": "5c472db231be0418_2_0",
+        "source_doc": "Crane & Hoist.pdf",
+        "page_num": 2,
+        "score": 2.37069034576416
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_1_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 1,
+        "score": -0.6797537207603455
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_3_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 3,
+        "score": -1.132944941520691
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_4_1",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 4,
+        "score": -1.4022260904312134
+      }
+    ],
+    "keyword_recall": 0.6207,
+    "token_f1": 0.1667,
+    "semantic_sim": 0.864,
+    "groundedness": 0.75,
+    "composite": 0.5874
+  },
+  {
+    "question_id": "q036",
+    "question": "What braking solution suits indoor and outdoor heavy duty steel mill cranes?",
+    "answer": "Industry: Steel Mill\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Warner Electric | Electrically Released Brakes (ERD) | Traveling Bridge Cranes, Gantry Cranes | These brakes provide reliable, cost-effective power-off load holding, ideal for dynamic stopping when power is lost. They deliver heavy-duty braking with no residual torque in the disengaged position, making them suitable for heavy-duty applications in steel mills. |\n\nBasic Product Understanding Before Visit:\n- The Electrically Released Brakes (ERD) from Warner Electric are designed for power-off load holding, ensuring that loads remain secure when power is lost.\n- These brakes are suitable for dynamic stopping applications and are ideal for heavy-duty environments.\n- They are designed for use in dry environments and are suitable for steel mill cranes.\n- The brakes are reliable and cost-effective, making them a good choice for industrial applications.\n\nCustomer Discovery Questions:\n- What is the maximum load that needs to be held when power is lost?\n- What is the operating environment like (indoor or outdoor)?\n- Are there any specific requirements for the braking system in terms of speed or stroke length?\n- What is the voltage requirement for the braking system?\n- Are there any specific environmental conditions that need to be considered, such as washdown or corrosive environments?",
+    "reference": "For steel mill cranes, Warner Electric offers spring-operated / electromagnetic release brakes for indoor and outdoor heavy duty applications. Its ERD brakes provide reliable, cost-effective power-off load holding, deliver heavy-duty braking with no residual torque in the disengaged position, and are ideal for dynamic stopping when power is lost.",
+    "sources": [
+      {
+        "chunk_id": "5c472db231be0418_1_0",
+        "source_doc": "Crane & Hoist.pdf",
+        "page_num": 1,
+        "score": 3.4556734561920166
+      },
+      {
+        "chunk_id": "5c472db231be0418_2_0",
+        "source_doc": "Crane & Hoist.pdf",
+        "page_num": 2,
+        "score": -0.0977386087179184
+      },
+      {
+        "chunk_id": "0dce3159a2b5ebf6_3_1",
+        "source_doc": "HB-Catalogue.pdf",
+        "page_num": 3,
+        "score": -4.080585956573486
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_4_2",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 4,
+        "score": -6.111756324768066
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_3_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 3,
+        "score": -6.499278545379639
+      }
+    ],
+    "keyword_recall": 0.8667,
+    "token_f1": 0.3552,
+    "semantic_sim": 0.9317,
+    "groundedness": 0.6933,
+    "composite": 0.7291
+  },
+  {
+    "question_id": "q037",
+    "question": "Which packaging machinery applications does Warner Electric serve?",
+    "answer": "Industry: Packaging Machinery\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Warner Electric | CLUTCH/BRAKE MODULES (EM,UM,EUM) | Blisterpacking, Canned Goods, Bakery Snacks | These modules provide application versatility for rapid cycling, accurate positioning, and soft starts/stops. They are pre-assembled, pre-aligned, and pre-burnished for maximum performance. |\n| Warner Electric | ENCLOSURE UNIMODULE WASHDOWN | Canned Goods, Bakery Snacks | These washdown modules are designed for cleaning with water or mild solutions, ensuring durability in harsh environments. |\n\nBasic Product Understanding Before Visit:\n- The CLUTCH/BRAKE MODULES (EM,UM,EUM) are pre-assembled, pre-aligned, and pre-burnished modules designed for motion control applications in packaging machinery. They offer versatility for rapid cycling, accurate positioning, and soft starts/stops.\n- The ENCLOSURE UNIMODULE WASHDOWN is a washdown-rated product designed for environments where cleaning with water or mild solutions is required, ensuring durability in harsh conditions.\n\nCustomer Discovery Questions:\n- What is the required operating speed for the packaging machinery?\n- What is the maximum load capacity that the clutch/brake module needs to handle?\n- Is the working environment subject to cleaning with water or mild solutions?\n- What is the required stroke length for the application?\n- Are there any specific temperature or environmental conditions that the product must withstand?",
+    "reference": "Warner Electric serves packaging machinery applications including blisterpacking, bottling and capping, carton and case packing, cleaning and sterilizing, filling, form fill seal, inspection, labeling, and palletizing.",
+    "sources": [
+      {
+        "chunk_id": "e3b2b3fda4148bf5_2_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 2,
+        "score": 2.996432304382324
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_1_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 1,
+        "score": 2.8478589057922363
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_3_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 3,
+        "score": 2.2435567378997803
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_2_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 2,
+        "score": 1.854326605796814
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_1_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 1,
+        "score": 1.5718119144439697
+      }
+    ],
+    "keyword_recall": 0.3478,
+    "token_f1": 0.0948,
+    "semantic_sim": 0.6056,
+    "groundedness": 0.6731,
+    "composite": 0.3978
+  },
+  {
+    "question_id": "q038",
+    "question": "What does Warner Electric recommend for indexing and positioning functions in packaging?",
+    "answer": "Industry: Packaging\n\nRecommended Products:\n| Brand | Product | Application/Machine | Why Pitch This Product |\n|-------|---------|---------------------|------------------------|\n| Warner Electric | CLUTCH/BRAKE MODULES (EM,UM,EUM) | Packaging machines (e.g., blisterpacking, canned goods, bakery snacks) | These modules provide application versatility for rapid cycling and accurate positioning, which are essential for indexing and positioning functions in packaging. They are pre-assembled, pre-aligned, and pre-burnished at the factory for maximum performance. |\n\nBasic Product Understanding Before Visit:\n- The CLUTCH/BRAKE MODULES (EM,UM,EUM) are designed for applications requiring rapid cycling and accurate positioning.\n- These modules are pre-assembled, pre-aligned, and pre-burnished at the factory to ensure maximum performance right out of the box.\n- They are suitable for packaging machines where indexing and positioning functions are critical.\n\nCustomer Discovery Questions:\n- What is the required cycle speed for the packaging machine?\n- What is the required accuracy for positioning in the packaging process?\n- Are there any specific environmental conditions (e.g., washdown, temperature, humidity) that the packaging machine is exposed to?\n- What is the required torque or load capacity for the indexing function?",
+    "reference": "For indexing, positioning, and backstopping functions, Warner Electric offers a complete line of wrap spring clutches and clutch/brakes. They are particularly well suited for these functions, with fast, repeatable, and positive action that provides identical cycling over a long life.",
+    "sources": [
+      {
+        "chunk_id": "e3b2b3fda4148bf5_1_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 1,
+        "score": 3.222545623779297
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_2_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 2,
+        "score": 2.6055784225463867
+      },
+      {
+        "chunk_id": "e3b2b3fda4148bf5_2_0",
+        "source_doc": "Packaging Machinery.pdf",
+        "page_num": 2,
+        "score": 1.291576862335205
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_3_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 3,
+        "score": 1.005013346672058
+      },
+      {
+        "chunk_id": "d3324406b2a031fc_1_0",
+        "source_doc": "Food & Beverage.pdf",
+        "page_num": 1,
+        "score": 0.34189072251319885
+      }
+    ],
+    "keyword_recall": 0.3889,
+    "token_f1": 0.1659,
+    "semantic_sim": 0.7577,
+    "groundedness": 0.6587,
+    "composite": 0.4658
+  },
+  {
+    "question_id": "q039",
+    "question": "What is the unit price of the WINKEL Heavy Duty Bearing?",
+    "answer": "This information is not available in the provided product documents.",
+    "reference": "This information is not available in the provided product documents. Pricing is not listed in the catalog, so this should be confirmed with the manufacturer or supplier.",
+    "sources": [
+      {
+        "chunk_id": "56ff89acaeaf0f47_2_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 2,
+        "score": 1.5241285562515259
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_1_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 1,
+        "score": 1.112616777420044
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_23_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 23,
+        "score": 1.082726240158081
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_22_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 22,
+        "score": 0.9029483795166016
+      },
+      {
+        "chunk_id": "56ff89acaeaf0f47_20_0",
+        "source_doc": "Winkel  Ebook - handover file.pdf",
+        "page_num": 20,
+        "score": 0.4802390933036804
+      }
+    ],
+    "keyword_recall": 0.4762,
+    "token_f1": 0.5405,
+    "semantic_sim": 0.7317,
+    "groundedness": 0.0,
+    "composite": 0.4847
+  }
+]
