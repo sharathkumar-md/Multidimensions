@@ -1,0 +1,7 @@
+[
+  {
+    "model": "Qwen/Qwen3-8B",
+    "avg_composite": 0.5644,
+    "n_questions": 39
+  }
+]
