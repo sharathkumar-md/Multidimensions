@@ -139,16 +139,43 @@ with st.sidebar:
 
     st.divider()
     st.caption("**Model:** Qwen3-8B (4-bit)")
-    st.caption("**Index:** 340 chunks · 18 docs")
+    st.caption("**Index:** 472 chunks · 23 docs")
     st.caption("**Retrieval:** BM25 + dense + rerank")
 
 # ── main chat area ────────────────────────────────────────────────────────────
+
+def _render_sources(sources: list) -> None:
+    if not sources:
+        return
+    with st.expander(f"📄 Sources ({len(sources)})"):
+        for src in sources:
+            st.markdown(f"**{src['source_doc']}** — page {src['page_num']}")
+            st.caption(src["snippet"])
+
+
+def _collect_sources(retrieved) -> list:
+    # dedupe by document + page so the same doc doesn't repeat
+    seen, sources = set(), []
+    for r in retrieved:
+        key = (r.chunk.source_doc, r.chunk.page_num)
+        if key in seen:
+            continue
+        seen.add(key)
+        sources.append({
+            "source_doc": r.chunk.source_doc,
+            "page_num": r.chunk.page_num,
+            "snippet": r.chunk.text[:200].strip() + "…",
+        })
+    return sources
+
 
 st.markdown(f"### {active.title}")
 
 for msg in active.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
+        if msg["role"] == "assistant":
+            _render_sources(msg.get("sources", []))
 
 question = st.chat_input("Ask about the product catalog…")
 
@@ -164,10 +191,13 @@ if question:
             answer, retrieved = _ask(question, active.summary)
 
         st.markdown(answer)
+        sources = _collect_sources(retrieved)
+        _render_sources(sources)
 
     active.messages.append({
         "role": "assistant",
         "content": answer,
+        "sources": sources,
     })
 
     _update_summary(active, question, answer)
