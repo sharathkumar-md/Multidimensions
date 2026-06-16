@@ -61,19 +61,31 @@ def _load_index():
 
 # ── answer generation ─────────────────────────────────────────────────────────
 
+_MODEL_ID = "Qwen/Qwen3-8B"
+
+
 def _ask(question: str, summary: str) -> tuple[str, list]:
     from src.retriever import retrieve
     from src.generator import generate, generate_raw
+    from src.conversational import needs_retrieval, rewrite_query, simple_reply
+    from src.evaluator import groundedness
     from config.settings import settings
 
     model, tokenizer = _load_model()
     collection, bm25, chunks, reranker = _load_index()
 
+    # ── router: chit-chat / greetings skip the catalog lookup ──
+    if not needs_retrieval(question, model, tokenizer, _MODEL_ID):
+        return simple_reply(question, summary, model, tokenizer, _MODEL_ID), []
+
+    # ── contextual rewrite: resolve "it / that / the same" into a standalone query ──
+    search_query = rewrite_query(question, summary, model, tokenizer, _MODEL_ID)
+
     def hyde_fn(prompt: str, max_new_tokens: int = 120) -> str:
         return generate_raw(prompt, model, tokenizer, max_new_tokens=max_new_tokens)
 
     retrieved = retrieve(
-        query=question,
+        query=search_query,
         collection=collection,
         bm25=bm25,
         chunks=chunks,
@@ -94,7 +106,13 @@ def _ask(question: str, summary: str) -> tuple[str, list]:
     trimmed = [c[:budget] for c in context_texts]
     context = sep.join(trimmed) + summary_note
 
-    answer = generate(question, [context], model, tokenizer, "Qwen/Qwen3-8B")
+    # answer the original question (not the rewritten one) using retrieved context
+    answer = generate(question, [context], model, tokenizer, _MODEL_ID)
+
+    # soft grounding check: flag, never block
+    if context_texts and groundedness(answer, context_texts) < 0.45:
+        answer += "\n\n_⚠️ Some details may not be fully covered in the catalog — please verify._"
+
     return answer, retrieved
 
 

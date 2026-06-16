@@ -25,7 +25,7 @@ class RAGSettings(BaseSettings):
     embed_model: str = Field(default="BAAI/bge-large-en-v1.5")
     top_k_dense: int = Field(default=20)
     top_k_sparse: int = Field(default=20)
-    top_k_rerank: int = Field(default=5)
+    top_k_rerank: int = Field(default=8)
     hyde_enabled: bool = Field(default=True)
 
     reranker_model: str = Field(default="cross-encoder/ms-marco-MiniLM-L-6-v2")
