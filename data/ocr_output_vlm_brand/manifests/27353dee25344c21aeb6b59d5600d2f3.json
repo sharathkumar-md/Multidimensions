@@ -1,0 +1,14 @@
+{
+  "doc_id": "27353dee25344c21aeb6b59d5600d2f3",
+  "source_filename": "Ewellix V2023MAR.pdf",
+  "source_path": "/content/MultiDimensions/Brand Resources/Ewellix V2023MAR.pdf",
+  "file_size_bytes": 25688234,
+  "sha256": "c1466ea0634e300e0c6d49786bfaae8c7fb3a0e8a8a60ab061f5880a5dcd70ff",
+  "page_count": 9,
+  "status": "completed",
+  "created_at": "2026-06-10T16:33:51.719741",
+  "completed_at": "2026-06-10T16:33:51.719763",
+  "markdown_path": "markdown/27353dee25344c21aeb6b59d5600d2f3.md",
+  "processing_time_ms": 429889.11192699993,
+  "vlm_model": "Qwen/Qwen2.5-VL-7B-Instruct"
+}

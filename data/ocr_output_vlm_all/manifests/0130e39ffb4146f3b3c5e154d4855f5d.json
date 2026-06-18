@@ -1,0 +1,14 @@
+{
+  "doc_id": "0130e39ffb4146f3b3c5e154d4855f5d",
+  "source_filename": "HB-Catalogue.pdf",
+  "source_path": "/content/MultiDimensions/data/input/HB-Catalogue.pdf",
+  "file_size_bytes": 22873313,
+  "sha256": "848260572aa943dbd830b7f87df075fa914e0193338ca6d0de80614ed7c07034",
+  "page_count": 8,
+  "status": "completed",
+  "created_at": "2026-06-03T20:42:35.044285",
+  "completed_at": "2026-06-03T20:42:35.044304",
+  "markdown_path": "markdown/0130e39ffb4146f3b3c5e154d4855f5d.md",
+  "processing_time_ms": 277795.50179199944,
+  "vlm_model": "Qwen/Qwen2.5-VL-7B-Instruct"
+}

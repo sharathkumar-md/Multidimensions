@@ -17,18 +17,13 @@ htmlcov/
 # Generated outputs
 01_ocr/output/
 02_llm_eval/results/
-03_rag/index/
-03_rag/results/
-03_rag/results_sales/
-data/ocr_output_vlm_all/
-data/ocr_output_vlm_brand/
 
-# Logs — all modules
+# Logs
 logs/
 **/logs/
 *.log
 
-# Env files — keep .env.example, ignore actual .env
+# Env files 
 .env
 !.env.example
 

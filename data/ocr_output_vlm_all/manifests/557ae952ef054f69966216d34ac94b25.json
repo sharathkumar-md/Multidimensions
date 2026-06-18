@@ -1,0 +1,14 @@
+{
+  "doc_id": "557ae952ef054f69966216d34ac94b25",
+  "source_filename": "Hengstler Ebook - handover file.pdf",
+  "source_path": "/content/MultiDimensions/data/input/Hengstler Ebook - handover file.pdf",
+  "file_size_bytes": 12986426,
+  "sha256": "331de54a4d0905db27298a848627e23fc8f9aa3ddf6761f99023399923e35a56",
+  "page_count": 14,
+  "status": "completed",
+  "created_at": "2026-06-03T20:54:04.634491",
+  "completed_at": "2026-06-03T20:54:04.634508",
+  "markdown_path": "markdown/557ae952ef054f69966216d34ac94b25.md",
+  "processing_time_ms": 549218.9752739996,
+  "vlm_model": "Qwen/Qwen2.5-VL-7B-Instruct"
+}

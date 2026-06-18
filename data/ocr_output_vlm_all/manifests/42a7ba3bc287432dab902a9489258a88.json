@@ -1,0 +1,14 @@
+{
+  "doc_id": "42a7ba3bc287432dab902a9489258a88",
+  "source_filename": "ISC.pdf",
+  "source_path": "/content/MultiDimensions/data/input/ISC.pdf",
+  "file_size_bytes": 8769123,
+  "sha256": "1742d9054927f9f892b3614b0fe9a6b7ac9dd12e56e915a587ed808e960d2b6f",
+  "page_count": 6,
+  "status": "completed",
+  "created_at": "2026-06-03T19:29:13.965878",
+  "completed_at": "2026-06-03T19:29:13.965903",
+  "markdown_path": "markdown/42a7ba3bc287432dab902a9489258a88.md",
+  "processing_time_ms": 266180.6904119999,
+  "vlm_model": "Qwen/Qwen2.5-VL-7B-Instruct"
+}
