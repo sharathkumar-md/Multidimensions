@@ -71,7 +71,7 @@ def build() -> dict:
 
         index[src_name] = {
             "doc_id":       doc_id,
-            "figures_base": str(figures_base),
+            "figures_base": str(figures_base.relative_to(REPO_DIR)).replace("\\", "/"),
             "by_page":      by_page,
         }
         total = sum(len(v) for v in by_page.values())

@@ -217,7 +217,11 @@ def _figures_for_chunk(
     if not entry:
         return []
     by_page: dict[str, list[dict]] = entry.get("by_page", {})
-    figures_base = Path(entry.get("figures_base", ""))
+    
+    # Path logic: if figures_base is absolute (from old scripts), it ignores REPO_DIR.
+    # If it is relative (from updated scripts), it joins to REPO_DIR correctly.
+    figures_base = REPO_DIR / Path(entry.get("figures_base", ""))
+    
     page_figs = by_page.get(str(page_num), [])
     paths = []
     for fig in page_figs:                      # already sorted size-desc by build script

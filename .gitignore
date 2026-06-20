@@ -15,7 +15,7 @@ build/
 htmlcov/
 
 # Generated outputs
-01_ocr/output/
+# 01_ocr/output/ is no longer ignored so it can be committed
 02_llm_eval/results/
 output/
 
@@ -26,8 +26,8 @@ output/
 04_demo/assets/products/*.webp
 !04_demo/assets/products/.gitkeep
 
-# Generated figure index (contains absolute local paths — run build_figure_index.py)
-04_demo/figure_index.json
+# Generated figure index is no longer ignored
+# 04_demo/figure_index.json
 
 # Logs
 logs/
