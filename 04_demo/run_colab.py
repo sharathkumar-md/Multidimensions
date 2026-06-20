@@ -30,9 +30,14 @@ import subprocess
 result = subprocess.run(["git", "-C", "/content/MultiDimensions", "pull"], capture_output=True, text=True)
 print(result.stdout or result.stderr)
 
-# ── Cell 3: start streamlit + localtunnel ───────────────────────────────────────
-import subprocess, time, os, sys, urllib.request
+# ── Cell 3: start streamlit + tunnel ───────────────────────────────────────
+import subprocess, time, os, sys, urllib.request, re
 from pathlib import Path
+
+# Kill any existing background processes from previous cell runs to free up port 8501
+subprocess.run(["pkill", "-f", "streamlit"])
+subprocess.run(["pkill", "-f", "cloudflared"])
+time.sleep(1)
 
 repo = Path("/content/MultiDimensions")
 app = repo / "04_demo" / "app.py"
