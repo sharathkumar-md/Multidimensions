@@ -34,15 +34,18 @@ result = subprocess.run(["git", "-C", "/content/MultiDimensions", "pull"], captu
 print(result.stdout or result.stderr)
 
 # ── Cell 3: start streamlit + tunnel ───────────────────────────────────────
-import subprocess, time, os, sys, urllib.request, re
+import subprocess, time, os, sys, urllib.request, socket
 from pathlib import Path
 
-# Kill any existing background processes holding port 8501
-import os
-os.system("fuser -k 8501/tcp")
-os.system("pkill -f localtunnel")
-os.system("pkill -f cloudflared")
-time.sleep(2)
+def get_free_port():
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind(("", 0))
+    port = s.getsockname()[1]
+    s.close()
+    return port
+
+# Automatically find a free port so we never get "Port is not available" errors
+port = get_free_port()
 
 repo = Path("/content/MultiDimensions")
 app = repo / "04_demo" / "app.py"
@@ -51,10 +54,10 @@ env = os.environ.copy()
 env["HF_HUB_DISABLE_XET"] = "1"
 env["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
-print("Starting Streamlit...")
+print(f"Starting Streamlit on port {port}...")
 proc = subprocess.Popen(
     [sys.executable, "-m", "streamlit", "run", str(app),
-     "--server.port", "8501",
+     "--server.port", str(port),
      "--server.headless", "true",
      "--server.enableCORS", "false"],
     env=env,
@@ -71,7 +74,7 @@ if proc.poll() is not None:
 
 print("Starting localtunnel...")
 lt_proc = subprocess.Popen(
-    ["npx", "--yes", "localtunnel", "--port", "8501"],
+    ["npx", "--yes", "localtunnel", "--port", str(port)],
     stdout=subprocess.PIPE,
     stderr=subprocess.STDOUT,
     text=True
