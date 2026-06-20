@@ -30,62 +30,83 @@ REPO_DIR = Path(__file__).resolve().parent.parent
 def import_ocr_pipeline():
     """Import 01_ocr modules in an isolated namespace to avoid collisions."""
     old_path = list(sys.path)
-    # Clear out conflicting config/src modules from sys.modules
-    for k in list(sys.modules.keys()):
-        if k.startswith("config") or k.startswith("src"):
-            sys.modules.pop(k, None)
-            
-    sys.path.insert(0, str(REPO_DIR / "01_ocr"))
-    from config.settings import settings as ocr_settings
-    from src.pipeline import OCRPipeline
-    
-    sys.path = old_path
-    return ocr_settings, OCRPipeline
+    old_modules = dict(sys.modules)
+    try:
+        for k in list(sys.modules.keys()):
+            if k.startswith("config") or k.startswith("src"):
+                sys.modules.pop(k, None)
+                
+        sys.path.insert(0, str(REPO_DIR / "01_ocr"))
+        from config.settings import settings as ocr_settings
+        from src.pipeline import OCRPipeline
+        return ocr_settings, OCRPipeline
+    finally:
+        sys.path = old_path
+        sys.modules.update(old_modules)
+        for k in list(sys.modules.keys()):
+            if k not in old_modules:
+                sys.modules.pop(k, None)
 
 
 def import_vlm_pipeline():
     """Import 01.1_ocr_vlm modules in an isolated namespace to avoid collisions."""
     old_path = list(sys.path)
-    # Clear out conflicting config/src modules from sys.modules
-    for k in list(sys.modules.keys()):
-        if k.startswith("config") or k.startswith("src"):
-            sys.modules.pop(k, None)
-            
-    sys.path.insert(0, str(REPO_DIR / "01.1_ocr_vlm"))
-    from config.settings import settings as vlm_settings
-    from src.pipeline import run as vlm_run
-    
-    sys.path = old_path
-    return vlm_settings, vlm_run
+    old_modules = dict(sys.modules)
+    try:
+        for k in list(sys.modules.keys()):
+            if k.startswith("config") or k.startswith("src"):
+                sys.modules.pop(k, None)
+                
+        sys.path.insert(0, str(REPO_DIR / "01.1_ocr_vlm"))
+        from config.settings import settings as vlm_settings
+        from src.pipeline import run as vlm_run
+        return vlm_settings, vlm_run
+    finally:
+        sys.path = old_path
+        sys.modules.update(old_modules)
+        for k in list(sys.modules.keys()):
+            if k not in old_modules:
+                sys.modules.pop(k, None)
 
 
 def import_rag_pipeline():
     """Import 03_rag modules in an isolated namespace to avoid collisions."""
     old_path = list(sys.path)
-    # Clear out conflicting config/src modules from sys.modules
-    for k in list(sys.modules.keys()):
-        if k.startswith("config") or k.startswith("src"):
-            sys.modules.pop(k, None)
-            
-    sys.path.insert(0, str(REPO_DIR / "03_rag"))
-    from src.pipeline import build_pipeline_index
-    
-    sys.path = old_path
-    return build_pipeline_index
+    old_modules = dict(sys.modules)
+    try:
+        for k in list(sys.modules.keys()):
+            if k.startswith("config") or k.startswith("src"):
+                sys.modules.pop(k, None)
+                
+        sys.path.insert(0, str(REPO_DIR / "03_rag"))
+        from src.pipeline import build_pipeline_index
+        return build_pipeline_index
+    finally:
+        sys.path = old_path
+        sys.modules.update(old_modules)
+        for k in list(sys.modules.keys()):
+            if k not in old_modules:
+                sys.modules.pop(k, None)
 
 
 def import_demo_modules():
     """Import 04_demo modules in an isolated namespace to avoid collisions."""
     old_path = list(sys.path)
-    for k in list(sys.modules.keys()):
-        if k.startswith("config") or k.startswith("src"):
-            sys.modules.pop(k, None)
-            
-    sys.path.insert(0, str(REPO_DIR / "04_demo"))
-    from build_figure_index import build_with_fallback, OUTPUT_PATH
-    
-    sys.path = old_path
-    return build_with_fallback, OUTPUT_PATH
+    old_modules = dict(sys.modules)
+    try:
+        for k in list(sys.modules.keys()):
+            if k.startswith("config") or k.startswith("src"):
+                sys.modules.pop(k, None)
+                
+        sys.path.insert(0, str(REPO_DIR / "04_demo"))
+        from build_figure_index import build_with_fallback, OUTPUT_PATH
+        return build_with_fallback, OUTPUT_PATH
+    finally:
+        sys.path = old_path
+        sys.modules.update(old_modules)
+        for k in list(sys.modules.keys()):
+            if k not in old_modules:
+                sys.modules.pop(k, None)
 
 
 # ── file hashing helpers ─────────────────────────────────────────────────────
