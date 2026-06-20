@@ -8,8 +8,20 @@ from typing import Any
 
 DEMO_DIR = Path(__file__).parent
 REPO_DIR = DEMO_DIR.parent
-DEFAULT_CATALOG_PATH = DEMO_DIR / "product_images.json"
+DEFAULT_CATALOG_PATH    = DEMO_DIR / "product_images.json"
+DEFAULT_FIG_INDEX_PATH  = DEMO_DIR / "figure_index.json"
 
+# Maximum images returned in a gallery
+MAX_GALLERY_IMAGES = 3
+
+# Minimum file size to consider a figure a real product photo (bytes)
+MIN_FIGURE_BYTES = 50 * 1024  # 50 KB
+
+# Regex heuristic: model numbers like "P01", "EM", "EPW", "SF-300", "ABZ-510"
+_MODEL_NUMBER_RE = re.compile(r"\b([A-Z]{1,4}[-/]?\d{2,}[A-Z0-9\-]*|[A-Z]{2,6}\d*)\b")
+
+
+# ── data model ───────────────────────────────────────────────────────────────
 
 @dataclass(frozen=True)
 class ProductImage:
@@ -18,6 +30,8 @@ class ProductImage:
     source_doc: str = ""
     matched_alias: str = ""
 
+
+# ── helpers ──────────────────────────────────────────────────────────────────
 
 def _normalize(text: str) -> str:
     text = re.sub(r"[^a-z0-9]+", " ", text.lower())
@@ -28,13 +42,26 @@ def _resolve_path(raw_path: str, base_dir: Path) -> Path:
     path = Path(raw_path)
     if path.is_absolute():
         return path
-
     demo_relative = (base_dir / path).resolve()
     if demo_relative.exists():
         return demo_relative
-
     return (REPO_DIR / path).resolve()
 
+
+def _chunk_text(retrieved_item: Any) -> str:
+    chunk = getattr(retrieved_item, "chunk", None)
+    return str(getattr(chunk, "text", "") or "")
+
+
+def _chunk_meta(retrieved_item: Any) -> tuple[str, int]:
+    """Return (source_doc, page_num) from a retrieved result."""
+    chunk = getattr(retrieved_item, "chunk", None)
+    if chunk is None:
+        return "", 0
+    return str(getattr(chunk, "source_doc", "") or ""), int(getattr(chunk, "page_num", 0) or 0)
+
+
+# ── curated catalog (product_images.json) ────────────────────────────────────
 
 def _load_catalog(
     catalog_path: Path = DEFAULT_CATALOG_PATH,
@@ -49,18 +76,15 @@ def _load_catalog(
     for product_name, raw in data.items():
         if not isinstance(raw, dict):
             continue
-
         image_path = str(raw.get("image_path", "")).strip()
         if not image_path:
             continue
-
         resolved = _resolve_path(image_path, base_dir)
         if not resolved.exists():
             continue
 
         aliases = [product_name, *raw.get("aliases", [])]
-        normalized_aliases = [_normalize(str(alias)) for alias in aliases]
-        normalized_aliases = [alias for alias in normalized_aliases if alias]
+        normalized_aliases = [_normalize(str(a)) for a in aliases if _normalize(str(a))]
         if not normalized_aliases:
             continue
 
@@ -75,39 +99,162 @@ def _load_catalog(
     return entries
 
 
-def _chunk_text(retrieved_item: Any) -> str:
-    chunk = getattr(retrieved_item, "chunk", None)
-    return str(getattr(chunk, "text", "") or "")
+def _match_curated(
+    texts: list[str],
+    catalog: list[tuple[list[str], ProductImage]],
+) -> dict | None:
+    """Return first curated catalog match across all texts."""
+    for text in texts:
+        normalized = _normalize(text)
+        if not normalized:
+            continue
+        padded = f" {normalized} "
+        for aliases, image in catalog:
+            for alias in aliases:
+                if f" {alias} " in padded:
+                    return {
+                        "title":         image.title,
+                        "image_path":    image.image_path,
+                        "source_doc":    image.source_doc,
+                        "matched_alias": alias,
+                    }
+    return None
 
+
+# ── figure index (01_ocr/output/figures/) ────────────────────────────────────
+
+def _load_figure_index(
+    index_path: Path = DEFAULT_FIG_INDEX_PATH,
+) -> dict:
+    if not index_path.exists():
+        return {}
+    return json.loads(index_path.read_text(encoding="utf-8"))
+
+
+def _product_mentioned(
+    question: str,
+    answer: str,
+    retrieved: list[Any],
+    catalog: list[tuple[list[str], ProductImage]] | None = None,
+) -> bool:
+    """
+    Returns True if the query/answer appears to be about a specific product.
+    Three signals checked in order:
+      1. A curated catalog alias is present in the question or answer
+      2. A model-number-like token is present (e.g. P01, EPW, ABZ-510)
+      3. Any retrieved chunk contains substantive product-specific keywords
+    """
+    combined = f"{question} {answer}"
+
+    # Signal 1: curated catalog alias match (fastest, most precise)
+    if catalog:
+        norm_combined = _normalize(combined)
+        padded = f" {norm_combined} "
+        for aliases, _ in catalog:
+            for alias in aliases:
+                if f" {alias} " in padded:
+                    return True
+
+    # Signal 2: model number pattern in question or answer
+    if _MODEL_NUMBER_RE.search(combined):
+        return True
+
+    # Signal 3: product-domain vocabulary in retrieved chunks
+    product_terms = re.compile(
+        r"\b(clutch|brake|encoder|bearing|bushing|headset|motor|actuator|sensor"
+        r"|shaft|module|spring|tension|capping|torque|linear|rotary|pneumatic"
+        r"|hydraulic|servo|gear|coupling|drive|spindle)\b",
+        re.IGNORECASE,
+    )
+    for item in retrieved:
+        if product_terms.search(_chunk_text(item)):
+            return True
+
+    return False
+
+
+
+def _figures_for_chunk(
+    source_doc: str,
+    page_num: int,
+    fig_index: dict,
+) -> list[str]:
+    """Return absolute image paths for figures on a given page, sorted by size desc."""
+    entry = fig_index.get(source_doc)
+    if not entry:
+        return []
+    by_page: dict[str, list[dict]] = entry.get("by_page", {})
+    figures_base = Path(entry.get("figures_base", ""))
+    page_figs = by_page.get(str(page_num), [])
+    paths = []
+    for fig in page_figs:                      # already sorted size-desc by build script
+        full_path = figures_base / fig["filename"]
+        if full_path.exists():
+            paths.append(str(full_path))
+    return paths
+
+
+# ── public API ───────────────────────────────────────────────────────────────
 
 def resolve_product_image(
     question: str,
     answer: str,
     retrieved: list[Any],
     catalog_path: Path = DEFAULT_CATALOG_PATH,
+    fig_index_path: Path = DEFAULT_FIG_INDEX_PATH,
     base_dir: Path = DEMO_DIR,
-) -> dict[str, str] | None:
+) -> dict | None:
+    """
+    Returns None if no product is mentioned.
+    Otherwise returns a dict with keys:
+        images      – list of dicts [{image_path, title, source_doc}, ...]  (1-3 items)
+        from_index  – True if images came from the figure index (not curated catalog)
+    """
+    # ── guard: only show images when a product is actually mentioned ──────────
     catalog = _load_catalog(catalog_path=catalog_path, base_dir=base_dir)
-    if not catalog:
+    if not _product_mentioned(question, answer, retrieved, catalog=catalog):
         return None
 
-    search_texts = [_chunk_text(item) for item in retrieved]
-    search_texts.extend([answer, question])
+    # ── layer 1: curated catalog (high-confidence, keyword match) ─────────────
+    search_texts = [_chunk_text(item) for item in retrieved] + [answer, question]
+    curated = _match_curated(search_texts, catalog)
+    if curated:
+        return {
+            "images":     [curated],
+            "from_index": False,
+        }
 
-    for text in search_texts:
-        normalized_text = _normalize(text)
-        if not normalized_text:
+    # ── layer 2: figure index (auto, page-level) ──────────────────────────────
+    fig_index = _load_figure_index(fig_index_path)
+    if not fig_index:
+        return None
+
+    seen_paths: set[str] = set()
+    gallery: list[dict] = []
+
+    for item in retrieved:
+        if len(gallery) >= MAX_GALLERY_IMAGES:
+            break
+        source_doc, page_num = _chunk_meta(item)
+        if not source_doc or not page_num:
             continue
 
-        padded_text = f" {normalized_text} "
-        for aliases, image in catalog:
-            for alias in aliases:
-                if f" {alias} " in padded_text:
-                    return {
-                        "title": image.title,
-                        "image_path": image.image_path,
-                        "source_doc": image.source_doc,
-                        "matched_alias": alias,
-                    }
+        for img_path in _figures_for_chunk(source_doc, page_num, fig_index):
+            if img_path in seen_paths:
+                continue
+            seen_paths.add(img_path)
+            gallery.append({
+                "image_path": img_path,
+                "title":      Path(img_path).stem.replace("_", " ").title(),
+                "source_doc": source_doc,
+            })
+            if len(gallery) >= MAX_GALLERY_IMAGES:
+                break
 
-    return None
+    if not gallery:
+        return None
+
+    return {
+        "images":     gallery,
+        "from_index": True,
+    }

@@ -10,8 +10,13 @@ sys.path.insert(0, str(Path(__file__).parents[2] / "04_demo"))
 from product_images import resolve_product_image
 
 
-def _retrieved(text: str):
-    return SimpleNamespace(chunk=SimpleNamespace(text=text))
+# ── helpers ──────────────────────────────────────────────────────────────────
+
+def _retrieved(text: str, source_doc: str = "", page_num: int = 0):
+    """Build a minimal retrieved-result stub."""
+    return SimpleNamespace(
+        chunk=SimpleNamespace(text=text, source_doc=source_doc, page_num=page_num)
+    )
 
 
 def _catalog(tmp_path: Path, data: dict) -> Path:
@@ -21,10 +26,13 @@ def _catalog(tmp_path: Path, data: dict) -> Path:
 
 
 def _asset(tmp_path: Path, name: str = "product.png") -> str:
+    """Write a stub image file large enough to pass the 50 KB filter."""
     path = tmp_path / name
-    path.write_bytes(b"placeholder")
+    path.write_bytes(b"x" * (60 * 1024))   # 60 KB
     return path.name
 
+
+# ── curated-catalog tests ────────────────────────────────────────────────────
 
 def test_resolves_product_from_exact_question(tmp_path):
     image_name = _asset(tmp_path, "washdown.png")
@@ -36,7 +44,7 @@ def test_resolves_product_from_exact_question(tmp_path):
         }
     })
 
-    image = resolve_product_image(
+    result = resolve_product_image(
         question="Tell me about the Washdown Electro Pack.",
         answer="",
         retrieved=[],
@@ -44,7 +52,9 @@ def test_resolves_product_from_exact_question(tmp_path):
         base_dir=tmp_path,
     )
 
-    assert image is not None
+    assert result is not None
+    assert result["from_index"] is False
+    image = result["images"][0]
     assert image["title"] == "Washdown Electro Pack"
     assert image["source_doc"] == "Food & Beverage.pdf"
     assert image["image_path"].endswith("washdown.png")
@@ -60,7 +70,7 @@ def test_resolves_alias_case_insensitively(tmp_path):
         }
     })
 
-    image = resolve_product_image(
+    result = resolve_product_image(
         question="Can I pitch epw for washdown areas?",
         answer="",
         retrieved=[],
@@ -68,8 +78,8 @@ def test_resolves_alias_case_insensitively(tmp_path):
         base_dir=tmp_path,
     )
 
-    assert image is not None
-    assert image["matched_alias"] == "epw"
+    assert result is not None
+    assert result["images"][0]["matched_alias"] == "epw"
 
 
 def test_prefers_highest_ranked_retrieved_chunk(tmp_path):
@@ -86,7 +96,7 @@ def test_prefers_highest_ranked_retrieved_chunk(tmp_path):
         },
     })
 
-    image = resolve_product_image(
+    result = resolve_product_image(
         question="Compare first product and second product.",
         answer="The answer mentions first product later.",
         retrieved=[
@@ -97,11 +107,12 @@ def test_prefers_highest_ranked_retrieved_chunk(tmp_path):
         base_dir=tmp_path,
     )
 
-    assert image is not None
-    assert image["title"] == "Second Product"
+    assert result is not None
+    assert result["images"][0]["title"] == "Second Product"
 
 
-def test_returns_none_when_no_catalog_match(tmp_path):
+def test_returns_none_for_generic_question(tmp_path):
+    """No product mentioned → guard returns None regardless of catalog."""
     image_name = _asset(tmp_path)
     catalog_path = _catalog(tmp_path, {
         "known product": {
@@ -110,7 +121,7 @@ def test_returns_none_when_no_catalog_match(tmp_path):
         }
     })
 
-    image = resolve_product_image(
+    result = resolve_product_image(
         question="Hello there",
         answer="Hi, how can I help?",
         retrieved=[],
@@ -118,7 +129,7 @@ def test_returns_none_when_no_catalog_match(tmp_path):
         base_dir=tmp_path,
     )
 
-    assert image is None
+    assert result is None
 
 
 def test_returns_none_when_image_file_is_missing(tmp_path):
@@ -129,7 +140,7 @@ def test_returns_none_when_image_file_is_missing(tmp_path):
         }
     })
 
-    image = resolve_product_image(
+    result = resolve_product_image(
         question="Tell me about known product",
         answer="",
         retrieved=[],
@@ -137,4 +148,5 @@ def test_returns_none_when_image_file_is_missing(tmp_path):
         base_dir=tmp_path,
     )
 
-    assert image is None
+    # curated match skipped (file missing); figure index also empty → None
+    assert result is None

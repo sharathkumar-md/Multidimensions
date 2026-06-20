@@ -165,15 +165,26 @@ with st.sidebar:
 # ── main chat area ────────────────────────────────────────────────────────────
 
 def _render_product_image(product_image: dict | None) -> None:
+    """Render 1-3 product images side by side.
+
+    Accepts the dict returned by resolve_product_image():
+        { "images": [{image_path, title, source_doc}, ...], "from_index": bool }
+    """
     if not product_image:
         return
 
-    caption = product_image.get("title", "Product image")
-    source_doc = product_image.get("source_doc", "")
-    if source_doc:
-        caption = f"{caption} - {source_doc}"
+    images = product_image.get("images", [])
+    if not images:
+        return
 
-    st.image(product_image["image_path"], caption=caption, use_container_width=False)
+    cols = st.columns(len(images))
+    for col, img in zip(cols, images):
+        caption = img.get("title", "Product image")
+        source_doc = img.get("source_doc", "")
+        if source_doc:
+            caption = f"{caption}  ·  {source_doc}"
+        with col:
+            st.image(img["image_path"], caption=caption, use_container_width=True)
 
 
 def _render_sources(sources: list) -> None:
