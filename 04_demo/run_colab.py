@@ -54,9 +54,14 @@ proc = subprocess.Popen(
 
 time.sleep(5)
 
-print("Starting localtunnel...")
+print("Downloading Cloudflare tunnel...")
+subprocess.run(["wget", "-q", "-c", "-nc", "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64"])
+subprocess.run(["chmod", "+x", "cloudflared-linux-amd64"])
+
+print("Starting Cloudflare tunnel...")
+import re
 lt_proc = subprocess.Popen(
-    ["npx", "--yes", "localtunnel", "--port", "8501"],
+    ["./cloudflared-linux-amd64", "tunnel", "--url", "http://127.0.0.1:8501"],
     stdout=subprocess.PIPE,
     stderr=subprocess.STDOUT,
     text=True
@@ -64,19 +69,15 @@ lt_proc = subprocess.Popen(
 
 url = ""
 for line in lt_proc.stdout:
-    if "your url is:" in line:
-        url = line.split("your url is:")[1].strip()
+    m = re.search(r'https://[\w-]+\.trycloudflare\.com', line)
+    if m:
+        url = m.group(0)
         break
-    else:
-        print(f"localtunnel: {line.strip()}")
-
-ip = urllib.request.urlopen('https://ipv4.icanhazip.com').read().decode('utf8').strip()
-
+    
 print(f"\n{'='*70}")
 print(f"  Demo URL: {url}")
-print(f"  Endpoint IP (password for localtunnel): {ip}")
 print(f"{'='*70}\n")
-print("Share this link with the founder.")
+print("Share this link with the founder (No password/IP required for Cloudflare!).")
 print("Model loads on first question (~2 min). Index loads in seconds.")
 
 # ── Cell 4: stream logs (optional, run in separate cell) ─────────────────────
