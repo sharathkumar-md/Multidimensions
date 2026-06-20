@@ -193,7 +193,9 @@ class OCRPipeline:
                 manifests.append(_process_single_pdf(pdf_path, existing_hashes))
         else:
             logger.info("Processing {n} PDF(s) with {w} workers", n=len(pdf_paths), w=settings.max_workers)
-            with ProcessPoolExecutor(max_workers=settings.max_workers) as pool:
+            import multiprocessing as mp
+            ctx = mp.get_context("spawn")
+            with ProcessPoolExecutor(max_workers=settings.max_workers, mp_context=ctx) as pool:
                 futures = {pool.submit(_process_single_pdf, p, existing_hashes): p for p in pdf_paths}
                 for future in as_completed(futures):
                     try:

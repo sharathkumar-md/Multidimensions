@@ -201,6 +201,7 @@ def main() -> None:
         logger.info(f"Running normal OCR on {len(to_run_ocr)} files for figure extraction...")
         ocr_settings, OCRPipeline = import_ocr_pipeline()
         ocr_settings.output_dir = REPO_DIR / "01_ocr" / "output"
+        ocr_settings.max_workers = 1  # Force sequential to avoid Streamlit BrokenPipeError
         
         ocr_pipeline = OCRPipeline()
         ocr_pipeline.run(pdf_paths=to_run_ocr)
