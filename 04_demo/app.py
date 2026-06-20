@@ -14,6 +14,67 @@ from product_images import resolve_product_image
 _RAG_DIR = Path(__file__).parent.parent / "03_rag"
 sys.path.insert(0, str(_RAG_DIR))
 
+
+# ── auto-ingestion on startup ──────────────────────────────────────────────────
+
+def _check_and_run_ingest() -> None:
+    if "ingest_checked" in st.session_state:
+        return
+    st.session_state["ingest_checked"] = True
+
+    repo_dir = Path(__file__).resolve().parent.parent
+    search_dirs = [
+        repo_dir / "data" / "input",
+        repo_dir / "Brand Resources",
+    ]
+    
+    pdfs = []
+    for d in search_dirs:
+        if d.exists():
+            pdfs.extend(d.glob("*.pdf"))
+            
+    if not pdfs:
+        return
+
+    def _get_manifest_hashes(manifest_dir: Path) -> set[str]:
+        hashes = set()
+        if manifest_dir.exists():
+            import json
+            for f in manifest_dir.glob("*.json"):
+                try:
+                    data = json.loads(f.read_text(encoding="utf-8"))
+                    if sha := data.get("sha256"):
+                        hashes.add(sha)
+                except Exception:
+                    pass
+        return hashes
+
+    done_ocr = _get_manifest_hashes(repo_dir / "01_ocr" / "output" / "manifests")
+    done_vlm = _get_manifest_hashes(repo_dir / "data" / "ocr_output_vlm" / "manifests")
+    
+    need_ingest = False
+    import hashlib
+    for pdf in pdfs:
+        h = hashlib.sha256()
+        with open(pdf, "rb") as f:
+            for chunk in iter(lambda: f.read(65536), b""):
+                h.update(chunk)
+        sha = h.hexdigest()
+        
+        if sha not in done_ocr or sha not in done_vlm:
+            need_ingest = True
+            break
+            
+    if need_ingest:
+        with st.spinner("Processing new PDF catalogs (OCR + Figure indexing + Vector store re-indexing)..."):
+            import ingest
+            ingest.main()
+            # Clear resource cache to reload fresh index
+            st.cache_resource.clear()
+
+_check_and_run_ingest()
+
+
 # ── session model ─────────────────────────────────────────────────────────────
 
 @dataclass
