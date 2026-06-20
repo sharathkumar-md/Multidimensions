@@ -21,6 +21,9 @@ pkgs = [
     "pdfplumber",
     "PyMuPDF",
     "docling",
+    "rapidocr-onnxruntime",
+    "qwen-vl-utils",
+    "torchvision"
 ]
 subprocess.run([sys.executable, "-m", "pip", "install", "-q"] + pkgs, check=True)
 print("deps installed")
@@ -57,7 +60,12 @@ proc = subprocess.Popen(
     stderr=subprocess.STDOUT,
 )
 
-time.sleep(5)
+time.sleep(6)
+
+if proc.poll() is not None:
+    print("\nCRITICAL ERROR: Streamlit crashed on startup!")
+    print(proc.stdout.read().decode())
+    sys.exit(1)
 
 print("Downloading Cloudflare tunnel...")
 subprocess.run(["wget", "-q", "-c", "-nc", "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64"])
