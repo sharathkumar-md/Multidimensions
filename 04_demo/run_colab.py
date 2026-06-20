@@ -37,10 +37,12 @@ print(result.stdout or result.stderr)
 import subprocess, time, os, sys, urllib.request, re
 from pathlib import Path
 
-# Kill any existing background processes from previous cell runs to free up port 8501
-subprocess.run(["pkill", "-f", "streamlit"])
-subprocess.run(["pkill", "-f", "cloudflared"])
-time.sleep(1)
+# Kill any existing background processes holding port 8501
+import os
+os.system("fuser -k 8501/tcp")
+os.system("pkill -f localtunnel")
+os.system("pkill -f cloudflared")
+time.sleep(2)
 
 repo = Path("/content/MultiDimensions")
 app = repo / "04_demo" / "app.py"
