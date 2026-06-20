@@ -56,7 +56,7 @@ time.sleep(5)
 
 print("Starting localtunnel...")
 lt_proc = subprocess.Popen(
-    ["npx", "localtunnel", "--port", "8501"],
+    ["npx", "--yes", "localtunnel", "--port", "8501"],
     stdout=subprocess.PIPE,
     stderr=subprocess.STDOUT,
     text=True
@@ -67,6 +67,8 @@ for line in lt_proc.stdout:
     if "your url is:" in line:
         url = line.split("your url is:")[1].strip()
         break
+    else:
+        print(f"localtunnel: {line.strip()}")
 
 ip = urllib.request.urlopen('https://ipv4.icanhazip.com').read().decode('utf8').strip()
 
