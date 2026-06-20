@@ -8,8 +8,7 @@ import subprocess, sys
 
 pkgs = [
     "streamlit",
-    "pyngrok",
-    # RAG deps (skip if already installed from eval run)
+    # RAG deps
     "sentence-transformers",
     "chromadb",
     "rank-bm25",
@@ -18,6 +17,10 @@ pkgs = [
     "bitsandbytes",
     "loguru",
     "pydantic-settings",
+    # Ingest pipeline deps
+    "pdfplumber",
+    "PyMuPDF",
+    "docling",
 ]
 subprocess.run([sys.executable, "-m", "pip", "install", "-q"] + pkgs, check=True)
 print("deps installed")
@@ -27,10 +30,9 @@ import subprocess
 result = subprocess.run(["git", "-C", "/content/MultiDimensions", "pull"], capture_output=True, text=True)
 print(result.stdout or result.stderr)
 
-# ── Cell 3: start streamlit + ngrok ──────────────────────────────────────────
-import subprocess, time, os, sys
+# ── Cell 3: start streamlit + localtunnel ───────────────────────────────────────
+import subprocess, time, os, sys, urllib.request
 from pathlib import Path
-from pyngrok import ngrok
 
 repo = Path("/content/MultiDimensions")
 app = repo / "04_demo" / "app.py"
@@ -39,6 +41,7 @@ env = os.environ.copy()
 env["HF_HUB_DISABLE_XET"] = "1"
 env["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
+print("Starting Streamlit...")
 proc = subprocess.Popen(
     [sys.executable, "-m", "streamlit", "run", str(app),
      "--server.port", "8501",
@@ -49,12 +52,28 @@ proc = subprocess.Popen(
     stderr=subprocess.STDOUT,
 )
 
-time.sleep(4)
+time.sleep(5)
 
-tunnel = ngrok.connect(8501)
-print(f"\n{'='*50}")
-print(f"  Demo URL: {tunnel.public_url}")
-print(f"{'='*50}\n")
+print("Starting localtunnel...")
+lt_proc = subprocess.Popen(
+    ["npx", "localtunnel", "--port", "8501"],
+    stdout=subprocess.PIPE,
+    stderr=subprocess.STDOUT,
+    text=True
+)
+
+url = ""
+for line in lt_proc.stdout:
+    if "your url is:" in line:
+        url = line.split("your url is:")[1].strip()
+        break
+
+ip = urllib.request.urlopen('https://ipv4.icanhazip.com').read().decode('utf8').strip()
+
+print(f"\n{'='*70}")
+print(f"  Demo URL: {url}")
+print(f"  Endpoint IP (password for localtunnel): {ip}")
+print(f"{'='*70}\n")
 print("Share this link with the founder.")
 print("Model loads on first question (~2 min). Index loads in seconds.")
 
