@@ -18,6 +18,13 @@ htmlcov/
 01_ocr/output/
 02_llm_eval/results/
 
+# Generated product images (not committed — add your own or generate locally)
+04_demo/assets/products/*.png
+04_demo/assets/products/*.jpg
+04_demo/assets/products/*.jpeg
+04_demo/assets/products/*.webp
+!04_demo/assets/products/.gitkeep
+
 # Logs
 logs/
 **/logs/
