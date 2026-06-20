@@ -17,6 +17,7 @@ htmlcov/
 # Generated outputs
 01_ocr/output/
 02_llm_eval/results/
+output/
 
 # Generated product images (not committed — add your own or generate locally)
 04_demo/assets/products/*.png
