@@ -115,6 +115,25 @@ def test_rewrite_falls_back_on_empty_output():
     assert rewrite_query(q, "some history", model, tok, _MODEL_ID) == q
 
 
+def test_rewrite_passes_through_standalone_query_unchanged():
+    # when the model (correctly) echoes an already-standalone query, no mangling
+    q = "what linear motors do you sell?"
+    model, tok, _ = _pair(q)
+    assert rewrite_query(q, "some prior history", model, tok, _MODEL_ID) == q
+
+
+def test_rewrite_prompt_carries_anti_vague_rules_and_examples():
+    # guards the weak-spot fix: the rewrite system prompt must keep the
+    # "standalone unchanged" + "never vaguer" rules and the few-shot examples
+    model, tok, records = _pair("anything")
+    rewrite_query("its stroke?", "discussing LinMot P01", model, tok, _MODEL_ID)
+    system = records[0][0]["content"]
+    assert "EXACTLY unchanged" in system          # don't rewrite standalone queries
+    assert "vaguer" in system                       # don't broaden specific questions
+    assert "the same" in system                     # resolve 'the same'-style anaphora
+    assert system.count("Query:") >= 3              # few-shot examples present
+
+
 # ── 3. simple reply (no-retrieval path) ───────────────────────────────────────
 
 def test_simple_reply_returns_model_text():

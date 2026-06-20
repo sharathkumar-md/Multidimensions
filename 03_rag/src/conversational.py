@@ -48,10 +48,26 @@ def needs_retrieval(question: str, model, tokenizer, model_id: str) -> bool:
 
 _REWRITE_SYS = (
     "You rewrite a sales rep's latest message into a single standalone search query for a "
-    "product catalog. Use the conversation so far to resolve references like 'it', 'that', "
-    "'this one', or 'the same'. Include the specific product, brand, or industry being "
-    "discussed. If the message is already standalone, return it unchanged. "
-    "Output only the rewritten query, nothing else."
+    "product catalog. Resolve references like 'it', 'that', 'this one', 'them', or 'the same' "
+    "using the conversation so far, carrying over the specific product, brand, or industry "
+    "being discussed.\n"
+    "Rules:\n"
+    "- If the latest message is already a complete, standalone query, return it EXACTLY unchanged.\n"
+    "- Never turn a specific question into a vaguer or more open-ended one.\n"
+    "- Resolve every pronoun and 'the same'-style phrase into the concrete thing it refers to.\n"
+    "- Output only the rewritten query, nothing else.\n"
+    "Examples:\n"
+    "Conversation: • what linear motors do you sell? → LinMot P01 series\n"
+    "Latest: what's its stroke length?\n"
+    "Query: what is the stroke length of the LinMot P01 linear motor\n"
+    "---\n"
+    "Conversation: • which products fit the packaging industry? → LinMot linear guides\n"
+    "Latest: and what about the same for pharma?\n"
+    "Query: which products fit the pharmaceutical industry\n"
+    "---\n"
+    "Conversation: (none)\n"
+    "Latest: what linear motors do you sell?\n"
+    "Query: what linear motors do you sell"
 )
 
 
