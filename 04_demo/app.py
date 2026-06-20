@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import sys
 import uuid
 from dataclasses import dataclass, field
@@ -18,6 +19,9 @@ sys.path.insert(0, str(_RAG_DIR))
 # ── auto-ingestion on startup ──────────────────────────────────────────────────
 
 def _check_and_run_ingest() -> None:
+    # When launched from run_colab.py, ingestion runs in a separate cell before Streamlit.
+    if os.environ.get("SKIP_INGEST") == "1":
+        return
     if "ingest_checked" in st.session_state:
         return
     st.session_state["ingest_checked"] = True

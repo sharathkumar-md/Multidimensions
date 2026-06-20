@@ -33,7 +33,30 @@ import subprocess
 result = subprocess.run(["git", "-C", "/content/MultiDimensions", "pull"], capture_output=True, text=True)
 print(result.stdout or result.stderr)
 
-# ── Cell 3: start streamlit + tunnel ───────────────────────────────────────
+# ── Cell 3: run ingestion pipeline (before Streamlit, in a clean process) ─────
+import subprocess, sys, os
+from pathlib import Path
+
+repo = Path("/content/MultiDimensions")
+ingest_script = repo / "03_rag" / "ingest.py"
+
+print("Running ingestion pipeline (skips if already done)...")
+env = os.environ.copy()
+env["TQDM_DISABLE"] = "1"
+env["TRANSFORMERS_NO_ADVISORY_WARNINGS"] = "1"
+env["HF_HUB_DISABLE_XET"] = "1"
+
+result = subprocess.run(
+    [sys.executable, str(ingest_script)],
+    env=env,
+    cwd=str(repo / "03_rag"),
+)
+if result.returncode != 0:
+    print("\nINGESTION FAILED - check errors above before launching Streamlit")
+else:
+    print("Ingestion complete (or already up to date).")
+
+# ── Cell 4: start streamlit + tunnel ───────────────────────────────────────
 import subprocess, time, os, sys, urllib.request, socket
 from pathlib import Path
 
@@ -53,6 +76,7 @@ app = repo / "04_demo" / "app.py"
 env = os.environ.copy()
 env["HF_HUB_DISABLE_XET"] = "1"
 env["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+env["SKIP_INGEST"] = "1"  # Ingestion already ran in Cell 3
 
 print(f"Starting Streamlit on port {port}...")
 proc = subprocess.Popen(
