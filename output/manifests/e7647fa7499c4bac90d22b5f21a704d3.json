@@ -1,0 +1,23 @@
+{
+  "doc_id": "e7647fa7499c4bac90d22b5f21a704d3",
+  "source_filename": "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+  "source_path": "data\\input\\ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf",
+  "file_size_bytes": 245053,
+  "sha256": "45f79f0e864b1db740103fe613df5fb2363e4d04a036c5d64213d75b318f9d74",
+  "page_count": 4,
+  "status": "completed",
+  "created_at": "2026-06-25T18:07:36.259621",
+  "completed_at": "2026-06-25T18:07:40.611780",
+  "error_message": null,
+  "markdown_path": "markdown\\e7647fa7499c4bac90d22b5f21a704d3.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\e7647fa7499c4bac90d22b5f21a704d3",
+  "total_tables": 0,
+  "total_figures": 36,
+  "total_words": 876,
+  "scanned_pages": 1,
+  "digital_pages": 0,
+  "mixed_pages": 3,
+  "processing_time_ms": 4353.418300161138,
+  "has_scanned_content": true
+}
