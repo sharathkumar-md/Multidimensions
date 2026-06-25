@@ -8,6 +8,8 @@ from pathlib import Path
 
 import streamlit as st
 
+from product_images import resolve_product_image
+
 # wire up RAG module
 _RAG_DIR = Path(__file__).parent.parent / "03_rag"
 sys.path.insert(0, str(_RAG_DIR))
@@ -162,6 +164,18 @@ with st.sidebar:
 
 # ── main chat area ────────────────────────────────────────────────────────────
 
+def _render_product_image(product_image: dict | None) -> None:
+    if not product_image:
+        return
+
+    caption = product_image.get("title", "Product image")
+    source_doc = product_image.get("source_doc", "")
+    if source_doc:
+        caption = f"{caption} - {source_doc}"
+
+    st.image(product_image["image_path"], caption=caption, use_container_width=False)
+
+
 def _render_sources(sources: list) -> None:
     if not sources:
         return
@@ -193,6 +207,7 @@ for msg in active.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
         if msg["role"] == "assistant":
+            _render_product_image(msg.get("product_image"))
             _render_sources(msg.get("sources", []))
 
 question = st.chat_input("Ask about the product catalog…")
@@ -209,6 +224,8 @@ if question:
             answer, retrieved = _ask(question, active.summary)
 
         st.markdown(answer)
+        product_image = resolve_product_image(question, answer, retrieved)
+        _render_product_image(product_image)
         sources = _collect_sources(retrieved)
         _render_sources(sources)
 
@@ -216,6 +233,7 @@ if question:
         "role": "assistant",
         "content": answer,
         "sources": sources,
+        "product_image": product_image,
     })
 
     _update_summary(active, question, answer)

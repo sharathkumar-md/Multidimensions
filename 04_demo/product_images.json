@@ -1,0 +1,63 @@
+{
+  "washdown electro pack": {
+    "title": "Washdown Electro Pack",
+    "image_path": "assets/products/washdown_electro_pack.png",
+    "source_doc": "Food & Beverage.pdf",
+    "aliases": [
+      "washdown electro pack clutch brakes",
+      "epw"
+    ]
+  },
+  "clutch brake modules": {
+    "title": "Clutch/Brake Modules",
+    "image_path": "assets/products/clutch_brake_modules.png",
+    "source_doc": "Packaging Machinery.pdf",
+    "aliases": [
+      "unimodular clutch brake modules",
+      "em um eum",
+      "fm lm lum"
+    ]
+  },
+  "wrap spring clutches": {
+    "title": "Wrap Spring Clutches",
+    "image_path": "assets/products/wrap_spring_clutches.png",
+    "source_doc": "Packaging Machinery.pdf",
+    "aliases": [
+      "wrap spring clutch brakes"
+    ]
+  },
+  "electro pack clutches brakes": {
+    "title": "Electro Pack Clutches & Brakes",
+    "image_path": "assets/products/electro_pack_clutches_brakes.png",
+    "source_doc": "Packaging Machinery.pdf",
+    "aliases": [
+      "electro pack clutches and brakes",
+      "packaged performance products"
+    ]
+  },
+  "magnetic capping headsets": {
+    "title": "Magnetic Capping Headsets",
+    "image_path": "assets/products/magnetic_capping_headsets.png",
+    "source_doc": "Packaging Machinery.pdf",
+    "aliases": [
+      "magnetic capping headsets and chucks",
+      "magnetic headsets"
+    ]
+  },
+  "tension brakes and controls": {
+    "title": "Tension Brakes and Controls",
+    "image_path": "assets/products/tension_brakes_and_controls.png",
+    "source_doc": "Packaging Machinery.pdf",
+    "aliases": [
+      "tension control products"
+    ]
+  },
+  "sfp shaft mounted clutches": {
+    "title": "SFP Shaft Mounted Clutches",
+    "image_path": "assets/products/sfp_shaft_mounted_clutches.png",
+    "source_doc": "Packaging Machinery.pdf",
+    "aliases": [
+      "shaft mounted clutches"
+    ]
+  }
+}
