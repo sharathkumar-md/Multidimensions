@@ -15,7 +15,7 @@ DEFAULT_FIG_INDEX_PATH  = DEMO_DIR / "figure_index.json"
 MAX_GALLERY_IMAGES = 3
 
 # Minimum file size to consider a figure a real product photo (bytes)
-MIN_FIGURE_BYTES = 50 * 1024  # 50 KB
+MIN_FIGURE_BYTES = 1 * 1024   # skip sub-pixel icons / dots (< 1 KB)
 
 # Regex heuristic: model numbers like "P01", "EM", "EPW", "SF-300", "ABZ-510"
 _MODEL_NUMBER_RE = re.compile(r"\b([A-Z]{1,4}[-/]?\d{2,}[A-Z0-9\-]*|[A-Z]{2,6}\d*)\b")

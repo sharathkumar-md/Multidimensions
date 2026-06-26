@@ -57,7 +57,7 @@ def build() -> dict:
             if not m:
                 continue
             size_kb = fig.stat().st_size / 1024
-            if size_kb < 50:           # skip tiny icons / logos
+            if size_kb < 1:            # skip sub-pixel icons / dots (< 1 KB)
                 continue
             page_str = m.group(2)
             by_page.setdefault(page_str, []).append({
