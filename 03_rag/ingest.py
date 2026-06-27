@@ -44,7 +44,7 @@ def import_ocr_pipeline():
         sys.path = old_path
         sys.modules.update(old_modules)
         for k in list(sys.modules.keys()):
-            if k not in old_modules:
+            if k not in old_modules and (k.startswith("config") or k.startswith("src")):
                 sys.modules.pop(k, None)
 
 
@@ -65,7 +65,7 @@ def import_vlm_pipeline():
         sys.path = old_path
         sys.modules.update(old_modules)
         for k in list(sys.modules.keys()):
-            if k not in old_modules:
+            if k not in old_modules and (k.startswith("config") or k.startswith("src")):
                 sys.modules.pop(k, None)
 
 
@@ -85,7 +85,7 @@ def import_rag_pipeline():
         sys.path = old_path
         sys.modules.update(old_modules)
         for k in list(sys.modules.keys()):
-            if k not in old_modules:
+            if k not in old_modules and (k.startswith("config") or k.startswith("src")):
                 sys.modules.pop(k, None)
 
 
