@@ -126,9 +126,42 @@ def _match_curated(
 def _load_figure_index(
     index_path: Path = DEFAULT_FIG_INDEX_PATH,
 ) -> dict:
+    manifests_dir = REPO_DIR / "01_ocr" / "output" / "manifests"
+    rebuild_needed = False
+
     if not index_path.exists():
+        rebuild_needed = True
+    elif manifests_dir.exists():
+        index_mtime = index_path.stat().st_mtime
+        for manifest_file in manifests_dir.glob("*.json"):
+            if manifest_file.stat().st_mtime > index_mtime:
+                rebuild_needed = True
+                break
+
+    if rebuild_needed:
+        try:
+            import sys
+            if str(DEMO_DIR) not in sys.path:
+                sys.path.insert(0, str(DEMO_DIR))
+            from build_figure_index import build_with_fallback
+            
+            # Rebuild and write index to path
+            index = build_with_fallback()
+            index_path.write_text(json.dumps(index, indent=2), encoding="utf-8")
+            return index
+        except Exception as exc:
+            # Fallback to existing file if available
+            if index_path.exists():
+                try:
+                    return json.loads(index_path.read_text(encoding="utf-8"))
+                except Exception:
+                    pass
+            return {}
+
+    try:
+        return json.loads(index_path.read_text(encoding="utf-8"))
+    except Exception:
         return {}
-    return json.loads(index_path.read_text(encoding="utf-8"))
 
 
 def _product_mentioned(
