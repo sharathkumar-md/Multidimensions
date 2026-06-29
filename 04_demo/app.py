@@ -11,7 +11,7 @@ import streamlit as st
 from product_images import resolve_product_image
 
 # wire up RAG module
-_RAG_DIR = Path(__file__).parent.parent / "03_rag"
+_RAG_DIR = (Path(__file__).resolve().parent.parent / "03_rag").resolve()
 sys.path.insert(0, str(_RAG_DIR))
 
 
@@ -67,7 +67,7 @@ def _check_and_run_ingest() -> None:
             
     if need_ingest:
         with st.spinner("Processing new PDF catalogs (OCR + Figure indexing + Vector store re-indexing)..."):
-            import ingest
+            import ingest  # type: ignore
             ingest.main()
             # Clear resource cache to reload fresh index
             st.cache_resource.clear()
@@ -108,14 +108,14 @@ def _set_title(session: Session, question: str) -> None:
 
 @st.cache_resource(show_spinner="Loading model — this takes about 2 min on first run…")
 def _load_model():
-    from src.generator import load_model
+    from src.generator import load_model  # type: ignore
     return load_model("Qwen/Qwen3-8B")
 
 
 @st.cache_resource(show_spinner="Loading index…")
 def _load_index():
-    from src.indexer import load_index
-    from src.retriever import load_reranker
+    from src.indexer import load_index  # type: ignore
+    from src.retriever import load_reranker  # type: ignore
     index_dir = _RAG_DIR / "index"
     collection, bm25, chunks = load_index(index_dir)
     reranker = load_reranker()
@@ -128,11 +128,11 @@ _MODEL_ID = "Qwen/Qwen3-8B"
 
 
 def _ask(question: str, summary: str) -> tuple[str, list]:
-    from src.retriever import retrieve
-    from src.generator import generate, generate_raw
-    from src.conversational import needs_retrieval, rewrite_query, simple_reply
-    from src.evaluator import groundedness
-    from config.settings import settings
+    from src.retriever import retrieve  # type: ignore
+    from src.generator import generate, generate_raw  # type: ignore
+    from src.conversational import needs_retrieval, rewrite_query, simple_reply  # type: ignore
+    from src.evaluator import groundedness  # type: ignore
+    from config.settings import settings  # type: ignore
 
     model, tokenizer = _load_model()
     collection, bm25, chunks, reranker = _load_index()
