@@ -1,0 +1,23 @@
+{
+  "doc_id": "74b3ce7819474c7d9d5421f4b6dc195e",
+  "source_filename": "Nabtesco.pdf",
+  "source_path": "..\\data\\input\\Nabtesco.pdf",
+  "file_size_bytes": 31639784,
+  "sha256": "2146fdf669734e4eb9c57ce9225143386d4b169ce127ed725fadf960a279554c",
+  "page_count": 7,
+  "status": "completed",
+  "created_at": "2026-05-28T14:17:00.893099",
+  "completed_at": "2026-05-28T14:17:05.497053",
+  "error_message": null,
+  "markdown_path": "markdown\\74b3ce7819474c7d9d5421f4b6dc195e.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\74b3ce7819474c7d9d5421f4b6dc195e",
+  "total_tables": 23,
+  "total_figures": 30,
+  "total_words": 1440,
+  "scanned_pages": 0,
+  "digital_pages": 0,
+  "mixed_pages": 7,
+  "processing_time_ms": 4604.395399801433,
+  "has_scanned_content": true
+}

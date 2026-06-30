@@ -1,0 +1,23 @@
+{
+  "doc_id": "710303afc3114bc0841dcd61bc00b9fe",
+  "source_filename": "Packaging Machinery.pdf",
+  "source_path": "Brand Resources\\Packaging Machinery.pdf",
+  "file_size_bytes": 241053,
+  "sha256": "a7ad9f59476af0cef615fbd796f3670347c7a772bef8ad39f0ce3954b32cfb38",
+  "page_count": 4,
+  "status": "completed",
+  "created_at": "2026-06-30T14:07:56.519697",
+  "completed_at": "2026-06-30T14:07:57.025933",
+  "error_message": null,
+  "markdown_path": "markdown\\710303afc3114bc0841dcd61bc00b9fe.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\710303afc3114bc0841dcd61bc00b9fe",
+  "total_tables": 4,
+  "total_figures": 19,
+  "total_words": 762,
+  "scanned_pages": 0,
+  "digital_pages": 0,
+  "mixed_pages": 4,
+  "processing_time_ms": 506.557899992913,
+  "has_scanned_content": true
+}

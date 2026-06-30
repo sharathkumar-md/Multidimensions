@@ -1,0 +1,23 @@
+{
+  "doc_id": "094571118fb94572914bde396e4469cd",
+  "source_filename": "Hengstler Ebook - handover file.pdf",
+  "source_path": "..\\data\\input\\Hengstler Ebook - handover file.pdf",
+  "file_size_bytes": 12986426,
+  "sha256": "331de54a4d0905db27298a848627e23fc8f9aa3ddf6761f99023399923e35a56",
+  "page_count": 14,
+  "status": "completed",
+  "created_at": "2026-05-28T14:15:46.723981",
+  "completed_at": "2026-05-28T14:15:57.223764",
+  "error_message": null,
+  "markdown_path": "markdown\\094571118fb94572914bde396e4469cd.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\094571118fb94572914bde396e4469cd",
+  "total_tables": 33,
+  "total_figures": 61,
+  "total_words": 1187,
+  "scanned_pages": 2,
+  "digital_pages": 0,
+  "mixed_pages": 12,
+  "processing_time_ms": 10502.264400012791,
+  "has_scanned_content": true
+}

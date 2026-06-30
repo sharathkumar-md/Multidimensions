@@ -1,0 +1,23 @@
+{
+  "doc_id": "fa8476238a7a468e9efd6ba35f644823",
+  "source_filename": "FISSO  Ebook - handover file.pdf",
+  "source_path": "..\\data\\input\\FISSO  Ebook - handover file.pdf",
+  "file_size_bytes": 6890328,
+  "sha256": "9cfb88c1d69520814cf86cf5dcf19120f216cbd541fc57fd26a5f88ea3bc667d",
+  "page_count": 4,
+  "status": "completed",
+  "created_at": "2026-05-28T14:15:29.727768",
+  "completed_at": "2026-05-28T14:15:37.914743",
+  "error_message": null,
+  "markdown_path": "markdown\\fa8476238a7a468e9efd6ba35f644823.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\fa8476238a7a468e9efd6ba35f644823",
+  "total_tables": 4,
+  "total_figures": 8,
+  "total_words": 361,
+  "scanned_pages": 2,
+  "digital_pages": 0,
+  "mixed_pages": 2,
+  "processing_time_ms": 8186.35470001027,
+  "has_scanned_content": true
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "f5eda349abbb4355be049ac56fcb2c25",
+  "source_filename": "ggb-ep-engineered-plastics-bearings-bushings-for-e-bike-applications.pdf",
+  "source_path": "..\\data\\input\\ggb-ep-engineered-plastics-bearings-bushings-for-e-bike-applications.pdf",
+  "file_size_bytes": 701210,
+  "sha256": "02cac7ce2828f12949041200f59e80c96d2a22455f459ead874c3b90fd78f003",
+  "page_count": 4,
+  "status": "completed",
+  "created_at": "2026-05-26T14:16:07.991999",
+  "completed_at": "2026-05-26T14:16:15.610066",
+  "error_message": null,
+  "markdown_path": "markdown\\f5eda349abbb4355be049ac56fcb2c25.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\f5eda349abbb4355be049ac56fcb2c25",
+  "total_tables": 0,
+  "total_figures": 22,
+  "total_words": 611,
+  "scanned_pages": 2,
+  "digital_pages": 0,
+  "mixed_pages": 2,
+  "processing_time_ms": 7618.249699939042,
+  "has_scanned_content": true
+}

@@ -1,0 +1,3200 @@
+{
+  "Hengstler Ebook - handover file.pdf": {
+    "doc_id": "094571118fb94572914bde396e4469cd",
+    "figures_base": "01_ocr/output/figures/094571118fb94572914bde396e4469cd",
+    "by_page": {
+      "10": [
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p10_f1.png",
+          "size_kb": 313.3
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p10_f2.png",
+          "size_kb": 313.3
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p10_f4.png",
+          "size_kb": 263.0
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p10_f3.png",
+          "size_kb": 170.2
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p10_f0.png",
+          "size_kb": 1.5
+        }
+      ],
+      "11": [
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p11_f2.png",
+          "size_kb": 263.0
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p11_f0.png",
+          "size_kb": 170.2
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p11_f1.png",
+          "size_kb": 1.5
+        }
+      ],
+      "12": [
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p12_f5.png",
+          "size_kb": 187.6
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p12_f1.png",
+          "size_kb": 172.2
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p12_f2.png",
+          "size_kb": 172.2
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p12_f4.png",
+          "size_kb": 148.5
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p12_f3.png",
+          "size_kb": 123.7
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p12_f0.png",
+          "size_kb": 1.5
+        }
+      ],
+      "13": [
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p13_f3.png",
+          "size_kb": 148.5
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p13_f0.png",
+          "size_kb": 123.7
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p13_f1.png",
+          "size_kb": 1.5
+        }
+      ],
+      "14": [
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p14_f2.png",
+          "size_kb": 187.6
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p14_f0.png",
+          "size_kb": 1.5
+        }
+      ],
+      "3": [
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p3_f3.png",
+          "size_kb": 1550.1
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p3_f1.png",
+          "size_kb": 1242.0
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p3_f2.png",
+          "size_kb": 1242.0
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p3_f0.png",
+          "size_kb": 1.5
+        }
+      ],
+      "4": [
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p4_f2.png",
+          "size_kb": 4189.6
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p4_f0.png",
+          "size_kb": 1550.1
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p4_f3.png",
+          "size_kb": 839.1
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p4_f1.png",
+          "size_kb": 1.5
+        }
+      ],
+      "5": [
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p5_f0.png",
+          "size_kb": 4189.6
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p5_f1.png",
+          "size_kb": 839.1
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p5_f2.png",
+          "size_kb": 1.5
+        }
+      ],
+      "6": [
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p6_f5.png",
+          "size_kb": 122.3
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p6_f4.png",
+          "size_kb": 108.6
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p6_f8.png",
+          "size_kb": 107.7
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p6_f9.png",
+          "size_kb": 107.7
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p6_f7.png",
+          "size_kb": 104.3
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p6_f6.png",
+          "size_kb": 90.6
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p6_f1.png",
+          "size_kb": 83.7
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p6_f3.png",
+          "size_kb": 83.7
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p6_f10.png",
+          "size_kb": 6.8
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p6_f0.png",
+          "size_kb": 1.5
+        }
+      ],
+      "7": [
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p7_f2.png",
+          "size_kb": 122.3
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p7_f1.png",
+          "size_kb": 108.6
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p7_f0.png",
+          "size_kb": 1.5
+        }
+      ],
+      "8": [
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p8_f2.png",
+          "size_kb": 104.3
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p8_f1.png",
+          "size_kb": 90.6
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p8_f0.png",
+          "size_kb": 1.5
+        }
+      ],
+      "9": [
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p9_f1.png",
+          "size_kb": 107.7
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p9_f2.png",
+          "size_kb": 6.8
+        },
+        {
+          "filename": "094571118fb94572914bde396e4469cd_p9_f0.png",
+          "size_kb": 1.5
+        }
+      ]
+    }
+  },
+  "Kroll & Ziller Ebook - handover file.pdf": {
+    "doc_id": "0987c243178849a7b5ffeb18df080cda",
+    "figures_base": "01_ocr/output/figures/0987c243178849a7b5ffeb18df080cda",
+    "by_page": {
+      "3": [
+        {
+          "filename": "0987c243178849a7b5ffeb18df080cda_p3_f2.png",
+          "size_kb": 55.8
+        },
+        {
+          "filename": "0987c243178849a7b5ffeb18df080cda_p3_f0.png",
+          "size_kb": 55.6
+        },
+        {
+          "filename": "0987c243178849a7b5ffeb18df080cda_p3_f1.png",
+          "size_kb": 55.1
+        },
+        {
+          "filename": "0987c243178849a7b5ffeb18df080cda_p3_f3.png",
+          "size_kb": 54.3
+        },
+        {
+          "filename": "0987c243178849a7b5ffeb18df080cda_p3_f5.png",
+          "size_kb": 25.7
+        },
+        {
+          "filename": "0987c243178849a7b5ffeb18df080cda_p3_f4.png",
+          "size_kb": 1.5
+        }
+      ],
+      "4": [
+        {
+          "filename": "0987c243178849a7b5ffeb18df080cda_p4_f0.png",
+          "size_kb": 99.0
+        },
+        {
+          "filename": "0987c243178849a7b5ffeb18df080cda_p4_f2.png",
+          "size_kb": 56.4
+        },
+        {
+          "filename": "0987c243178849a7b5ffeb18df080cda_p4_f3.png",
+          "size_kb": 54.8
+        },
+        {
+          "filename": "0987c243178849a7b5ffeb18df080cda_p4_f1.png",
+          "size_kb": 52.4
+        },
+        {
+          "filename": "0987c243178849a7b5ffeb18df080cda_p4_f5.png",
+          "size_kb": 25.7
+        },
+        {
+          "filename": "0987c243178849a7b5ffeb18df080cda_p4_f4.png",
+          "size_kb": 1.5
+        }
+      ]
+    }
+  },
+  "ggb-high-performance-plain-bearings-for-hydropower-industry-flyer.pdf": {
+    "doc_id": "274fbb105e5148db993b4cfe85c4f453",
+    "figures_base": "01_ocr/output/figures/274fbb105e5148db993b4cfe85c4f453",
+    "by_page": {
+      "1": [
+        {
+          "filename": "274fbb105e5148db993b4cfe85c4f453_p1_f11.png",
+          "size_kb": 1.9
+        },
+        {
+          "filename": "274fbb105e5148db993b4cfe85c4f453_p1_f9.png",
+          "size_kb": 1.7
+        },
+        {
+          "filename": "274fbb105e5148db993b4cfe85c4f453_p1_f5.png",
+          "size_kb": 1.6
+        },
+        {
+          "filename": "274fbb105e5148db993b4cfe85c4f453_p1_f7.png",
+          "size_kb": 1.3
+        }
+      ],
+      "2": [
+        {
+          "filename": "274fbb105e5148db993b4cfe85c4f453_p2_f15.png",
+          "size_kb": 4.1
+        },
+        {
+          "filename": "274fbb105e5148db993b4cfe85c4f453_p2_f10.png",
+          "size_kb": 3.6
+        },
+        {
+          "filename": "274fbb105e5148db993b4cfe85c4f453_p2_f5.png",
+          "size_kb": 3.1
+        },
+        {
+          "filename": "274fbb105e5148db993b4cfe85c4f453_p2_f13.png",
+          "size_kb": 2.1
+        },
+        {
+          "filename": "274fbb105e5148db993b4cfe85c4f453_p2_f8.png",
+          "size_kb": 2.1
+        },
+        {
+          "filename": "274fbb105e5148db993b4cfe85c4f453_p2_f3.png",
+          "size_kb": 1.9
+        }
+      ]
+    }
+  },
+  "NSK Ebook - handover file (1).pdf": {
+    "doc_id": "34aa14260e6541a6a58464414d847e21",
+    "figures_base": "01_ocr/output/figures/34aa14260e6541a6a58464414d847e21",
+    "by_page": {
+      "10": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p10_f0.png",
+          "size_kb": 324.3
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p10_f1.png",
+          "size_kb": 278.3
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p10_f2.png",
+          "size_kb": 235.3
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p10_f3.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p10_f4.png",
+          "size_kb": 4.8
+        }
+      ],
+      "11": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p11_f0.png",
+          "size_kb": 333.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p11_f1.png",
+          "size_kb": 284.4
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p11_f4.png",
+          "size_kb": 101.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p11_f2.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p11_f3.png",
+          "size_kb": 4.8
+        }
+      ],
+      "12": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p12_f1.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p12_f6.png",
+          "size_kb": 46.6
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p12_f0.png",
+          "size_kb": 36.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p12_f3.png",
+          "size_kb": 31.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p12_f4.png",
+          "size_kb": 26.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p12_f7.png",
+          "size_kb": 24.8
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p12_f5.png",
+          "size_kb": 23.8
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p12_f2.png",
+          "size_kb": 4.8
+        }
+      ],
+      "13": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p13_f7.png",
+          "size_kb": 330.9
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p13_f8.png",
+          "size_kb": 247.1
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p13_f5.png",
+          "size_kb": 155.9
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p13_f4.png",
+          "size_kb": 130.1
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p13_f6.png",
+          "size_kb": 75.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p13_f0.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p13_f3.png",
+          "size_kb": 21.2
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p13_f2.png",
+          "size_kb": 15.0
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p13_f1.png",
+          "size_kb": 4.8
+        }
+      ],
+      "14": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p14_f2.png",
+          "size_kb": 463.9
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p14_f1.png",
+          "size_kb": 135.1
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p14_f0.png",
+          "size_kb": 75.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p14_f3.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p14_f4.png",
+          "size_kb": 4.8
+        }
+      ],
+      "15": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p15_f3.png",
+          "size_kb": 426.0
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p15_f7.png",
+          "size_kb": 330.9
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p15_f0.png",
+          "size_kb": 179.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p15_f2.png",
+          "size_kb": 155.9
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p15_f4.png",
+          "size_kb": 140.3
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p15_f1.png",
+          "size_kb": 130.1
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p15_f5.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p15_f6.png",
+          "size_kb": 4.8
+        }
+      ],
+      "16": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p16_f2.png",
+          "size_kb": 371.1
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p16_f7.png",
+          "size_kb": 247.1
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p16_f4.png",
+          "size_kb": 222.3
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p16_f1.png",
+          "size_kb": 204.9
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p16_f0.png",
+          "size_kb": 200.1
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p16_f3.png",
+          "size_kb": 124.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p16_f5.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p16_f6.png",
+          "size_kb": 4.8
+        }
+      ],
+      "17": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p17_f4.png",
+          "size_kb": 152.8
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p17_f1.png",
+          "size_kb": 133.6
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p17_f0.png",
+          "size_kb": 111.4
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p17_f2.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p17_f3.png",
+          "size_kb": 4.8
+        }
+      ],
+      "18": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p18_f1.png",
+          "size_kb": 134.1
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p18_f3.png",
+          "size_kb": 123.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p18_f2.png",
+          "size_kb": 111.3
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p18_f0.png",
+          "size_kb": 80.9
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p18_f4.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p18_f5.png",
+          "size_kb": 4.8
+        }
+      ],
+      "19": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p19_f5.png",
+          "size_kb": 215.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p19_f4.png",
+          "size_kb": 202.3
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p19_f6.png",
+          "size_kb": 194.0
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p19_f7.png",
+          "size_kb": 194.0
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p19_f8.png",
+          "size_kb": 194.0
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p19_f3.png",
+          "size_kb": 186.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p19_f9.png",
+          "size_kb": 184.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p19_f2.png",
+          "size_kb": 123.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p19_f0.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p19_f1.png",
+          "size_kb": 4.8
+        }
+      ],
+      "20": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p20_f4.png",
+          "size_kb": 215.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p20_f3.png",
+          "size_kb": 202.3
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p20_f2.png",
+          "size_kb": 186.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p20_f0.png",
+          "size_kb": 184.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p20_f1.png",
+          "size_kb": 123.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p20_f5.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p20_f6.png",
+          "size_kb": 4.8
+        }
+      ],
+      "2": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p2_f0.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p2_f1.png",
+          "size_kb": 4.8
+        }
+      ],
+      "5": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p5_f2.png",
+          "size_kb": 120.6
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p5_f6.png",
+          "size_kb": 82.9
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p5_f5.png",
+          "size_kb": 74.2
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p5_f1.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p5_f3.png",
+          "size_kb": 48.1
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p5_f4.png",
+          "size_kb": 44.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p5_f0.png",
+          "size_kb": 4.8
+        }
+      ],
+      "6": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p6_f0.png",
+          "size_kb": 196.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p6_f2.png",
+          "size_kb": 120.6
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p6_f4.png",
+          "size_kb": 74.2
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p6_f6.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p6_f3.png",
+          "size_kb": 48.1
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p6_f7.png",
+          "size_kb": 44.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p6_f1.png",
+          "size_kb": 34.9
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p6_f5.png",
+          "size_kb": 4.8
+        }
+      ],
+      "8": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p8_f4.png",
+          "size_kb": 122.0
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p8_f2.png",
+          "size_kb": 113.2
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p8_f3.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p8_f1.png",
+          "size_kb": 63.4
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p8_f5.png",
+          "size_kb": 50.8
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p8_f0.png",
+          "size_kb": 4.8
+        }
+      ],
+      "9": [
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p9_f0.png",
+          "size_kb": 319.9
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p9_f1.png",
+          "size_kb": 277.0
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p9_f2.png",
+          "size_kb": 259.5
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p9_f3.png",
+          "size_kb": 72.7
+        },
+        {
+          "filename": "34aa14260e6541a6a58464414d847e21_p9_f4.png",
+          "size_kb": 4.8
+        }
+      ]
+    }
+  },
+  "Crane & Hoist.pdf": {
+    "doc_id": "3d2915ec656045999b106c25fb53cec3",
+    "figures_base": "C:\\Users\\Sharath Kumar MD\\VSCodE\\GitHub\\MultiDimensions\\01_ocr\\output\\figures\\3d2915ec656045999b106c25fb53cec3",
+    "by_page": {
+      "1": [
+        {
+          "filename": "3d2915ec656045999b106c25fb53cec3_p1_rendered.png",
+          "size_kb": 478.1
+        }
+      ],
+      "2": [
+        {
+          "filename": "3d2915ec656045999b106c25fb53cec3_p2_rendered.png",
+          "size_kb": 261.1
+        }
+      ]
+    }
+  },
+  "HB-Catalogue.pdf": {
+    "doc_id": "4de103682ac64df98ce97c0a535e50dd",
+    "figures_base": "01_ocr/output/figures/4de103682ac64df98ce97c0a535e50dd",
+    "by_page": {
+      "3": [
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p3_f2.png",
+          "size_kb": 607.1
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p3_f0.png",
+          "size_kb": 262.6
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p3_f3.png",
+          "size_kb": 46.9
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p3_f1.png",
+          "size_kb": 33.8
+        }
+      ],
+      "4": [
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p4_f1.png",
+          "size_kb": 516.8
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p4_f3.png",
+          "size_kb": 237.8
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p4_f2.png",
+          "size_kb": 46.9
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p4_f0.png",
+          "size_kb": 33.8
+        }
+      ],
+      "5": [
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p5_f2.png",
+          "size_kb": 1105.1
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p5_f1.png",
+          "size_kb": 481.2
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p5_f3.png",
+          "size_kb": 46.9
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p5_f0.png",
+          "size_kb": 33.8
+        }
+      ],
+      "6": [
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p6_f1.png",
+          "size_kb": 725.9
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p6_f2.png",
+          "size_kb": 661.2
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p6_f3.png",
+          "size_kb": 46.9
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p6_f0.png",
+          "size_kb": 33.8
+        }
+      ],
+      "7": [
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p7_f1.png",
+          "size_kb": 405.8
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p7_f2.png",
+          "size_kb": 220.1
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p7_f3.png",
+          "size_kb": 46.9
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p7_f0.png",
+          "size_kb": 33.8
+        }
+      ],
+      "8": [
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p8_f1.png",
+          "size_kb": 361.0
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p8_f0.png",
+          "size_kb": 340.5
+        },
+        {
+          "filename": "4de103682ac64df98ce97c0a535e50dd_p8_f2.png",
+          "size_kb": 46.9
+        }
+      ]
+    }
+  },
+  "ISC.pdf": {
+    "doc_id": "5093789407cc4c7981c0cc9be970173a",
+    "figures_base": "01_ocr/output/figures/5093789407cc4c7981c0cc9be970173a",
+    "by_page": {
+      "1": [
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p1_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p1_f3.png",
+          "size_kb": 107.3
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p1_f4.png",
+          "size_kb": 95.8
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p1_f2.png",
+          "size_kb": 69.1
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p1_f5.png",
+          "size_kb": 30.8
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p1_f1.png",
+          "size_kb": 11.2
+        }
+      ],
+      "2": [
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p2_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p2_f2.png",
+          "size_kb": 69.1
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p2_f1.png",
+          "size_kb": 11.2
+        }
+      ],
+      "3": [
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p3_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p3_f3.png",
+          "size_kb": 76.5
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p3_f2.png",
+          "size_kb": 69.8
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p3_f1.png",
+          "size_kb": 11.2
+        }
+      ],
+      "4": [
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p4_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p4_f3.png",
+          "size_kb": 155.3
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p4_f2.png",
+          "size_kb": 72.0
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p4_f1.png",
+          "size_kb": 11.2
+        }
+      ],
+      "5": [
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p5_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p5_f2.png",
+          "size_kb": 107.3
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p5_f3.png",
+          "size_kb": 95.8
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p5_f1.png",
+          "size_kb": 11.2
+        }
+      ],
+      "6": [
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p6_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p6_f2.png",
+          "size_kb": 84.8
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p6_f3.png",
+          "size_kb": 30.8
+        },
+        {
+          "filename": "5093789407cc4c7981c0cc9be970173a_p6_f1.png",
+          "size_kb": 11.2
+        }
+      ]
+    }
+  },
+  "KSK V2022 NOV.pdf": {
+    "doc_id": "5f7cb15dc6de4ab089ae75501a02f626",
+    "figures_base": "01_ocr/output/figures/5f7cb15dc6de4ab089ae75501a02f626",
+    "by_page": {
+      "2": [
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p2_f4.png",
+          "size_kb": 2903.4
+        },
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p2_f5.png",
+          "size_kb": 2389.3
+        },
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p2_f2.png",
+          "size_kb": 2375.2
+        },
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p2_f3.png",
+          "size_kb": 2291.6
+        },
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p2_f0.png",
+          "size_kb": 46.9
+        },
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p2_f1.png",
+          "size_kb": 4.5
+        }
+      ],
+      "4": [
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p4_f4.png",
+          "size_kb": 17587.8
+        },
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p4_f2.png",
+          "size_kb": 1593.5
+        },
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p4_f3.png",
+          "size_kb": 217.5
+        },
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p4_f0.png",
+          "size_kb": 46.9
+        },
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p4_f1.png",
+          "size_kb": 4.5
+        }
+      ],
+      "5": [
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p5_f2.png",
+          "size_kb": 2521.0
+        },
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p5_f3.png",
+          "size_kb": 1788.5
+        },
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p5_f0.png",
+          "size_kb": 46.9
+        },
+        {
+          "filename": "5f7cb15dc6de4ab089ae75501a02f626_p5_f1.png",
+          "size_kb": 4.5
+        }
+      ]
+    }
+  },
+  "Dynapar Ebook - handover file.pdf": {
+    "doc_id": "6088f374a44f44fe9caf2246a236085a",
+    "figures_base": "01_ocr/output/figures/6088f374a44f44fe9caf2246a236085a",
+    "by_page": {
+      "10": [
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p10_f1.png",
+          "size_kb": 855.5
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p10_f2.png",
+          "size_kb": 753.6
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p10_f3.png",
+          "size_kb": 592.2
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p10_f0.png",
+          "size_kb": 492.3
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p10_f5.png",
+          "size_kb": 26.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p10_f4.png",
+          "size_kb": 1.5
+        }
+      ],
+      "11": [
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p11_f4.png",
+          "size_kb": 684.3
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p11_f1.png",
+          "size_kb": 519.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p11_f0.png",
+          "size_kb": 478.0
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p11_f3.png",
+          "size_kb": 26.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p11_f2.png",
+          "size_kb": 1.5
+        }
+      ],
+      "12": [
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p12_f2.png",
+          "size_kb": 1001.4
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p12_f0.png",
+          "size_kb": 892.5
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p12_f1.png",
+          "size_kb": 637.6
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p12_f3.png",
+          "size_kb": 215.4
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p12_f5.png",
+          "size_kb": 26.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p12_f4.png",
+          "size_kb": 1.5
+        }
+      ],
+      "13": [
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p13_f2.png",
+          "size_kb": 524.9
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p13_f1.png",
+          "size_kb": 26.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p13_f0.png",
+          "size_kb": 1.5
+        }
+      ],
+      "2": [
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p2_f1.png",
+          "size_kb": 26.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p2_f0.png",
+          "size_kb": 1.5
+        }
+      ],
+      "3": [
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p3_f1.png",
+          "size_kb": 459.7
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p3_f0.png",
+          "size_kb": 351.6
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p3_f4.png",
+          "size_kb": 276.7
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p3_f3.png",
+          "size_kb": 26.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p3_f2.png",
+          "size_kb": 1.5
+        }
+      ],
+      "4": [
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p4_f2.png",
+          "size_kb": 467.3
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p4_f5.png",
+          "size_kb": 447.9
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p4_f1.png",
+          "size_kb": 440.0
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p4_f0.png",
+          "size_kb": 335.5
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p4_f4.png",
+          "size_kb": 26.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p4_f3.png",
+          "size_kb": 1.5
+        }
+      ],
+      "5": [
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p5_f3.png",
+          "size_kb": 420.0
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p5_f0.png",
+          "size_kb": 351.3
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p5_f1.png",
+          "size_kb": 321.7
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p5_f2.png",
+          "size_kb": 263.2
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p5_f5.png",
+          "size_kb": 26.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p5_f4.png",
+          "size_kb": 1.5
+        }
+      ],
+      "6": [
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p6_f0.png",
+          "size_kb": 435.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p6_f1.png",
+          "size_kb": 372.6
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p6_f2.png",
+          "size_kb": 372.6
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p6_f3.png",
+          "size_kb": 372.6
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p6_f5.png",
+          "size_kb": 26.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p6_f4.png",
+          "size_kb": 1.5
+        }
+      ],
+      "7": [
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p7_f5.png",
+          "size_kb": 483.9
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p7_f1.png",
+          "size_kb": 435.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p7_f2.png",
+          "size_kb": 435.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p7_f0.png",
+          "size_kb": 338.0
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p7_f4.png",
+          "size_kb": 26.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p7_f3.png",
+          "size_kb": 1.5
+        }
+      ],
+      "8": [
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p8_f0.png",
+          "size_kb": 585.4
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p8_f1.png",
+          "size_kb": 579.5
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p8_f4.png",
+          "size_kb": 315.0
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p8_f3.png",
+          "size_kb": 26.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p8_f2.png",
+          "size_kb": 1.5
+        }
+      ],
+      "9": [
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p9_f2.png",
+          "size_kb": 519.3
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p9_f1.png",
+          "size_kb": 461.8
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p9_f0.png",
+          "size_kb": 395.2
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p9_f4.png",
+          "size_kb": 26.1
+        },
+        {
+          "filename": "6088f374a44f44fe9caf2246a236085a_p9_f3.png",
+          "size_kb": 1.5
+        }
+      ]
+    }
+  },
+  "ggb-automotive-transmission-bearings-and-bushings-catalog-english-2018.pdf": {
+    "doc_id": "e7647fa7499c4bac90d22b5f21a704d3",
+    "figures_base": "01_ocr/output/figures/e7647fa7499c4bac90d22b5f21a704d3",
+    "by_page": {
+      "2": [
+        {
+          "filename": "e7647fa7499c4bac90d22b5f21a704d3_p2_f23.png",
+          "size_kb": 1.2
+        },
+        {
+          "filename": "e7647fa7499c4bac90d22b5f21a704d3_p2_f19.png",
+          "size_kb": 1.1
+        },
+        {
+          "filename": "e7647fa7499c4bac90d22b5f21a704d3_p2_f21.png",
+          "size_kb": 1.1
+        }
+      ]
+    }
+  },
+  "Packaging Machinery.pdf": {
+    "doc_id": "710303afc3114bc0841dcd61bc00b9fe",
+    "figures_base": "C:\\Users\\Sharath Kumar MD\\VSCodE\\GitHub\\MultiDimensions\\01_ocr\\output\\figures\\710303afc3114bc0841dcd61bc00b9fe",
+    "by_page": {
+      "1": [
+        {
+          "filename": "710303afc3114bc0841dcd61bc00b9fe_p1_rendered.png",
+          "size_kb": 378.1
+        }
+      ],
+      "2": [
+        {
+          "filename": "710303afc3114bc0841dcd61bc00b9fe_p2_rendered.png",
+          "size_kb": 366.6
+        }
+      ],
+      "3": [
+        {
+          "filename": "710303afc3114bc0841dcd61bc00b9fe_p3_rendered.png",
+          "size_kb": 390.1
+        }
+      ],
+      "4": [
+        {
+          "filename": "710303afc3114bc0841dcd61bc00b9fe_p4_rendered.png",
+          "size_kb": 284.9
+        }
+      ]
+    }
+  },
+  "Nabtesco.pdf": {
+    "doc_id": "74b3ce7819474c7d9d5421f4b6dc195e",
+    "figures_base": "01_ocr/output/figures/74b3ce7819474c7d9d5421f4b6dc195e",
+    "by_page": {
+      "1": [
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p1_f4.png",
+          "size_kb": 2097.3
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p1_f5.png",
+          "size_kb": 2027.0
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p1_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p1_f3.png",
+          "size_kb": 396.0
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p1_f6.png",
+          "size_kb": 96.6
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p1_f2.png",
+          "size_kb": 84.8
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p1_f1.png",
+          "size_kb": 10.1
+        }
+      ],
+      "2": [
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p2_f3.png",
+          "size_kb": 4237.8
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p2_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p2_f2.png",
+          "size_kb": 283.9
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p2_f1.png",
+          "size_kb": 10.1
+        }
+      ],
+      "3": [
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p3_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p3_f3.png",
+          "size_kb": 515.1
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p3_f2.png",
+          "size_kb": 364.6
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p3_f1.png",
+          "size_kb": 10.1
+        }
+      ],
+      "4": [
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p4_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p4_f3.png",
+          "size_kb": 634.7
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p4_f2.png",
+          "size_kb": 531.8
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p4_f1.png",
+          "size_kb": 10.1
+        }
+      ],
+      "5": [
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p5_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p5_f2.png",
+          "size_kb": 96.6
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p5_f1.png",
+          "size_kb": 10.1
+        }
+      ],
+      "6": [
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p6_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p6_f3.png",
+          "size_kb": 349.0
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p6_f2.png",
+          "size_kb": 318.8
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p6_f1.png",
+          "size_kb": 10.1
+        }
+      ],
+      "7": [
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p7_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p7_f2.png",
+          "size_kb": 84.8
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p7_f3.png",
+          "size_kb": 84.8
+        },
+        {
+          "filename": "74b3ce7819474c7d9d5421f4b6dc195e_p7_f1.png",
+          "size_kb": 10.1
+        }
+      ]
+    }
+  },
+  "Maedler Ebook - Final handover (2).pdf": {
+    "doc_id": "a28a430b5cb74e8abd20263caa556051",
+    "figures_base": "01_ocr/output/figures/a28a430b5cb74e8abd20263caa556051",
+    "by_page": {
+      "10": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p10_f0.png",
+          "size_kb": 72.0
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p10_f4.png",
+          "size_kb": 66.8
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p10_f3.png",
+          "size_kb": 52.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p10_f1.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p10_f2.png",
+          "size_kb": 1.5
+        }
+      ],
+      "11": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p11_f4.png",
+          "size_kb": 316.1
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p11_f2.png",
+          "size_kb": 59.8
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p11_f3.png",
+          "size_kb": 59.8
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p11_f6.png",
+          "size_kb": 54.4
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p11_f5.png",
+          "size_kb": 45.2
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p11_f0.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p11_f1.png",
+          "size_kb": 1.5
+        }
+      ],
+      "12": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p12_f2.png",
+          "size_kb": 316.1
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p12_f4.png",
+          "size_kb": 54.4
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p12_f3.png",
+          "size_kb": 45.2
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p12_f0.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p12_f1.png",
+          "size_kb": 1.5
+        }
+      ],
+      "13": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p13_f4.png",
+          "size_kb": 100.1
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p13_f5.png",
+          "size_kb": 100.1
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p13_f0.png",
+          "size_kb": 70.2
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p13_f1.png",
+          "size_kb": 70.2
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p13_f6.png",
+          "size_kb": 54.3
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p13_f2.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p13_f3.png",
+          "size_kb": 1.5
+        }
+      ],
+      "14": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p14_f8.png",
+          "size_kb": 99.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p14_f9.png",
+          "size_kb": 99.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p14_f1.png",
+          "size_kb": 97.8
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p14_f2.png",
+          "size_kb": 97.8
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p14_f7.png",
+          "size_kb": 92.0
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p14_f0.png",
+          "size_kb": 81.2
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p14_f5.png",
+          "size_kb": 54.3
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p14_f6.png",
+          "size_kb": 53.3
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p14_f3.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p14_f4.png",
+          "size_kb": 1.5
+        }
+      ],
+      "15": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p15_f5.png",
+          "size_kb": 294.0
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p15_f0.png",
+          "size_kb": 92.0
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p15_f1.png",
+          "size_kb": 81.2
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p15_f4.png",
+          "size_kb": 53.3
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p15_f2.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p15_f3.png",
+          "size_kb": 1.5
+        }
+      ],
+      "16": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p16_f3.png",
+          "size_kb": 356.4
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p16_f2.png",
+          "size_kb": 309.6
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p16_f4.png",
+          "size_kb": 267.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p16_f5.png",
+          "size_kb": 190.8
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p16_f0.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p16_f1.png",
+          "size_kb": 1.5
+        }
+      ],
+      "17": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p17_f2.png",
+          "size_kb": 316.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p17_f4.png",
+          "size_kb": 282.9
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p17_f3.png",
+          "size_kb": 180.6
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p17_f0.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p17_f1.png",
+          "size_kb": 1.5
+        }
+      ],
+      "18": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p18_f5.png",
+          "size_kb": 248.2
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p18_f2.png",
+          "size_kb": 242.3
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p18_f3.png",
+          "size_kb": 236.6
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p18_f4.png",
+          "size_kb": 86.0
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p18_f0.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p18_f1.png",
+          "size_kb": 1.5
+        }
+      ],
+      "19": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p19_f1.png",
+          "size_kb": 282.9
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p19_f8.png",
+          "size_kb": 282.9
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p19_f0.png",
+          "size_kb": 266.6
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p19_f9.png",
+          "size_kb": 266.6
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p19_f2.png",
+          "size_kb": 252.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p19_f7.png",
+          "size_kb": 252.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p19_f3.png",
+          "size_kb": 89.4
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p19_f4.png",
+          "size_kb": 89.4
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p19_f5.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p19_f6.png",
+          "size_kb": 1.5
+        }
+      ],
+      "1": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f2.png",
+          "size_kb": 642.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f5.png",
+          "size_kb": 401.4
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f3.png",
+          "size_kb": 393.8
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f14.png",
+          "size_kb": 356.4
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f17.png",
+          "size_kb": 316.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f7.png",
+          "size_kb": 310.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f13.png",
+          "size_kb": 294.0
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f15.png",
+          "size_kb": 267.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f16.png",
+          "size_kb": 190.8
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f12.png",
+          "size_kb": 184.6
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f18.png",
+          "size_kb": 180.6
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f1.png",
+          "size_kb": 180.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f23.png",
+          "size_kb": 100.6
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f8.png",
+          "size_kb": 88.1
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f11.png",
+          "size_kb": 75.3
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f6.png",
+          "size_kb": 71.9
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f21.png",
+          "size_kb": 66.2
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f19.png",
+          "size_kb": 57.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f24.png",
+          "size_kb": 53.8
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f20.png",
+          "size_kb": 53.4
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f10.png",
+          "size_kb": 50.2
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f0.png",
+          "size_kb": 50.1
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f22.png",
+          "size_kb": 45.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f4.png",
+          "size_kb": 42.8
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f25.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p1_f9.png",
+          "size_kb": 1.5
+        }
+      ],
+      "20": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p20_f4.png",
+          "size_kb": 267.0
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p20_f0.png",
+          "size_kb": 246.9
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p20_f7.png",
+          "size_kb": 246.9
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p20_f5.png",
+          "size_kb": 203.4
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p20_f6.png",
+          "size_kb": 203.4
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p20_f1.png",
+          "size_kb": 170.9
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p20_f8.png",
+          "size_kb": 170.9
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p20_f2.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p20_f3.png",
+          "size_kb": 1.5
+        }
+      ],
+      "21": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p21_f4.png",
+          "size_kb": 387.1
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p21_f5.png",
+          "size_kb": 387.1
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p21_f2.png",
+          "size_kb": 369.4
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p21_f3.png",
+          "size_kb": 369.4
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p21_f8.png",
+          "size_kb": 280.0
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p21_f6.png",
+          "size_kb": 228.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p21_f7.png",
+          "size_kb": 228.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p21_f0.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p21_f1.png",
+          "size_kb": 1.5
+        }
+      ],
+      "22": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p22_f5.png",
+          "size_kb": 91.2
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p22_f3.png",
+          "size_kb": 60.4
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p22_f2.png",
+          "size_kb": 54.2
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p22_f4.png",
+          "size_kb": 36.9
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p22_f1.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p22_f0.png",
+          "size_kb": 1.5
+        }
+      ],
+      "23": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p23_f3.png",
+          "size_kb": 33.9
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p23_f2.png",
+          "size_kb": 30.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p23_f4.png",
+          "size_kb": 25.0
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p23_f1.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p23_f0.png",
+          "size_kb": 1.5
+        }
+      ],
+      "3": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p3_f0.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p3_f1.png",
+          "size_kb": 1.5
+        }
+      ],
+      "4": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p4_f0.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p4_f1.png",
+          "size_kb": 1.5
+        }
+      ],
+      "5": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p5_f0.png",
+          "size_kb": 642.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p5_f2.png",
+          "size_kb": 393.8
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p5_f1.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p5_f3.png",
+          "size_kb": 1.5
+        }
+      ],
+      "6": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p6_f2.png",
+          "size_kb": 282.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p6_f3.png",
+          "size_kb": 207.9
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p6_f0.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p6_f1.png",
+          "size_kb": 1.5
+        }
+      ],
+      "7": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p7_f0.png",
+          "size_kb": 90.8
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p7_f5.png",
+          "size_kb": 90.8
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p7_f1.png",
+          "size_kb": 50.2
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p7_f4.png",
+          "size_kb": 50.2
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p7_f2.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p7_f3.png",
+          "size_kb": 1.5
+        }
+      ],
+      "8": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p8_f1.png",
+          "size_kb": 75.3
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p8_f5.png",
+          "size_kb": 75.3
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p8_f3.png",
+          "size_kb": 50.1
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p8_f0.png",
+          "size_kb": 42.0
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p8_f6.png",
+          "size_kb": 40.3
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p8_f2.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p8_f4.png",
+          "size_kb": 1.5
+        }
+      ],
+      "9": [
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p9_f4.png",
+          "size_kb": 399.3
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p9_f5.png",
+          "size_kb": 182.9
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p9_f0.png",
+          "size_kb": 179.5
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p9_f1.png",
+          "size_kb": 55.9
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p9_f2.png",
+          "size_kb": 24.7
+        },
+        {
+          "filename": "a28a430b5cb74e8abd20263caa556051_p9_f3.png",
+          "size_kb": 1.5
+        }
+      ]
+    }
+  },
+  "LinMot.pdf": {
+    "doc_id": "a8236b09e9904bebbb4329babf86b202",
+    "figures_base": "01_ocr/output/figures/a8236b09e9904bebbb4329babf86b202",
+    "by_page": {
+      "1": [
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p1_f3.png",
+          "size_kb": 149.0
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p1_f0.png",
+          "size_kb": 138.4
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p1_f5.png",
+          "size_kb": 84.0
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p1_f4.png",
+          "size_kb": 62.2
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p1_f2.png",
+          "size_kb": 48.2
+        }
+      ],
+      "2": [
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p2_f0.png",
+          "size_kb": 138.4
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p2_f2.png",
+          "size_kb": 94.1
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p2_f3.png",
+          "size_kb": 83.4
+        }
+      ],
+      "3": [
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p3_f0.png",
+          "size_kb": 138.4
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p3_f2.png",
+          "size_kb": 84.0
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p3_f3.png",
+          "size_kb": 43.4
+        }
+      ],
+      "4": [
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p4_f0.png",
+          "size_kb": 138.4
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p4_f3.png",
+          "size_kb": 50.9
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p4_f2.png",
+          "size_kb": 43.9
+        }
+      ],
+      "5": [
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p5_f2.png",
+          "size_kb": 214.4
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p5_f0.png",
+          "size_kb": 138.4
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p5_f3.png",
+          "size_kb": 49.5
+        }
+      ],
+      "6": [
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p6_f2.png",
+          "size_kb": 305.0
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p6_f0.png",
+          "size_kb": 138.4
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p6_f3.png",
+          "size_kb": 62.2
+        }
+      ],
+      "7": [
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p7_f3.png",
+          "size_kb": 149.0
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p7_f0.png",
+          "size_kb": 138.4
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p7_f2.png",
+          "size_kb": 47.9
+        }
+      ],
+      "8": [
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p8_f0.png",
+          "size_kb": 138.4
+        },
+        {
+          "filename": "a8236b09e9904bebbb4329babf86b202_p8_f2.png",
+          "size_kb": 48.2
+        }
+      ]
+    }
+  },
+  "Winkel  Ebook - handover file.pdf": {
+    "doc_id": "a9287b7565a747169b66dac06c94019b",
+    "figures_base": "01_ocr/output/figures/a9287b7565a747169b66dac06c94019b",
+    "by_page": {
+      "10": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p10_f0.png",
+          "size_kb": 428.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p10_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "11": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p11_f0.png",
+          "size_kb": 313.0
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p11_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "12": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p12_f0.png",
+          "size_kb": 313.0
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p12_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "13": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p13_f0.png",
+          "size_kb": 721.0
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p13_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "14": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p14_f0.png",
+          "size_kb": 721.0
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p14_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "15": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p15_f0.png",
+          "size_kb": 651.0
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p15_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "16": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p16_f0.png",
+          "size_kb": 651.0
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p16_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "17": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p17_f0.png",
+          "size_kb": 392.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p17_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "18": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p18_f0.png",
+          "size_kb": 318.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p18_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "19": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p19_f0.png",
+          "size_kb": 318.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p19_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "1": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f18.png",
+          "size_kb": 782.9
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f2.png",
+          "size_kb": 723.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f3.png",
+          "size_kb": 723.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f4.png",
+          "size_kb": 651.0
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f17.png",
+          "size_kb": 465.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f0.png",
+          "size_kb": 428.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f23.png",
+          "size_kb": 428.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f11.png",
+          "size_kb": 422.8
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f12.png",
+          "size_kb": 400.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f19.png",
+          "size_kb": 400.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f20.png",
+          "size_kb": 400.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f21.png",
+          "size_kb": 400.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f22.png",
+          "size_kb": 400.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f5.png",
+          "size_kb": 392.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f8.png",
+          "size_kb": 329.8
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f24.png",
+          "size_kb": 328.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f25.png",
+          "size_kb": 328.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f6.png",
+          "size_kb": 318.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f7.png",
+          "size_kb": 318.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f13.png",
+          "size_kb": 283.9
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f1.png",
+          "size_kb": 210.6
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f10.png",
+          "size_kb": 208.8
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f9.png",
+          "size_kb": 208.8
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f14.png",
+          "size_kb": 204.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f15.png",
+          "size_kb": 179.6
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f16.png",
+          "size_kb": 94.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p1_f26.png",
+          "size_kb": 16.1
+        }
+      ],
+      "20": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p20_f0.png",
+          "size_kb": 208.7
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p20_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "21": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p21_f0.png",
+          "size_kb": 208.7
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p21_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "22": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p22_f0.png",
+          "size_kb": 422.8
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p22_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "23": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p23_f0.png",
+          "size_kb": 332.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p23_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "24": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p24_f0.png",
+          "size_kb": 283.9
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p24_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "25": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p25_f0.png",
+          "size_kb": 207.6
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p25_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "26": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p26_f0.png",
+          "size_kb": 179.6
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p26_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "27": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p27_f0.png",
+          "size_kb": 94.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p27_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "28": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p28_f0.png",
+          "size_kb": 470.0
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p28_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "2": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p2_f0.png",
+          "size_kb": 16.1
+        }
+      ],
+      "3": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p3_f0.png",
+          "size_kb": 210.6
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p3_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "4": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p4_f0.png",
+          "size_kb": 400.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p4_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "5": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p5_f0.png",
+          "size_kb": 400.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p5_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "6": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p6_f0.png",
+          "size_kb": 400.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p6_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "7": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p7_f0.png",
+          "size_kb": 400.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p7_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "8": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p8_f0.png",
+          "size_kb": 400.4
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p8_f1.png",
+          "size_kb": 16.1
+        }
+      ],
+      "9": [
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p9_f0.png",
+          "size_kb": 428.3
+        },
+        {
+          "filename": "a9287b7565a747169b66dac06c94019b_p9_f1.png",
+          "size_kb": 16.1
+        }
+      ]
+    }
+  },
+  "HKO Ebook.pdf": {
+    "doc_id": "ac460bd710994537aff4a2c5b5ebca47",
+    "figures_base": "01_ocr/output/figures/ac460bd710994537aff4a2c5b5ebca47",
+    "by_page": {
+      "4": [
+        {
+          "filename": "ac460bd710994537aff4a2c5b5ebca47_p4_f2.png",
+          "size_kb": 555.0
+        },
+        {
+          "filename": "ac460bd710994537aff4a2c5b5ebca47_p4_f4.png",
+          "size_kb": 472.7
+        },
+        {
+          "filename": "ac460bd710994537aff4a2c5b5ebca47_p4_f3.png",
+          "size_kb": 180.8
+        },
+        {
+          "filename": "ac460bd710994537aff4a2c5b5ebca47_p4_f5.png",
+          "size_kb": 160.6
+        },
+        {
+          "filename": "ac460bd710994537aff4a2c5b5ebca47_p4_f0.png",
+          "size_kb": 72.0
+        },
+        {
+          "filename": "ac460bd710994537aff4a2c5b5ebca47_p4_f1.png",
+          "size_kb": 26.7
+        }
+      ],
+      "5": [
+        {
+          "filename": "ac460bd710994537aff4a2c5b5ebca47_p5_f2.png",
+          "size_kb": 380.1
+        },
+        {
+          "filename": "ac460bd710994537aff4a2c5b5ebca47_p5_f4.png",
+          "size_kb": 376.7
+        },
+        {
+          "filename": "ac460bd710994537aff4a2c5b5ebca47_p5_f5.png",
+          "size_kb": 375.3
+        },
+        {
+          "filename": "ac460bd710994537aff4a2c5b5ebca47_p5_f3.png",
+          "size_kb": 293.1
+        },
+        {
+          "filename": "ac460bd710994537aff4a2c5b5ebca47_p5_f0.png",
+          "size_kb": 72.0
+        },
+        {
+          "filename": "ac460bd710994537aff4a2c5b5ebca47_p5_f1.png",
+          "size_kb": 26.7
+        }
+      ]
+    }
+  },
+  "ggb-high-performance-plain-bearings-oil-and-gas-industry-flyer.pdf": {
+    "doc_id": "bcf8ea5b5d104078b33c3508a504c2aa",
+    "figures_base": "C:\\Users\\Sharath Kumar MD\\VSCodE\\GitHub\\MultiDimensions\\01_ocr\\output\\figures\\bcf8ea5b5d104078b33c3508a504c2aa",
+    "by_page": {
+      "1": [
+        {
+          "filename": "bcf8ea5b5d104078b33c3508a504c2aa_p1_rendered.png",
+          "size_kb": 1581.5
+        }
+      ],
+      "2": [
+        {
+          "filename": "bcf8ea5b5d104078b33c3508a504c2aa_p2_rendered.png",
+          "size_kb": 1858.5
+        }
+      ]
+    }
+  },
+  "ggb-aircraft-bearings-airframe-bushings-aerospace-industry-brochure-usa.pdf": {
+    "doc_id": "d6fad6df448d45a180a3970510d278ce",
+    "figures_base": "01_ocr/output/figures/d6fad6df448d45a180a3970510d278ce",
+    "by_page": {
+      "10": [
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p10_f7.png",
+          "size_kb": 24.1
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p10_f0.png",
+          "size_kb": 8.6
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p10_f3.png",
+          "size_kb": 8.6
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p10_f5.png",
+          "size_kb": 7.6
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p10_f2.png",
+          "size_kb": 6.9
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p10_f6.png",
+          "size_kb": 6.3
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p10_f10.png",
+          "size_kb": 1.2
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p10_f11.png",
+          "size_kb": 1.2
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p10_f9.png",
+          "size_kb": 1.2
+        }
+      ],
+      "7": [
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p7_f4.png",
+          "size_kb": 9.1
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p7_f5.png",
+          "size_kb": 9.0
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p7_f8.png",
+          "size_kb": 8.8
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p7_f6.png",
+          "size_kb": 8.3
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p7_f10.png",
+          "size_kb": 8.0
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p7_f9.png",
+          "size_kb": 7.9
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p7_f7.png",
+          "size_kb": 7.7
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p7_f2.png",
+          "size_kb": 1.2
+        }
+      ],
+      "8": [
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p8_f1.png",
+          "size_kb": 1.2
+        },
+        {
+          "filename": "d6fad6df448d45a180a3970510d278ce_p8_f2.png",
+          "size_kb": 1.2
+        }
+      ]
+    }
+  },
+  "Hycomp Ebook.pdf": {
+    "doc_id": "ddafc06ddee0430c867f93aeb05c3960",
+    "figures_base": "01_ocr/output/figures/ddafc06ddee0430c867f93aeb05c3960",
+    "by_page": {
+      "3": [
+        {
+          "filename": "ddafc06ddee0430c867f93aeb05c3960_p3_f2.png",
+          "size_kb": 189.5
+        },
+        {
+          "filename": "ddafc06ddee0430c867f93aeb05c3960_p3_f3.png",
+          "size_kb": 172.7
+        },
+        {
+          "filename": "ddafc06ddee0430c867f93aeb05c3960_p3_f0.png",
+          "size_kb": 72.0
+        },
+        {
+          "filename": "ddafc06ddee0430c867f93aeb05c3960_p3_f1.png",
+          "size_kb": 9.4
+        }
+      ]
+    }
+  },
+  "ggb-ep-engineered-plastics-bearings-bushings-for-e-bike-applications.pdf": {
+    "doc_id": "f5eda349abbb4355be049ac56fcb2c25",
+    "figures_base": "01_ocr/output/figures/f5eda349abbb4355be049ac56fcb2c25",
+    "by_page": {
+      "2": [
+        {
+          "filename": "f5eda349abbb4355be049ac56fcb2c25_p2_f9.png",
+          "size_kb": 1.4
+        },
+        {
+          "filename": "f5eda349abbb4355be049ac56fcb2c25_p2_f1.png",
+          "size_kb": 1.3
+        },
+        {
+          "filename": "f5eda349abbb4355be049ac56fcb2c25_p2_f17.png",
+          "size_kb": 1.3
+        },
+        {
+          "filename": "f5eda349abbb4355be049ac56fcb2c25_p2_f3.png",
+          "size_kb": 1.2
+        },
+        {
+          "filename": "f5eda349abbb4355be049ac56fcb2c25_p2_f19.png",
+          "size_kb": 1.1
+        },
+        {
+          "filename": "f5eda349abbb4355be049ac56fcb2c25_p2_f5.png",
+          "size_kb": 1.1
+        },
+        {
+          "filename": "f5eda349abbb4355be049ac56fcb2c25_p2_f7.png",
+          "size_kb": 1.1
+        },
+        {
+          "filename": "f5eda349abbb4355be049ac56fcb2c25_p2_f11.png",
+          "size_kb": 1.0
+        },
+        {
+          "filename": "f5eda349abbb4355be049ac56fcb2c25_p2_f15.png",
+          "size_kb": 1.0
+        }
+      ]
+    }
+  },
+  "Food & Beverage.pdf": {
+    "doc_id": "f6aa3cce0e4d4f11bde55ec9a9b582b7",
+    "figures_base": "C:\\Users\\Sharath Kumar MD\\VSCodE\\GitHub\\MultiDimensions\\01_ocr\\output\\figures\\f6aa3cce0e4d4f11bde55ec9a9b582b7",
+    "by_page": {
+      "1": [
+        {
+          "filename": "f6aa3cce0e4d4f11bde55ec9a9b582b7_p1_rendered.png",
+          "size_kb": 367.4
+        }
+      ],
+      "2": [
+        {
+          "filename": "f6aa3cce0e4d4f11bde55ec9a9b582b7_p2_rendered.png",
+          "size_kb": 392.1
+        }
+      ],
+      "3": [
+        {
+          "filename": "f6aa3cce0e4d4f11bde55ec9a9b582b7_p3_rendered.png",
+          "size_kb": 420.8
+        }
+      ],
+      "4": [
+        {
+          "filename": "f6aa3cce0e4d4f11bde55ec9a9b582b7_p4_rendered.png",
+          "size_kb": 394.8
+        }
+      ]
+    }
+  },
+  "Ewellix V2023MAR.pdf": {
+    "doc_id": "f7f8867d0c2942dc817a355f4e745dec",
+    "figures_base": "01_ocr/output/figures/f7f8867d0c2942dc817a355f4e745dec",
+    "by_page": {
+      "1": [
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p1_f1.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p1_f4.png",
+          "size_kb": 475.3
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p1_f3.png",
+          "size_kb": 435.3
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p1_f5.png",
+          "size_kb": 348.1
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p1_f2.png",
+          "size_kb": 181.2
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p1_f0.png",
+          "size_kb": 15.9
+        }
+      ],
+      "2": [
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p2_f2.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p2_f0.png",
+          "size_kb": 181.2
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p2_f1.png",
+          "size_kb": 118.4
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p2_f3.png",
+          "size_kb": 15.9
+        }
+      ],
+      "3": [
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p3_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p3_f1.png",
+          "size_kb": 261.8
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p3_f2.png",
+          "size_kb": 236.7
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p3_f3.png",
+          "size_kb": 15.9
+        }
+      ],
+      "4": [
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p4_f1.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p4_f2.png",
+          "size_kb": 621.4
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p4_f0.png",
+          "size_kb": 183.6
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p4_f3.png",
+          "size_kb": 15.9
+        }
+      ],
+      "5": [
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p5_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p5_f1.png",
+          "size_kb": 434.1
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p5_f2.png",
+          "size_kb": 409.8
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p5_f3.png",
+          "size_kb": 15.9
+        }
+      ],
+      "6": [
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p6_f1.png",
+          "size_kb": 951.4
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p6_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p6_f2.png",
+          "size_kb": 369.8
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p6_f3.png",
+          "size_kb": 15.9
+        }
+      ],
+      "7": [
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p7_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p7_f1.png",
+          "size_kb": 475.3
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p7_f2.png",
+          "size_kb": 108.0
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p7_f3.png",
+          "size_kb": 15.9
+        }
+      ],
+      "8": [
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p8_f2.png",
+          "size_kb": 802.3
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p8_f0.png",
+          "size_kb": 637.0
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p8_f1.png",
+          "size_kb": 335.7
+        },
+        {
+          "filename": "f7f8867d0c2942dc817a355f4e745dec_p8_f3.png",
+          "size_kb": 15.9
+        }
+      ]
+    }
+  },
+  "FISSO  Ebook - handover file.pdf": {
+    "doc_id": "fa8476238a7a468e9efd6ba35f644823",
+    "figures_base": "01_ocr/output/figures/fa8476238a7a468e9efd6ba35f644823",
+    "by_page": {
+      "3": [
+        {
+          "filename": "fa8476238a7a468e9efd6ba35f644823_p3_f3.png",
+          "size_kb": 226.7
+        },
+        {
+          "filename": "fa8476238a7a468e9efd6ba35f644823_p3_f0.png",
+          "size_kb": 135.1
+        },
+        {
+          "filename": "fa8476238a7a468e9efd6ba35f644823_p3_f2.png",
+          "size_kb": 94.9
+        },
+        {
+          "filename": "fa8476238a7a468e9efd6ba35f644823_p3_f1.png",
+          "size_kb": 1.5
+        }
+      ],
+      "4": [
+        {
+          "filename": "fa8476238a7a468e9efd6ba35f644823_p4_f0.png",
+          "size_kb": 2651.9
+        },
+        {
+          "filename": "fa8476238a7a468e9efd6ba35f644823_p4_f2.png",
+          "size_kb": 272.5
+        },
+        {
+          "filename": "fa8476238a7a468e9efd6ba35f644823_p4_f3.png",
+          "size_kb": 94.9
+        },
+        {
+          "filename": "fa8476238a7a468e9efd6ba35f644823_p4_f1.png",
+          "size_kb": 1.5
+        }
+      ]
+    }
+  }
+}

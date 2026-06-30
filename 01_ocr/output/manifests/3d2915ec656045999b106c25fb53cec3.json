@@ -1,0 +1,23 @@
+{
+  "doc_id": "3d2915ec656045999b106c25fb53cec3",
+  "source_filename": "Crane & Hoist.pdf",
+  "source_path": "Brand Resources\\Crane & Hoist.pdf",
+  "file_size_bytes": 204507,
+  "sha256": "6f27b193e65fecce36d5a50588aac5e449c66e9e3d6b5ce7936ddb330539fb25",
+  "page_count": 2,
+  "status": "completed",
+  "created_at": "2026-06-30T14:07:29.130982",
+  "completed_at": "2026-06-30T14:07:29.715262",
+  "error_message": null,
+  "markdown_path": "markdown\\3d2915ec656045999b106c25fb53cec3.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\3d2915ec656045999b106c25fb53cec3",
+  "total_tables": 2,
+  "total_figures": 7,
+  "total_words": 516,
+  "scanned_pages": 0,
+  "digital_pages": 0,
+  "mixed_pages": 2,
+  "processing_time_ms": 584.2134000267833,
+  "has_scanned_content": true
+}

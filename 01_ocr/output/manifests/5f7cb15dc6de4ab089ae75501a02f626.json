@@ -1,0 +1,23 @@
+{
+  "doc_id": "5f7cb15dc6de4ab089ae75501a02f626",
+  "source_filename": "KSK V2022 NOV.pdf",
+  "source_path": "..\\data\\input\\KSK V2022 NOV.pdf",
+  "file_size_bytes": 76819674,
+  "sha256": "99ca73369230f1a6a642b43638a1cadc0837a6c2aa651a3975d3da936b5ea5dd",
+  "page_count": 5,
+  "status": "completed",
+  "created_at": "2026-05-28T14:16:29.351752",
+  "completed_at": "2026-05-28T14:16:44.241061",
+  "error_message": null,
+  "markdown_path": "markdown\\5f7cb15dc6de4ab089ae75501a02f626.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\5f7cb15dc6de4ab089ae75501a02f626",
+  "total_tables": 5,
+  "total_figures": 15,
+  "total_words": 699,
+  "scanned_pages": 2,
+  "digital_pages": 0,
+  "mixed_pages": 3,
+  "processing_time_ms": 14889.761599944904,
+  "has_scanned_content": true
+}

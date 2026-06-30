@@ -1,0 +1,23 @@
+{
+  "doc_id": "f7f8867d0c2942dc817a355f4e745dec",
+  "source_filename": "Ewellix V2023MAR.pdf",
+  "source_path": "..\\data\\input\\Ewellix V2023MAR.pdf",
+  "file_size_bytes": 25688234,
+  "sha256": "c1466ea0634e300e0c6d49786bfaae8c7fb3a0e8a8a60ab061f5880a5dcd70ff",
+  "page_count": 9,
+  "status": "completed",
+  "created_at": "2026-05-28T14:15:20.886846",
+  "completed_at": "2026-05-28T14:15:29.722450",
+  "error_message": null,
+  "markdown_path": "markdown\\f7f8867d0c2942dc817a355f4e745dec.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\f7f8867d0c2942dc817a355f4e745dec",
+  "total_tables": 20,
+  "total_figures": 34,
+  "total_words": 1742,
+  "scanned_pages": 1,
+  "digital_pages": 0,
+  "mixed_pages": 8,
+  "processing_time_ms": 8835.707500111312,
+  "has_scanned_content": true
+}

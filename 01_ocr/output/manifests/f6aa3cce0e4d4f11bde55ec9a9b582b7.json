@@ -1,0 +1,23 @@
+{
+  "doc_id": "f6aa3cce0e4d4f11bde55ec9a9b582b7",
+  "source_filename": "Food & Beverage.pdf",
+  "source_path": "Brand Resources\\Food & Beverage.pdf",
+  "file_size_bytes": 248273,
+  "sha256": "3ed7922a5696d6f4f102fd834c43e0fae63c673d731c36566d80b1115be384dd",
+  "page_count": 4,
+  "status": "completed",
+  "created_at": "2026-06-30T14:07:29.717262",
+  "completed_at": "2026-06-30T14:07:30.137068",
+  "error_message": null,
+  "markdown_path": "markdown\\f6aa3cce0e4d4f11bde55ec9a9b582b7.md",
+  "manifest_path": null,
+  "figures_dir": "figures\\f6aa3cce0e4d4f11bde55ec9a9b582b7",
+  "total_tables": 4,
+  "total_figures": 18,
+  "total_words": 596,
+  "scanned_pages": 0,
+  "digital_pages": 0,
+  "mixed_pages": 4,
+  "processing_time_ms": 419.61069987155497,
+  "has_scanned_content": true
+}
