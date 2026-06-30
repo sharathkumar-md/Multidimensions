@@ -67,8 +67,18 @@ def _check_and_run_ingest() -> None:
             
     if need_ingest:
         with st.spinner("Processing new PDF catalogs (OCR + Figure indexing + Vector store re-indexing)..."):
-            import ingest  # type: ignore
-            ingest.main()
+            import sys, os, ingest  # type: ignore
+            # Suppress tqdm/HF progress bars that flush sys.stderr (hijacked by Streamlit),
+            # which causes BrokenPipeError during SentenceTransformer model loading.
+            _real_stderr = sys.stderr
+            try:
+                sys.stderr = open(os.devnull, "w")
+                os.environ["TQDM_DISABLE"] = "1"
+                os.environ["TRANSFORMERS_NO_ADVISORY_WARNINGS"] = "1"
+                ingest.main()
+            finally:
+                sys.stderr = _real_stderr
+                os.environ.pop("TQDM_DISABLE", None)
             # Clear resource cache to reload fresh index
             st.cache_resource.clear()
 
