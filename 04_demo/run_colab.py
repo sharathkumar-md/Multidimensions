@@ -1,108 +1,128 @@
 """
-Run this in Colab to start the demo.
-Each cell is marked — paste them one by one or run the whole file with !python 04_demo/run_colab.py
+MultiDimensions – Colab Demo Runner
+=====================================
+Run this single script in a Colab cell:
+
+    from google.colab import userdata
+    import subprocess, os
+    os.environ["GITHUB_TOKEN"] = userdata.get("GITHUB_TOKEN")
+    os.environ["HF_TOKEN"]     = userdata.get("HF_TOKEN")
+    subprocess.run(["python", "/content/MultiDimensions/04_demo/run_colab.py"], check=True)
+
+Or clone first, then:
+
+    !python /content/MultiDimensions/04_demo/run_colab.py
 """
 
-# ── Cell 1: install deps ──────────────────────────────────────────────────────
-import subprocess, sys
+from __future__ import annotations
+import os, sys, subprocess, time, socket, urllib.request
+from pathlib import Path
 
+REPO_DIR = Path("/content/MultiDimensions")
+
+# ── Step 1: clone repo if not already present ──────────────────────────────────
+if not REPO_DIR.exists():
+    token = os.environ.get("GITHUB_TOKEN", "")
+    if not token:
+        # Try reading from Colab secrets at runtime
+        try:
+            from google.colab import userdata  # type: ignore
+            token = userdata.get("GITHUB_TOKEN")
+            os.environ["HF_TOKEN"] = userdata.get("HF_TOKEN", "")
+        except Exception:
+            pass
+    if not token:
+        print("ERROR: GITHUB_TOKEN not found. Set it in Colab secrets or as env var.")
+        sys.exit(1)
+    print("Cloning repository...")
+    subprocess.run(
+        ["git", "clone",
+         f"https://{token}@github.com/sharathkumar-md/Multidimensions.git",
+         str(REPO_DIR)],
+        check=True,
+    )
+    print("Cloned!")
+else:
+    print("Repo already present. Pulling latest...")
+    result = subprocess.run(
+        ["git", "-C", str(REPO_DIR), "pull"],
+        capture_output=True, text=True,
+    )
+    print(result.stdout or result.stderr)
+
+# ── Step 2: install dependencies ───────────────────────────────────────────────
+print("\nInstalling dependencies...")
 pkgs = [
     "streamlit",
-    # RAG deps
-    "sentence-transformers",
-    "chromadb",
-    "rank-bm25",
-    "transformers",
-    "accelerate",
-    "bitsandbytes",
-    "loguru",
-    "pydantic-settings",
-    # Ingest pipeline deps
-    "pdfplumber",
-    "PyMuPDF",
-    "docling",
-    "rapidocr-onnxruntime",
-    "qwen-vl-utils",
-    "torchvision"
+    "sentence-transformers", "chromadb", "rank-bm25",
+    "transformers", "accelerate", "bitsandbytes",
+    "loguru", "pydantic-settings",
+    "pdfplumber", "PyMuPDF", "docling",
+    "rapidocr-onnxruntime", "qwen-vl-utils", "torchvision",
 ]
 subprocess.run([sys.executable, "-m", "pip", "install", "-q"] + pkgs, check=True)
-print("deps installed")
+print("Dependencies installed!")
 
-# ── Cell 2: pull latest code ──────────────────────────────────────────────────
-import subprocess
-result = subprocess.run(["git", "-C", "/content/MultiDimensions", "pull"], capture_output=True, text=True)
-print(result.stdout or result.stderr)
-
-# ── Cell 3: run ingestion pipeline (before Streamlit, in a clean process) ─────
-import subprocess, sys, os
-from pathlib import Path
-
-repo = Path("/content/MultiDimensions")
-ingest_script = repo / "03_rag" / "ingest.py"
-
-print("Running ingestion pipeline (skips if already done)...")
+# ── Step 3: run ingestion in a clean subprocess (no Streamlit interference) ────
+print("\nRunning ingestion pipeline (skips if already up to date)...")
 env = os.environ.copy()
 env["TQDM_DISABLE"] = "1"
-env["TRANSFORMERS_NO_ADVISORY_WARNINGS"] = "1"
 env["HF_HUB_DISABLE_XET"] = "1"
+env["TRANSFORMERS_NO_ADVISORY_WARNINGS"] = "1"
 
-result = subprocess.run(
-    [sys.executable, str(ingest_script)],
+ingest_result = subprocess.run(
+    [sys.executable, str(REPO_DIR / "03_rag" / "ingest.py")],
     env=env,
-    cwd=str(repo / "03_rag"),
+    cwd=str(REPO_DIR / "03_rag"),
 )
-if result.returncode != 0:
-    print("\nINGESTION FAILED - check errors above before launching Streamlit")
-else:
-    print("Ingestion complete (or already up to date).")
+if ingest_result.returncode != 0:
+    print("\nINGESTION FAILED — check errors above. Stopping.")
+    sys.exit(1)
+print("Ingestion complete (or already up to date).")
 
-# ── Cell 4: start streamlit + tunnel ───────────────────────────────────────
-import subprocess, time, os, sys, urllib.request, socket
-from pathlib import Path
-
-def get_free_port():
+# ── Step 4: find a free port ────────────────────────────────────────────────────
+def _free_port() -> int:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind(("", 0))
     port = s.getsockname()[1]
     s.close()
     return port
 
-# Automatically find a free port so we never get "Port is not available" errors
-port = get_free_port()
+port = _free_port()
 
-repo = Path("/content/MultiDimensions")
-app = repo / "04_demo" / "app.py"
+# ── Step 5: launch Streamlit ────────────────────────────────────────────────────
+streamlit_env = os.environ.copy()
+streamlit_env["HF_HUB_DISABLE_XET"] = "1"
+streamlit_env["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+streamlit_env["SKIP_INGEST"] = "1"   # ingestion already done above
 
-env = os.environ.copy()
-env["HF_HUB_DISABLE_XET"] = "1"
-env["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
-env["SKIP_INGEST"] = "1"  # Ingestion already ran in Cell 3
-
-print(f"Starting Streamlit on port {port}...")
-proc = subprocess.Popen(
-    [sys.executable, "-m", "streamlit", "run", str(app),
+print(f"\nStarting Streamlit on port {port}...")
+st_proc = subprocess.Popen(
+    [sys.executable, "-m", "streamlit", "run",
+     str(REPO_DIR / "04_demo" / "app.py"),
      "--server.port", str(port),
      "--server.headless", "true",
      "--server.enableCORS", "false",
      "--server.enableXsrfProtection", "false"],
-    env=env,
+    env=streamlit_env,
     stdout=subprocess.PIPE,
     stderr=subprocess.STDOUT,
 )
 
 time.sleep(6)
 
-if proc.poll() is not None:
+if st_proc.poll() is not None:
     print("\nCRITICAL ERROR: Streamlit crashed on startup!")
-    print(proc.stdout.read().decode())
+    print(st_proc.stdout.read().decode())
     sys.exit(1)
 
+# ── Step 6: start localtunnel ───────────────────────────────────────────────────
 print("Starting localtunnel...")
 lt_proc = subprocess.Popen(
     ["npx", "--yes", "localtunnel", "--port", str(port)],
     stdout=subprocess.PIPE,
     stderr=subprocess.STDOUT,
-    text=True
+    text=True,
 )
 
 url = ""
@@ -111,17 +131,18 @@ for line in lt_proc.stdout:
         url = line.split("your url is:")[1].strip()
         break
     else:
-        print(f"localtunnel logs: {line.strip()}")
+        print(f"  localtunnel: {line.strip()}")
 
-ip = urllib.request.urlopen('https://ipv4.icanhazip.com').read().decode('utf8').strip()
+try:
+    ip = urllib.request.urlopen("https://ipv4.icanhazip.com").read().decode().strip()
+except Exception:
+    ip = "(could not fetch IP)"
 
-print(f"\n{'='*70}")
-print(f"  Demo URL: {url}")
-print(f"  Endpoint IP (password for localtunnel): {ip}")
-print(f"{'='*70}\n")
-print("Share this link with the founder.")
-print("Model loads on first question (~2 min). Index loads in seconds.")
+print(f"""
+{'='*65}
+  Demo URL : {url}
+  Password : {ip}   ← enter this when localtunnel asks
+{'='*65}
 
-# ── Cell 4: stream logs (optional, run in separate cell) ─────────────────────
-# for line in proc.stdout:
-#     print(line.decode(), end="")
+Model loads on first question (~2 min). All other responses are fast.
+""")
