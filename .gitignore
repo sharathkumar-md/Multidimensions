@@ -18,6 +18,7 @@ htmlcov/
 # 01_ocr/output/ is no longer ignored so it can be committed
 02_llm_eval/results/
 output/
+!01_ocr/output/
 
 # Generated product images (not committed — add your own or generate locally)
 04_demo/assets/products/*.png
