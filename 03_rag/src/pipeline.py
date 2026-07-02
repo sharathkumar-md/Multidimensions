@@ -34,7 +34,7 @@ def run_eval(
     index_dir: Path | None = None,
     results_path: Path | None = None,
 ) -> list[dict[str, Any]]:
-    collection, bm25, chunks = load_index(index_dir)
+    client, chunks = load_index(index_dir)
     reranker = load_reranker()
     embed_model = get_embed_model()
 
@@ -49,9 +49,8 @@ def run_eval(
         logger.info(f"[{i+1}/{len(qa_set)}] {question[:80]}")
 
         retrieved = retrieve(
-            query=question,
-            collection=collection,
-            bm25=bm25,
+            query=qa["question"],
+            client=client,
             chunks=chunks,
             reranker=reranker,
             generator_fn=hyde_fn if settings.hyde_enabled else None,
@@ -94,7 +93,7 @@ def query_once(
     model_id: str,
     index_dir: Path | None = None,
 ) -> tuple[str, list[RetrievedChunk]]:
-    collection, bm25, chunks = load_index(index_dir)
+    client, chunks = load_index(index_dir)
     reranker = load_reranker()
 
     def hyde_fn(prompt: str, max_new_tokens: int = 120) -> str:
@@ -102,8 +101,7 @@ def query_once(
 
     retrieved = retrieve(
         query=question,
-        collection=collection,
-        bm25=bm25,
+        client=client,
         chunks=chunks,
         reranker=reranker,
         generator_fn=hyde_fn if settings.hyde_enabled else None,

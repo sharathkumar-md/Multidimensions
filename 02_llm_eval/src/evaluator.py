@@ -86,6 +86,19 @@ class LLMEvaluator:
                 by_diff[qa.difficulty.value].append(r.scores.composite)
 
         n = len(results)
+        if n == 0:
+            return ModelSummary(
+                model_name=model_name,
+                total_questions=0,
+                avg_keyword_recall=0.0,
+                avg_token_f1=0.0,
+                avg_semantic_similarity=0.0,
+                avg_composite=0.0,
+                avg_latency_ms=0.0,
+                results_by_category={},
+                results_by_difficulty={},
+            )
+
         return ModelSummary(
             model_name=model_name,
             total_questions=n,

@@ -1,4 +1,4 @@
-from functools import lru_cache
+
 
 import torch
 from loguru import logger
@@ -26,26 +26,22 @@ _BNB = BitsAndBytesConfig(
 _MAX_PIXELS = 512 * 28 * 28  
 
 
-@lru_cache(maxsize=1)
-def _load(model_id: str):
-    logger.info(f"loading {model_id}")
-    model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+def load_model(model_id: str):
+    from transformers import AutoModelForCausalLM, AutoProcessor
+    model = AutoModelForCausalLM.from_pretrained(
         model_id,
         quantization_config=_BNB,
         device_map="auto",
-        trust_remote_code=True,
     )
     model.eval()
     processor = AutoProcessor.from_pretrained(
-        model_id, trust_remote_code=True, max_pixels=_MAX_PIXELS
+        model_id, max_pixels=_MAX_PIXELS
     )
     return model, processor
 
 
-def extract_page(image: Image.Image, model_id: str, max_new_tokens: int = 1024) -> str:
+def extract_page(image: Image.Image, model, processor, max_new_tokens: int = 1024) -> str:
     from qwen_vl_utils import process_vision_info
-
-    model, processor = _load(model_id)
 
     messages = [{
         "role": "user",

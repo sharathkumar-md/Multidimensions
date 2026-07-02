@@ -111,18 +111,17 @@ _BNB_CONFIG = BitsAndBytesConfig(
 
 def load_model(model_id: str) -> tuple:
     logger.info(f"loading {model_id}")
-    tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(model_id)
     model = AutoModelForCausalLM.from_pretrained(
         model_id,
         quantization_config=_BNB_CONFIG,
         device_map="auto",
-        trust_remote_code=True,
     )
     model.eval()
     return model, tokenizer
 
 
-def build_prompt(query: str, context_chunks: list[str], max_context_chars: int = 2800) -> str:
+def build_prompt(query: str, context_chunks: list[str], max_context_chars: int = 32000) -> str:
     # trim each chunk proportionally so total context stays within budget
     budget = max_context_chars // max(len(context_chunks), 1)
     trimmed = [c[:budget] for c in context_chunks]

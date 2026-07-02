@@ -50,9 +50,9 @@ def _check_and_run_ingest() -> None:
                     data = json.loads(f.read_text(encoding="utf-8"))
                     if sha := data.get("sha256"):
                         hashes.add(sha)
-                except Exception:
-                    pass
-        return hashes
+                except Exception as e:
+                    import logging
+                    logging.warning(f"Failed to read manifest {f}: {e}")
 
     done_ocr = _get_manifest_hashes(repo_dir / "01_ocr" / "output" / "manifests")
     done_vlm = _get_manifest_hashes(repo_dir / "data" / "ocr_output_vlm" / "manifests")
@@ -86,9 +86,6 @@ def _check_and_run_ingest() -> None:
             )
             # Clear resource cache to reload fresh index
             st.cache_resource.clear()
-
-_check_and_run_ingest()
-
 
 # ── session model ─────────────────────────────────────────────────────────────
 
@@ -132,9 +129,9 @@ def _load_index():
     from src.indexer import load_index  # type: ignore
     from src.retriever import load_reranker  # type: ignore
     index_dir = _RAG_DIR / "index"
-    collection, bm25, chunks = load_index(index_dir)
+    client, chunks = load_index(index_dir)
     reranker = load_reranker()
-    return collection, bm25, chunks, reranker
+    return client, chunks, reranker
 
 
 # ── answer generation ─────────────────────────────────────────────────────────
@@ -150,22 +147,21 @@ def _ask(question: str, summary: str) -> tuple[str, list]:
     from config.settings import settings  # type: ignore
 
     model, tokenizer = _load_model()
-    collection, bm25, chunks, reranker = _load_index()
+    client, chunks, reranker = _load_index()
 
     # ── router: chit-chat / greetings skip the catalog lookup ──
     if not needs_retrieval(question, model, tokenizer, _MODEL_ID):
         return simple_reply(question, summary, model, tokenizer, _MODEL_ID), []
 
     # ── contextual rewrite: resolve "it / that / the same" into a standalone query ──
-    search_query = rewrite_query(question, summary, model, tokenizer, _MODEL_ID)
+    retrieval_query = rewrite_query(question, summary, model, tokenizer, _MODEL_ID)
 
     def hyde_fn(prompt: str, max_new_tokens: int = 120) -> str:
         return generate_raw(prompt, model, tokenizer, max_new_tokens=max_new_tokens)
 
     retrieved = retrieve(
-        query=search_query,
-        collection=collection,
-        bm25=bm25,
+        query=retrieval_query,
+        client=client,
         chunks=chunks,
         reranker=reranker,
         generator_fn=hyde_fn if settings.hyde_enabled else None,
@@ -180,7 +176,7 @@ def _ask(question: str, summary: str) -> tuple[str, list]:
     summary_note = f"\nConversation so far:\n{summary}\n" if summary else ""
     n = max(len(context_texts), 1)
     sep_overhead = len(sep) * (len(context_texts) - 1) if context_texts else 0
-    budget = (2800 - len(summary_note) - sep_overhead) // n
+    budget = (32000 - len(summary_note) - sep_overhead) // n
     trimmed = [c[:budget] for c in context_texts]
     context = sep.join(trimmed) + summary_note
 
@@ -203,6 +199,8 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+_check_and_run_ingest()
+
 # init state
 if "sessions" not in st.session_state:
     first = _new_session()
@@ -223,6 +221,7 @@ with st.sidebar:
     if st.button("＋ New Chat", use_container_width=True):
         s = _new_session()
         sessions[s.session_id] = s
+        st.session_state.sessions = sessions
         st.session_state.active_id = s.session_id
         st.rerun()
 
@@ -324,4 +323,5 @@ if question:
     })
 
     _update_summary(active, question, answer)
+    st.session_state.sessions = sessions
     st.rerun()

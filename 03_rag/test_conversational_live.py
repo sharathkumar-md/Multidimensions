@@ -82,11 +82,11 @@ def main() -> None:
         from src.generator import generate
         from config.settings import settings
         index_dir = Path(__file__).parent / "index"
-        collection, bm25, chunks = load_index(index_dir)
+        client, chunks = load_index(index_dir)
         reranker = load_reranker()
 
         def ask_full(query: str) -> str:
-            retrieved = retrieve(query=query, collection=collection, bm25=bm25,
+            retrieved = retrieve(query=query, client=client,
                                  chunks=chunks, reranker=reranker, generator_fn=None)
             ctx = [r.chunk.text[:900] for r in retrieved]
             return generate(query, ctx, model, tokenizer, model_id)

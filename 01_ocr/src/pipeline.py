@@ -5,7 +5,7 @@ import sys
 import time
 import uuid
 from concurrent.futures import ProcessPoolExecutor, as_completed
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from loguru import logger
@@ -130,7 +130,7 @@ def _process_single_pdf(pdf_path: Path, existing_hashes: set[str]) -> DocumentMa
         manifest.figures_dir = str((settings.figures_dir / doc_id).relative_to(settings.output_dir))
 
         manifest.status = ProcessingStatus.COMPLETED
-        manifest.completed_at = datetime.utcnow()
+        manifest.completed_at = datetime.now(timezone.utc)
         manifest.processing_time_ms = (time.perf_counter() - t0) * 1000
 
         manifest_path = _write_manifest(manifest)
@@ -165,7 +165,7 @@ class OCRPipeline:
         )
 
     def discover_pdfs(self) -> list[Path]:
-        pdfs = sorted(settings.input_dir.glob("*.pdf"))
+        pdfs = sorted(settings.input_dir.rglob("*.pdf"))
         logger.info("Discovered {n} PDF file(s) in {dir}", n=len(pdfs), dir=settings.input_dir)
         for p in pdfs:
             logger.debug("  Found: {name} ({size} bytes)", name=p.name, size=p.stat().st_size)

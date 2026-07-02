@@ -34,8 +34,8 @@ def _repo_url(token: str | None = None) -> str:
 def _pip_install() -> None:
     packages = [
         "loguru",
-        "rank_bm25",
-        "chromadb",
+        "qdrant-client",
+        "fastembed",
         "sentence-transformers>=3.0.0",
         "bitsandbytes",
         "accelerate",
