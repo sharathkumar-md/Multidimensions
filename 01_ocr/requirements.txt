@@ -1,8 +1,9 @@
 # ── Core PDF processing ────────────────────────────────────────────────────────
-docling>=2.5.0               # IBM OCR + layout + table extraction
+# NOTE: docling was removed — it is never imported anywhere in the codebase.
+# The pipeline uses PyMuPDF (fitz) + RapidOCR for all PDF processing.
 PyMuPDF>=1.24.0              # Fast native PDF text/metadata extraction
 pdfplumber>=0.11.0           # Native table extraction for digital PDFs
-rapidocr-onnxruntime>=1.4.0  # Direct OCR for scanned pages (avoids Docling RAM issue)
+rapidocr-onnxruntime>=1.4.0  # Direct OCR for scanned pages
 
 # ── Data validation & settings ────────────────────────────────────────────────
 pydantic>=2.7.0

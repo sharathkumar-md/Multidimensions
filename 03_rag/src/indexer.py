@@ -28,7 +28,12 @@ def build_index(chunks: list[Chunk], index_dir: Path | None = None) -> None:
     client.set_model(settings.embed_model)
     client.set_sparse_model("prithivida/Splade_PP_en_v1")
 
-    client.recreate_collection(
+    # Delete then recreate — recreate_collection was removed in qdrant-client ≥1.9
+    try:
+        client.delete_collection(collection_name=_COLLECTION)
+    except Exception:
+        pass  # collection may not exist on first build
+    client.create_collection(
         collection_name=_COLLECTION,
         vectors_config=client.get_fastembed_vector_params(),
         sparse_vectors_config=client.get_fastembed_sparse_vector_params(),

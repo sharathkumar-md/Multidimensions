@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -63,10 +64,14 @@ def _chunk_meta(retrieved_item: Any) -> tuple[str, int]:
 
 # ── curated catalog (product_images.json) ────────────────────────────────────
 
+@lru_cache(maxsize=4)
 def _load_catalog(
     catalog_path: Path = DEFAULT_CATALOG_PATH,
     base_dir: Path = DEMO_DIR,
 ) -> list[tuple[list[str], ProductImage]]:
+    """Load and parse the curated product catalog.  Cached for the process lifetime
+    since catalog_path is a static file that only changes on manual edits.
+    """
     if not catalog_path.exists():
         return []
 
@@ -123,9 +128,14 @@ def _match_curated(
 
 # ── figure index (01_ocr/output/figures/) ────────────────────────────────────
 
+# PERF-001: mtime-based cache so we don't re-read 91 KB on every chat message
+_fig_index_cache: dict = {"path": None, "mtime": None, "data": None}
+
+
 def _load_figure_index(
     index_path: Path = DEFAULT_FIG_INDEX_PATH,
 ) -> dict:
+    global _fig_index_cache
     manifests_dir = REPO_DIR / "01_ocr" / "output" / "manifests"
     rebuild_needed = False
 
@@ -144,22 +154,38 @@ def _load_figure_index(
             if str(DEMO_DIR) not in sys.path:
                 sys.path.insert(0, str(DEMO_DIR))
             from build_figure_index import build_with_fallback
-            
-            # Rebuild and write index to path
+
             index = build_with_fallback()
             index_path.write_text(json.dumps(index, indent=2), encoding="utf-8")
+            _fig_index_cache = {"path": index_path, "mtime": index_path.stat().st_mtime, "data": index}
             return index
         except Exception as exc:
-            # Fallback to existing file if available
             if index_path.exists():
                 try:
-                    return json.loads(index_path.read_text(encoding="utf-8"))
+                    data = json.loads(index_path.read_text(encoding="utf-8"))
+                    _fig_index_cache = {"path": index_path, "mtime": index_path.stat().st_mtime, "data": data}
+                    return data
                 except Exception:
                     pass
             return {}
 
+    # Check module-level cache before hitting disk
     try:
-        return json.loads(index_path.read_text(encoding="utf-8"))
+        current_mtime = index_path.stat().st_mtime
+    except OSError:
+        return {}
+
+    if (
+        _fig_index_cache["path"] == index_path
+        and _fig_index_cache["mtime"] == current_mtime
+        and _fig_index_cache["data"] is not None
+    ):
+        return _fig_index_cache["data"]
+
+    try:
+        data = json.loads(index_path.read_text(encoding="utf-8"))
+        _fig_index_cache = {"path": index_path, "mtime": current_mtime, "data": data}
+        return data
     except Exception:
         return {}
 

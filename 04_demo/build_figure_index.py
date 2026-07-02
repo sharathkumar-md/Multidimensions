@@ -153,9 +153,15 @@ def build_with_fallback() -> dict:
         figures_base = FIGURES_DIR / doc_id
         by_page = _render_page_fallback(src_name, doc_id, figures_base)
         if by_page:
+            # BUG-014: store as relative path (same as the main build() path) so
+            # product_images.py's REPO_DIR / figures_base join works correctly.
+            try:
+                fb_rel = str(figures_base.relative_to(REPO_DIR)).replace("\\", "/")
+            except ValueError:
+                fb_rel = str(figures_base).replace("\\", "/")
             index[src_name] = {
                 "doc_id":       doc_id,
-                "figures_base": str(figures_base),
+                "figures_base": fb_rel,
                 "by_page":      by_page,
             }
 

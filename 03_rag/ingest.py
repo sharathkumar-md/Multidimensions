@@ -248,7 +248,8 @@ def main() -> None:
             index = build_with_fallback()
             OUTPUT_PATH.write_text(json.dumps(index, indent=2), encoding="utf-8")
             
-        if not (rag_index_dir / "chroma.sqlite3").exists() if rag_index_dir.exists() else True:
+        # BUG-003: check for Qdrant's chunks.json (not the removed ChromaDB artifact)
+        if not (rag_index_dir / "chunks.json").exists():
             logger.info("RAG vector store missing. Building...")
             build_pipeline_index = import_rag_pipeline()
             build_pipeline_index(

@@ -15,16 +15,28 @@ Or clone first, then:
 """
 
 from __future__ import annotations
-import os, sys, subprocess, time, socket, urllib.request
+import os, stat, sys, subprocess, time, socket, tempfile, urllib.request
 from pathlib import Path
 
 REPO_DIR = Path("/content/MultiDimensions")
+
+# ── helpers ─────────────────────────────────────────────────────────────────────
+
+def _make_askpass(token: str) -> str:
+    """SEC-001: write a throw-away GIT_ASKPASS script so the token never
+    appears in the process table, argv, or shell history."""
+    script = f"#!/bin/sh\nexec echo '{token}'\n"
+    fd, path = tempfile.mkstemp(suffix=".sh")
+    os.write(fd, script.encode())
+    os.close(fd)
+    os.chmod(path, stat.S_IRWXU)
+    return path
+
 
 # ── Step 1: clone repo if not already present ──────────────────────────────────
 if not REPO_DIR.exists():
     token = os.environ.get("GITHUB_TOKEN", "")
     if not token:
-        # Try reading from Colab secrets at runtime
         try:
             from google.colab import userdata  # type: ignore
             token = userdata.get("GITHUB_TOKEN")
@@ -35,12 +47,23 @@ if not REPO_DIR.exists():
         print("ERROR: GITHUB_TOKEN not found. Set it in Colab secrets or as env var.")
         sys.exit(1)
     print("Cloning repository...")
-    subprocess.run(
-        ["git", "clone",
-         f"https://{token}@github.com/sharathkumar-md/Multidimensions.git",
-         str(REPO_DIR)],
-        check=True,
-    )
+    askpass = _make_askpass(token)
+    clone_env = os.environ.copy()
+    clone_env["GIT_ASKPASS"] = askpass
+    clone_env["GIT_USERNAME"] = "x-token"
+    try:
+        subprocess.run(
+            ["git", "clone",
+             "https://github.com/sharathkumar-md/Multidimensions.git",
+             str(REPO_DIR)],
+            env=clone_env,
+            check=True,
+        )
+    finally:
+        try:
+            os.unlink(askpass)
+        except OSError:
+            pass
     print("Cloned!")
 else:
     print("Repo already present. Pulling latest...")
@@ -51,13 +74,15 @@ else:
     print(result.stdout or result.stderr)
 
 # ── Step 2: install dependencies ───────────────────────────────────────────────
+# COLAB-001: removed chromadb / rank-bm25 (dead deps), added qdrant-client + fastembed
 print("\nInstalling dependencies...")
 pkgs = [
     "streamlit",
-    "sentence-transformers", "chromadb", "rank-bm25",
-    "transformers", "accelerate", "bitsandbytes",
-    "loguru", "pydantic-settings",
-    "pdfplumber", "PyMuPDF", "docling",
+    "sentence-transformers>=3.0.0",
+    "qdrant-client>=1.9.0", "fastembed>=0.3.0",
+    "transformers>=4.45.0", "accelerate>=0.30.0", "bitsandbytes>=0.43.0",
+    "loguru", "pydantic-settings>=2.3.0",
+    "pdfplumber", "PyMuPDF",
     "rapidocr-onnxruntime", "qwen-vl-utils", "torchvision",
 ]
 subprocess.run([sys.executable, "-m", "pip", "install", "-q"] + pkgs, check=True)
@@ -109,12 +134,25 @@ st_proc = subprocess.Popen(
     stderr=subprocess.STDOUT,
 )
 
-time.sleep(6)
+# COLAB-003: poll until Streamlit responds instead of a blind fixed sleep
+print("Waiting for Streamlit to become ready...")
+deadline = time.time() + 45
+ready = False
+while time.time() < deadline:
+    if st_proc.poll() is not None:
+        # Process died — capture output and abort
+        print("\nCRITICAL ERROR: Streamlit crashed on startup!")
+        print(st_proc.stdout.read().decode(errors="replace"))
+        sys.exit(1)
+    try:
+        urllib.request.urlopen(f"http://localhost:{port}/_stcore/health", timeout=1)
+        ready = True
+        break
+    except Exception:
+        time.sleep(1)
 
-if st_proc.poll() is not None:
-    print("\nCRITICAL ERROR: Streamlit crashed on startup!")
-    print(st_proc.stdout.read().decode())
-    sys.exit(1)
+if not ready:
+    print("\nWARNING: Streamlit did not respond within 45 s — it may still be loading.")
 
 # ── Step 6: start localtunnel ───────────────────────────────────────────────────
 print("Starting localtunnel...")
@@ -125,22 +163,27 @@ lt_proc = subprocess.Popen(
     text=True,
 )
 
+# COLAB-002: timeout the URL-scan loop so it never hangs forever
 url = ""
+url_deadline = time.time() + 30
 for line in lt_proc.stdout:
-    if "your url is:" in line:
-        url = line.split("your url is:")[1].strip()
+    print(f"  localtunnel: {line.strip()}")
+    if "your url is:" in line.lower():
+        parts = line.lower().split("your url is:")
+        url = line[line.lower().index("your url is:") + len("your url is:"):].strip()
         break
-    else:
-        print(f"  localtunnel: {line.strip()}")
+    if time.time() > url_deadline:
+        print("  [WARN] localtunnel URL not detected within 30 s — check output above.")
+        break
 
 try:
-    ip = urllib.request.urlopen("https://ipv4.icanhazip.com").read().decode().strip()
+    ip = urllib.request.urlopen("https://ipv4.icanhazip.com", timeout=5).read().decode().strip()
 except Exception:
     ip = "(could not fetch IP)"
 
 print(f"""
 {'='*65}
-  Demo URL : {url}
+  Demo URL : {url or '(check localtunnel output above)'}
   Password : {ip}   ← enter this when localtunnel asks
 {'='*65}
 

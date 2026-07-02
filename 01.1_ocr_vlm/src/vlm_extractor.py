@@ -27,8 +27,13 @@ _MAX_PIXELS = 512 * 28 * 28
 
 
 def load_model(model_id: str):
-    from transformers import AutoModelForCausalLM, AutoProcessor
-    model = AutoModelForCausalLM.from_pretrained(
+    """Load the Qwen2.5-VL vision-language model.
+
+    BUG-011: always use Qwen2_5_VLForConditionalGeneration (already imported
+    at module level) instead of the generic AutoModelForCausalLM, which may
+    silently skip the VL image-processing head.
+    """
+    model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
         model_id,
         quantization_config=_BNB,
         device_map="auto",

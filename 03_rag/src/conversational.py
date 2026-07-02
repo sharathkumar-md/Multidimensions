@@ -9,7 +9,8 @@ def _chat(messages: list[dict], model, tokenizer, model_id: str, max_new_tokens:
     if "qwen3" in model_id.lower():
         kwargs["enable_thinking"] = False
     prompt_text = tokenizer.apply_chat_template(messages, **kwargs)
-    inputs = tokenizer(prompt_text, return_tensors="pt", truncation=True, max_length=1024).to(model.device)
+    # BUG-010: increased max_length so history never gets silently truncated
+    inputs = tokenizer(prompt_text, return_tensors="pt", truncation=True, max_length=2048).to(model.device)
     with torch.no_grad():
         out = model.generate(
             **inputs,
@@ -96,8 +97,14 @@ _SIMPLE_SYS = (
 
 
 def simple_reply(question: str, history: str, model, tokenizer, model_id: str) -> str:
-    messages = [{"role": "system", "content": _SIMPLE_SYS}]
+    # BUG-016: history belongs in the system prompt (background context), not
+    # as a second user message — two consecutive user turns can confuse the
+    # chat template and cause one of them to be ignored.
+    sys_content = _SIMPLE_SYS
     if history.strip():
-        messages.append({"role": "user", "content": f"(context)\n{history}"})
-    messages.append({"role": "user", "content": question})
+        sys_content = _SIMPLE_SYS + f"\n\nConversation summary:\n{history}"
+    messages = [
+        {"role": "system", "content": sys_content},
+        {"role": "user", "content": question},
+    ]
     return _chat(messages, model, tokenizer, model_id, max_new_tokens=128)

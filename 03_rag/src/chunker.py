@@ -39,8 +39,10 @@ def _is_toc_chunk(text: str) -> bool:
 
 def _clean_markdown(text: str) -> str:
     # strip ```markdown ... ``` fences added by VLM output
-    text = re.sub(r"```markdown\s*", "", text)
-    text = re.sub(r"```\s*", "", text)
+    # BUG-015: only strip the fence *markers*, not content between them, to
+    # avoid accidentally merging adjacent code/table blocks.
+    text = re.sub(r"^```markdown\s*$", "", text, flags=re.MULTILINE)
+    text = re.sub(r"^```\s*$", "", text, flags=re.MULTILINE)
     text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
     text = re.sub(r"!\[[^\]]*\]\([^\)]*\)", "", text)  # strip all image markdown (figures + bare filenames)
     text = re.sub(r"\*Figure:.*?\*", "", text)
@@ -136,11 +138,16 @@ def _semantic_split(
         if len(words) < min_chunk_words:
             carry = text
         elif len(words) > max_chunk_words:
-            # hard split at max_chunk_words
-            while len(words) > max_chunk_words:
-                final.append(" ".join(words[:max_chunk_words]))
-                words = words[max_chunk_words:]
-            carry = " ".join(words) if words else ""
+            # BUG-019: don't hard-split markdown tables mid-row — keep them whole
+            # to preserve the header/separator/data alignment.
+            if text.lstrip().startswith("|"):
+                final.append(text)
+                carry = ""
+            else:
+                while len(words) > max_chunk_words:
+                    final.append(" ".join(words[:max_chunk_words]))
+                    words = words[max_chunk_words:]
+                carry = " ".join(words) if words else ""
         else:
             final.append(text)
             carry = ""
@@ -177,8 +184,8 @@ def _split_section(
 
 def chunk_documents(
     ocr_output_dir: Path | None = None,
-    chunk_size: int | None = None,
-    chunk_overlap: int | None = None,
+    chunk_size: int | None = None,       # CODE-005: unused — semantic chunker replaced fixed-size splitting
+    chunk_overlap: int | None = None,    # CODE-005: unused — kept for API compatibility only
 ) -> list[Chunk]:
     from src.embed import embed_texts
 
@@ -208,6 +215,9 @@ def chunk_documents(
         current_page = 0
         current_text = parts[0]
 
+        # BUG-013: record start index before processing so per-doc count is O(1)
+        doc_start = len(all_chunks)
+
         i = 1
         while i < len(parts):
             header = parts[i]
@@ -221,7 +231,7 @@ def chunk_documents(
         if current_text.strip():
             all_chunks.extend(_split_section(current_text, current_page, doc_hash, source_doc, embed_texts))
 
-        n = len([c for c in all_chunks if c.doc_hash == doc_hash])
+        n = len(all_chunks) - doc_start  # O(1) instead of O(total_chunks)
         logger.debug(f"{source_doc}: {n} chunks")
 
     logger.info(f"total chunks: {len(all_chunks)}")

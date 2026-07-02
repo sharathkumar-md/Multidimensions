@@ -54,21 +54,23 @@ def retrieve(
     if hyde_enabled and generator_fn is not None:
         retrieval_query = _hyde_query(query, generator_fn)
 
-    # Qdrant with fastembed handles dense + sparse + fusion natively
+    # PERF-003: request more candidates so the cross-encoder reranker has a
+    # larger pool to select top_k_rerank from (was max(20,20)=20, too few).
     results = client.query(
         collection_name="rag_chunks",
         query_text=retrieval_query,
-        limit=max(top_k_dense, top_k_sparse),
+        limit=max(top_k_dense, top_k_sparse) * 2,
     )
     
     chunk_map = {c.chunk_id: c for c in chunks}
     retrieved = []
     
     for r in results:
-        if isinstance(r.id, str) and r.id in chunk_map:
-            retrieved.append(chunk_map[r.id])
-        elif isinstance(r.id, int) and str(r.id) in chunk_map:
-            retrieved.append(chunk_map[str(r.id)])
+        # BUG-020: Qdrant returns string IDs when strings are inserted;
+        # the elif int branch was dead code and is removed.
+        chunk_id = str(r.id)
+        if chunk_id in chunk_map:
+            retrieved.append(chunk_map[chunk_id])
             
     if not retrieved:
         return []

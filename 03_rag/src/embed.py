@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import torch
 from functools import lru_cache
 
 from loguru import logger
@@ -13,13 +14,22 @@ _BGE_QUERY_INSTRUCTION = "Represent this sentence for searching relevant passage
 
 
 @lru_cache(maxsize=None)
-def _load_embed_model(model_name: str) -> SentenceTransformer:
-    logger.info(f"loading embed model: {model_name}")
-    return SentenceTransformer(model_name, device="cpu")
+def _load_embed_model(model_name: str, device: str) -> SentenceTransformer:
+    logger.info(f"loading embed model: {model_name} on {device}")
+    return SentenceTransformer(model_name, device=device)
 
 
-def get_embed_model(model_name: str | None = None) -> SentenceTransformer:
-    return _load_embed_model(model_name or settings.embed_model)
+def get_embed_model(model_name: str | None = None, device: str | None = None) -> SentenceTransformer:
+    """Return (and cache) the SentenceTransformer for the given model name.
+
+    BUG-006: device now defaults to GPU when available instead of always
+    forcing CPU.  Passing device="cpu" explicitly overrides this (useful
+    when the LLM is already holding GPU memory during evaluation).
+    """
+    name = model_name or settings.embed_model
+    if device is None:
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+    return _load_embed_model(name, device)
 
 
 def embed_texts(texts: list[str], model_name: str | None = None) -> list[list[float]]:

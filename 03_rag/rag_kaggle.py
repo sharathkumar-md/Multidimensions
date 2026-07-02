@@ -83,9 +83,15 @@ def _eval_model(model_id: str, qa_set: list[dict], summary: list[dict]) -> None:
         summary.append({"model": model_id, "error": str(e)})
 
     finally:
+        # BUG-017: separate try/except for each var — UnboundLocalError (raised
+        # when load_model() failed before binding) is a subclass of NameError.
         try:
-            del model, tokenizer
-        except NameError:
+            del model
+        except (NameError, UnboundLocalError):
+            pass
+        try:
+            del tokenizer
+        except (NameError, UnboundLocalError):
             pass
         _free_gpu()
         delete_model_cache(HF_HOME, model_id)

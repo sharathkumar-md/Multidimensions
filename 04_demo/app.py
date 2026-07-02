@@ -53,6 +53,7 @@ def _check_and_run_ingest() -> None:
                 except Exception as e:
                     import logging
                     logging.warning(f"Failed to read manifest {f}: {e}")
+        return hashes
 
     done_ocr = _get_manifest_hashes(repo_dir / "01_ocr" / "output" / "manifests")
     done_vlm = _get_manifest_hashes(repo_dir / "data" / "ocr_output_vlm" / "manifests")
@@ -121,7 +122,7 @@ def _set_title(session: Session, question: str) -> None:
 @st.cache_resource(show_spinner="Loading model — this takes about 2 min on first run…")
 def _load_model():
     from src.generator import load_model  # type: ignore
-    return load_model("Qwen/Qwen3-8B")
+    return load_model(_MODEL_ID)
 
 
 @st.cache_resource(show_spinner="Loading index…")
@@ -209,6 +210,10 @@ if "sessions" not in st.session_state:
 
 sessions: dict[str, Session] = st.session_state.sessions
 active_id: str = st.session_state.active_id
+# BUG-009: guard against stale active_id (e.g. two browser tabs desync)
+if active_id not in sessions:
+    active_id = next(reversed(sessions))
+    st.session_state.active_id = active_id
 active: Session = sessions[active_id]
 
 # ── sidebar ───────────────────────────────────────────────────────────────────
@@ -234,8 +239,15 @@ with st.sidebar:
 
     st.divider()
     st.caption("**Model:** Qwen3-8B (4-bit)")
-    st.caption("**Index:** 472 chunks · 23 docs")
-    st.caption("**Retrieval:** BM25 + dense + rerank")
+    # ARCH-002: show live index stats instead of hardcoded values
+    try:
+        _, _idx_chunks, _ = _load_index()
+        _n_chunks = len(_idx_chunks)
+        _n_docs = len({c.source_doc for c in _idx_chunks})
+        st.caption(f"**Index:** {_n_chunks} chunks · {_n_docs} docs")
+    except Exception:
+        st.caption("**Index:** (loading…)")
+    st.caption("**Retrieval:** SPLADE + dense + rerank")
 
 # ── main chat area ────────────────────────────────────────────────────────────
 

@@ -1,12 +1,16 @@
 from __future__ import annotations
 
 import os
+import stat
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 REPO_DIR = Path("/content/MultiDimensions")
 _REPO_HOST = "github.com/sharathkumar-md/Multidimensions.git"
+# SEC-001: never embed the token in the URL — use GIT_ASKPASS instead
+_REPO_URL_PUBLIC = f"https://{_REPO_HOST}"
 
 
 def _get_github_token() -> str | None:
@@ -25,17 +29,25 @@ def _get_hf_token() -> str | None:
         return None
 
 
-def _repo_url(token: str | None = None) -> str:
-    if token:
-        return f"https://{token}@{_REPO_HOST}"
-    return f"https://{_REPO_HOST}"
+def _make_askpass(token: str) -> str:
+    """Write a temporary GIT_ASKPASS helper script that provides the token.
+
+    Using GIT_ASKPASS keeps the credential out of the process table and
+    command history — unlike embedding it in the remote URL.
+    """
+    script = f"#!/bin/sh\nexec echo '{token}'\n"
+    fd, path = tempfile.mkstemp(suffix=".sh")
+    os.write(fd, script.encode())
+    os.close(fd)
+    os.chmod(path, stat.S_IRWXU)
+    return path
 
 
 def _pip_install() -> None:
     packages = [
         "loguru",
-        "qdrant-client",
-        "fastembed",
+        "qdrant-client>=1.9.0",
+        "fastembed>=0.3.0",
         "sentence-transformers>=3.0.0",
         "bitsandbytes",
         "accelerate",
@@ -49,10 +61,28 @@ def _pip_install() -> None:
 
 
 def _clone_or_pull(token: str | None = None) -> None:
-    if REPO_DIR.exists():
-        subprocess.run(["git", "-C", str(REPO_DIR), "pull"], check=True)
-    else:
-        subprocess.run(["git", "clone", _repo_url(token), str(REPO_DIR)], check=True)
+    env = os.environ.copy()
+    askpass = None
+    if token:
+        askpass = _make_askpass(token)
+        env["GIT_ASKPASS"] = askpass
+        env["GIT_USERNAME"] = "x-token"
+
+    try:
+        if REPO_DIR.exists():
+            subprocess.run(["git", "-C", str(REPO_DIR), "pull"], env=env, check=True)
+        else:
+            subprocess.run(
+                ["git", "clone", _REPO_URL_PUBLIC, str(REPO_DIR)],
+                env=env,
+                check=True,
+            )
+    finally:
+        if askpass:
+            try:
+                os.unlink(askpass)
+            except OSError:
+                pass
 
 
 def _run_model(model_id: str, hf_token: str | None = None) -> None:
@@ -82,17 +112,32 @@ def _push_results(token: str | None = None) -> None:
         print("no GITHUB_TOKEN, skipping push", flush=True)
         return
 
-    remote = _repo_url(token)
-    subprocess.run(["git", "-C", str(REPO_DIR), "config", "user.email", "colab@run.local"], check=True)
-    subprocess.run(["git", "-C", str(REPO_DIR), "config", "user.name", "colab"], check=True)
-    subprocess.run(["git", "-C", str(REPO_DIR), "add", "03_rag/results/"], check=True)
-    result = subprocess.run(["git", "-C", str(REPO_DIR), "diff", "--cached", "--quiet"])
-    if result.returncode != 0:
-        subprocess.run(["git", "-C", str(REPO_DIR), "commit", "-m", "eval results"], check=True)
-        subprocess.run(["git", "-C", str(REPO_DIR), "push", remote, "main"], check=True)
-        print("results pushed", flush=True)
-    else:
-        print("nothing new to push", flush=True)
+    # SEC-001: use GIT_ASKPASS so the token stays out of argv / shell history
+    askpass = _make_askpass(token)
+    env = os.environ.copy()
+    env["GIT_ASKPASS"] = askpass
+    env["GIT_USERNAME"] = "x-token"
+
+    try:
+        subprocess.run(["git", "-C", str(REPO_DIR), "config", "user.email", "colab@run.local"], check=True)
+        subprocess.run(["git", "-C", str(REPO_DIR), "config", "user.name", "colab"], check=True)
+        subprocess.run(["git", "-C", str(REPO_DIR), "add", "03_rag/results/"], check=True)
+        result = subprocess.run(["git", "-C", str(REPO_DIR), "diff", "--cached", "--quiet"])
+        if result.returncode != 0:
+            subprocess.run(["git", "-C", str(REPO_DIR), "commit", "-m", "eval results"], check=True)
+            subprocess.run(
+                ["git", "-C", str(REPO_DIR), "push", _REPO_URL_PUBLIC, "main"],
+                env=env,
+                check=True,
+            )
+            print("results pushed", flush=True)
+        else:
+            print("nothing new to push", flush=True)
+    finally:
+        try:
+            os.unlink(askpass)
+        except OSError:
+            pass
 
 
 MODELS = [

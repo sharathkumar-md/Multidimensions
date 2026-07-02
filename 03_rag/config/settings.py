@@ -23,13 +23,14 @@ class RAGSettings(BaseSettings):
     chunk_overlap: int = Field(default=100)
 
     embed_model: str = Field(default="BAAI/bge-large-en-v1.5")
-    top_k_dense: int = Field(default=20)
-    top_k_sparse: int = Field(default=20)
+    top_k_dense: int = Field(default=30)   # PERF-003: raised from 20 for better reranking input
+    top_k_sparse: int = Field(default=30)  # PERF-003: raised from 20
     top_k_rerank: int = Field(default=8)
     hyde_enabled: bool = Field(default=True)
 
     reranker_model: str = Field(default="cross-encoder/ms-marco-MiniLM-L-6-v2")
-    nli_model: str = Field(default="cross-encoder/nli-deberta-v3-small")
+    # nli_model removed — was planned for faithfulness check, replaced by
+    # token-overlap groundedness() in src/evaluator.py (CODE-006)
 
     models_to_evaluate: list[str] = Field(default=[
         "Qwen/Qwen2.5-7B-Instruct",

@@ -148,7 +148,7 @@ def generate(
 
     prompt_text = tokenizer.apply_chat_template(messages, **kwargs)
     inputs = tokenizer(
-        prompt_text, return_tensors="pt", truncation=True, max_length=2048
+        prompt_text, return_tensors="pt", truncation=True, max_length=32768
     ).to(model.device)
 
     with torch.no_grad():
@@ -172,7 +172,7 @@ def generate(
 
 
 def generate_raw(prompt_text: str, model, tokenizer, max_new_tokens: int = 128) -> str:
-    inputs = tokenizer(prompt_text, return_tensors="pt", truncation=True, max_length=256).to(model.device)
+    inputs = tokenizer(prompt_text, return_tensors="pt", truncation=True, max_length=1024).to(model.device)
     with torch.no_grad():
         output_ids = model.generate(
             **inputs,

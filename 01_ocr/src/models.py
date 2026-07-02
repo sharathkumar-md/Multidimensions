@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import hashlib
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 from pathlib import Path
 from typing import Any
@@ -70,7 +70,7 @@ class DocumentManifest(BaseModel):
     sha256: str
     page_count: int
     status: ProcessingStatus = ProcessingStatus.PENDING
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     completed_at: datetime | None = None
     error_message: str | None = None
 
@@ -104,7 +104,7 @@ class PipelineResult(BaseModel):
     partial: int
     manifests: list[DocumentManifest]
     total_processing_time_ms: float
-    run_at: datetime = Field(default_factory=datetime.utcnow)
+    run_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 
 def compute_sha256(path: Path) -> str:
