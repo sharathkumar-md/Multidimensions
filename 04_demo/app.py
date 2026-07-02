@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import subprocess
 import sys
 import uuid
 from dataclasses import dataclass, field
@@ -71,7 +72,6 @@ def _check_and_run_ingest() -> None:
             
     if need_ingest:
         with st.spinner("Processing new PDF catalogs (OCR + Figure indexing + Vector store re-indexing)..."):
-            import subprocess, os
             # Run ingest in a completely separate process to avoid BrokenPipeError.
             # When ingestion runs in-process, tqdm/HF flush Streamlit's hijacked stderr,
             # causing broken pipes. A subprocess gets its own clean streams.
