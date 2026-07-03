@@ -2,7 +2,13 @@ import sys
 from pathlib import Path
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
+# Insert THIS module's root at position 0 so src.* resolves to 02_llm_eval/src/
+# not to 01_ocr/src/ (which would happen when pytest is run from the repo root).
+_MODULE_ROOT = str(Path(__file__).parent.parent)
+if _MODULE_ROOT in sys.path:
+    sys.path.remove(_MODULE_ROOT)
+sys.path.insert(0, _MODULE_ROOT)
+
 
 # Mock sentence_transformers before they are imported by src/scorer.py
 class FakeSentenceTransformer:
