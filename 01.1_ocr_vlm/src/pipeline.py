@@ -1,27 +1,22 @@
 from __future__ import annotations
 
-import hashlib
 import json
 import sys
 import time
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from loguru import logger
 
-from datetime import timezone
 from config.settings import settings
 from src.pdf_to_images import pdf_to_images
 from src.vlm_extractor import extract_page, load_model
 
-
-def _sha256(path: Path) -> str:
-    h = hashlib.sha256()
-    with open(path, "rb") as f:
-        for chunk in iter(lambda: f.read(65536), b""):
-            h.update(chunk)
-    return h.hexdigest()
+# CODE-009: single source-of-truth for SHA-256 hashing; imported from shared/
+_REPO = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(_REPO))
+from shared.hashing import sha256_file as _sha256  # noqa: E402
 
 
 def _done_hashes() -> set[str]:

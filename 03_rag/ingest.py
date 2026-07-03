@@ -15,7 +15,6 @@ Run from the repository root:
 """
 from __future__ import annotations
 
-import hashlib
 import json
 import os
 import sys
@@ -23,6 +22,9 @@ from pathlib import Path
 from loguru import logger
 
 REPO_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO_DIR))  # allows `from shared.hashing import sha256_file`
+
+from shared.hashing import sha256_file as compute_sha256  # CODE-009: single source of truth
 
 
 # ── isolated import helpers ──────────────────────────────────────────────────
@@ -109,14 +111,7 @@ def import_demo_modules():
                 sys.modules.pop(k, None)
 
 
-# ── file hashing helpers ─────────────────────────────────────────────────────
-
-def compute_sha256(path: Path) -> str:
-    h = hashlib.sha256()
-    with open(path, "rb") as f:
-        for chunk in iter(lambda: f.read(65536), b""):
-            h.update(chunk)
-    return h.hexdigest()
+# CODE-009: compute_sha256 is now imported from shared/hashing.py above
 
 
 def get_done_hashes_ocr() -> set[str]:

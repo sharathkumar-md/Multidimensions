@@ -16,6 +16,14 @@ from product_images import resolve_product_image
 _RAG_DIR = (Path(__file__).resolve().parent.parent / "03_rag").resolve()
 sys.path.insert(0, str(_RAG_DIR))
 
+# Module-level RAG imports (BUG-008: moved out of _ask() to avoid repeated
+# import lookups on every chat message and to make deps visible to type checkers)
+from src.retriever import retrieve  # type: ignore  # noqa: E402
+from src.generator import generate, generate_raw  # type: ignore  # noqa: E402
+from src.conversational import needs_retrieval, rewrite_query, simple_reply  # type: ignore  # noqa: E402
+from src.evaluator import groundedness  # type: ignore  # noqa: E402
+from config.settings import settings  # type: ignore  # noqa: E402
+
 
 # ── auto-ingestion on startup ──────────────────────────────────────────────────
 
@@ -141,12 +149,6 @@ _MODEL_ID = "Qwen/Qwen3-8B"
 
 
 def _ask(question: str, summary: str) -> tuple[str, list]:
-    from src.retriever import retrieve  # type: ignore
-    from src.generator import generate, generate_raw  # type: ignore
-    from src.conversational import needs_retrieval, rewrite_query, simple_reply  # type: ignore
-    from src.evaluator import groundedness  # type: ignore
-    from config.settings import settings  # type: ignore
-
     model, tokenizer = _load_model()
     client, chunks, reranker = _load_index()
 
@@ -171,13 +173,13 @@ def _ask(question: str, summary: str) -> tuple[str, list]:
     context_texts = [r.chunk.text for r in retrieved]
 
     # inject summary into context budget so history doesn't crowd out docs.
-    # reserve room for the separators too, otherwise generate()'s 2800-char clip
-    # eats the tail of the summary appended at the end.
+    # BUG-007: budget raised to 100000 chars (~25K tokens) to actually use the
+    # 32K-token window now that the tokenizer max_length is fixed (BUG-002).
     sep = "\n\n---\n\n"
     summary_note = f"\nConversation so far:\n{summary}\n" if summary else ""
     n = max(len(context_texts), 1)
     sep_overhead = len(sep) * (len(context_texts) - 1) if context_texts else 0
-    budget = (32000 - len(summary_note) - sep_overhead) // n
+    budget = (100_000 - len(summary_note) - sep_overhead) // n
     trimmed = [c[:budget] for c in context_texts]
     context = sep.join(trimmed) + summary_note
 

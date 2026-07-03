@@ -23,7 +23,11 @@ _BNB = BitsAndBytesConfig(
 )
 
 
-_MAX_PIXELS = 512 * 28 * 28  
+# CODE-008: Qwen2.5-VL encodes images as 28×28-pixel tiles.
+# The model supports up to 512 tiles maximum, so:
+#   max pixels = 512 tiles × (28 × 28 px/tile) = 401,408 px
+# Keeping this at the model limit balances resolution vs VRAM.
+_MAX_PIXELS = 512 * 28 * 28  # 401,408 px — Qwen2.5-VL max visual token budget
 
 
 def load_model(model_id: str):
