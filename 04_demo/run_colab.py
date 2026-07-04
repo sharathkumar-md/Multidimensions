@@ -45,35 +45,24 @@ print("✅  Tokens loaded")
 
 
 # ── helpers ────────────────────────────────────────────────────────────────────
-def _askpass(token: str) -> str:
-    """Write a throw-away GIT_ASKPASS helper — token never appears in argv."""
-    script = f"#!/bin/sh\nexec echo '{token}'\n"
-    fd, path = tempfile.mkstemp(suffix=".sh")
-    os.write(fd, script.encode()); os.close(fd)
-    os.chmod(path, stat.S_IRWXU)
-    return path
+def _git_auth(token: str) -> None:
+    """Configure git to use the token via credential store.
+    Safer than embedding in URL; avoids GIT_ASKPASS unreliability in Colab."""
+    cred_file = Path(os.path.expanduser("~/.git-credentials"))
+    cred_file.write_text(f"https://x-token:{token}@github.com\n", encoding="utf-8")
+    subprocess.run(["git", "config", "--global", "credential.helper", "store"], check=True)
 
-def _git_env() -> dict:
-    ap = _askpass(GITHUB_TOKEN)
-    e  = os.environ.copy()
-    e["GIT_ASKPASS"]  = ap
-    e["GIT_USERNAME"] = "x-token"
-    return e, ap          # caller must os.unlink(ap) in finally
 
 
 # ── Step 1: clone / pull ───────────────────────────────────────────────────────
 if not REPO_DIR.exists():
     print("📦  Cloning repository …")
-    git_env, ap = _git_env()
-    try:
-        subprocess.run(["git", "clone", REPO_URL, str(REPO_DIR)],
-                       env=git_env, check=True)
-    finally:
-        try: os.unlink(ap)
-        except OSError: pass
+    _git_auth(GITHUB_TOKEN)
+    subprocess.run(["git", "clone", REPO_URL, str(REPO_DIR)], check=True)
     print("✅  Cloned")
 else:
     print("🔄  Pulling latest …")
+    _git_auth(GITHUB_TOKEN)
     r = subprocess.run(["git", "-C", str(REPO_DIR), "pull"],
                        capture_output=True, text=True)
     print(r.stdout.strip() or r.stderr.strip() or "Already up to date.")
