@@ -45,24 +45,28 @@ print("✅  Tokens loaded")
 
 
 # ── helpers ────────────────────────────────────────────────────────────────────
-def _git_auth(token: str) -> None:
-    """Configure git to use the token via credential store.
-    Safer than embedding in URL; avoids GIT_ASKPASS unreliability in Colab."""
-    cred_file = Path(os.path.expanduser("~/.git-credentials"))
-    cred_file.write_text(f"https://x-token:{token}@github.com\n", encoding="utf-8")
-    subprocess.run(["git", "config", "--global", "credential.helper", "store"], check=True)
+def _git_clone_url() -> str:
+    """Build authenticated clone URL for Colab.
+    Token-in-URL is the only approach that reliably works in all Colab environments.
+    The session is ephemeral — token exposure window is the runtime lifetime only."""
+    return f"https://x-token:{GITHUB_TOKEN}@github.com/sharathkumar-md/Multidimensions.git"
 
 
 
 # ── Step 1: clone / pull ───────────────────────────────────────────────────────
 if not REPO_DIR.exists():
     print("📦  Cloning repository …")
-    _git_auth(GITHUB_TOKEN)
-    subprocess.run(["git", "clone", REPO_URL, str(REPO_DIR)], check=True)
+    subprocess.run(
+        ["git", "clone", _git_clone_url(), str(REPO_DIR)],
+        check=True
+    )
     print("✅  Cloned")
 else:
     print("🔄  Pulling latest …")
-    _git_auth(GITHUB_TOKEN)
+    # For pull, configure credential store (repo already cloned, URL already set)
+    cred = Path(os.path.expanduser("~/.git-credentials"))
+    cred.write_text(f"https://x-token:{GITHUB_TOKEN}@github.com\n", encoding="utf-8")
+    subprocess.run(["git", "config", "--global", "credential.helper", "store"], check=True)
     r = subprocess.run(["git", "-C", str(REPO_DIR), "pull"],
                        capture_output=True, text=True)
     print(r.stdout.strip() or r.stderr.strip() or "Already up to date.")
