@@ -30,10 +30,11 @@ output/
 # Generated figure index is no longer ignored
 # 04_demo/figure_index.json
 
-# Logs
+# Logs & Locks
 logs/
 **/logs/
 *.log
+*.lock
 
 # Env files 
 .env
