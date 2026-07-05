@@ -144,9 +144,9 @@ def _load_index():
         # Index not built yet — ingestion hasn't run or is still running.
         # Return sentinel so callers can show a friendly message.
         return None, [], None
-    collection, bm25, chunks = load_index(index_dir)
+    client, chunks = load_index(index_dir)
     reranker = load_reranker()
-    return collection, bm25, chunks, reranker
+    return client, chunks, reranker
 
 
 # ── answer generation ─────────────────────────────────────────────────────────
@@ -156,9 +156,9 @@ _MODEL_ID = "Qwen/Qwen3-8B"
 
 def _ask(question: str, summary: str) -> tuple[str, list]:
     model, tokenizer = _load_model()
-    collection, bm25, chunks, reranker = _load_index()
+    client, chunks, reranker = _load_index()
 
-    if collection is None:
+    if client is None:
         return (
             "⚠️ The product index is not ready yet — ingestion is still running or "
             "hasn't started. Please wait a few minutes, then refresh the page.",
@@ -177,8 +177,7 @@ def _ask(question: str, summary: str) -> tuple[str, list]:
 
     retrieved = retrieve(
         query=retrieval_query,
-        collection=collection,
-        bm25=bm25,
+        client=client,
         chunks=chunks,
         reranker=reranker,
         generator_fn=hyde_fn if settings.hyde_enabled else None,
