@@ -2,12 +2,14 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+import chromadb
+from rank_bm25 import BM25Okapi
 from loguru import logger
 from sentence_transformers import CrossEncoder
-from qdrant_client import QdrantClient
 
 from config.settings import settings
 from src.chunker import Chunk
+from src.embed import embed_queries
 
 _RRF_K = 60
 
@@ -17,6 +19,14 @@ class RetrievedChunk:
     chunk: Chunk
     score: float
     rank: int
+
+
+def _rrf(ranked_lists: list[list[str]], k: int = _RRF_K) -> dict[str, float]:
+    scores: dict[str, float] = {}
+    for ranked in ranked_lists:
+        for rank, cid in enumerate(ranked, start=1):
+            scores[cid] = scores.get(cid, 0.0) + 1.0 / (k + rank)
+    return scores
 
 
 def _hyde_query(query: str, generator_fn) -> str:
@@ -36,7 +46,8 @@ def _hyde_query(query: str, generator_fn) -> str:
 
 def retrieve(
     query: str,
-    client: QdrantClient,
+    collection: chromadb.Collection,
+    bm25: BM25Okapi,
     chunks: list[Chunk],
     reranker: CrossEncoder,
     top_k_dense: int | None = None,
@@ -54,36 +65,36 @@ def retrieve(
     if hyde_enabled and generator_fn is not None:
         retrieval_query = _hyde_query(query, generator_fn)
 
-    # PERF-003: request more candidates so the cross-encoder reranker has a
-    # larger pool to select top_k_rerank from (was max(20,20)=20, too few).
-    results = client.query(
-        collection_name="rag_chunks",
-        query_text=retrieval_query,
-        limit=max(top_k_dense, top_k_sparse) * 2,
+    query_vec = embed_queries([retrieval_query])[0]
+    dense_results = collection.query(
+        query_embeddings=[query_vec],
+        n_results=top_k_dense,
+        include=["documents", "metadatas", "distances"],
     )
-    
+    dense_ids: list[str] = dense_results["ids"][0] if dense_results.get("ids") and dense_results["ids"] else []
+
+    tokenized_query = retrieval_query.lower().split()
+    scores_arr = bm25.get_scores(tokenized_query)
+    chunk_id_list = [c.chunk_id for c in chunks]
+    sparse_ranked = sorted(range(len(scores_arr)), key=lambda i: scores_arr[i], reverse=True)
+    sparse_ids = [chunk_id_list[i] for i in sparse_ranked[:top_k_sparse]]
+
+    fused = _rrf([dense_ids, sparse_ids])
+    fused_ranked = sorted(fused, key=fused.get, reverse=True)
+
     chunk_map = {c.chunk_id: c for c in chunks}
-    retrieved = []
-    
-    for r in results:
-        # BUG-020: Qdrant returns string IDs when strings are inserted;
-        # the elif int branch was dead code and is removed.
-        chunk_id = str(r.id)
-        if chunk_id in chunk_map:
-            retrieved.append(chunk_map[chunk_id])
-            
-    if not retrieved:
+    candidates = [chunk_map[cid] for cid in fused_ranked if cid in chunk_map]
+
+    if not candidates:
         return []
 
-    # cross-encoder reranking
-    pairs = [[query, c.text] for c in retrieved]
-    scores = reranker.predict(pairs)
-    scored = list(zip(retrieved, scores))
-    scored.sort(key=lambda x: x[1], reverse=True)
+    pairs = [[query, c.text] for c in candidates]
+    rerank_scores = reranker.predict(pairs)
+    ranked = sorted(zip(candidates, rerank_scores), key=lambda x: x[1], reverse=True)
 
     return [
         RetrievedChunk(chunk=c, score=float(s), rank=i + 1)
-        for i, (c, s) in enumerate(scored[:top_k_rerank])
+        for i, (c, s) in enumerate(ranked[:top_k_rerank])
     ]
 
 
