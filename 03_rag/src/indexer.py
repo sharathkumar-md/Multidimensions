@@ -39,8 +39,9 @@ def build_index(chunks: list[Chunk], index_dir: Path | None = None) -> None:
             sparse_vectors_config=client.get_fastembed_sparse_vector_params(),
         )
 
+        import uuid
         texts = [c.text for c in chunks]
-        ids = [c.chunk_id for c in chunks]
+        ids = [uuid.uuid5(uuid.NAMESPACE_DNS, c.chunk_id).hex for c in chunks]
         metadatas = [
             {"source_doc": c.source_doc, "page_num": c.page_num, "doc_hash": c.doc_hash}
             for c in chunks

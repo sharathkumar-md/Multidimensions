@@ -62,15 +62,17 @@ def retrieve(
         limit=max(top_k_dense, top_k_sparse) * 2,
     )
     
-    chunk_map = {c.chunk_id: c for c in chunks}
+    import uuid
+    chunk_map = {uuid.uuid5(uuid.NAMESPACE_DNS, c.chunk_id).hex: c for c in chunks}
     retrieved = []
     
     for r in results:
-        # BUG-020: Qdrant returns string IDs when strings are inserted;
-        # the elif int branch was dead code and is removed.
-        chunk_id = str(r.id)
-        if chunk_id in chunk_map:
-            retrieved.append(chunk_map[chunk_id])
+        # Match against the returned UUID hex string
+        uuid_str = str(r.id).replace("-", "")
+        if uuid_str in chunk_map:
+            retrieved.append(chunk_map[uuid_str])
+        elif str(r.id) in chunk_map:
+            retrieved.append(chunk_map[str(r.id)])
             
     if not retrieved:
         return []
