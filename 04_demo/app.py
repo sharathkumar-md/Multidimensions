@@ -44,7 +44,8 @@ def _check_and_run_ingest() -> None:
     pdfs = []
     for d in search_dirs:
         if d.exists():
-            pdfs.extend(d.glob("*.pdf"))
+            pdfs.extend(d.rglob("*.pdf"))   # rglob: scan subdirectories too
+
             
     if not pdfs:
         return
@@ -138,6 +139,11 @@ def _load_index():
     from src.indexer import load_index  # type: ignore
     from src.retriever import load_reranker  # type: ignore
     index_dir = _RAG_DIR / "index"
+    chunks_file = index_dir / "chunks.json"
+    if not chunks_file.exists():
+        # Index not built yet — ingestion hasn't run or is still running.
+        # Return sentinel so callers can show a friendly message.
+        return None, [], None
     client, chunks = load_index(index_dir)
     reranker = load_reranker()
     return client, chunks, reranker
@@ -151,6 +157,13 @@ _MODEL_ID = "Qwen/Qwen3-8B"
 def _ask(question: str, summary: str) -> tuple[str, list]:
     model, tokenizer = _load_model()
     client, chunks, reranker = _load_index()
+
+    if client is None:
+        return (
+            "⚠️ The product index is not ready yet — ingestion is still running or "
+            "hasn't started. Please wait a few minutes, then refresh the page.",
+            [],
+        )
 
     # ── router: chit-chat / greetings skip the catalog lookup ──
     if not needs_retrieval(question, model, tokenizer, _MODEL_ID):

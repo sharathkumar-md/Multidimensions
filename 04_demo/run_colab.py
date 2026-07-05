@@ -142,31 +142,36 @@ else:
     print("⚠️   Streamlit didn't respond in 60 s — may still be loading.")
 
 
-# ── Step 6: start localtunnel & print URL ─────────────────────────────────────
+# ── Step 6: tunnel via cloudflared (no account, no password needed) ───────────
+print("Installing cloudflared …")
+subprocess.run([
+    "wget", "-q", "-O", "/usr/local/bin/cloudflared",
+    "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64",
+], check=True)
+subprocess.run(["chmod", "+x", "/usr/local/bin/cloudflared"], check=True)
+
 lt = subprocess.Popen(
-    ["npx", "--yes", "localtunnel", "--port", str(port)],
+    ["cloudflared", "tunnel", "--url", f"http://localhost:{port}"],
     stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
 )
 
+import re as _re
 url = ""
+url_deadline = time.time() + 60
 for line in lt.stdout:
-    print(" ", line.strip())
-    if "your url is:" in line.lower():
-        url = line[line.lower().index("your url is:") + len("your url is:"):].strip()
+    print(f"  {line.strip()}")
+    found = _re.findall(r"https://[^\s]+\.trycloudflare\.com", line)
+    if found:
+        url = found[0]
         break
-    if time.time() > deadline + 90:          # absolute outer timeout
-        print("⚠️   localtunnel URL not found — check output above."); break
-
-try:
-    ip = urllib.request.urlopen("https://ipv4.icanhazip.com", timeout=5).read().decode().strip()
-except Exception:
-    ip = "(visit icanhazip.com to find your IP)"
+    if time.time() > url_deadline:
+        print("  [WARN] tunnel URL not found within 60 s — check output above.")
+        break
 
 print(f"""
 {'='*62}
-  🌐  Open    : {url or '(see localtunnel output above)'}
-  🔑  Password: {ip}
-         ↑ paste this when the localtunnel page asks for it
+  🌐  Open    : {url or '(see cloudflared output above)'}
+  ℹ️   No password needed
 {'='*62}
-  First question loads the model (~2 min). After that it's fast.
+  First question loads the model (~2 min). Fast after that.
 """)
