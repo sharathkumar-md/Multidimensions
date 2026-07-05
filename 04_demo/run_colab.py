@@ -77,8 +77,8 @@ print("\n📦  Installing dependencies …")
 pkgs = [
     "streamlit",
     "sentence-transformers>=3.0.0",
-    "chromadb",
-    "rank_bm25",
+    "qdrant-client>=1.9.0",
+    "fastembed>=0.3.0",
     "transformers>=4.45.0",
     "accelerate>=0.30.0",
     "bitsandbytes>=0.43.0",

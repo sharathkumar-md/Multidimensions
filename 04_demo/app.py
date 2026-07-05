@@ -89,13 +89,12 @@ def _check_and_run_ingest() -> None:
             env = os.environ.copy()
             env["TQDM_DISABLE"] = "1"
             env["TRANSFORMERS_NO_ADVISORY_WARNINGS"] = "1"
+            
             subprocess.run(
                 [sys.executable, str(ingest_script)],
                 env=env,
                 check=True,
             )
-            # Clear resource cache to reload fresh index
-            st.cache_resource.clear()
 
 # ── session model ─────────────────────────────────────────────────────────────
 
