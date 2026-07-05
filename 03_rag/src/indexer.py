@@ -23,47 +23,53 @@ def build_index(chunks: list[Chunk], index_dir: Path | None = None) -> None:
     logger.info(f"building index: {len(chunks)} chunks → {index_dir}")
 
     client = _qdrant_client(index_dir)
-    
-    # Configure fastembed models
-    client.set_model(settings.embed_model)
-    client.set_sparse_model("prithivida/Splade_PP_en_v1")
-
-    # Delete then recreate — recreate_collection was removed in qdrant-client ≥1.9
     try:
-        client.delete_collection(collection_name=_COLLECTION)
-    except Exception:
-        pass  # collection may not exist on first build
-    client.create_collection(
-        collection_name=_COLLECTION,
-        vectors_config=client.get_fastembed_vector_params(),
-        sparse_vectors_config=client.get_fastembed_sparse_vector_params(),
-    )
+        # Configure fastembed models
+        client.set_model(settings.embed_model)
+        client.set_sparse_model("prithivida/Splade_PP_en_v1")
 
-    texts = [c.text for c in chunks]
-    ids = [c.chunk_id for c in chunks]
-    metadatas = [
-        {"source_doc": c.source_doc, "page_num": c.page_num, "doc_hash": c.doc_hash}
-        for c in chunks
-    ]
-
-    batch = 64
-    for i in range(0, len(chunks), batch):
-        client.add(
+        # Delete then recreate — recreate_collection was removed in qdrant-client ≥1.9
+        try:
+            client.delete_collection(collection_name=_COLLECTION)
+        except Exception:
+            pass  # collection may not exist on first build
+        client.create_collection(
             collection_name=_COLLECTION,
-            documents=texts[i : i + batch],
-            ids=ids[i : i + batch],
-            metadata=metadatas[i : i + batch],
-        )
-        logger.debug(f"indexed {min(i + batch, len(chunks))}/{len(chunks)}")
-
-    with open(index_dir / _CHUNKS_FILE, "w", encoding="utf-8") as f:
-        json.dump(
-            [{"chunk_id": c.chunk_id, "doc_hash": c.doc_hash, "source_doc": c.source_doc,
-              "page_num": c.page_num, "text": c.text} for c in chunks],
-            f, ensure_ascii=False,
+            vectors_config=client.get_fastembed_vector_params(),
+            sparse_vectors_config=client.get_fastembed_sparse_vector_params(),
         )
 
-    logger.info("index done")
+        texts = [c.text for c in chunks]
+        ids = [c.chunk_id for c in chunks]
+        metadatas = [
+            {"source_doc": c.source_doc, "page_num": c.page_num, "doc_hash": c.doc_hash}
+            for c in chunks
+        ]
+
+        batch = 64
+        for i in range(0, len(chunks), batch):
+            client.add(
+                collection_name=_COLLECTION,
+                documents=texts[i : i + batch],
+                ids=ids[i : i + batch],
+                metadata=metadatas[i : i + batch],
+            )
+            logger.debug(f"indexed {min(i + batch, len(chunks))}/{len(chunks)}")
+
+        with open(index_dir / _CHUNKS_FILE, "w", encoding="utf-8") as f:
+            json.dump(
+                [{"chunk_id": c.chunk_id, "doc_hash": c.doc_hash, "source_doc": c.source_doc,
+                  "page_num": c.page_num, "text": c.text} for c in chunks],
+                f, ensure_ascii=False,
+            )
+
+        logger.info("index done")
+    finally:
+        # Always release the file lock so the next process (Streamlit) can open the DB
+        try:
+            client.close()
+        except Exception:
+            pass
 
 
 def load_index(index_dir: Path | None = None) -> tuple[QdrantClient, list[Chunk]]:
