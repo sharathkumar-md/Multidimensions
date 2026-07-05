@@ -160,7 +160,8 @@ def main() -> None:
     all_pdfs: list[Path] = []
     for d in search_dirs:
         if d.exists():
-            all_pdfs.extend(d.glob("*.pdf"))
+            all_pdfs.extend(d.rglob("*.pdf"))
+
             
     # Deduplicate by filename (if same file exists in both, keep first one found)
     seen_names = set()
