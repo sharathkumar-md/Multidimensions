@@ -146,14 +146,5 @@ else:
 print(f"""
 {'='*70}
   ✅ Streamlit is running in the background!
-  
-  Since third-party tunnels (Cloudflare/LocalTunnel) are blocked by Colab,
-  you can use Google Colab's incredibly fast, native, built-in proxy.
-  
-  Copy and paste this into a BRAND NEW Colab cell and run it:
-  
-from google.colab.output import eval_js
-print(eval_js("google.colab.kernel.proxyPort(8501)"))
-{'='*70}
   First question loads the model (~2 min). Fast after that.
 """)
