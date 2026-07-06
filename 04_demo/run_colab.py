@@ -142,16 +142,20 @@ else:
     print("⚠️   Streamlit didn't respond in 60 s — may still be loading.")
 
 
-# ── Step 6: tunnel via localtunnel ───────────
-print("Installing localtunnel …")
-subprocess.run(["npm", "install", "-g", "localtunnel"], check=True)
+# ── Step 6: tunnel via cloudflared (transparent proxy) ───────────
+print("Installing cloudflared …")
+subprocess.run([
+    "wget", "-q", "-O", "/usr/local/bin/cloudflared",
+    "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64",
+], check=True)
+subprocess.run(["chmod", "+x", "/usr/local/bin/cloudflared"], check=True)
 
-import urllib.request
-ip = urllib.request.urlopen('https://ipv4.icanhazip.com').read().decode('utf8').strip()
+# Give Streamlit an extra few seconds to fully bind to the port
+time.sleep(3)
 
-print("Starting localtunnel...")
+print("Starting cloudflared...")
 lt = subprocess.Popen(
-    ["npx", "localtunnel", "--port", str(port)],
+    ["cloudflared", "tunnel", "--url", f"http://localhost:{port}"],
     stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
 )
 
@@ -160,7 +164,7 @@ url = ""
 url_deadline = time.time() + 60
 for line in lt.stdout:
     print(f"  {line.strip()}")
-    found = _re.findall(r"https://[^\s]+\.loca\.lt", line)
+    found = _re.findall(r"https://[^\s]+\.trycloudflare\.com", line)
     if found:
         url = found[0]
         break
@@ -170,8 +174,8 @@ for line in lt.stdout:
 
 print(f"""
 {'='*62}
-  🌐  Open    : {url or '(see localtunnel output above)'}
-  ℹ️   Endpoint IP needed: {ip}
+  🌐  Open    : {url or '(see cloudflared output above)'}
+  ℹ️   No password or IP needed
 {'='*62}
   First question loads the model (~2 min). Fast after that.
 """)
