@@ -105,8 +105,8 @@ if r.returncode != 0:
 print("✅  Ingestion complete")
 
 
-# ── Step 4: find a free port ──────────────────────────────────────────────────
-s = socket.socket(); s.bind(("", 0)); port = s.getsockname()[1]; s.close()
+# ── Step 4: define port ──────────────────────────────────────────────────
+port = 8501
 
 
 # ── Step 5: launch Streamlit (background) ─────────────────────────────────────
@@ -142,40 +142,18 @@ else:
     print("⚠️   Streamlit didn't respond in 60 s — may still be loading.")
 
 
-# ── Step 6: tunnel via cloudflared (transparent proxy) ───────────
-print("Installing cloudflared …")
-subprocess.run([
-    "wget", "-q", "-O", "/usr/local/bin/cloudflared",
-    "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64",
-], check=True)
-subprocess.run(["chmod", "+x", "/usr/local/bin/cloudflared"], check=True)
-
-# Give Streamlit an extra few seconds to fully bind to the port
-time.sleep(3)
-
-print("Starting cloudflared...")
-lt = subprocess.Popen(
-    ["cloudflared", "tunnel", "--url", f"http://localhost:{port}"],
-    stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
-)
-
-import re as _re
-url = ""
-url_deadline = time.time() + 60
-for line in lt.stdout:
-    print(f"  {line.strip()}")
-    found = _re.findall(r"https://[^\s]+\.trycloudflare\.com", line)
-    if found:
-        url = found[0]
-        break
-    if time.time() > url_deadline:
-        print("  [WARN] tunnel URL not found within 60 s — check output above.")
-        break
-
+# ── Step 6: Native Colab Proxy Instructions ─────────────────────────────────────
 print(f"""
-{'='*62}
-  🌐  Open    : {url or '(see cloudflared output above)'}
-  ℹ️   No password or IP needed
-{'='*62}
+{'='*70}
+  ✅ Streamlit is running in the background!
+  
+  Since third-party tunnels (Cloudflare/LocalTunnel) are blocked by Colab,
+  you can use Google Colab's incredibly fast, native, built-in proxy.
+  
+  Copy and paste this into a BRAND NEW Colab cell and run it:
+  
+from google.colab.output import eval_js
+print(eval_js("google.colab.kernel.proxyPort(8501)"))
+{'='*70}
   First question loads the model (~2 min). Fast after that.
 """)
