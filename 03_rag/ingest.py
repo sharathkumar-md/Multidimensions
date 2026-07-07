@@ -265,14 +265,16 @@ def main() -> None:
             OUTPUT_PATH.write_text(json.dumps(index, indent=2), encoding="utf-8")
             
         captions_path = REPO_DIR / "04_demo" / "figure_captions.json"
+        need_rag_rebuild = False
         if not captions_path.exists():
             logger.info("Figure captions missing. Building...")
             run_captioning = import_captioning_module()
             run_captioning()
+            need_rag_rebuild = True
 
         # BUG-003: check for Qdrant's chunks.json (not the removed ChromaDB artifact)
-        if not (rag_index_dir / "chunks.json").exists():
-            logger.info("RAG vector store missing. Building...")
+        if not (rag_index_dir / "chunks.json").exists() or need_rag_rebuild:
+            logger.info("RAG vector store missing or needs update. Building...")
             build_pipeline_index = import_rag_pipeline()
             build_pipeline_index(
                 ocr_output_dir=REPO_DIR / "data" / "ocr_output_vlm",
