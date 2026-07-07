@@ -176,6 +176,15 @@ _SYSTEM_PROMPT = (
     "- Customer qualification questions\n\n"
 
     "=================================================\n"
+    "DISPLAYING IMAGES\n"
+    "=================================================\n"
+    "If the retrieved context contains an image marker like: [Image Available: filename.png - caption]\n"
+    "And the image is highly relevant to the user's question, you MUST display it by including the exact tag:\n"
+    "<DISPLAY: filename.png>\n"
+    "Place the display tag on its own line. Do not output the caption text inside the tag, only the filename.\n"
+    "Do NOT guess or invent filenames. Only use filenames provided in the [Image Available: ...] markers.\n\n"
+
+    "=================================================\n"
     "TECHNICAL ACCURACY RULES\n"
     "=================================================\n"
     "- Quote specifications EXACTLY as provided.\n"

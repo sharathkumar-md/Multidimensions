@@ -11,6 +11,8 @@ from loguru import logger
 
 from config.settings import settings
 
+REPO_DIR = Path(__file__).resolve().parents[2]
+
 
 @dataclass
 class Chunk:
@@ -195,6 +197,18 @@ def chunk_documents(
     manifests = sorted(manifest_dir.glob("*.json")) if manifest_dir.exists() else sorted(ocr_output_dir.glob("*.json"))
     logger.info(f"{len(manifests)} manifests in {ocr_output_dir}")
 
+    # Load figure indices and captions
+    fig_index_path = REPO_DIR / "04_demo" / "figure_index.json"
+    captions_path = REPO_DIR / "04_demo" / "figure_captions.json"
+    fig_index = {}
+    captions = {}
+    if fig_index_path.exists():
+        try: fig_index = json.loads(fig_index_path.read_text(encoding="utf-8"))
+        except Exception: pass
+    if captions_path.exists():
+        try: captions = json.loads(captions_path.read_text(encoding="utf-8"))
+        except Exception: pass
+
     all_chunks: list[Chunk] = []
 
     for manifest_path in manifests:
@@ -214,6 +228,7 @@ def chunk_documents(
 
         current_page = 0
         current_text = parts[0]
+        doc_figs = fig_index.get(source_doc, {}).get("by_page", {})
 
         # BUG-013: record start index before processing so per-doc count is O(1)
         doc_start = len(all_chunks)
@@ -223,12 +238,31 @@ def chunk_documents(
             header = parts[i]
             section = parts[i + 1] if i + 1 < len(parts) else ""
             if current_text.strip():
+                # Inject captions for the current page before semantic splitting
+                page_figs = doc_figs.get(str(current_page), [])
+                injected = []
+                for fig in page_figs:
+                    cap = captions.get(fig["filename"])
+                    if cap and cap != "NO_CONTEXT":
+                        injected.append(f"[Image Available: {fig['filename']} - {cap}]")
+                if injected:
+                    current_text += "\n\n" + "\n".join(injected)
+
                 all_chunks.extend(_split_section(current_text, current_page, doc_hash, source_doc, embed_texts))
             current_page = _page_num(header)
             current_text = section
             i += 2
 
         if current_text.strip():
+            page_figs = doc_figs.get(str(current_page), [])
+            injected = []
+            for fig in page_figs:
+                cap = captions.get(fig["filename"])
+                if cap and cap != "NO_CONTEXT":
+                    injected.append(f"[Image Available: {fig['filename']} - {cap}]")
+            if injected:
+                current_text += "\n\n" + "\n".join(injected)
+
             all_chunks.extend(_split_section(current_text, current_page, doc_hash, source_doc, embed_texts))
 
         n = len(all_chunks) - doc_start  # O(1) instead of O(total_chunks)

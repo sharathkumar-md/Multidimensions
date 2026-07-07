@@ -257,6 +257,26 @@ def _figures_for_chunk(
     return paths
 
 
+def _find_figures_by_filenames(filenames: list[str], fig_index: dict) -> list[dict]:
+    gallery = []
+    seen = set()
+    for doc_name, doc_data in fig_index.items():
+        figures_base = REPO_DIR / Path(doc_data.get("figures_base", ""))
+        for page_num, figs in doc_data.get("by_page", {}).items():
+            for fig in figs:
+                fname = fig["filename"]
+                if fname in filenames and fname not in seen:
+                    full_path = figures_base / fname
+                    if full_path.exists():
+                        seen.add(fname)
+                        gallery.append({
+                            "image_path": str(full_path),
+                            "title": Path(fname).stem.replace("_", " ").title(),
+                            "source_doc": doc_name,
+                        })
+    return gallery
+
+
 # ── public API ───────────────────────────────────────────────────────────────
 
 def resolve_product_image(
@@ -287,37 +307,16 @@ def resolve_product_image(
             "from_index": False,
         }
 
-    # ── layer 2: figure index (auto, page-level) ──────────────────────────────
-    fig_index = _load_figure_index(fig_index_path)
-    if not fig_index:
-        return None
+    # ── layer 2: AI Display Tags ──────────────────────────────
+    display_tags = re.findall(r"<DISPLAY:\s*([^>]+)>", answer)
+    if display_tags:
+        fig_index = _load_figure_index(fig_index_path)
+        if fig_index:
+            gallery = _find_figures_by_filenames(display_tags, fig_index)
+            if gallery:
+                return {
+                    "images": gallery[:MAX_GALLERY_IMAGES],
+                    "from_index": True,
+                }
 
-    seen_paths: set[str] = set()
-    gallery: list[dict] = []
-
-    for item in retrieved:
-        if len(gallery) >= MAX_GALLERY_IMAGES:
-            break
-        source_doc, page_num = _chunk_meta(item)
-        if not source_doc or not page_num:
-            continue
-
-        for img_path in _figures_for_chunk(source_doc, page_num, fig_index):
-            if img_path in seen_paths:
-                continue
-            seen_paths.add(img_path)
-            gallery.append({
-                "image_path": img_path,
-                "title":      Path(img_path).stem.replace("_", " ").title(),
-                "source_doc": source_doc,
-            })
-            if len(gallery) >= MAX_GALLERY_IMAGES:
-                break
-
-    if not gallery:
-        return None
-
-    return {
-        "images":     gallery,
-        "from_index": True,
-    }
+    return None

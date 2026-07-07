@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import re
 import subprocess
 import sys
 import uuid
@@ -335,15 +336,20 @@ if question:
         with st.spinner("Thinking…"):
             answer, retrieved = _ask(question, active.summary)
 
-        st.markdown(answer)
+        # The image resolver uses the raw answer to find <DISPLAY: ...> tags
         product_image = resolve_product_image(question, answer, retrieved)
+        
+        # Clean the answer for the UI so the user doesn't see the tags
+        display_answer = re.sub(r"<DISPLAY:\s*[^>]+>", "", answer).strip()
+        st.markdown(display_answer)
+        
         _render_product_image(product_image)
         sources = _collect_sources(retrieved)
         _render_sources(sources)
 
     active.messages.append({
         "role": "assistant",
-        "content": answer,
+        "content": display_answer,
         "sources": sources,
         "product_image": product_image,
     })

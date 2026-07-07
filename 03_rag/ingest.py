@@ -111,6 +111,21 @@ def import_demo_modules():
                 sys.modules.pop(k, None)
 
 
+def import_captioning_module():
+    """Import 01.2_vlm_captioning module in an isolated namespace."""
+    old_path = list(sys.path)
+    old_modules = dict(sys.modules)
+    try:
+        sys.path.insert(0, str(REPO_DIR / "01.2_vlm_captioning"))
+        from caption_figures import run_captioning
+        return run_captioning
+    finally:
+        sys.path = old_path
+        sys.modules.update(old_modules)
+        for k in list(sys.modules.keys()):
+            if k not in old_modules:
+                sys.modules.pop(k, None)
+
 # CODE-009: compute_sha256 is now imported from shared/hashing.py above
 
 
@@ -225,6 +240,11 @@ def main() -> None:
         OUTPUT_PATH.write_text(json.dumps(index, indent=2), encoding="utf-8")
         logger.info(f"Figure index updated successfully at: {OUTPUT_PATH}")
 
+        # 5.5 Run VLM Image Captioning
+        logger.info("Running VLM to generate image captions...")
+        run_captioning = import_captioning_module()
+        run_captioning()
+
         # 6. Rebuild RAG Vector Store
         logger.info("Rebuilding RAG vector store index...")
         build_pipeline_index = import_rag_pipeline()
@@ -244,6 +264,12 @@ def main() -> None:
             index = build_with_fallback()
             OUTPUT_PATH.write_text(json.dumps(index, indent=2), encoding="utf-8")
             
+        captions_path = REPO_DIR / "04_demo" / "figure_captions.json"
+        if not captions_path.exists():
+            logger.info("Figure captions missing. Building...")
+            run_captioning = import_captioning_module()
+            run_captioning()
+
         # BUG-003: check for Qdrant's chunks.json (not the removed ChromaDB artifact)
         if not (rag_index_dir / "chunks.json").exists():
             logger.info("RAG vector store missing. Building...")
