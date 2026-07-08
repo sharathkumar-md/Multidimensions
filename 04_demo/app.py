@@ -283,18 +283,34 @@ def _render_product_image(product_image: dict | None) -> None:
     if not images:
         return
 
-    # Render in rows of up to 3 images so it wraps nicely
-    MAX_PER_ROW = 3
-    for i in range(0, len(images), MAX_PER_ROW):
-        row_images = images[i:i + MAX_PER_ROW]
-        cols = st.columns(len(row_images))
-        for col, img in zip(cols, row_images):
-            caption = img.get("title", "Product image")
-            source_doc = img.get("source_doc", "")
-            if source_doc:
-                caption = f"{caption}  ·  {source_doc}"
-            with col:
-                st.image(img["image_path"], caption=caption, use_container_width=True)
+    # Show up to 4 images in a single row
+    preview_limit = 4
+    preview_images = images[:preview_limit]
+    
+    cols = st.columns(len(preview_images))
+    for col, img in zip(cols, preview_images):
+        caption = img.get("title", "Product image")
+        source_doc = img.get("source_doc", "")
+        if source_doc:
+            caption = f"{caption}  ·  {source_doc}"
+        with col:
+            st.image(img["image_path"], caption=caption, use_container_width=True)
+
+    # If there are more images, hide them inside a neat expander below
+    if len(images) > preview_limit:
+        remaining = images[preview_limit:]
+        with st.expander(f"➕ View {len(remaining)} more images"):
+            MAX_PER_ROW = 4
+            for i in range(0, len(remaining), MAX_PER_ROW):
+                row_images = remaining[i:i + MAX_PER_ROW]
+                exp_cols = st.columns(len(row_images))
+                for col, img in zip(exp_cols, row_images):
+                    caption = img.get("title", "Product image")
+                    source_doc = img.get("source_doc", "")
+                    if source_doc:
+                        caption = f"{caption}  ·  {source_doc}"
+                    with col:
+                        st.image(img["image_path"], caption=caption, use_container_width=True)
 
 
 def _render_sources(sources: list) -> None:
