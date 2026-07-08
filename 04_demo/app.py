@@ -263,6 +263,10 @@ with st.sidebar:
     except Exception:
         st.caption("**Index:** (loading…)")
     st.caption("**Retrieval:** SPLADE + dense + rerank")
+    
+    if st.button("🔄 Refresh Index", use_container_width=True, help="Click this after ingestion finishes to load the new data"):
+        st.cache_resource.clear()
+        st.rerun()
 
 # ── main chat area ────────────────────────────────────────────────────────────
 
