@@ -264,7 +264,7 @@ with st.sidebar:
         st.caption("**Index:** (loading…)")
     st.caption("**Retrieval:** SPLADE + dense + rerank")
     
-    if st.button("🔄 Refresh Index", use_container_width=True, help="Click this after ingestion finishes to load the new data"):
+    if st.button("Refresh Index", use_container_width=True, help="Click this after ingestion finishes to load the new data"):
         st.cache_resource.clear()
         st.rerun()
 
@@ -283,14 +283,18 @@ def _render_product_image(product_image: dict | None) -> None:
     if not images:
         return
 
-    cols = st.columns(len(images))
-    for col, img in zip(cols, images):
-        caption = img.get("title", "Product image")
-        source_doc = img.get("source_doc", "")
-        if source_doc:
-            caption = f"{caption}  ·  {source_doc}"
-        with col:
-            st.image(img["image_path"], caption=caption, use_container_width=True)
+    # Render in rows of up to 3 images so it wraps nicely
+    MAX_PER_ROW = 3
+    for i in range(0, len(images), MAX_PER_ROW):
+        row_images = images[i:i + MAX_PER_ROW]
+        cols = st.columns(len(row_images))
+        for col, img in zip(cols, row_images):
+            caption = img.get("title", "Product image")
+            source_doc = img.get("source_doc", "")
+            if source_doc:
+                caption = f"{caption}  ·  {source_doc}"
+            with col:
+                st.image(img["image_path"], caption=caption, use_container_width=True)
 
 
 def _render_sources(sources: list) -> None:

@@ -13,7 +13,7 @@ DEFAULT_CATALOG_PATH    = DEMO_DIR / "product_images.json"
 DEFAULT_FIG_INDEX_PATH  = DEMO_DIR / "figure_index.json"
 
 # Maximum images returned in a gallery
-MAX_GALLERY_IMAGES = 3
+MAX_GALLERY_IMAGES = 20
 
 # Minimum file size to consider a figure a real product photo (bytes)
 MIN_FIGURE_BYTES = 1 * 1024   # skip sub-pixel icons / dots (< 1 KB)
