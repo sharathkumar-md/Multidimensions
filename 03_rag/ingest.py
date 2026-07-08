@@ -107,7 +107,7 @@ def import_demo_modules():
         sys.path = old_path
         sys.modules.update(old_modules)
         for k in list(sys.modules.keys()):
-            if k not in old_modules:
+            if k not in old_modules and (k.startswith("config") or k.startswith("src") or k.startswith("build_")):
                 sys.modules.pop(k, None)
 
 
@@ -123,7 +123,7 @@ def import_captioning_module():
         sys.path = old_path
         sys.modules.update(old_modules)
         for k in list(sys.modules.keys()):
-            if k not in old_modules:
+            if k not in old_modules and (k.startswith("config") or k.startswith("src") or k.startswith("caption_")):
                 sys.modules.pop(k, None)
 
 # CODE-009: compute_sha256 is now imported from shared/hashing.py above
