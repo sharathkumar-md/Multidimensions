@@ -278,6 +278,18 @@ _SYSTEM_PROMPT = (
     "Suggest checking with the manufacturer or supplier only when appropriate."
 )
 
+_WEB_SYSTEM_PROMPT = (
+    "You are an industrial application and product specialist assistant designed "
+    "to support field sales engineers. Your role is to help sales representatives "
+    "understand competitor products, market trends, or general industry standards "
+    "by answering their questions using the provided WEB SEARCH RESULTS.\n\n"
+    "You must answer STRICTLY using ONLY the provided web search results. "
+    "Do NOT use outside knowledge, engineering assumptions, or guess specifications. "
+    "If information is not present in the provided web search results, do not infer or invent it.\n\n"
+    "When answering, be concise. Use bullet points or small markdown tables. "
+    "Focus on practical, sales-oriented information. If comparing competitors, remain objective."
+)
+
 _BNB_CONFIG = BitsAndBytesConfig(
     load_in_4bit=True,
     bnb_4bit_quant_type="nf4",
@@ -298,14 +310,15 @@ def load_model(model_id: str) -> tuple:
     return model, tokenizer
 
 
-def build_prompt(query: str, context_chunks: list[str], max_context_chars: int = 100_000) -> str:
+def build_prompt(query: str, context_chunks: list[str], max_context_chars: int = 100_000, is_web: bool = False) -> str:
     # BUG-007: raised from 32000 chars (~8K tokens) to 100000 chars (~25K tokens)
     # to actually utilise Qwen3-8B's 32K-token context window (unlocked by BUG-002).
     # The tokenizer's max_length=32768 is the hard safety net.
     budget = max_context_chars // max(len(context_chunks), 1)
     trimmed = [c[:budget] for c in context_chunks]
     context = "\n\n---\n\n".join(trimmed)
-    return f"Catalog context:\n{context}\n\nCustomer question: {query}\n\nAnswer:"
+    source_label = "Web search results" if is_web else "Catalog context"
+    return f"{source_label}:\n{context}\n\nCustomer question: {query}\n\nAnswer:"
 
 
 def generate(
@@ -315,10 +328,12 @@ def generate(
     tokenizer,
     model_id: str,
     max_new_tokens: int = 512,
+    is_web: bool = False,
 ) -> str:
+    system_prompt = _WEB_SYSTEM_PROMPT if is_web else _SYSTEM_PROMPT
     messages = [
-        {"role": "system", "content": _SYSTEM_PROMPT},
-        {"role": "user", "content": build_prompt(query, context_chunks)},
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": build_prompt(query, context_chunks, is_web=is_web)},
     ]
 
     kwargs: dict = {"tokenize": False, "add_generation_prompt": True}

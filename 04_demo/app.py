@@ -21,7 +21,8 @@ sys.path.insert(0, str(_RAG_DIR))
 # import lookups on every chat message and to make deps visible to type checkers)
 from src.retriever import retrieve  # type: ignore  # noqa: E402
 from src.generator import generate, generate_raw  # type: ignore  # noqa: E402
-from src.conversational import needs_retrieval, rewrite_query, simple_reply  # type: ignore  # noqa: E402
+from src.conversational import route_query, rewrite_query, simple_reply  # type: ignore  # noqa: E402
+from src.web_retriever import web_retrieve  # type: ignore  # noqa: E402
 from src.evaluator import groundedness  # type: ignore  # noqa: E402
 from config.settings import settings  # type: ignore  # noqa: E402
 
@@ -165,23 +166,32 @@ def _ask(question: str, summary: str) -> tuple[str, list]:
             [],
         )
 
-    # ── router: chit-chat / greetings skip the catalog lookup ──
-    if not needs_retrieval(question, model, tokenizer, _MODEL_ID):
+    # ── router: determine the route ──
+    route = route_query(question, model, tokenizer, _MODEL_ID)
+    
+    if route == "NONE":
         return simple_reply(question, summary, model, tokenizer, _MODEL_ID), []
 
     # ── contextual rewrite: resolve "it / that / the same" into a standalone query ──
     retrieval_query = rewrite_query(question, summary, model, tokenizer, _MODEL_ID)
 
-    def hyde_fn(prompt: str, max_new_tokens: int = 120) -> str:
-        return generate_raw(prompt, model, tokenizer, max_new_tokens=max_new_tokens)
+    if route == "WEB":
+        st.toast("Searching the web for latest information...", icon="🌐")
+        retrieved = web_retrieve(
+            query=retrieval_query,
+            reranker=reranker,
+        )
+    else:
+        def hyde_fn(prompt: str, max_new_tokens: int = 120) -> str:
+            return generate_raw(prompt, model, tokenizer, max_new_tokens=max_new_tokens)
 
-    retrieved = retrieve(
-        query=retrieval_query,
-        client=client,
-        chunks=chunks,
-        reranker=reranker,
-        generator_fn=hyde_fn if settings.hyde_enabled else None,
-    )
+        retrieved = retrieve(
+            query=retrieval_query,
+            client=client,
+            chunks=chunks,
+            reranker=reranker,
+            generator_fn=hyde_fn if settings.hyde_enabled else None,
+        )
 
     context_texts = [r.chunk.text for r in retrieved]
 
@@ -197,10 +207,11 @@ def _ask(question: str, summary: str) -> tuple[str, list]:
     context = sep.join(trimmed) + summary_note
 
     # answer the original question (not the rewritten one) using retrieved context
-    answer = generate(question, [context], model, tokenizer, _MODEL_ID)
+    is_web = (route == "WEB")
+    answer = generate(question, [context], model, tokenizer, _MODEL_ID, is_web=is_web)
 
     # soft grounding check: flag, never block
-    if context_texts and groundedness(answer, context_texts) < 0.45:
+    if context_texts and not is_web and groundedness(answer, context_texts) < 0.45:
         answer += "\n\n_⚠️ Some details may not be fully covered in the catalog — please verify._"
 
     return answer, retrieved

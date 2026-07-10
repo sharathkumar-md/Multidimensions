@@ -24,25 +24,28 @@ def _chat(messages: list[dict], model, tokenizer, model_id: str, max_new_tokens:
     return tokenizer.decode(new_ids, skip_special_tokens=True).strip()
 
 
-# ── 1. router: does this turn need a catalog lookup? ─────────────────────────
+# ── 1. router: how should this query be handled? ───────────────────────────
 
 _ROUTER_SYS = (
-    "You decide whether a sales chatbot needs to look up the product catalog to answer "
-    "a message. Answer with a single word: YES or NO.\n"
-    "- Greetings, thanks, small talk, or meta questions about you -> NO.\n"
-    "- Anything about a product, brand, industry, specification, or application -> YES.\n"
-    "When unsure, answer YES."
+    "You decide how a sales chatbot should handle a user's message. Answer with a single word: LOCAL, WEB, or NONE.\n"
+    "- Greetings, thanks, small talk, or meta questions about you -> NONE.\n"
+    "- Questions about general industry standards, competitor comparisons, or market trends not in our catalog -> WEB.\n"
+    "- Questions about our products, brands, specifications, or applications -> LOCAL.\n"
+    "When unsure about products vs web, default to LOCAL."
 )
 
 
-def needs_retrieval(question: str, model, tokenizer, model_id: str) -> bool:
+def route_query(question: str, model, tokenizer, model_id: str) -> str:
     messages = [
         {"role": "system", "content": _ROUTER_SYS},
-        {"role": "user", "content": f"Message: {question}\nLookup needed (YES/NO):"},
+        {"role": "user", "content": f"Message: {question}\nRouting decision (LOCAL/WEB/NONE):"},
     ]
-    out = _chat(messages, model, tokenizer, model_id, max_new_tokens=4).lower()
-    # default to retrieval unless it clearly says no
-    return not out.strip().startswith("no")
+    out = _chat(messages, model, tokenizer, model_id, max_new_tokens=6).lower()
+    if "web" in out:
+        return "WEB"
+    elif "none" in out:
+        return "NONE"
+    return "LOCAL"
 
 
 # ── 2. contextual query rewriter: follow-up -> standalone question ───────────

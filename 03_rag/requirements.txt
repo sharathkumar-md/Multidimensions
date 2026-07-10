@@ -12,3 +12,7 @@ loguru>=0.7.2
 # testing
 pytest>=8.2.0
 pytest-cov>=5.0.0
+
+# web search
+duckduckgo-search>=6.0.0
+diskcache>=5.6.0
