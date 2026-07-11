@@ -89,6 +89,8 @@ pkgs = [
     "rapidocr-onnxruntime",
     "qwen-vl-utils",
     "torchvision",
+    "duckduckgo-search>=6.0.0",
+    "diskcache>=5.6.0",
 ]
 subprocess.run([sys.executable, "-m", "pip", "install", "-q"] + pkgs, check=True)
 print("✅  Dependencies ready")
