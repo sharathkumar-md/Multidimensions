@@ -65,7 +65,7 @@ def web_retrieve(
         if not body:
             continue
             
-        text = f"{title}\n{body}"
+        text = f"Source URL: {href}\nTitle: {title}\nContent: {body}"
         chunk = Chunk(
             chunk_id=uuid.uuid4().hex,
             doc_hash="web_search",  # Dummy hash for web snippets

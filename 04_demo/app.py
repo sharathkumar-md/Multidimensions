@@ -329,7 +329,10 @@ def _render_sources(sources: list) -> None:
         return
     with st.expander(f"📄 Sources ({len(sources)})"):
         for src in sources:
-            st.markdown(f"**{src['source_doc']}** — page {src['page_num']}")
+            if str(src['source_doc']).startswith("http"):
+                st.markdown(f"🌐 **[{src['source_doc']}]({src['source_doc']})**")
+            else:
+                st.markdown(f"**{src['source_doc']}** — page {src['page_num']}")
             st.caption(src["snippet"])
 
 
