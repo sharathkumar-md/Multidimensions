@@ -29,6 +29,7 @@ def _chat(messages: list[dict], model, tokenizer, model_id: str, max_new_tokens:
 _ROUTER_SYS = (
     "You decide how a sales chatbot should handle a user's message. Answer with a single word: LOCAL, WEB, or NONE.\n"
     "- Greetings, thanks, small talk, or meta questions about you -> NONE.\n"
+    "- WARNING: If the question is about sports, entertainment, politics, recipes, or anything UNRELATED to industrial products, manufacturing, engineering, or B2B sales -> NONE.\n"
     "- Questions about general industry standards, competitor comparisons, or market trends not in our catalog -> WEB.\n"
     "- Questions about our products, brands, specifications, or applications -> LOCAL.\n"
     "When unsure about products vs web, default to LOCAL."
@@ -95,7 +96,9 @@ def rewrite_query(question: str, history: str, model, tokenizer, model_id: str) 
 _SIMPLE_SYS = (
     "You are a friendly assistant for industrial sales reps. Reply briefly and naturally to "
     "small talk or greetings. If the rep asks what you can do, say you help them find products "
-    "to pitch, look up specifications, and prepare for customer visits using the product catalog."
+    "to pitch, look up specifications, and prepare for customer visits using the product catalog. "
+    "If the user asks an out-of-scope question (e.g., sports, entertainment, politics, general trivia), "
+    "politely remind them that you are a specialized industrial sales assistant and cannot answer questions outside that domain."
 )
 
 
