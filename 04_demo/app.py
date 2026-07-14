@@ -4,6 +4,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -24,6 +25,7 @@ from src.generator import generate, generate_raw  # type: ignore  # noqa: E402
 from src.conversational import route_query, rewrite_query, simple_reply  # type: ignore  # noqa: E402
 from src.web_retriever import web_retrieve  # type: ignore  # noqa: E402
 from src.evaluator import groundedness  # type: ignore  # noqa: E402
+from src.audit import log_audit_event  # type: ignore  # noqa: E402
 from config.settings import settings  # type: ignore  # noqa: E402
 
 
@@ -372,7 +374,31 @@ if question:
 
     with st.chat_message("assistant"):
         with st.spinner("Thinking…"):
-            answer, retrieved = _ask(question, active.summary)
+            start_time = time.time()
+            try:
+                answer, retrieved = _ask(question, active.summary)
+                success = True
+                error_msg = ""
+            except Exception as e:
+                import traceback
+                error_msg = traceback.format_exc()
+                answer = "⚠️ I'm sorry, I encountered an internal error while processing your request. Please try asking again or refreshing the page."
+                retrieved = []
+                success = False
+            
+            elapsed_ms = int((time.time() - start_time) * 1000)
+
+            # Extract route if possible (could be inferred or captured, for now we just log success/fail)
+            # In a real app we'd pass route back from _ask, but here we just log the outcome.
+            log_audit_event(
+                user_id=active.user_id,
+                session_id=active.session_id,
+                question=question,
+                route="UNKNOWN", # Route is hidden inside _ask, we could refactor to extract it later
+                response_time_ms=elapsed_ms,
+                success=success,
+                error_message=str(e) if not success else "",
+            )
 
         # The image resolver uses the raw answer to find <DISPLAY: ...> tags
         product_image = resolve_product_image(question, answer, retrieved)
