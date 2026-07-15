@@ -26,7 +26,11 @@ from src.conversational import route_query, rewrite_query, simple_reply  # type:
 from src.web_retriever import web_retrieve  # type: ignore  # noqa: E402
 from src.evaluator import groundedness  # type: ignore  # noqa: E402
 from src.audit import log_audit_event  # type: ignore  # noqa: E402
+from src.auth import require_auth # type: ignore # noqa: E402
 from config.settings import settings  # type: ignore  # noqa: E402
+
+# Enforce Keycloak Authentication before anything else loads
+current_user = require_auth()
 
 
 # ── auto-ingestion on startup ──────────────────────────────────────────────────
@@ -105,7 +109,7 @@ def _check_and_run_ingest() -> None:
 @dataclass
 class Session:
     session_id: str = field(default_factory=lambda: uuid.uuid4().hex[:8])
-    user_id: str = "demo_user"
+    user_id: str = field(default_factory=lambda: current_user.email if current_user else "unknown")
     title: str = "New conversation"
     messages: list = field(default_factory=list)
     summary: str = ""

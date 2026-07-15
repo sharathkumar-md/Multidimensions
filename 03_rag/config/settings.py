@@ -39,8 +39,12 @@ class RAGSettings(BaseSettings):
     log_file: Path = Field(default=_RAG_DIR / "logs" / "rag.log")
     audit_log_file: Path = Field(default=_RAG_DIR / "logs" / "audit.log")
 
-    # Security & Auth (To be used in Phase 3/4)
-    admin_password_hash: str = Field(default="")
+    # Security & Auth (Keycloak)
+    auth_enabled: bool = Field(default=False)  # Set to False for local dev without Keycloak
+    keycloak_server_url: str = Field(default="https://keycloak.example.com")
+    keycloak_realm: str = Field(default="master")
+    keycloak_client_id: str = Field(default="rag-bot")
+    keycloak_client_secret: str = Field(default="secret")
     auth_cookie_key: str = Field(default="multidimensions_auth_secret_key_123")
 
 settings = RAGSettings()
