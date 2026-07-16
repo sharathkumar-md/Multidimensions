@@ -269,6 +269,30 @@ with st.sidebar:
             st.session_state.active_id = sid
             st.rerun()
 
+    if current_user and current_user.is_admin:
+        st.divider()
+        with st.expander("⚙️ Admin Hub", expanded=False):
+            st.markdown("Upload new PDF catalogs to the knowledge base.")
+            uploaded_file = st.file_uploader("Choose a PDF", type=["pdf"], label_visibility="collapsed")
+            if uploaded_file is not None:
+                if st.button("Process & Update Index", use_container_width=True):
+                    input_dir = _RAG_DIR.parent / "data" / "input"
+                    input_dir.mkdir(parents=True, exist_ok=True)
+                    file_path = input_dir / uploaded_file.name
+                    
+                    with open(file_path, "wb") as f:
+                        f.write(uploaded_file.getbuffer())
+                    
+                    st.toast(f"✅ {uploaded_file.name} saved! Background ingestion started.", icon="🚀")
+                    
+                    # Run ingest.py as a background process so it doesn't block Streamlit
+                    subprocess.Popen(
+                        [sys.executable, str(_RAG_DIR / "ingest.py")],
+                        cwd=str(_RAG_DIR),
+                        stdout=subprocess.DEVNULL,
+                        stderr=subprocess.DEVNULL
+                    )
+
     st.divider()
     st.caption("**Model:** Qwen3-8B (4-bit)")
     # ARCH-002: show live index stats instead of hardcoded values
