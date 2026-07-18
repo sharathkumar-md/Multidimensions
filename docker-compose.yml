@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  rag-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: multidimensions-rag:local
+    container_name: multidimensions-rag
+    ports:
+      - "8080:8080"
+
+    # ── GPU Support ──────────────────────────────────────────────────────────
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [compute, utility]
+
+    # ── Persistent Volumes (survive container restarts) ───────────────────────
+    volumes:
+      - ./data:/app/data
+      - ./03_rag/index:/app/03_rag/index
+      - ./.cache:/app/.cache
+      - ./logs:/app/logs
+
+    # ── Environment ──────────────────────────────────────────────────────────
+    env_file:
+      - .env
+    environment:
+      # Override for local development — auth is enforced in production
+      RAG_AUTH_ENABLED: "false"
+
+    # ── Health Check ─────────────────────────────────────────────────────────
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+
+    restart: unless-stopped
