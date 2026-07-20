@@ -1,10 +1,13 @@
 from __future__ import annotations
 
+import hashlib
+import json
 import os
 import re
 import subprocess
 import sys
 import time
+import traceback
 import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -26,7 +29,7 @@ from src.conversational import route_query, rewrite_query, simple_reply  # type:
 from src.web_retriever import web_retrieve  # type: ignore  # noqa: E402
 from src.evaluator import groundedness  # type: ignore  # noqa: E402
 from src.audit import log_audit_event  # type: ignore  # noqa: E402
-from src.auth import require_auth # type: ignore # noqa: E402
+from src.auth import require_auth, render_logout_button  # type: ignore  # noqa: E402
 from config.settings import settings  # type: ignore  # noqa: E402
 
 # Enforce Keycloak Authentication before anything else loads
@@ -158,10 +161,17 @@ def _load_index():
 
 # ── answer generation ─────────────────────────────────────────────────────────
 
-_MODEL_ID = "Qwen/Qwen3-8B"
+# Model ID sourced from settings — not hardcoded.
+_MODEL_ID = settings.generator_model_id
 
 
-def _ask(question: str, summary: str) -> tuple[str, list]:
+def _ask(question: str, summary: str) -> tuple[str, list, str]:
+    """
+    Core RAG pipeline: route → rewrite → retrieve → generate.
+
+    Returns:
+        (answer, retrieved_chunks, route) — route is surfaced for accurate audit logging.
+    """
     model, tokenizer = _load_model()
     client, chunks, reranker = _load_index()
 
@@ -170,13 +180,14 @@ def _ask(question: str, summary: str) -> tuple[str, list]:
             "⚠️ The product index is not ready yet — ingestion is still running or "
             "hasn't started. Please wait a few minutes, then refresh the page.",
             [],
+            "NONE",
         )
 
     # ── router: determine the route ──
     route = route_query(question, model, tokenizer, _MODEL_ID)
-    
+
     if route == "NONE":
-        return simple_reply(question, summary, model, tokenizer, _MODEL_ID), []
+        return simple_reply(question, summary, model, tokenizer, _MODEL_ID), [], "NONE"
 
     # ── contextual rewrite: resolve "it / that / the same" into a standalone query ──
     retrieval_query = rewrite_query(question, summary, model, tokenizer, _MODEL_ID)
@@ -187,6 +198,14 @@ def _ask(question: str, summary: str) -> tuple[str, list]:
             query=retrieval_query,
             reranker=reranker,
         )
+        # Fallback: web search returned nothing (rate-limited, blocked, no results)
+        if not retrieved:
+            return (
+                "⚠️ Web search is temporarily unavailable or returned no results. "
+                "Please ask about products in the local catalog instead.",
+                [],
+                "WEB",
+            )
     else:
         def hyde_fn(prompt: str, max_new_tokens: int = 120) -> str:
             return generate_raw(prompt, model, tokenizer, max_new_tokens=max_new_tokens)
@@ -198,29 +217,31 @@ def _ask(question: str, summary: str) -> tuple[str, list]:
             reranker=reranker,
             generator_fn=hyde_fn if settings.hyde_enabled else None,
         )
+        # Fallback: local retrieval returned nothing
+        if not retrieved:
+            return (
+                "I could not find relevant information in the catalog for your question. "
+                "Please try rephrasing or ask about a specific product or brand.",
+                [],
+                "LOCAL",
+            )
 
     context_texts = [r.chunk.text for r in retrieved]
+    is_web = (route == "WEB")
 
-    # inject summary into context budget so history doesn't crowd out docs.
-    # BUG-007: budget raised to 100000 chars (~25K tokens) to actually use the
-    # 32K-token window now that the tokenizer max_length is fixed (BUG-002).
-    sep = "\n\n---\n\n"
+    # Context is assembled here (single source of truth).
+    # generator.build_prompt() does NOT duplicate this trimming.
     summary_note = f"\nConversation so far:\n{summary}\n" if summary else ""
-    n = max(len(context_texts), 1)
-    sep_overhead = len(sep) * (len(context_texts) - 1) if context_texts else 0
-    budget = (100_000 - len(summary_note) - sep_overhead) // n
-    trimmed = [c[:budget] for c in context_texts]
-    context = sep.join(trimmed) + summary_note
+    context = "\n\n---\n\n".join(context_texts) + summary_note
 
     # answer the original question (not the rewritten one) using retrieved context
-    is_web = (route == "WEB")
     answer = generate(question, [context], model, tokenizer, _MODEL_ID, is_web=is_web)
 
     # soft grounding check: flag, never block
     if context_texts and not is_web and groundedness(answer, context_texts) < 0.45:
         answer += "\n\n_⚠️ Some details may not be fully covered in the catalog — please verify._"
 
-    return answer, retrieved
+    return answer, retrieved, route
 
 
 # ── streamlit UI ──────────────────────────────────────────────────────────────
@@ -233,6 +254,14 @@ st.set_page_config(
 )
 
 _check_and_run_ingest()
+
+# Model warm-up: trigger cache loading immediately after page load,
+# so the first user query is fast rather than triggering a cold 45-second load.
+if "models_warmed_up" not in st.session_state:
+    with st.spinner("🔄 Loading AI models (first time only, ~2 min)..."):
+        _load_model()
+        _load_index()
+    st.session_state["models_warmed_up"] = True
 
 # init state
 if "sessions" not in st.session_state:
@@ -278,22 +307,29 @@ with st.sidebar:
                 if st.button("Process & Update Index", use_container_width=True):
                     input_dir = _RAG_DIR.parent / "data" / "input"
                     input_dir.mkdir(parents=True, exist_ok=True)
-                    file_path = input_dir / uploaded_file.name
-                    
-                    with open(file_path, "wb") as f:
-                        f.write(uploaded_file.getbuffer())
-                    
-                    st.toast(f"✅ {uploaded_file.name} saved! Background ingestion started.", icon="🚀")
-                    
-                    # Run ingest.py as a background process so it doesn't block Streamlit
-                    subprocess.Popen(
-                        [sys.executable, str(_RAG_DIR / "ingest.py")],
-                        cwd=str(_RAG_DIR),
-                        stdout=subprocess.DEVNULL,
-                        stderr=subprocess.DEVNULL
-                    )
+
+                    # SECURITY: strip directory components to prevent path traversal.
+                    # An attacker could name a file '../../src/app.py' to overwrite code.
+                    safe_name = Path(uploaded_file.name).name
+                    if not safe_name.lower().endswith(".pdf"):
+                        st.error("❌ Only PDF files are accepted.")
+                    else:
+                        file_path = input_dir / safe_name
+                        with open(file_path, "wb") as f:
+                            f.write(uploaded_file.getbuffer())
+
+                        st.toast(f"✅ {safe_name} saved! Background ingestion started.", icon="🚀")
+
+                        # Run ingest.py as a background process so it doesn't block Streamlit
+                        subprocess.Popen(
+                            [sys.executable, str(_RAG_DIR / "ingest.py")],
+                            cwd=str(_RAG_DIR),
+                            stdout=subprocess.DEVNULL,
+                            stderr=subprocess.DEVNULL,
+                        )
 
     st.divider()
+    render_logout_button()
     st.caption("**Model:** Qwen3-8B (4-bit)")
     # ARCH-002: show live index stats instead of hardcoded values
     try:
@@ -403,29 +439,27 @@ if question:
     with st.chat_message("assistant"):
         with st.spinner("Thinking…"):
             start_time = time.time()
+            route_taken = "UNKNOWN"
             try:
-                answer, retrieved = _ask(question, active.summary)
+                answer, retrieved, route_taken = _ask(question, active.summary)
                 success = True
                 error_msg = ""
-            except Exception as e:
-                import traceback
+            except Exception as exc:
                 error_msg = traceback.format_exc()
                 answer = "⚠️ I'm sorry, I encountered an internal error while processing your request. Please try asking again or refreshing the page."
                 retrieved = []
                 success = False
-            
+
             elapsed_ms = int((time.time() - start_time) * 1000)
 
-            # Extract route if possible (could be inferred or captured, for now we just log success/fail)
-            # In a real app we'd pass route back from _ask, but here we just log the outcome.
             log_audit_event(
                 user_id=active.user_id,
                 session_id=active.session_id,
                 question=question,
-                route="UNKNOWN", # Route is hidden inside _ask, we could refactor to extract it later
+                route=route_taken,
                 response_time_ms=elapsed_ms,
                 success=success,
-                error_message=str(e) if not success else "",
+                error_message=error_msg if not success else "",
             )
 
         # The image resolver uses the raw answer to find <DISPLAY: ...> tags

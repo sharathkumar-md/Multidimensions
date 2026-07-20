@@ -91,6 +91,8 @@ pkgs = [
     "torchvision",
     "duckduckgo-search>=6.0.0",
     "diskcache>=5.6.0",
+    "authlib>=1.3.1",
+    "PyJWT[crypto]>=2.8.0",
 ]
 subprocess.run([sys.executable, "-m", "pip", "install", "-q"] + pkgs, check=True)
 print("✅  Dependencies ready")
