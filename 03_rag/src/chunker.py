@@ -203,11 +203,15 @@ def chunk_documents(
     fig_index = {}
     captions = {}
     if fig_index_path.exists():
-        try: fig_index = json.loads(fig_index_path.read_text(encoding="utf-8"))
-        except Exception: pass
+        try:
+            fig_index = json.loads(fig_index_path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            logger.warning(f"Failed to load figure index '{fig_index_path}': {exc}")
     if captions_path.exists():
-        try: captions = json.loads(captions_path.read_text(encoding="utf-8"))
-        except Exception: pass
+        try:
+            captions = json.loads(captions_path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            logger.warning(f"Failed to load figure captions '{captions_path}': {exc}")
 
     all_chunks: list[Chunk] = []
 

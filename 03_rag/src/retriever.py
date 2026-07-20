@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass
 
 from loguru import logger
@@ -57,12 +58,11 @@ def retrieve(
     # PERF-003: request more candidates so the cross-encoder reranker has a
     # larger pool to select top_k_rerank from (was max(20,20)=20, too few).
     results = client.query(
-        collection_name="rag_chunks",
+        collection_name=settings.qdrant_collection_name,
         query_text=retrieval_query,
         limit=max(top_k_dense, top_k_sparse) * 2,
     )
-    
-    import uuid
+
     chunk_map = {uuid.uuid5(uuid.NAMESPACE_DNS, c.chunk_id).hex: c for c in chunks}
     retrieved = []
     
@@ -93,5 +93,5 @@ def load_reranker(model_name: str | None = None) -> CrossEncoder:
     import torch
     model_name = model_name or settings.reranker_model
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    logger.info(f"loading reranker: {model_name} on {device}")
+    logger.info(f"Loading reranker '{model_name}' on device '{device}'")
     return CrossEncoder(model_name, device=device)

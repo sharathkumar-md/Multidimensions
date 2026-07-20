@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import uuid
 from pathlib import Path
 
 from loguru import logger
@@ -9,7 +10,7 @@ from qdrant_client import QdrantClient
 from config.settings import settings
 from src.chunker import Chunk
 
-_COLLECTION = "rag_chunks"
+_COLLECTION = settings.qdrant_collection_name
 _CHUNKS_FILE = "chunks.json"
 
 
@@ -31,15 +32,14 @@ def build_index(chunks: list[Chunk], index_dir: Path | None = None) -> None:
         # Delete then recreate — recreate_collection was removed in qdrant-client ≥1.9
         try:
             client.delete_collection(collection_name=_COLLECTION)
-        except Exception:
-            pass  # collection may not exist on first build
+        except Exception as exc:
+            logger.debug(f"Collection '{_COLLECTION}' did not exist yet (first build): {exc}")
         client.create_collection(
             collection_name=_COLLECTION,
             vectors_config=client.get_fastembed_vector_params(),
             sparse_vectors_config=client.get_fastembed_sparse_vector_params(),
         )
 
-        import uuid
         texts = [c.text for c in chunks]
         ids = [uuid.uuid5(uuid.NAMESPACE_DNS, c.chunk_id).hex for c in chunks]
         metadatas = [
