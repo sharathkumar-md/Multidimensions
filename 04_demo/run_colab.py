@@ -8,7 +8,12 @@ That's it.  Everything else (clone, deps, ingest, Streamlit, tunnel) is
 handled here automatically.
 """
 from __future__ import annotations
-import os, stat, sys, subprocess, time, socket, tempfile, urllib.request
+
+import os
+import subprocess
+import sys
+import time
+import urllib.request
 from pathlib import Path
 
 REPO_DIR  = Path("/content/MultiDimensions")
@@ -139,7 +144,8 @@ while time.time() < deadline:
         sys.exit(1)
     try:
         urllib.request.urlopen(f"http://localhost:{port}/_stcore/health", timeout=1)
-        print("✅  Streamlit is ready"); break
+        print("✅  Streamlit is ready")
+        break
     except Exception:
         time.sleep(1)
 else:

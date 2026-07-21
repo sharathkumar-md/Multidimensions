@@ -4,8 +4,8 @@ import uuid
 from dataclasses import dataclass
 
 from loguru import logger
-from sentence_transformers import CrossEncoder
 from qdrant_client import QdrantClient
+from sentence_transformers import CrossEncoder
 
 from config.settings import settings
 from src.chunker import Chunk
@@ -65,7 +65,7 @@ def retrieve(
 
     chunk_map = {uuid.uuid5(uuid.NAMESPACE_DNS, c.chunk_id).hex: c for c in chunks}
     retrieved = []
-    
+
     for r in results:
         # Match against the returned UUID hex string
         uuid_str = str(r.id).replace("-", "")
@@ -73,7 +73,7 @@ def retrieve(
             retrieved.append(chunk_map[uuid_str])
         elif str(r.id) in chunk_map:
             retrieved.append(chunk_map[str(r.id)])
-            
+
     if not retrieved:
         return []
 

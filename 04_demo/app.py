@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import hashlib
-import json
 import os
 import re
 import subprocess
@@ -51,13 +49,12 @@ def _check_and_run_ingest() -> None:
         repo_dir / "data" / "input",
         repo_dir / "Brand Resources",
     ]
-    
+
     pdfs = []
     for d in search_dirs:
         if d.exists():
             pdfs.extend(d.rglob("*.pdf"))   # rglob: scan subdirectories too
 
-            
     if not pdfs:
         return
 
@@ -77,7 +74,7 @@ def _check_and_run_ingest() -> None:
 
     done_ocr = _get_manifest_hashes(repo_dir / "01_ocr" / "output" / "manifests")
     done_vlm = _get_manifest_hashes(repo_dir / "data" / "ocr_output_vlm" / "manifests")
-    
+
     need_ingest = False
     import hashlib
     for pdf in pdfs:
@@ -86,11 +83,11 @@ def _check_and_run_ingest() -> None:
             for chunk in iter(lambda: f.read(65536), b""):
                 h.update(chunk)
         sha = h.hexdigest()
-        
+
         if sha not in done_ocr or sha not in done_vlm:
             need_ingest = True
             break
-            
+
     if need_ingest:
         with st.spinner("Processing new PDF catalogs (OCR + Figure indexing + Vector store re-indexing)..."):
             # Run ingest in a completely separate process to avoid BrokenPipeError.
@@ -100,7 +97,7 @@ def _check_and_run_ingest() -> None:
             env = os.environ.copy()
             env["TQDM_DISABLE"] = "1"
             env["TRANSFORMERS_NO_ADVISORY_WARNINGS"] = "1"
-            
+
             subprocess.run(
                 [sys.executable, str(ingest_script)],
                 env=env,
@@ -126,7 +123,7 @@ def _new_session() -> Session:
 def _update_summary(session: Session, question: str, answer: str) -> None:
     answer_short = answer.replace("\n", " ")[:150]
     line = f"• {question[:70]} → {answer_short}"
-    lines = [l for l in session.summary.split("\n") if l.strip()]
+    lines = [ln for ln in session.summary.split("\n") if ln.strip()]
     lines.append(line)
     session.summary = "\n".join(lines[-2:])  # keep last 2 turns, ~75 tokens max
 
@@ -340,7 +337,7 @@ with st.sidebar:
     except Exception:
         st.caption("**Index:** (loading…)")
     st.caption("**Retrieval:** SPLADE + dense + rerank")
-    
+
     if st.button("Refresh Index", use_container_width=True, help="Click this after ingestion finishes to load the new data"):
         st.cache_resource.clear()
         st.rerun()
@@ -363,7 +360,7 @@ def _render_product_image(product_image: dict | None) -> None:
     # Show up to 4 images in a single row
     preview_limit = 4
     preview_images = images[:preview_limit]
-    
+
     cols = st.columns(len(preview_images))
     for col, img in zip(cols, preview_images):
         caption = img.get("title", "Product image")
@@ -444,7 +441,7 @@ if question:
                 answer, retrieved, route_taken = _ask(question, active.summary)
                 success = True
                 error_msg = ""
-            except Exception as exc:
+            except Exception:
                 error_msg = traceback.format_exc()
                 answer = "⚠️ I'm sorry, I encountered an internal error while processing your request. Please try asking again or refreshing the page."
                 retrieved = []
@@ -464,11 +461,11 @@ if question:
 
         # The image resolver uses the raw answer to find <DISPLAY: ...> tags
         product_image = resolve_product_image(question, answer, retrieved)
-        
+
         # Clean the answer for the UI so the user doesn't see the tags
         display_answer = re.sub(r"<DISPLAY:\s*[^>]+>", "", answer).strip()
         st.markdown(display_answer)
-        
+
         _render_product_image(product_image)
         sources = _collect_sources(retrieved)
         _render_sources(sources)

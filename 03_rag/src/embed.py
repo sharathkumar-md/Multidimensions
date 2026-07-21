@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-import torch
 from functools import lru_cache
 
+import torch
 from loguru import logger
 from sentence_transformers import SentenceTransformer
 

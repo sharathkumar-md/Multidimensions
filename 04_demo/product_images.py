@@ -159,7 +159,7 @@ def _load_figure_index(
             index_path.write_text(json.dumps(index, indent=2), encoding="utf-8")
             _fig_index_cache = {"path": index_path, "mtime": index_path.stat().st_mtime, "data": index}
             return index
-        except Exception as exc:
+        except Exception:
             if index_path.exists():
                 try:
                     data = json.loads(index_path.read_text(encoding="utf-8"))
@@ -247,7 +247,7 @@ def _figures_for_chunk(
     # Path logic: if figures_base is absolute (from old scripts), it ignores REPO_DIR.
     # If it is relative (from updated scripts), it joins to REPO_DIR correctly.
     figures_base = REPO_DIR / Path(entry.get("figures_base", ""))
-    
+
     page_figs = by_page.get(str(page_num), [])
     paths = []
     for fig in page_figs:                      # already sorted size-desc by build script
