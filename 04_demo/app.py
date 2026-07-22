@@ -30,6 +30,9 @@ from src.audit import log_audit_event  # type: ignore  # noqa: E402
 from src.auth import require_auth, render_logout_button  # type: ignore  # noqa: E402
 from config.settings import settings  # type: ignore  # noqa: E402
 
+# Ensure all required directories (logs, cache, index) exist before first use
+settings.ensure_directories()
+
 # Enforce Keycloak Authentication before anything else loads
 current_user = require_auth()
 
@@ -427,6 +430,23 @@ for msg in active.messages:
 question = st.chat_input("Ask about the product catalog…")
 
 if question:
+    # ── Rate limiting: sliding-window per user session ─────────────────────
+    import time as _time
+    _now = _time.time()
+    _rate_key = "_rate_timestamps"
+    if _rate_key not in st.session_state:
+        st.session_state[_rate_key] = []
+    st.session_state[_rate_key] = [
+        t for t in st.session_state[_rate_key] if _now - t < 60
+    ]
+    if settings.rate_limit_per_minute > 0 and len(st.session_state[_rate_key]) >= settings.rate_limit_per_minute:
+        st.warning(
+            f"⏳ You've reached the limit of {settings.rate_limit_per_minute} queries per minute. "
+            "Please wait a moment before sending another message."
+        )
+        st.stop()
+    st.session_state[_rate_key].append(_now)
+    # ── end rate limiting ───────────────────────────────────────────
     _set_title(active, question)
     active.messages.append({"role": "user", "content": question})
 

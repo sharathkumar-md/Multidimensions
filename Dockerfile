@@ -63,9 +63,20 @@ WORKDIR /app
 # Copy application source
 COPY . .
 
+# ── Model Pre-warm ────────────────────────────────────────────────────────────
+# Pre-download the embed model into the image so first-request latency is low.
+# The LLM (Qwen3-8B, ~17 GB) is too large for the image — it is loaded at
+# runtime from HuggingFace into the HF_HOME volume mount.
+RUN python3.11 -c "\
+from sentence_transformers import SentenceTransformer; \
+SentenceTransformer('BAAI/bge-large-en-v1.5', cache_folder='/app/.cache/huggingface'); \
+print('Embed model cached OK')"
+
 # ── Environment Variables ─────────────────────────────────────────────────────
 # Runtime behaviour
-ENV PYTHONUNBUFFERED=1 \
+ENV PYTHONPATH=/app/03_rag \
+    HF_HOME=/app/.cache/huggingface \
+    PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     # HuggingFace optimizations
     HF_HUB_DISABLE_XET=1 \

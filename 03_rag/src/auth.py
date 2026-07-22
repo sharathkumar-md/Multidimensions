@@ -86,12 +86,29 @@ def _keycloak_base() -> str:
         f"/protocol/openid-connect"
     )
 
+def _get_signing_key() -> bytes:
+    """Return the HMAC signing key as bytes.
+
+    Raises RuntimeError in production if key is not configured, so
+    misconfiguration is never silent.
+    """
+    key = settings.auth_session_key
+    if not key:
+        if settings.auth_enabled:
+            raise RuntimeError(
+                "RAG_AUTH_SESSION_KEY must be set when RAG_AUTH_ENABLED=true. "
+                "Generate one with: openssl rand -hex 32"
+            )
+        # Dev-only fallback — clearly labelled, never used in production
+        key = "dev-insecure-key-do-not-use-in-production"
+    return key.encode()
+
 
 def _generate_state() -> str:
     """CSRF protection: a random, signed state token."""
     raw = hashlib.sha256(str(time.time_ns()).encode()).hexdigest()
     sig = hmac.new(
-        (settings.auth_session_key or "dev").encode(),
+        _get_signing_key(),
         raw.encode(),
         hashlib.sha256,
     ).hexdigest()
@@ -105,7 +122,7 @@ def _validate_state(state: str) -> bool:
     except ValueError:
         return False
     expected = hmac.new(
-        (settings.auth_session_key or "dev").encode(),
+        _get_signing_key(),
         raw.encode(),
         hashlib.sha256,
     ).hexdigest()
