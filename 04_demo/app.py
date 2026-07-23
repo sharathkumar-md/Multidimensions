@@ -337,7 +337,8 @@ with st.sidebar:
         _n_chunks = len(_idx_chunks)
         _n_docs = len({c.source_doc for c in _idx_chunks})
         st.caption(f"**Index:** {_n_chunks} chunks · {_n_docs} docs")
-    except Exception:
+    except Exception as e:
+        logger.warning(f"Index load failed: {e}")
         st.caption("**Index:** (loading…)")
     st.caption("**Retrieval:** SPLADE + dense + rerank")
 
@@ -461,7 +462,8 @@ if question:
                 answer, retrieved, route_taken = _ask(question, active.summary)
                 success = True
                 error_msg = ""
-            except Exception:
+            except Exception as e:
+                logger.error(f"Chat error: {e}")
                 error_msg = traceback.format_exc()
                 answer = "⚠️ I'm sorry, I encountered an internal error while processing your request. Please try asking again or refreshing the page."
                 retrieved = []

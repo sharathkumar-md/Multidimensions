@@ -138,7 +138,8 @@ def build_with_fallback() -> dict:
     for manifest_file in sorted(MANIFESTS_DIR.glob("*.json")):
         try:
             manifest = json.loads(manifest_file.read_text(encoding="utf-8"))
-        except Exception:
+        except Exception as e:
+            logger.warning(f"Failed to read manifest {manifest_file}: {e}")
             continue
 
         doc_id   = manifest.get("doc_id", "")

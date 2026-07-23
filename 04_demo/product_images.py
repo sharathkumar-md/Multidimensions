@@ -159,14 +159,15 @@ def _load_figure_index(
             index_path.write_text(json.dumps(index, indent=2), encoding="utf-8")
             _fig_index_cache = {"path": index_path, "mtime": index_path.stat().st_mtime, "data": index}
             return index
-        except Exception:
+        except Exception as e:
+            logger.warning(f"Failed to build figure index: {e}")
             if index_path.exists():
                 try:
                     data = json.loads(index_path.read_text(encoding="utf-8"))
                     _fig_index_cache = {"path": index_path, "mtime": index_path.stat().st_mtime, "data": data}
                     return data
-                except Exception:
-                    pass
+                except Exception as e:
+                    logger.error(f"Failed to load existing index after build failure: {e}")
             return {}
 
     # Check module-level cache before hitting disk
