@@ -28,8 +28,8 @@ def _done_hashes() -> set[str]:
             d = json.loads(f.read_text(encoding="utf-8"))
             if sha := d.get("sha256"):
                 hashes.add(sha)
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning(f"Failed to read manifest {f}: {e}")
     return hashes
 
 

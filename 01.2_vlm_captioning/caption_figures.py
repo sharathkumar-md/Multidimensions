@@ -54,8 +54,8 @@ def run_captioning():
     if captions_path.exists():
         try:
             existing_captions = json.loads(captions_path.read_text(encoding="utf-8"))
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning(f"Failed to read existing captions {captions_path}: {e}")
 
     # Collect tasks
     tasks = []
