@@ -209,7 +209,8 @@ async def stream_answer(
             {"image_path": img.image_path, "title": img.title, "source_doc": img.source_doc}
             for img in images
         ]
-    except Exception:
+    except Exception as e:
+        logger.warning(f"Failed to find product images: {e}")
         product_images = []
 
     yield json.dumps({

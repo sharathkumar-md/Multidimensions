@@ -69,8 +69,8 @@ def build_index(chunks: list[Chunk], index_dir: Path | None = None) -> None:
         # Always release the file lock so the next process (Streamlit) can open the DB
         try:
             client.close()
-        except Exception:
-            pass
+        except Exception as exc:
+            logger.warning(f"Failed to close Qdrant client: {exc}")
 
 
 def load_index(index_dir: Path | None = None) -> tuple[QdrantClient, list[Chunk]]:
