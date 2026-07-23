@@ -2,8 +2,12 @@ import type { Metadata } from 'next';
 import styles from './page.module.css';
 
 export const metadata: Metadata = { title: 'Login' };
+import { redirect } from 'next/navigation';
 
 export default function LoginPage() {
+  if (process.env.NEXT_PUBLIC_AUTH_ENABLED === 'false') {
+    redirect('/chat');
+  }
   return (
     <main className={styles.page}>
       {/* Animated gradient background */}

@@ -106,6 +106,14 @@ async def get_current_user(
     """
     FastAPI dependency — resolves to the authenticated UserInfo.
     """
+    if not api_settings.auth_enabled:
+        return UserInfo(
+            sub="local-dev",
+            email="dev@local",
+            name="Local Dev",
+            roles=["admin", "sales"],
+        )
+
     if credentials is None or credentials.scheme.lower() != "bearer":
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

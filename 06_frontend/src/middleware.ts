@@ -2,6 +2,11 @@ import { auth } from "@/auth"
 import { NextResponse } from "next/server"
 
 export default auth((req) => {
+  // Allow local dev bypass
+  if (process.env.NEXT_PUBLIC_AUTH_ENABLED === 'false') {
+    return NextResponse.next();
+  }
+
   const isLoggedIn = !!req.auth;
   const isAuthPage = req.nextUrl.pathname.startsWith('/login');
   
