@@ -1,0 +1,22 @@
+.wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--space-3) 0;
+  animation: fadeIn var(--transition-slow) ease-out;
+}
+
+.bubble {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 var(--radius-xl);
+  padding: var(--space-3) var(--space-5);
+  max-width: 80%;
+  box-shadow: var(--shadow-sm);
+}
+
+.text {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  white-space: pre-wrap;
+  word-break: break-word;
+}

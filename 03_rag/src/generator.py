@@ -393,3 +393,36 @@ def delete_model_cache(hf_home: str | Path, model_id: str | None = None) -> None
     else:
         shutil.rmtree(hub_dir)
         logger.info(f"cleared cache: {hub_dir}")
+
+
+from transformers import TextIteratorStreamer
+import threading
+
+def stream_generate(query: str, context_chunks: list[str], model, tokenizer, model_id: str, max_new_tokens: int = 512, is_web: bool = False):
+    system_prompt = _WEB_SYSTEM_PROMPT if is_web else _SYSTEM_PROMPT
+    messages = [
+        {'role': 'system', 'content': system_prompt},
+        {'role': 'user', 'content': build_prompt(query, context_chunks, is_web=is_web)},
+    ]
+    kwargs: dict = {'tokenize': False, 'add_generation_prompt': True}
+    if 'qwen3' in model_id.lower():
+        kwargs['enable_thinking'] = False
+    prompt_text = tokenizer.apply_chat_template(messages, **kwargs)
+    inputs = tokenizer(prompt_text, return_tensors='pt', truncation=True, max_length=32768).to(model.device)
+    
+    streamer = TextIteratorStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
+    generation_kwargs = dict(
+        inputs=inputs['input_ids'],
+        max_new_tokens=max_new_tokens,
+        do_sample=False,
+        temperature=None,
+        top_p=None,
+        pad_token_id=tokenizer.eos_token_id,
+        streamer=streamer,
+    )
+    
+    thread = threading.Thread(target=model.generate, kwargs=generation_kwargs)
+    thread.start()
+    
+    for new_text in streamer:
+        yield new_text

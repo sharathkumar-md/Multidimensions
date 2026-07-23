@@ -177,7 +177,7 @@ def _split_section(
             doc_hash=doc_hash,
             source_doc=source,
             page_num=page,
-            text=text,
+            text=f"[Source: {source}, Page {page}]\n{text}",
         )
         for idx, text in enumerate(texts)
         if text.strip()

@@ -1,0 +1,19 @@
+.shell {
+  display: flex;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+@media (max-width: 768px) {
+  .shell { flex-direction: column; }
+}
