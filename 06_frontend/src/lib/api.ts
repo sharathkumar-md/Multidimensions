@@ -18,7 +18,6 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     ...init,
     headers: {
       'Content-Type': 'application/json',
-      'Bypass-Tunnel-Reminder': 'true',
       ...init?.headers,
     },
     credentials: 'include',
@@ -72,10 +71,7 @@ export async function* streamChat(
 
   const res = await fetch(url, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Bypass-Tunnel-Reminder': 'true'
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ sessionId, question }),
     credentials: 'include',
     signal,
@@ -126,9 +122,6 @@ export async function uploadPdf(file: File): Promise<{ filename: string }> {
   const res = await fetch(url, {
     method: 'POST',
     body: form,
-    headers: {
-      'Bypass-Tunnel-Reminder': 'true'
-    },
     credentials: 'include',
   });
   if (!res.ok) {
