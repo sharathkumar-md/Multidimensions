@@ -85,7 +85,7 @@ class RAGSettings(BaseSettings):
 
     # ── Security & Auth (Keycloak OIDC) ─────────────────────────────────────────
     auth_enabled: bool = Field(
-        default=False,
+        default=True,
         description="Set True in production. False bypasses auth for local development.",
     )
     keycloak_server_url: str = Field(default="https://keycloak.example.com")

@@ -49,8 +49,8 @@ class APISettings(BaseSettings):
 
     # ── Auth ──────────────────────────────────────────────────────────────────
     auth_enabled: bool = Field(
-        default=False,
-        description="False bypasses JWT validation for local development.",
+        default=True,
+        description="Must be True in production to enforce JWT validation.",
     )
     keycloak_server_url: str = Field(default="https://keycloak.example.com")
     keycloak_realm: str = Field(default="multidimensions")
@@ -58,9 +58,6 @@ class APISettings(BaseSettings):
 
     # ── Rate Limiting ─────────────────────────────────────────────────────────
     rate_limit_per_minute: int = Field(default=20, ge=0)
-
-    # ── Session store ─────────────────────────────────────────────────────────
-    session_store_path: Path = Field(default=_API_DIR / ".sessions.json")
 
     # ── Upload ────────────────────────────────────────────────────────────────
     upload_dir: Path = Field(default=_API_DIR.parent / "data" / "uploads")

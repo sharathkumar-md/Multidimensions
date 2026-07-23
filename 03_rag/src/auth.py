@@ -1,9 +1,6 @@
 """
 Enterprise Authentication — Keycloak OIDC Authorization Code Flow.
 
-When RAG_AUTH_ENABLED=False (local dev):
-    - All auth checks are bypassed. A mock admin user is returned immediately.
-
 When RAG_AUTH_ENABLED=True (production):
     - Users must log in via Keycloak before accessing any content.
     - The OIDC Authorization Code Flow is implemented:
@@ -300,18 +297,10 @@ def _clear_session() -> None:
 def get_current_user() -> Optional[User]:
     """
     Returns the authenticated User or None.
-
-    In dev mode (auth_enabled=False): always returns a mock admin user.
     In production: validates session and token expiry.
     """
     if not settings.auth_enabled:
-        return User(
-            email="dev@local",
-            name="Local Dev",
-            roles=["sales", "admin"],
-            is_admin=True,
-            token_expires_at=time.time() + 86400,
-        )
+        logger.warning("RAG_AUTH_ENABLED=False is deprecated and insecure. Auth is always enforced.")
 
     user = _get_session_user()
     if user is None:
@@ -452,8 +441,6 @@ def render_logout_button() -> None:
 def require_auth() -> User:
     """
     Enforce authentication. Must be called at the top of every protected page.
-
-    - In dev mode: returns mock user immediately.
     - In production: redirects to login if not authenticated; returns User if valid.
     """
     user = get_current_user()
