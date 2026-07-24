@@ -114,7 +114,6 @@ async def stream_answer(
     from src.retriever import retrieve
     from src.web_retriever import web_retrieve
     from src.generator import stream_generate
-    from src.indexer import find_product_images
 
     loop = asyncio.get_event_loop()
 
@@ -203,15 +202,7 @@ async def stream_answer(
         for chunk in local_chunks[:5]
     ]
 
-    try:
-        images = find_product_images(local_chunks[:5])
-        product_images = [
-            {"image_path": img.image_path, "title": img.title, "source_doc": img.source_doc}
-            for img in images
-        ]
-    except Exception as e:
-        logger.warning(f"Failed to find product images: {e}")
-        product_images = []
+    product_images = []
 
     yield json.dumps({
         "done": True,
