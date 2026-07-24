@@ -4,7 +4,7 @@ import styles from './Badge.module.css';
 type BadgeVariant = 'primary' | 'success' | 'warning' | 'error' | 'neutral' | 'route';
 
 interface BadgeProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   variant?: BadgeVariant;
   route?: RouteType;
   size?: 'sm' | 'md';

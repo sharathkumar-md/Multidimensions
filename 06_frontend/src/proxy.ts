@@ -1,7 +1,7 @@
 import { auth } from "@/auth"
 import { NextResponse } from "next/server"
 
-export default auth((req) => {
+export const proxy = auth((req) => {
   // Allow local dev bypass
   if (process.env.NEXT_PUBLIC_AUTH_ENABLED === 'false') {
     return NextResponse.next();
