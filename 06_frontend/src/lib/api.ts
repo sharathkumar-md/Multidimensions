@@ -1,7 +1,9 @@
 import type { Session, Message, IndexStats, IngestionStatus } from './types';
 import logger from './logger';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
+const isBrowser = typeof window !== 'undefined';
+// Use relative path in browser to route through Next.js proxy (avoids CORS preflight)
+const API_BASE = isBrowser ? '' : (process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000');
 
 class ApiError extends Error {
   constructor(public status: number, public code: string, message: string) {
@@ -18,6 +20,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     ...init,
     headers: {
       'Content-Type': 'application/json',
+      'Bypass-Tunnel-Reminder': 'true',
       ...init?.headers,
     },
     credentials: 'include',
@@ -71,7 +74,10 @@ export async function* streamChat(
 
   const res = await fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Bypass-Tunnel-Reminder': 'true'
+    },
     body: JSON.stringify({ sessionId, question }),
     credentials: 'include',
     signal,
@@ -122,6 +128,9 @@ export async function uploadPdf(file: File): Promise<{ filename: string }> {
   const res = await fetch(url, {
     method: 'POST',
     body: form,
+    headers: {
+      'Bypass-Tunnel-Reminder': 'true'
+    },
     credentials: 'include',
   });
   if (!res.ok) {
