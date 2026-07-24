@@ -5,7 +5,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, AliasChoices
 
 
 # ── Auth ──────────────────────────────────────────────────────────────────────
@@ -73,7 +73,12 @@ class CreateSessionRequest(BaseModel):
 # ── Chat ──────────────────────────────────────────────────────────────────────
 
 class ChatRequest(BaseModel):
-    session_id: str = Field(..., description="Active session ID")
+    session_id: str = Field(
+        ...,
+        validation_alias=AliasChoices("session_id", "sessionId"),
+        serialization_alias="session_id",
+        description="Active session ID",
+    )
     question: str = Field(..., min_length=1, max_length=4000)
 
 

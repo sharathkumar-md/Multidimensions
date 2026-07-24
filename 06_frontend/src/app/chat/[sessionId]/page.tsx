@@ -123,7 +123,7 @@ export default function SessionPage() {
         if (parsed.done) {
           finalizeMessage(sessionId, aiMsgId, {
             sources: parsed.sources,
-            productImages: parsed.productImages,
+            productImages: parsed.productImages ?? parsed.product_images,
             route: parsed.route,
           });
           logger.info('Stream complete', { sessionId, route: parsed.route });

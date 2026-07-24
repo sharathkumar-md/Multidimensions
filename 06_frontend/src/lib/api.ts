@@ -12,6 +12,118 @@ class ApiError extends Error {
   }
 }
 
+type ApiSource = {
+  source_doc?: string;
+  page_num?: number;
+  snippet?: string;
+  sourceDoc?: string;
+  pageNum?: number;
+};
+
+type ApiProductImage = {
+  image_path?: string;
+  title?: string;
+  source_doc?: string;
+  imagePath?: string;
+  sourceDoc?: string;
+};
+
+type ApiMessage = {
+  id: string;
+  role: 'user' | 'assistant';
+  content: string;
+  created_at?: string;
+  createdAt?: string;
+  sources?: ApiSource[];
+  product_images?: ApiProductImage[];
+  productImages?: ApiProductImage[];
+  route?: 'LOCAL' | 'WEB' | 'NONE';
+};
+
+type ApiSession = {
+  id: string;
+  title: string;
+  user_id?: string;
+  userId?: string;
+  created_at?: string;
+  createdAt?: string;
+  updated_at?: string;
+  updatedAt?: string;
+  message_count?: number;
+  messageCount?: number;
+};
+
+type ApiIndexStats = {
+  n_chunks: number;
+  n_docs: number;
+  last_updated?: string | null;
+  gpu_available: boolean;
+};
+
+type ApiIngestionStatus = {
+  running: boolean;
+  progress?: number;
+  current_file?: string | null;
+  error?: string | null;
+};
+
+function normalizeSource(source: ApiSource) {
+  return {
+    sourceDoc: source.sourceDoc ?? source.source_doc ?? '',
+    pageNum: source.pageNum ?? source.page_num ?? 0,
+    snippet: source.snippet ?? '',
+  };
+}
+
+function normalizeProductImage(image: ApiProductImage) {
+  return {
+    imagePath: image.imagePath ?? image.image_path ?? '',
+    title: image.title ?? '',
+    sourceDoc: image.sourceDoc ?? image.source_doc ?? '',
+  };
+}
+
+function normalizeMessage(message: ApiMessage): Message {
+  return {
+    id: message.id,
+    role: message.role,
+    content: message.content,
+    createdAt: message.createdAt ?? message.created_at ?? new Date().toISOString(),
+    sources: (message.sources ?? []).map(normalizeSource),
+    productImages: (message.productImages ?? message.product_images ?? []).map(normalizeProductImage),
+    route: message.route,
+  };
+}
+
+function normalizeSession(session: ApiSession): Session {
+  return {
+    id: session.id,
+    title: session.title,
+    createdAt: session.createdAt ?? session.created_at ?? new Date().toISOString(),
+    updatedAt: session.updatedAt ?? session.updated_at ?? new Date().toISOString(),
+    messageCount: session.messageCount ?? session.message_count ?? 0,
+    userId: session.userId ?? session.user_id ?? '',
+  };
+}
+
+function normalizeIndexStats(stats: ApiIndexStats): IndexStats {
+  return {
+    nChunks: stats.n_chunks,
+    nDocs: stats.n_docs,
+    lastUpdated: stats.last_updated ?? null,
+    gpuAvailable: stats.gpu_available,
+  };
+}
+
+function normalizeIngestionStatus(status: ApiIngestionStatus): IngestionStatus {
+  return {
+    running: status.running,
+    progress: status.progress ?? 0,
+    currentFile: status.current_file ?? null,
+    error: status.error ?? null,
+  };
+}
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const url = `${API_BASE}${path}`;
   logger.debug(`API request: ${init?.method ?? 'GET'} ${url}`);
@@ -44,14 +156,16 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 // ── Sessions ──────────────────────────────────────────────────────────────
 
 export async function getSessions(): Promise<Session[]> {
-  return request<Session[]>('/api/sessions');
+  const sessions = await request<ApiSession[]>('/api/sessions');
+  return sessions.map(normalizeSession);
 }
 
 export async function createSession(title?: string): Promise<Session> {
-  return request<Session>('/api/sessions', {
+  const session = await request<ApiSession>('/api/sessions', {
     method: 'POST',
     body: JSON.stringify({ title: title ?? 'New conversation' }),
   });
+  return normalizeSession(session);
 }
 
 export async function deleteSession(sessionId: string): Promise<void> {
@@ -59,7 +173,8 @@ export async function deleteSession(sessionId: string): Promise<void> {
 }
 
 export async function getMessages(sessionId: string): Promise<Message[]> {
-  return request<Message[]>(`/api/sessions/${sessionId}/messages`);
+  const messages = await request<ApiMessage[]>(`/api/sessions/${sessionId}/messages`);
+  return messages.map(normalizeMessage);
 }
 
 // ── Streaming chat ─────────────────────────────────────────────────────────
@@ -78,7 +193,7 @@ export async function* streamChat(
       'Content-Type': 'application/json',
       'Bypass-Tunnel-Reminder': 'true'
     },
-    body: JSON.stringify({ sessionId, question }),
+    body: JSON.stringify({ session_id: sessionId, question }),
     credentials: 'include',
     signal,
   });
@@ -112,11 +227,13 @@ export async function* streamChat(
 // ── Admin ─────────────────────────────────────────────────────────────────
 
 export async function getIndexStats(): Promise<IndexStats> {
-  return request<IndexStats>('/api/index/stats');
+  const stats = await request<ApiIndexStats>('/api/index/stats');
+  return normalizeIndexStats(stats);
 }
 
 export async function getIngestionStatus(): Promise<IngestionStatus> {
-  return request<IngestionStatus>('/api/admin/ingest/status');
+  const status = await request<ApiIngestionStatus>('/api/admin/ingest/status');
+  return normalizeIngestionStatus(status);
 }
 
 export async function uploadPdf(file: File): Promise<{ filename: string }> {
