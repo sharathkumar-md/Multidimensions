@@ -22,12 +22,14 @@ const nextConfig = {
 
   // Rewrites: proxy /api/* to FastAPI backend during development
   async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'}/api/:path*`,
-      },
-    ];
+    return {
+      fallback: [
+        {
+          source: '/api/:path*',
+          destination: `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'}/api/:path*`,
+        },
+      ],
+    };
   },
 
   // Security headers

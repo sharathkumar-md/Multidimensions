@@ -49,7 +49,7 @@ class APISettings(BaseSettings):
 
     # ── Auth ──────────────────────────────────────────────────────────────────
     auth_enabled: bool = Field(
-        default=True,
+        default=False,
         description="Must be True in production to enforce JWT validation.",
     )
     keycloak_server_url: str = Field(default="https://keycloak.example.com")

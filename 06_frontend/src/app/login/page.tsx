@@ -35,30 +35,38 @@ export default function LoginPage() {
             product catalog Q&amp;A system.
           </p>
 
-          <a
-            href="/api/auth/signin/keycloak"
-            className={styles.loginBtn}
-            id="keycloak-login-btn"
+          <form
+            action={async () => {
+              'use server';
+              const { signIn } = await import('@/auth');
+              await signIn('keycloak', { redirectTo: '/chat' });
+            }}
           >
-            <svg
-              viewBox="0 0 64 64"
-              width="20"
-              height="20"
-              aria-hidden="true"
-              className={styles.keycloakIcon}
+            <button
+              type="submit"
+              className={styles.loginBtn}
+              id="keycloak-login-btn"
             >
-              <circle cx="32" cy="32" r="30" fill="currentColor" opacity="0.15" />
-              <path
-                d="M32 12 L48 22 L48 42 L32 52 L16 42 L16 22Z"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinejoin="round"
-              />
-              <circle cx="32" cy="32" r="6" fill="currentColor" />
-            </svg>
-            Continue with Keycloak SSO
-          </a>
+              <svg
+                viewBox="0 0 64 64"
+                width="20"
+                height="20"
+                aria-hidden="true"
+                className={styles.keycloakIcon}
+              >
+                <circle cx="32" cy="32" r="30" fill="currentColor" opacity="0.15" />
+                <path
+                  d="M32 12 L48 22 L48 42 L32 52 L16 42 L16 22Z"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinejoin="round"
+                />
+                <circle cx="32" cy="32" r="6" fill="currentColor" />
+              </svg>
+              Continue with Keycloak SSO
+            </button>
+          </form>
 
           <p className={styles.helpText}>
             Contact your IT administrator if you don&apos;t have access.
