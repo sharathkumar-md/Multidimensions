@@ -81,7 +81,8 @@ def _do_load() -> None:
 
         logger.info("Loading LLM…")
         from src.generator import load_model
-        _model, _tokenizer, _model_id = load_model()
+        _model_id = settings.generator_model_id
+        _model, _tokenizer = load_model(_model_id)
         logger.info(f"LLM loaded: {_model_id}")
 
         _pipeline_loaded = True
@@ -126,13 +127,11 @@ async def stream_answer(
             from src.generator import generate_raw
             return generate_raw(prompt, _model, _tokenizer, max_new_tokens=max_new_tokens)
 
-        # Try local index first
         local_chunks = retrieve(
             query=question,
             client=_index_client,
             chunks=_index_chunks,
             reranker=_reranker,
-            embed_model=_embed_model,
             generator_fn=hyde_fn if settings.hyde_enabled else None,
         )
 

@@ -310,10 +310,7 @@ def load_model(model_id: str) -> tuple:
     return model, tokenizer
 
 
-def build_prompt(query: str, context_chunks: list[str], max_context_chars: int = 100_000, is_web: bool = False) -> str:
-    # BUG-007: raised from 32000 chars (~8K tokens) to 100000 chars (~25K tokens)
-    # to actually utilise Qwen3-8B's 32K-token context window (unlocked by BUG-002).
-    # The tokenizer's max_length=32768 is the hard safety net.
+def build_prompt(query: str, context_chunks: list[str], max_context_chars: int = 24_000, is_web: bool = False) -> str:
     budget = max_context_chars // max(len(context_chunks), 1)
     trimmed = [c[:budget] for c in context_chunks]
     context = "\n\n---\n\n".join(trimmed)

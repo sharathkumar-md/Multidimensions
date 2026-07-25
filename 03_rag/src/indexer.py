@@ -81,7 +81,12 @@ def load_index(index_dir: Path | None = None) -> tuple[QdrantClient, list[Chunk]
     client.set_model(settings.embed_model)
     client.set_sparse_model("prithivida/Splade_PP_en_v1")
 
-    with open(index_dir / _CHUNKS_FILE, encoding="utf-8") as f:
+    chunks_file = index_dir / _CHUNKS_FILE
+    if not chunks_file.exists():
+        logger.warning(f"No chunks file found at {chunks_file}. Returning empty index.")
+        return client, []
+
+    with open(chunks_file, encoding="utf-8") as f:
         chunk_dicts = json.load(f)
 
     chunks = [
