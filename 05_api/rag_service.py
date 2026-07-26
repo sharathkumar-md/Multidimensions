@@ -116,7 +116,7 @@ async def stream_answer(
     from src.web_retriever import web_retrieve
     from src.generator import stream_generate
 
-    loop = asyncio.get_event_loop()
+    loop = asyncio.get_running_loop()  # Issue #5 fix: get_event_loop() is deprecated in async context
 
     # ── 1. Retrieve context (in thread pool — blocking) ───────────────────────
     def _retrieve():
@@ -140,7 +140,8 @@ async def stream_answer(
         web_chunks = []
         if web_search and settings.web_search_enabled:
             try:
-                web_chunks = web_retrieve(question)
+                # Issue #2 fix: web_retrieve requires reranker as second argument
+                web_chunks = web_retrieve(question, reranker=_reranker)
                 route = "WEB"
             except Exception as e:
                 logger.warning(f"Web retrieval failed, using local: {e}")
@@ -171,15 +172,18 @@ async def stream_answer(
     token_queue: asyncio.Queue[Optional[str]] = asyncio.Queue()
 
     def _generate_in_thread():
+        # Issue #1 fix: sentinel must only be put ONCE (in finally).
+        # Previously, the except block also put None, causing a double-sentinel.
+        # The first None broke the consumer loop, the second sat in the queue
+        # permanently and the frontend SSE stream would never receive a done event.
         try:
             from src.generator import stream_generate
             for token in stream_generate(question, context_texts, _model, _tokenizer, _model_id):
                 asyncio.run_coroutine_threadsafe(token_queue.put(token), loop)
         except Exception as exc:
             logger.error(f"Generator error: {exc}")
-            asyncio.run_coroutine_threadsafe(token_queue.put(None), loop)
         finally:
-            asyncio.run_coroutine_threadsafe(token_queue.put(None), loop)  # sentinel
+            asyncio.run_coroutine_threadsafe(token_queue.put(None), loop)  # sentinel — exactly once
 
     gen_thread = threading.Thread(target=_generate_in_thread, daemon=True, name="rag-gen")
     gen_thread.start()
@@ -242,10 +246,13 @@ def refresh_index() -> None:
         return
     from config.settings import settings
     from src.indexer import load_index
-    _index_client, _index_chunks = load_index(settings.index_dir)
-    _n_chunks = len(_index_chunks)
-    _n_docs = len({c.source_doc for c in _index_chunks})
-    _last_updated = time.time()
+    # Issue #10 fix: hold the load lock while swapping globals so that concurrent
+    # chat queries reading _index_client don't race against the refresh.
+    with _load_lock:
+        _index_client, _index_chunks = load_index(settings.index_dir)
+        _n_chunks = len(_index_chunks)
+        _n_docs = len({c.source_doc for c in _index_chunks})
+        _last_updated = time.time()
     logger.info(f"Index refreshed: {_n_chunks} chunks, {_n_docs} docs")
 
 
