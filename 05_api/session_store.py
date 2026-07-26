@@ -4,7 +4,7 @@ Replaces the old file-backed JSON persistence.
 """
 from __future__ import annotations
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional, List
 
 from sqlalchemy import select, update, delete
@@ -86,9 +86,16 @@ class DatabaseSessionStore:
                 return True
             return False
 
-    async def update_title(self, session_id: str, title: str) -> None:
+    async def update_title(self, session_id: str, title: str, user_id: str | None = None) -> None:
+        # Issue #7 fix: if user_id is provided, enforce ownership so no cross-user title mutation is possible.
         async with AsyncSessionLocal() as db:
-            stmt = update(DBSession).where(DBSession.id == session_id).values(title=title, updated_at=datetime.utcnow())
+            where_clause = [DBSession.id == session_id]
+            if user_id is not None:
+                where_clause.append(DBSession.user_id == user_id)
+            stmt = update(DBSession).where(*where_clause).values(
+                title=title,
+                updated_at=datetime.now(timezone.utc),  # Issue #12 fix: utcnow() deprecated
+            )
             await db.execute(stmt)
             await db.commit()
 
@@ -126,10 +133,17 @@ class DatabaseSessionStore:
             )
             db.add(db_msg)
             
-            # Update session message_count and updated_at
-            stmt = update(DBSession).where(DBSession.id == session_id).values(
-                message_count=DBSession.message_count + 1,
-                updated_at=datetime.utcnow()
+            # Issue #8 fix: use a single atomic UPDATE so concurrent appends
+            # cannot both read the same count and produce a duplicate value.
+            # Issue #12 fix: datetime.utcnow() is deprecated — use timezone-aware now().
+            stmt = (
+                update(DBSession)
+                .where(DBSession.id == session_id)
+                .values(
+                    message_count=DBSession.message_count + 1,
+                    updated_at=datetime.now(timezone.utc),
+                )
+                .execution_options(synchronize_session=False)
             )
             await db.execute(stmt)
             await db.commit()

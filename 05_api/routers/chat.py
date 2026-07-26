@@ -47,7 +47,7 @@ async def _event_stream(session_id: str, question: str, user: UserInfo):
     session = await store.get_session(session_id, user.sub)
     if session and session.message_count <= 2:
         title = question[:60] + ("…" if len(question) > 60 else "")
-        await store.update_title(session_id, title)
+        await store.update_title(session_id, title, user_id=user.sub)
 
     # Stream from RAG
     full_content = ""
