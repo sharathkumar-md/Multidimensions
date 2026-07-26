@@ -48,8 +48,10 @@ class APISettings(BaseSettings):
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
 
     # ── Auth ──────────────────────────────────────────────────────────────────
+    # Issue #3 fix: default to True so production deployments are secure by default.
+    # Set API_AUTH_ENABLED=False explicitly in your local .env for development.
     auth_enabled: bool = Field(
-        default=False,
+        default=True,
         description="Must be True in production to enforce JWT validation.",
     )
     keycloak_server_url: str = Field(default="https://keycloak.example.com")

@@ -79,7 +79,9 @@ class ChatRequest(BaseModel):
         serialization_alias="session_id",
         description="Active session ID",
     )
-    question: str = Field(..., min_length=1, max_length=4000)
+    # Issue #6 fix: 4000 chars (~1000 tokens) caused OOM via HyDE double-pass.
+    # 1000 chars (~250 tokens) is ample for any real sales query.
+    question: str = Field(..., min_length=1, max_length=1000)
 
 
 class StreamToken(BaseModel):
