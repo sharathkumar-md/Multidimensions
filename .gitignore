@@ -36,9 +36,15 @@ logs/
 *.log
 *.lock
 
-# Env files 
+# Env files
 .env
 !.env.example
+
+# SQLite session database — contains real user data, must never be committed
+# Issue #9 fix
+**/.sessions.db
+**/.sessions.db-wal
+**/.sessions.db-shm
 
 # data/input/
 
