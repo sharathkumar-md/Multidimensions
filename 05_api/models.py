@@ -1,7 +1,7 @@
 """Shared Pydantic models for request / response bodies."""
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 from typing import Optional
 
@@ -49,7 +49,7 @@ class Message(BaseModel):
     id: str
     role: str                    # "user" | "assistant"
     content: str
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     sources: list[Source] = Field(default_factory=list)
     product_images: list[ProductImage] = Field(default_factory=list)
     route: Optional[RouteType] = None
@@ -61,8 +61,8 @@ class Session(BaseModel):
     id: str
     title: str = "New conversation"
     user_id: str
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     message_count: int = 0
 
 
@@ -82,6 +82,8 @@ class ChatRequest(BaseModel):
     # Issue #6 fix: 4000 chars (~1000 tokens) caused OOM via HyDE double-pass.
     # 1000 chars (~250 tokens) is ample for any real sales query.
     question: str = Field(..., min_length=1, max_length=1000)
+    # Fix 001: web_search toggle wired end-to-end
+    web_search: bool = Field(default=False, description="Route query through web retrieval")
 
 
 class StreamToken(BaseModel):

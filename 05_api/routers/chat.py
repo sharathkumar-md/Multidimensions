@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import json
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.responses import StreamingResponse
@@ -26,7 +26,7 @@ from session_store import store
 router = APIRouter(prefix="/api", tags=["Chat"])
 
 
-async def _event_stream(session_id: str, question: str, user: UserInfo):
+async def _event_stream(session_id: str, question: str, user: UserInfo, web_search: bool = False):
     """
     Internal async generator that:
     1. Saves the user message to the store
@@ -39,9 +39,9 @@ async def _event_stream(session_id: str, question: str, user: UserInfo):
         id=str(uuid.uuid4()),
         role="user",
         content=question,
-        created_at=datetime.utcnow(),
+        created_at=datetime.now(timezone.utc),
     )
-    await store.append_message(session_id, user_msg)
+    await store.append_message(session_id, user_msg, user_id=user.sub)
 
     # Auto-title the session from first question (truncated)
     session = await store.get_session(session_id, user.sub)
@@ -56,7 +56,7 @@ async def _event_stream(session_id: str, question: str, user: UserInfo):
     final_route = "NONE"
 
     try:
-        async for raw in stream_answer(question):
+        async for raw in stream_answer(question, web_search=web_search):
             yield f"data: {raw}\n\n"
             try:
                 payload = json.loads(raw)
@@ -83,11 +83,11 @@ async def _event_stream(session_id: str, question: str, user: UserInfo):
                 id=str(uuid.uuid4()),
                 role="assistant",
                 content=full_content,
-                created_at=datetime.utcnow(),
+                created_at=datetime.now(timezone.utc),
                 sources=[Source(**s) for s in final_sources],
                 route=RouteType(final_route) if final_route in RouteType._value2member_map_ else None,
             )
-            await store.append_message(session_id, assistant_msg)
+            await store.append_message(session_id, assistant_msg, user_id=user.sub)
             logger.info(
                 f"Completed chat | session={session_id} | "
                 f"route={final_route} | tokens={len(full_content)} | user={user.email}"
@@ -117,7 +117,7 @@ async def chat(
     logger.info(f"Chat | session={body.session_id} | user={user.email} | q={body.question[:80]}")
 
     return StreamingResponse(
-        _event_stream(body.session_id, body.question, user),
+        _event_stream(body.session_id, body.question, user, web_search=body.web_search),
         media_type="text/event-stream",
         headers={
             "Cache-Control": "no-cache",

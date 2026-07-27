@@ -183,9 +183,10 @@ export async function* streamChat(
   sessionId: string,
   question: string,
   signal?: AbortSignal,
+  webSearch: boolean = false,  // Fix 001: web search toggle wired end-to-end
 ): AsyncGenerator<string> {
   const url = `${API_BASE}/api/chat`;
-  logger.info('Starting chat stream', { sessionId, question: question.slice(0, 80) });
+  logger.info('Starting chat stream', { sessionId, question: question.slice(0, 80), webSearch });
 
   const res = await fetch(url, {
     method: 'POST',
@@ -193,7 +194,7 @@ export async function* streamChat(
       'Content-Type': 'application/json',
       'Bypass-Tunnel-Reminder': 'true'
     },
-    body: JSON.stringify({ session_id: sessionId, question }),
+    body: JSON.stringify({ session_id: sessionId, question, web_search: webSearch }),
     credentials: 'include',
     signal,
   });
