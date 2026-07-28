@@ -120,7 +120,9 @@ class DatabaseSessionStore:
                 ) for m in messages
             ]
 
-    async def append_message(self, session_id: str, message: Message) -> None:
+    async def append_message(self, session_id: str, message: Message, user_id: str | None = None) -> None:
+        # Fix 002: enforce ownership — the UPDATE will affect 0 rows (and silently no-op)
+        # if session_id does not belong to user_id, preventing cross-user writes.
         async with AsyncSessionLocal() as db:
             db_msg = DBMessage(
                 id=message.id,
@@ -132,13 +134,16 @@ class DatabaseSessionStore:
                 route=message.route.value if message.route else None,
             )
             db.add(db_msg)
-            
-            # Issue #8 fix: use a single atomic UPDATE so concurrent appends
-            # cannot both read the same count and produce a duplicate value.
-            # Issue #12 fix: datetime.utcnow() is deprecated — use timezone-aware now().
+
+            # Issue #8 fix: atomic UPDATE — prevents race on message_count.
+            # Issue #12 fix: timezone-aware datetime.
+            # Fix 002: WHERE clause includes user_id guard when provided.
+            where_clauses = [DBSession.id == session_id]
+            if user_id is not None:
+                where_clauses.append(DBSession.user_id == user_id)
             stmt = (
                 update(DBSession)
-                .where(DBSession.id == session_id)
+                .where(*where_clauses)
                 .values(
                     message_count=DBSession.message_count + 1,
                     updated_at=datetime.now(timezone.utc),
