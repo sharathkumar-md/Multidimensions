@@ -1,13 +1,17 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# MultiDimensions RAG — Production Dockerfile
+# MultiDimensions RAG — DEMO / STREAMLIT Dockerfile
 #
-# Multi-stage build:
-#   builder  → installs all Python dependencies into /opt/venv
-#   runtime  → lean image that copies only /opt/venv (no build tools)
+# ⚠️  THIS IMAGE RUNS THE STREAMLIT DEMO APP (04_demo/app.py).
+# ⚠️  For the production FastAPI backend, use 05_api/Dockerfile
+#     (referenced by docker-compose.yml under the `api` service).
 #
-# Build:  docker build -t multidimensions-rag .
-# Run:    docker run --gpus 1 -p 8080:8080 multidimensions-rag
+# DO NOT deploy this image to production — it has no JWT auth, no rate
+# limiting, and no database. It is for internal demos only.
+#
+# Build:  docker build -t multidimensions-demo .
+# Run:    docker run --gpus 1 -p 8080:8080 multidimensions-demo
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 # ── Stage 1: Builder ──────────────────────────────────────────────────────────
 FROM nvidia/cuda:12.1.1-devel-ubuntu22.04 AS builder
