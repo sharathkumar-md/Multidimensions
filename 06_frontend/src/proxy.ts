@@ -32,7 +32,6 @@ export const proxy = auth((req) => {
   if (isLoggedIn && isApiRoute) {
     // @ts-ignore
     const token = req.auth.accessToken;
-    console.log("[PROXY] Injecting auth token?", !!token, "Auth object keys:", Object.keys(req.auth || {}));
     if (token) {
       const requestHeaders = new Headers(req.headers);
       requestHeaders.set('Authorization', `Bearer ${token}`);
