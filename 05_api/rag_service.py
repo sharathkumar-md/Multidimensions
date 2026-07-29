@@ -170,15 +170,20 @@ async def stream_answer(
         return
 
     token_queue: asyncio.Queue[Optional[str]] = asyncio.Queue()
+    stop_event = threading.Event()  # Fix 004: signals generation thread to exit early
 
     def _generate_in_thread():
         # Issue #1 fix: sentinel must only be put ONCE (in finally).
-        # Previously, the except block also put None, causing a double-sentinel.
-        # The first None broke the consumer loop, the second sat in the queue
-        # permanently and the frontend SSE stream would never receive a done event.
+        # Fix 004: stop_event allows the caller to interrupt the generation.
+        # Fix 014: 120-second wall-clock timeout guards against runaway generation.
         try:
             from src.generator import stream_generate
-            for token in stream_generate(question, context_texts, _model, _tokenizer, _model_id):
+            for token in stream_generate(
+                question, context_texts, _model, _tokenizer, _model_id,
+                stop_event=stop_event,
+            ):
+                if stop_event.is_set():
+                    break
                 asyncio.run_coroutine_threadsafe(token_queue.put(token), loop)
         except Exception as exc:
             logger.error(f"Generator error: {exc}")
@@ -188,9 +193,21 @@ async def stream_answer(
     gen_thread = threading.Thread(target=_generate_in_thread, daemon=True, name="rag-gen")
     gen_thread.start()
 
-    # Drain the token queue
+    # Drain the token queue; enforce a 120-second wall-clock timeout (Fix 014)
+    _TIMEOUT = 120.0
+    _deadline = loop.time() + _TIMEOUT
     while True:
-        token = await token_queue.get()
+        remaining = _deadline - loop.time()
+        if remaining <= 0:
+            logger.warning("Generation timed out — stopping")
+            stop_event.set()
+            break
+        try:
+            token = await asyncio.wait_for(token_queue.get(), timeout=remaining)
+        except asyncio.TimeoutError:
+            logger.warning("Generation timed out waiting for next token")
+            stop_event.set()
+            break
         if token is None:
             break
         yield json.dumps({"token": token})

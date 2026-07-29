@@ -395,7 +395,16 @@ def delete_model_cache(hf_home: str | Path, model_id: str | None = None) -> None
 from transformers import TextIteratorStreamer
 import threading
 
-def stream_generate(query: str, context_chunks: list[str], model, tokenizer, model_id: str, max_new_tokens: int = 512, is_web: bool = False):
+def stream_generate(
+    query: str,
+    context_chunks: list[str],
+    model,
+    tokenizer,
+    model_id: str,
+    max_new_tokens: int = 512,
+    is_web: bool = False,
+    stop_event: threading.Event | None = None,  # Fix 004: cooperative stop signal
+):
     system_prompt = _WEB_SYSTEM_PROMPT if is_web else _SYSTEM_PROMPT
     messages = [
         {'role': 'system', 'content': system_prompt},
@@ -406,7 +415,7 @@ def stream_generate(query: str, context_chunks: list[str], model, tokenizer, mod
         kwargs['enable_thinking'] = False
     prompt_text = tokenizer.apply_chat_template(messages, **kwargs)
     inputs = tokenizer(prompt_text, return_tensors='pt', truncation=True, max_length=32768).to(model.device)
-    
+
     streamer = TextIteratorStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
     generation_kwargs = dict(
         inputs=inputs['input_ids'],
@@ -417,9 +426,13 @@ def stream_generate(query: str, context_chunks: list[str], model, tokenizer, mod
         pad_token_id=tokenizer.eos_token_id,
         streamer=streamer,
     )
-    
-    thread = threading.Thread(target=model.generate, kwargs=generation_kwargs)
-    thread.start()
-    
+
+    # Fix 004: run model.generate in a daemon thread so it doesn't block process shutdown.
+    gen_thread = threading.Thread(target=model.generate, kwargs=generation_kwargs, daemon=True)
+    gen_thread.start()
+
     for new_text in streamer:
+        # Fix 004: exit the loop early when the caller signals a stop (user abort / timeout).
+        if stop_event is not None and stop_event.is_set():
+            break
         yield new_text
