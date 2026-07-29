@@ -1,6 +1,7 @@
 """Admin router — PDF upload, ingestion trigger, index stats."""
 from __future__ import annotations
 
+import os
 import shutil
 import uuid
 from pathlib import Path
@@ -81,10 +82,23 @@ async def upload_pdf(
             detail=f"File exceeds maximum size of {api_settings.max_upload_size_mb} MB.",
         )
 
+    # Fix 009: strip directory components to prevent path traversal.
+    # e.g. filename="../../etc/cron.d/evil.pdf" → "evil.pdf"
+    clean_filename = os.path.basename(file.filename or "upload.pdf")
+    if not clean_filename.lower().endswith(".pdf"):
+        clean_filename += ".pdf"
+
     # Save with a unique prefix to avoid collisions
     api_settings.upload_dir.mkdir(parents=True, exist_ok=True)
-    safe_name = f"{uuid.uuid4().hex[:8]}_{file.filename}"
+    safe_name = f"{uuid.uuid4().hex[:8]}_{clean_filename}"
     dest = api_settings.upload_dir / safe_name
+
+    # Paranoia check: ensure dest is still inside upload_dir after Path resolution
+    if not dest.resolve().is_relative_to(api_settings.upload_dir.resolve()):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Invalid filename.",
+        )
 
     try:
         dest.write_bytes(content)
