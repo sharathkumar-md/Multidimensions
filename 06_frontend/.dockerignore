@@ -1,0 +1,16 @@
+# Exclude secrets and local config from the Docker build context
+.env*
+.env.local
+.env.development
+.env.production
+
+# Exclude dev tooling (large, not needed in image)
+.git
+.gitignore
+.next
+node_modules
+
+# Exclude local scripts and IDE files
+*.ps1
+.DS_Store
+README.md
