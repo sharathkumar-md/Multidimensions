@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/contexts/ThemeContext';
+import { AuthProvider } from '@/components/AuthProvider';
+import type { User } from '@/lib/types';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -26,11 +28,37 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // Resolve the server-side session so AuthProvider can pre-populate the Zustand
+  // auth store before any client component renders. This eliminates the race where
+  // the admin guard in admin/page.tsx saw user=null and never redirected.
+  let user: User | null = null;
+
+  if (process.env.NEXT_PUBLIC_AUTH_ENABLED !== 'false') {
+    try {
+      // Lazy import avoids loading the auth module on the login page when
+      // auth is disabled — auth() reads the encrypted JWT cookie (no network call).
+      const { auth } = await import('@/auth');
+      const session = await auth();
+      if (session?.user) {
+        user = {
+          email: session.user.email ?? '',
+          name: session.user.name ?? '',
+          roles: session.roles ?? [],
+          isAdmin: session.isAdmin ?? false,
+          tokenExpiresAt: session.tokenExpiresAt ?? 0,
+        };
+      }
+    } catch {
+      // auth() may throw on public pages or when Keycloak is unreachable;
+      // fall through with user=null (the middleware handles forced redirects).
+    }
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Prevent flash of wrong theme */}
+        {/* Prevent flash of wrong theme — must run before React hydration */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -48,7 +76,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={inter.variable}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <AuthProvider user={user}>
+            {children}
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
