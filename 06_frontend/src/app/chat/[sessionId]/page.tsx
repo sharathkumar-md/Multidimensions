@@ -13,7 +13,7 @@ import type { Message, StreamToken } from '@/lib/types';
 import logger from '@/lib/logger';
 import styles from './page.module.css';
 
-function EmptyState() {
+function EmptyState({ onSuggestionClick }: { onSuggestionClick: (value: string) => void }) {
   return (
     <div className={styles.empty}>
       <div className={styles.emptyIcon}>💬</div>
@@ -29,7 +29,7 @@ function EmptyState() {
           'What is the latest price for Model X?',
           'List all products suitable for high-temperature environments',
         ].map((s) => (
-          <button key={s} className={styles.suggestion} onClick={() => {}}>
+          <button key={s} className={styles.suggestion} onClick={() => onSuggestionClick(s)}>
             {s}
           </button>
         ))}
@@ -72,12 +72,12 @@ export default function SessionPage() {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [sessionMessages.length, showThinking]);
 
-  const handleSend = useCallback(async (question: string) => {
+  const handleSend = useCallback(async (question: string, webSearch: boolean = false) => {
     if (isStreaming) return;
 
-    // Optimistically add user message
+    // Optimistically add user message — Fix 011: crypto.randomUUID() avoids same-ms collision
     const userMsg: Message = {
-      id: `user-${Date.now()}`,
+      id: crypto.randomUUID(),
       role: 'user',
       content: question,
       createdAt: new Date().toISOString(),
@@ -85,8 +85,8 @@ export default function SessionPage() {
     addMessage(sessionId, userMsg);
     setShowThinking(true);
 
-    // Placeholder AI message (streaming)
-    const aiMsgId = `ai-${Date.now()}`;
+    // Placeholder AI message (streaming) — Fix 011: separate UUID, no Date.now() collision
+    const aiMsgId = crypto.randomUUID();
     const aiMsg: Message = {
       id: aiMsgId,
       role: 'assistant',
@@ -99,10 +99,12 @@ export default function SessionPage() {
     abortRef.current = abort;
     setStreaming(true, sessionId);
 
-    try {
-      let firstToken = true;
+    // Track whether aiMsg was added to the store — used by the abort/error handlers
+    // to know whether finalizeMessage must be called to clear isStreaming: true.
+    let messageAdded = false;
 
-      for await (const raw of streamChat(sessionId, question, abort.signal)) {
+    try {
+      for await (const raw of streamChat(sessionId, question, abort.signal, webSearch)) {
         let parsed: StreamToken;
         try { parsed = JSON.parse(raw); } catch { continue; }
 
@@ -112,10 +114,10 @@ export default function SessionPage() {
         }
 
         if (parsed.token) {
-          if (firstToken) {
+          if (!messageAdded) {
             setShowThinking(false);
             addMessage(sessionId, aiMsg);
-            firstToken = false;
+            messageAdded = true;
           }
           appendToken(sessionId, aiMsgId, parsed.token);
         }
@@ -123,7 +125,7 @@ export default function SessionPage() {
         if (parsed.done) {
           finalizeMessage(sessionId, aiMsgId, {
             sources: parsed.sources,
-            productImages: parsed.productImages ?? parsed.product_images,
+            productImages: parsed.productImages,
             route: parsed.route,
           });
           logger.info('Stream complete', { sessionId, route: parsed.route });
@@ -131,11 +133,20 @@ export default function SessionPage() {
         }
       }
     } catch (e: unknown) {
-      if ((e as Error).name !== 'AbortError') {
+      if ((e as Error).name === 'AbortError') {
+        // User stopped the stream — finalize the message if it was already in the store,
+        // otherwise it stays stuck with isStreaming:true and a permanent blinking cursor.
+        if (messageAdded) {
+          finalizeMessage(sessionId, aiMsgId, { isStreaming: false });
+          logger.info('Stream aborted mid-stream', { sessionId });
+        }
+      } else {
         logger.error('Stream failed', { error: (e as Error).message });
-        finalizeMessage(sessionId, aiMsgId, {
-          content: '⚠️ Something went wrong. Please try again.',
-        });
+        if (messageAdded) {
+          finalizeMessage(sessionId, aiMsgId, {
+            content: '⚠️ Something went wrong. Please try again.',
+          });
+        }
       }
     } finally {
       setShowThinking(false);
@@ -156,7 +167,7 @@ export default function SessionPage() {
       <div className={styles.messages} role="log" aria-label="Conversation" aria-live="polite">
         <div className={styles.messagesInner}>
           {sessionMessages.length === 0 && !showThinking ? (
-            <EmptyState />
+            <EmptyState onSuggestionClick={(s) => handleSend(s, false)} />
           ) : (
             sessionMessages.map((msg) =>
               msg.role === 'user' ? (
