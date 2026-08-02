@@ -62,7 +62,13 @@ export default function AdminPage() {
       } else {
         loadStats(); // refresh stats once done
       }
-    } catch { /* silent */ }
+    } catch (err: unknown) {
+      // Surface the failure — silently swallowing it hides backend outages
+      logger.error('Ingestion status poll failed', { error: (err as Error).message });
+      setIngest((prev) =>
+        prev ? { ...prev, error: 'Status unavailable — backend may be unreachable.' } : null
+      );
+    }
   }, [loadStats]);
 
   useEffect(() => {
@@ -75,6 +81,17 @@ export default function AdminPage() {
     if (!files || files.length === 0) return;
     const pdf = Array.from(files).find((f) => f.name.toLowerCase().endsWith('.pdf'));
     if (!pdf) {
+      setUploadResult({ ok: false, msg: 'Only PDF files are accepted.' });
+      return;
+    }
+    // Enforce a 50 MB client-side limit to prevent browser OOM and backend DoS
+    const MAX_PDF_BYTES = 50 * 1024 * 1024;
+    if (pdf.size > MAX_PDF_BYTES) {
+      setUploadResult({ ok: false, msg: 'File exceeds the 50 MB limit. Please upload a smaller PDF.' });
+      return;
+    }
+    // Validate MIME type when the browser can detect it (not all browsers populate this)
+    if (pdf.type && pdf.type !== 'application/pdf') {
       setUploadResult({ ok: false, msg: 'Only PDF files are accepted.' });
       return;
     }

@@ -6,6 +6,18 @@ import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import type { ProductImage } from '@/lib/types';
 import styles from './ProductGallery.module.css';
 
+/**
+ * Reject URI schemes that can execute code when used as an image src.
+ * data: URIs can carry malicious payloads; javascript: URIs execute scripts.
+ */
+function safeSrc(path: string): string {
+  const trimmed = path.trim().toLowerCase();
+  if (trimmed.startsWith('javascript:') || trimmed.startsWith('data:')) {
+    return '';
+  }
+  return path;
+}
+
 interface ProductGalleryProps {
   images: ProductImage[];
 }
@@ -31,8 +43,8 @@ export function ProductGallery({ images }: ProductGalleryProps) {
             title={img.title}
           >
             <div className={styles.imgWrap}>
-              <img
-                src={img.imagePath}
+            <img
+                src={safeSrc(img.imagePath)}
                 alt={img.title}
                 className={styles.img}
                 loading="lazy"
@@ -53,7 +65,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
             aria-label={`View ${extra} more images`}
           >
             <div className={styles.imgWrap}>
-              <img src={images[4].imagePath} alt="" className={[styles.img, styles.dimmed].join(' ')} loading="lazy" />
+              <img src={safeSrc(images[4].imagePath)} alt="" className={[styles.img, styles.dimmed].join(' ')} loading="lazy" />
               <div className={styles.extraOverlay}>+{extra}</div>
             </div>
           </button>
@@ -74,7 +86,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
             )}
             <div className={styles.lbImgWrap}>
               <img
-                src={images[lightboxIdx].imagePath}
+                src={safeSrc(images[lightboxIdx].imagePath)}
                 alt={images[lightboxIdx].title}
                 className={styles.lbImg}
               />
