@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { useChatStore, useAuthStore, useUiStore } from '@/lib/store';
 import { createSession, deleteSession, getSessions } from '@/lib/api';
+import { signOutAction } from '@/lib/actions';
 import logger from '@/lib/logger';
 import styles from './Sidebar.module.css';
 
@@ -57,13 +58,17 @@ export function Sidebar() {
   const handleDelete = async (e: React.MouseEvent, sessionId: string) => {
     e.preventDefault();
     e.stopPropagation();
+    // Optimistic removal — snapshot current sessions for rollback on failure
+    const snapshot = [...sessions];
+    removeSession(sessionId);
+    if (activeSessionId === sessionId) router.push('/chat');
     try {
-      removeSession(sessionId);
-      if (activeSessionId === sessionId) router.push('/chat');
       await deleteSession(sessionId);
       logger.info('Deleted session', { id: sessionId });
     } catch (err: unknown) {
-      logger.warn('Failed to delete session (may already be deleted)', { error: (err as Error).message });
+      // Rollback: restore true server state rather than leaving a phantom deletion
+      getSessions().then(setSessions).catch(() => {});
+      logger.warn('Failed to delete session — rolled back', { error: (err as Error).message });
     }
   };
 
@@ -205,14 +210,19 @@ export function Sidebar() {
             <p className={styles.userName}>{user?.name ?? 'User'}</p>
             <p className={styles.userEmail}>{user?.email ?? ''}</p>
           </div>
-          <button
-            onClick={() => { logger.info('Logout triggered'); window.location.href = '/api/auth/signout'; }}
-            className={styles.logoutBtn}
-            aria-label="Log out"
-            title="Log out"
-          >
-            <LogOut size={15} />
-          </button>
+          {/* Use a form + server action so sign-out is a CSRF-protected POST,
+              not a spoofable GET that any third-party page can trigger */}
+          <form action={signOutAction}>
+            <button
+              type="submit"
+              className={styles.logoutBtn}
+              aria-label="Log out"
+              title="Log out"
+              onClick={() => logger.info('Logout triggered')}
+            >
+              <LogOut size={15} />
+            </button>
+          </form>
         </div>
       </div>
     </aside>
