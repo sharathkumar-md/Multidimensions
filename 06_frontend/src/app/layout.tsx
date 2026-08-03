@@ -34,7 +34,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   // the admin guard in admin/page.tsx saw user=null and never redirected.
   let user: User | null = null;
 
-  if (process.env.NEXT_PUBLIC_AUTH_ENABLED !== 'false') {
+  if (process.env.AUTH_ENABLED !== 'false') {
     try {
       // Lazy import avoids loading the auth module on the login page when
       // auth is disabled — auth() reads the encrypted JWT cookie (no network call).

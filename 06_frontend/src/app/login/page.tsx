@@ -5,7 +5,7 @@ export const metadata: Metadata = { title: 'Login' };
 import { redirect } from 'next/navigation';
 
 export default function LoginPage() {
-  if (process.env.NEXT_PUBLIC_AUTH_ENABLED === 'false') {
+  if (process.env.AUTH_ENABLED === 'false') {
     redirect('/chat');
   }
   return (

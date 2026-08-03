@@ -2,8 +2,10 @@ import { auth } from "@/auth"
 import { NextResponse } from "next/server"
 
 export const proxy = auth((req) => {
-  // Allow local dev bypass — NEXT_PUBLIC_AUTH_ENABLED must be explicitly 'false' (string)
-  if (process.env.NEXT_PUBLIC_AUTH_ENABLED === 'false') {
+  // Allow local dev bypass — AUTH_ENABLED must be explicitly 'false' (string).
+  // NOTE: must NOT use NEXT_PUBLIC_ prefix — that would expose the flag in the client bundle
+  // and allow an attacker to enumerate the bypass condition (N-02).
+  if (process.env.AUTH_ENABLED === 'false') {
     return NextResponse.next();
   }
 
@@ -53,6 +55,13 @@ export const proxy = auth((req) => {
         request: { headers: requestHeaders },
       });
     }
+    // Session exists but access token is absent (e.g. after a silent Keycloak token
+    // refresh failure). Reject rather than forwarding an unsigned request to the backend.
+    // This prevents the backend from receiving requests without a valid JWT (N-06).
+    return new NextResponse(
+      JSON.stringify({ error: 'Session token unavailable — please sign in again.' }),
+      { status: 401 }
+    );
   }
 
   return NextResponse.next();
