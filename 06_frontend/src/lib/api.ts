@@ -132,7 +132,6 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     ...init,
     headers: {
       'Content-Type': 'application/json',
-      'Bypass-Tunnel-Reminder': 'true',
       ...init?.headers,
     },
     credentials: 'include',
@@ -192,7 +191,6 @@ export async function* streamChat(
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Bypass-Tunnel-Reminder': 'true'
     },
     body: JSON.stringify({ session_id: sessionId, question, web_search: webSearch }),
     credentials: 'include',
@@ -208,20 +206,27 @@ export async function* streamChat(
   const decoder = new TextDecoder();
   let buffer = '';
 
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
 
-    buffer += decoder.decode(value, { stream: true });
-    const lines = buffer.split('\n');
-    buffer = lines.pop() ?? '';
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop() ?? '';
 
-    for (const line of lines) {
-      if (line.startsWith('data: ')) {
-        const raw = line.slice(6).trim();
-        if (raw) yield raw;
+      for (const line of lines) {
+        if (line.startsWith('data: ')) {
+          const raw = line.slice(6).trim();
+          if (raw) yield raw;
+        }
       }
     }
+  } finally {
+    // Always release the reader lock even when the AbortSignal fires mid-stream.
+    // Without this, the ReadableStream lock is held indefinitely, exhausting the
+    // browser connection pool across repeated stop/start cycles (N-03).
+    reader.cancel().catch(() => {});
   }
 }
 
@@ -246,9 +251,6 @@ export async function uploadPdf(file: File): Promise<{ filename: string }> {
   const res = await fetch(url, {
     method: 'POST',
     body: form,
-    headers: {
-      'Bypass-Tunnel-Reminder': 'true'
-    },
     credentials: 'include',
   });
   if (!res.ok) {
