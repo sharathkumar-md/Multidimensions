@@ -58,7 +58,7 @@ export function Sidebar() {
   const handleDelete = async (e: React.MouseEvent, sessionId: string) => {
     e.preventDefault();
     e.stopPropagation();
-    // Optimistic removal — snapshot current sessions for rollback on failure
+    // Snapshot state before optimistic removal — used for immediate rollback on failure
     const snapshot = [...sessions];
     removeSession(sessionId);
     if (activeSessionId === sessionId) router.push('/chat');
@@ -66,9 +66,13 @@ export function Sidebar() {
       await deleteSession(sessionId);
       logger.info('Deleted session', { id: sessionId });
     } catch (err: unknown) {
-      // Rollback: restore true server state rather than leaving a phantom deletion
-      getSessions().then(setSessions).catch(() => {});
+      // Immediate rollback from snapshot for instant UX recovery
+      setSessions(snapshot);
       logger.warn('Failed to delete session — rolled back', { error: (err as Error).message });
+      // Attempt async re-sync with server; surface any secondary failure instead of swallowing it
+      getSessions()
+        .then(setSessions)
+        .catch((e: unknown) => logger.error('Failed to re-sync sessions after rollback', { error: (e as Error).message }));
     }
   };
 

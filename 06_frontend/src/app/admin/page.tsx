@@ -72,10 +72,14 @@ export default function AdminPage() {
   }, [loadStats]);
 
   useEffect(() => {
+    // Guard: don't fetch until auth store is hydrated and user is confirmed admin.
+    // Without this check, the API calls fire before AuthProvider.useEffect has run,
+    // meaning a non-admin SPA navigation briefly dispatches admin API requests (N-04).
+    if (!user?.isAdmin) return;
     loadStats();
     pollIngestion();
     return () => { if (pollRef.current) clearTimeout(pollRef.current); };
-  }, [loadStats, pollIngestion]);
+  }, [loadStats, pollIngestion, user]);
 
   const handleFiles = useCallback(async (files: FileList | null) => {
     if (!files || files.length === 0) return;
@@ -129,6 +133,11 @@ export default function AdminPage() {
     setDragging(false);
     handleFiles(e.dataTransfer.files);
   };
+
+  // Don't render (or trigger data-fetching effects) until auth store hydration is complete.
+  // middleware.ts handles server-side redirects for direct URL navigation;
+  // this handles client-side SPA navigation where middleware does not run.
+  if (!user) return null;
 
   return (
     <div className={styles.page}>
