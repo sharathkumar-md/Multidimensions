@@ -38,8 +38,8 @@ class APISettings(BaseSettings):
         description="Path to the local file-backed session store (deprecated, use database_url instead).",
     )
     database_url: str = Field(
-        default="sqlite+aiosqlite:///.sessions.db",
-        description="Connection string for the enterprise database (PostgreSQL/SQLite).",
+        default="postgresql+asyncpg://keycloak:keycloak@keycloak-db:5432/keycloak",
+        description="Connection string for the enterprise database (PostgreSQL).",
     )
 
     @property
@@ -47,11 +47,11 @@ class APISettings(BaseSettings):
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
 
     # ── Auth ──────────────────────────────────────────────────────────────────
-    # Default to False for safe local development.
-    # Set API_AUTH_ENABLED=True explicitly in production with all required secrets.
+    # Default to True for production safety. Set API_AUTH_ENABLED=false explicitly
+    # for local development only (bypasses JWT validation).
     auth_enabled: bool = Field(
-        default=False,
-        description="Must be True in production to enforce JWT validation. Requires API_KEYCLOAK_SERVER_URL, API_KEYCLOAK_REALM, API_KEYCLOAK_CLIENT_ID.",
+        default=True,
+        description="Must be True in production to enforce JWT validation. Set false only for local development. Requires API_KEYCLOAK_SERVER_URL, API_KEYCLOAK_REALM, API_KEYCLOAK_CLIENT_ID.",
     )
     keycloak_server_url: str = Field(default="https://keycloak.example.com")
     keycloak_realm: str = Field(default="multidimensions")
@@ -59,6 +59,10 @@ class APISettings(BaseSettings):
 
     # ── Rate Limiting ─────────────────────────────────────────────────────────
     rate_limit_per_minute: int = Field(default=20, ge=0)
+    redis_url: str = Field(
+        default="redis://localhost:6379/0",
+        description="Redis connection URL for distributed rate limiting.",
+    )
 
     # ── Upload ────────────────────────────────────────────────────────────────
     upload_dir: Path = Field(default=_API_DIR.parent / "data" / "uploads")
@@ -75,6 +79,24 @@ class APISettings(BaseSettings):
         if v.lower() not in allowed:
             raise ValueError(f"log_level must be one of {allowed}")
         return v.lower()
+
+    @model_validator(mode="after")
+    def validate_auth_config(self) -> "APISettings":
+        """Enforce production auth requirements when auth_enabled=True."""
+        if self.auth_enabled:
+            if "example.com" in self.keycloak_server_url:
+                raise ValueError(
+                    "API_KEYCLOAK_SERVER_URL still points to placeholder. Set real Keycloak URL."
+                )
+            if not self.keycloak_realm or self.keycloak_realm == "multidimensions":
+                raise ValueError(
+                    "API_KEYCLOAK_REALM must be set to your Keycloak realm."
+                )
+            if not self.keycloak_client_id or self.keycloak_client_id == "rag-sales-bot":
+                raise ValueError(
+                    "API_KEYCLOAK_CLIENT_ID must be set to your Keycloak client ID."
+                )
+        return self
 
     def ensure_directories(self) -> None:
         """Create necessary directories at startup."""

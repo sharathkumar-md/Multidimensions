@@ -9,6 +9,7 @@ verifies every Bearer token's signature, expiry, and audience.
 """
 from __future__ import annotations
 
+import threading
 import time
 from functools import lru_cache
 from typing import Optional
@@ -29,6 +30,7 @@ _bearer = HTTPBearer(auto_error=False)
 _JWKS_CACHE: dict = {}
 _JWKS_FETCHED_AT: float = 0.0
 _JWKS_TTL = 300  # seconds
+_JWKS_LOCK = threading.Lock()  # Prevent thundering herd on JWKS refresh
 
 
 def _jwks_url() -> str:
@@ -41,24 +43,33 @@ def _jwks_url() -> str:
 def _get_jwks() -> dict:
     global _JWKS_CACHE, _JWKS_FETCHED_AT
     now = time.monotonic()
+    # Fast path: cache is fresh
     if now - _JWKS_FETCHED_AT < _JWKS_TTL and _JWKS_CACHE:
         return _JWKS_CACHE
-    try:
-        resp = httpx.get(_jwks_url(), timeout=5.0)
-        resp.raise_for_status()
-        _JWKS_CACHE = resp.json()
-        _JWKS_FETCHED_AT = now
-        logger.debug("JWKS refreshed from Keycloak")
-        return _JWKS_CACHE
-    except Exception as e:
-        logger.error(f"Failed to fetch JWKS: {e}")
-        if _JWKS_CACHE:
-            logger.warning("Using stale JWKS cache")
+    
+    # Slow path: acquire lock to prevent multiple simultaneous fetches
+    with _JWKS_LOCK:
+        # Double-check after acquiring lock
+        now = time.monotonic()
+        if now - _JWKS_FETCHED_AT < _JWKS_TTL and _JWKS_CACHE:
             return _JWKS_CACHE
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="Auth service unavailable — cannot fetch JWKS.",
-        )
+        
+        try:
+            resp = httpx.get(_jwks_url(), timeout=5.0)
+            resp.raise_for_status()
+            _JWKS_CACHE = resp.json()
+            _JWKS_FETCHED_AT = now
+            logger.debug("JWKS refreshed from Keycloak")
+            return _JWKS_CACHE
+        except Exception as e:
+            logger.error(f"Failed to fetch JWKS: {e}")
+            if _JWKS_CACHE:
+                logger.warning("Using stale JWKS cache")
+                return _JWKS_CACHE
+            raise HTTPException(
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                detail="Auth service unavailable — cannot fetch JWKS.",
+            )
 
 
 def _decode_token(token: str) -> dict:

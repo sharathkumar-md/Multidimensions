@@ -20,7 +20,7 @@ import sys
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI, Request, status
+from fastapi import FastAPI, Request, status, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from loguru import logger
@@ -34,6 +34,22 @@ if str(_RAG_DIR) not in sys.path:
 from api_config import api_settings                                    # noqa: E402
 from routers import admin_router, chat_router, health_router, sessions_router  # noqa: E402
 from rag_service import load_pipeline_async                         # noqa: E402
+
+
+# ── Request size limit middleware ───────────────────────────────────────────────
+_MAX_REQUEST_SIZE = 10 * 1024 * 1024  # 10 MB
+
+
+@app.middleware("http")
+async def limit_request_size(request: Request, call_next):
+    """Limit request body size to prevent DoS via large uploads."""
+    content_length = request.headers.get("content-length")
+    if content_length and int(content_length) > _MAX_REQUEST_SIZE:
+        raise HTTPException(
+            status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+            detail=f"Request body too large. Maximum size is {_MAX_REQUEST_SIZE // (1024*1024)} MB.",
+        )
+    return await call_next(request)
 
 
 # ── Lifespan ──────────────────────────────────────────────────────────────────
