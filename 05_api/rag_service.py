@@ -69,6 +69,21 @@ def _do_load() -> None:
         _gpu_available = torch.cuda.is_available()
         logger.info(f"GPU available: {_gpu_available}")
 
+        # Check GPU VRAM if available
+        if _gpu_available:
+            try:
+                vram_total = torch.cuda.get_device_properties(0).total_memory / (1024**3)  # GB
+                logger.info(f"GPU VRAM total: {vram_total:.1f} GB")
+                # Warn if VRAM is less than recommended for 4-bit Qwen3-8B (~8GB + headroom)
+                if vram_total < 12:
+                    logger.warning(
+                        f"GPU VRAM ({vram_total:.1f} GB) may be insufficient for 4-bit Qwen3-8B. "
+                        f"Consider using a smaller model or CPU offloading. "
+                        f"Expected minimum: 12 GB for comfortable headroom."
+                    )
+            except Exception as e:
+                logger.warning(f"Could not query GPU VRAM: {e}")
+
         logger.info("Loading embed model…")
         _embed_model = get_embed_model()
 
@@ -131,6 +146,7 @@ async def wait_for_pipeline(timeout: float = 300.0) -> bool:
 async def stream_answer(
     question: str,
     web_search: bool = False,
+    history: list = None,
 ) -> AsyncGenerator[str, None]:
     """
     Async generator that yields SSE-ready JSON strings.
@@ -138,6 +154,9 @@ async def stream_answer(
     Each yielded string is valid JSON — parse with JSON.parse() on the client.
     Final event has done=True and includes sources, product_images, route.
     """
+    if history is None:
+        history = []
+        
     from config.settings import settings
     from src.retriever import retrieve
     from src.web_retriever import web_retrieve
@@ -152,8 +171,14 @@ async def stream_answer(
 
     # ── 1. Retrieve context (in thread pool — blocking) ───────────────────────
     def _retrieve():
-        if not _pipeline_loaded:
-            return [], [], "NONE"
+        # Hold _load_lock to prevent racing with refresh_index() which swaps _index_client
+        with _load_lock:
+            if not _pipeline_loaded:
+                return [], [], "NONE"
+
+            client = _index_client
+            chunks = _index_chunks
+            reranker = _reranker
 
         def hyde_fn(prompt: str, max_new_tokens: int = 120) -> str:
             from src.generator import generate_raw
@@ -162,9 +187,9 @@ async def stream_answer(
 
         local_chunks = retrieve(
             query=question,
-            client=_index_client,
-            chunks=_index_chunks,
-            reranker=_reranker,
+            client=client,
+            chunks=chunks,
+            reranker=reranker,
             generator_fn=hyde_fn if settings.hyde_enabled else None,
         )
 
@@ -174,7 +199,7 @@ async def stream_answer(
         if web_search and settings.web_search_enabled:
             try:
                 # Issue #2 fix: web_retrieve requires reranker as second argument
-                web_chunks = web_retrieve(question, reranker=_reranker)
+                web_chunks = web_retrieve(question, reranker=reranker)
                 route = "WEB"
             except Exception as e:
                 logger.warning(f"Web retrieval failed, using local: {e}")
@@ -221,6 +246,8 @@ async def stream_answer(
                 _tokenizer,
                 _model_id,
                 stop_event=stop_event,
+                timeout=120.0,
+                history=history,
             ):
                 if stop_event.is_set():
                     break
