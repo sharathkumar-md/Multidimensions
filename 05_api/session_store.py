@@ -86,15 +86,15 @@ class DatabaseSessionStore:
                 return True
             return False
 
-    async def update_title(self, session_id: str, title: str, user_id: str | None = None) -> None:
-        # Issue #7 fix: if user_id is provided, enforce ownership so no cross-user title mutation is possible.
+    async def update_title(self, session_id: str, title: str, user_id: str) -> None:
+        # Enforce ownership — user_id is required to prevent cross-user title mutation.
         async with AsyncSessionLocal() as db:
-            where_clause = [DBSession.id == session_id]
-            if user_id is not None:
-                where_clause.append(DBSession.user_id == user_id)
-            stmt = update(DBSession).where(*where_clause).values(
+            stmt = update(DBSession).where(
+                DBSession.id == session_id,
+                DBSession.user_id == user_id
+            ).values(
                 title=title,
-                updated_at=datetime.now(timezone.utc),  # Issue #12 fix: utcnow() deprecated
+                updated_at=datetime.now(timezone.utc),
             )
             await db.execute(stmt)
             await db.commit()

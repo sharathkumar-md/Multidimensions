@@ -29,11 +29,19 @@ router = APIRouter(prefix="/api", tags=["Chat"])
 async def _event_stream(session_id: str, question: str, user: UserInfo, web_search: bool = False):
     """
     Internal async generator that:
-    1. Saves the user message to the store
-    2. Streams tokens from the RAG service
-    3. Accumulates full response
-    4. Saves the assistant message with sources on completion
+    1. Loads conversation history from the store
+    2. Saves the user message to the store
+    3. Streams tokens from the RAG service with history
+    4. Accumulates full response
+    5. Saves the assistant message with sources on completion
     """
+    # Load conversation history for context (excluding the current question)
+    history_messages = await store.get_messages(session_id, user.sub)
+    history = [
+        {"role": msg.role, "content": msg.content}
+        for msg in history_messages
+    ]
+
     # Persist user message
     user_msg = Message(
         id=str(uuid.uuid4()),
@@ -49,14 +57,14 @@ async def _event_stream(session_id: str, question: str, user: UserInfo, web_sear
         title = question[:60] + ("…" if len(question) > 60 else "")
         await store.update_title(session_id, title, user_id=user.sub)
 
-    # Stream from RAG
+    # Stream from RAG with conversation history
     full_content = ""
     final_sources = []
     final_images = []
     final_route = "NONE"
 
     try:
-        async for raw in stream_answer(question, web_search=web_search):
+        async for raw in stream_answer(question, web_search=web_search, history=history):
             yield f"data: {raw}\n\n"
             try:
                 payload = json.loads(raw)

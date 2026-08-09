@@ -84,6 +84,8 @@ class ChatRequest(BaseModel):
     question: str = Field(..., min_length=1, max_length=1000)
     # Fix 001: web_search toggle wired end-to-end
     web_search: bool = Field(default=False, description="Route query through web retrieval")
+    # Conversation history for multi-turn context (optional, loaded from session if not provided)
+    history: list[Message] = Field(default_factory=list, description="Previous messages in the conversation")
 
 
 class StreamToken(BaseModel):
