@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 import shutil
 import threading
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
 from pathlib import Path
 
 import torch
@@ -284,12 +284,33 @@ def load_model(model_id: str, max_memory: dict | None = None) -> tuple:
     return model, tokenizer
 
 
-def build_prompt(query: str, context_chunks: list[str], max_context_chars: int = 24_000, is_web: bool = False) -> str:
+def build_prompt(
+    query: str,
+    context_chunks: list[str],
+    max_context_chars: int = 24_000,
+    is_web: bool = False,
+    history: list = None,
+) -> str:
     budget = max_context_chars // max(len(context_chunks), 1)
     trimmed = [c[:budget] for c in context_chunks]
     context = "\n\n---\n\n".join(trimmed)
     source_label = "Web search results" if is_web else "Catalog context"
-    return f"{source_label}:\n{context}\n\nCustomer question: {query}\n\nAnswer:"
+    
+    # Build conversation history for context
+    history_text = ""
+    if history:
+        # Include last 5 messages for context (to avoid token limit)
+        recent_history = history[-5:] if len(history) > 5 else history
+        history_parts = []
+        for msg in recent_history:
+            role = msg.get("role", "user")
+            content = msg.get("content", "")
+            if content:
+                history_parts.append(f"{role.capitalize()}: {content}")
+        if history_parts:
+            history_text = "Previous conversation:\n" + "\n".join(history_parts) + "\n\n"
+    
+    return f"{source_label}:\n{context}\n\n{history_text}Customer question: {query}\n\nAnswer:"
 
 
 def generate(
@@ -300,11 +321,12 @@ def generate(
     model_id: str,
     max_new_tokens: int = 512,
     is_web: bool = False,
+    history: list = None,
 ) -> str:
     system_prompt = _WEB_SYSTEM_PROMPT if is_web else _SYSTEM_PROMPT
     messages = [
         {"role": "system", "content": system_prompt},
-        {"role": "user", "content": build_prompt(query, context_chunks, is_web=is_web)},
+        {"role": "user", "content": build_prompt(query, context_chunks, is_web=is_web, history=history)},
     ]
 
     kwargs: dict = {"tokenize": False, "add_generation_prompt": True}
@@ -373,11 +395,13 @@ def stream_generate(
     max_new_tokens: int = 512,
     is_web: bool = False,
     stop_event: threading.Event | None = None,  # Fix 004: cooperative stop signal
+    timeout: float = 120.0,  # Max wall-clock time for generation
+    history: list = None,
 ):
     system_prompt = _WEB_SYSTEM_PROMPT if is_web else _SYSTEM_PROMPT
     messages = [
         {"role": "system", "content": system_prompt},
-        {"role": "user", "content": build_prompt(query, context_chunks, is_web=is_web)},
+        {"role": "user", "content": build_prompt(query, context_chunks, is_web=is_web, history=history)},
     ]
     kwargs: dict = {"tokenize": False, "add_generation_prompt": True}
     if "qwen3" in model_id.lower():
@@ -407,7 +431,11 @@ def stream_generate(
             if stop_event is not None and stop_event.is_set():
                 break
             yield new_text
-        # Ensure generation completes (or is cancelled on stop)
-        future.result(timeout=0.1)
+        # Ensure generation completes with timeout
+        try:
+            future.result(timeout=timeout)
+        except FuturesTimeoutError:
+            logger.warning(f"Generation timed out after {timeout}s")
+            # The streamer may still have data, but we stop here
     finally:
         _gen_semaphore.release()

@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import re
 import uuid
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
 from typing import Optional
 
 from diskcache import Cache
@@ -35,6 +36,10 @@ from src.retriever import RetrievedChunk
 
 # Module-level cache instance — initialized lazily per settings
 _cache: Optional[Cache] = None
+
+# Thread pool for DuckDuckGo searches with timeout
+_ddg_executor = ThreadPoolExecutor(max_workers=2, thread_name_prefix="ddg-search")
+_DDG_TIMEOUT = 30.0  # seconds
 
 
 def _get_cache() -> Cache:
@@ -77,7 +82,7 @@ def _build_cache_key(query: str, max_results: int) -> str:
 
 def _fetch_duckduckgo_results(query: str, max_results: int) -> list[dict]:
     """
-    Fetch search results from DuckDuckGo with disk-based caching.
+    Fetch search results from DuckDuckGo with disk-based caching and timeout.
 
     Returns a list of result dicts with keys: title, href, body.
     Returns an empty list on any error (fail-safe).
@@ -90,14 +95,22 @@ def _fetch_duckduckgo_results(query: str, max_results: int) -> list[dict]:
         return cache[cache_key]
 
     logger.info(f"Web search cache miss — fetching: '{query[:80]}'")
-    try:
+    
+    def _ddg_search() -> list[dict]:
         with DDGS() as ddgs:
-            results = list(ddgs.text(query, max_results=max_results))
+            return list(ddgs.text(query, max_results=max_results))
+
+    try:
+        future = _ddg_executor.submit(_ddg_search)
+        results = future.result(timeout=_DDG_TIMEOUT)
 
         cache.set(cache_key, results, expire=86_400)  # 24 hours TTL
         logger.info(f"Fetched {len(results)} web results for query: '{query[:80]}'")
         return results
 
+    except FuturesTimeoutError:
+        logger.error(f"DuckDuckGo search timed out after {_DDG_TIMEOUT}s for query: '{query[:80]}'")
+        return []
     except Exception as exc:
         logger.error(
             f"DuckDuckGo search failed for query '{query[:80]}': {exc}",
