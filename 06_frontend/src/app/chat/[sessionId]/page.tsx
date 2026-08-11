@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useCallback, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import { Header } from '@/components/layout/Header';
 import { UserMessage } from '@/components/chat/UserMessage';
 import { AssistantMessage } from '@/components/chat/AssistantMessage';
@@ -42,6 +43,7 @@ export default function SessionPage() {
   const params = useParams<{ sessionId: string }>();
   const router = useRouter();
   const sessionId = params.sessionId;
+  const { data: sessionData } = useSession();
 
   const {
     messages, sessions, setMessages, addMessage, appendToken,
@@ -59,13 +61,13 @@ export default function SessionPage() {
   useEffect(() => {
     setActiveSession(sessionId);
     if (messages[sessionId]) return; // already loaded
-    getMessages(sessionId)
+    getMessages(sessionId, sessionData?.accessToken)
       .then((msgs) => setMessages(sessionId, msgs))
       .catch((e) => {
         logger.warn('Failed to load messages', { error: e.message, sessionId });
         router.replace('/chat');
       });
-  }, [sessionId, setActiveSession, messages, setMessages, router]);
+  }, [sessionId, setActiveSession, messages, setMessages, router, sessionData?.accessToken]);
 
   // Auto-scroll to bottom
   useEffect(() => {
@@ -104,7 +106,7 @@ export default function SessionPage() {
     const messageAddedRef = { current: false };
 
     try {
-      for await (const raw of streamChat(sessionId, question, abort.signal, webSearch)) {
+      for await (const raw of streamChat(sessionId, question, abort.signal, webSearch, sessionData?.accessToken)) {
         let parsed: StreamToken;
         try { parsed = JSON.parse(raw); } catch { continue; }
 
@@ -153,7 +155,7 @@ export default function SessionPage() {
       setStreaming(false);
       abortRef.current = null;
     }
-  }, [sessionId, isStreaming, addMessage, appendToken, finalizeMessage, setStreaming]);
+  }, [sessionId, isStreaming, addMessage, appendToken, finalizeMessage, setStreaming, sessionData?.accessToken]);
 
   const handleStop = useCallback(() => {
     abortRef.current?.abort();

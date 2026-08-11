@@ -2,7 +2,6 @@ import type { Session, Message, IndexStats, IngestionStatus } from './types';
 import logger from './logger';
 
 const isBrowser = typeof window !== 'undefined';
-// Use relative path in browser to route through Next.js proxy (avoids CORS preflight)
 const API_BASE = isBrowser ? '' : (process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000');
 
 class ApiError extends Error {
@@ -124,16 +123,26 @@ function normalizeIngestionStatus(status: ApiIngestionStatus): IngestionStatus {
   };
 }
 
-async function request<T>(path: string, init?: RequestInit): Promise<T> {
+interface FetchOptions extends RequestInit {
+  accessToken?: string;
+}
+
+async function request<T>(path: string, init?: FetchOptions): Promise<T> {
   const url = `${API_BASE}${path}`;
   logger.debug(`API request: ${init?.method ?? 'GET'} ${url}`);
 
+  const { accessToken, ...fetchInit } = init ?? {};
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+    ...fetchInit.headers as Record<string, string>,
+  };
+  if (accessToken) {
+    headers['Authorization'] = `Bearer ${accessToken}`;
+  }
+
   const res = await fetch(url, {
-    ...init,
-    headers: {
-      'Content-Type': 'application/json',
-      ...init?.headers,
-    },
+    ...fetchInit,
+    headers,
     credentials: 'include',
   });
 
@@ -154,25 +163,26 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 
 // ── Sessions ──────────────────────────────────────────────────────────────
 
-export async function getSessions(): Promise<Session[]> {
-  const sessions = await request<ApiSession[]>('/api/sessions');
+export async function getSessions(accessToken?: string): Promise<Session[]> {
+  const sessions = await request<ApiSession[]>('/api/sessions', { accessToken });
   return sessions.map(normalizeSession);
 }
 
-export async function createSession(title?: string): Promise<Session> {
+export async function createSession(title: string | undefined, accessToken?: string): Promise<Session> {
   const session = await request<ApiSession>('/api/sessions', {
     method: 'POST',
     body: JSON.stringify({ title: title ?? 'New conversation' }),
+    accessToken,
   });
   return normalizeSession(session);
 }
 
-export async function deleteSession(sessionId: string): Promise<void> {
-  await request<void>(`/api/sessions/${sessionId}`, { method: 'DELETE' });
+export async function deleteSession(sessionId: string, accessToken?: string): Promise<void> {
+  await request<void>(`/api/sessions/${sessionId}`, { method: 'DELETE', accessToken });
 }
 
-export async function getMessages(sessionId: string): Promise<Message[]> {
-  const messages = await request<ApiMessage[]>(`/api/sessions/${sessionId}/messages`);
+export async function getMessages(sessionId: string, accessToken?: string): Promise<Message[]> {
+  const messages = await request<ApiMessage[]>(`/api/sessions/${sessionId}/messages`, { accessToken });
   return messages.map(normalizeMessage);
 }
 
@@ -182,16 +192,22 @@ export async function* streamChat(
   sessionId: string,
   question: string,
   signal?: AbortSignal,
-  webSearch: boolean = false,  // Fix 001: web search toggle wired end-to-end
+  webSearch: boolean = false,
+  accessToken?: string,
 ): AsyncGenerator<string> {
   const url = `${API_BASE}/api/chat`;
   logger.info('Starting chat stream', { sessionId, question: question.slice(0, 80), webSearch });
 
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+  };
+  if (accessToken) {
+    headers['Authorization'] = `Bearer ${accessToken}`;
+  }
+
   const res = await fetch(url, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers,
     body: JSON.stringify({ session_id: sessionId, question, web_search: webSearch }),
     credentials: 'include',
     signal,
@@ -204,7 +220,6 @@ export async function* streamChat(
     } catch {
       // Ignore JSON parse errors
     }
-    // Consume response body to free the connection
     res.body?.cancel().catch(() => {});
     const message = errBody.message ?? `HTTP ${res.status}`;
     logger.error(`Stream failed: HTTP ${res.status}`, { code: errBody.code, message });
@@ -236,34 +251,37 @@ export async function* streamChat(
       }
     }
   } finally {
-    // Always release the reader lock even when the AbortSignal fires mid-stream.
-    // Without this, the ReadableStream lock is held indefinitely, exhausting the
-    // browser connection pool across repeated stop/start cycles (N-03).
     reader.cancel().catch(() => {});
   }
 }
 
 // ── Admin ─────────────────────────────────────────────────────────────────
 
-export async function getIndexStats(): Promise<IndexStats> {
-  const stats = await request<ApiIndexStats>('/api/index/stats');
+export async function getIndexStats(accessToken?: string): Promise<IndexStats> {
+  const stats = await request<ApiIndexStats>('/api/index/stats', { accessToken });
   return normalizeIndexStats(stats);
 }
 
-export async function getIngestionStatus(): Promise<IngestionStatus> {
-  const status = await request<ApiIngestionStatus>('/api/admin/ingest/status');
+export async function getIngestionStatus(accessToken?: string): Promise<IngestionStatus> {
+  const status = await request<ApiIngestionStatus>('/api/admin/ingest/status', { accessToken });
   return normalizeIngestionStatus(status);
 }
 
-export async function uploadPdf(file: File): Promise<{ filename: string }> {
+export async function uploadPdf(file: File, accessToken?: string): Promise<{ filename: string }> {
   const form = new FormData();
   form.append('file', file);
   const url = `${API_BASE}/api/admin/upload`;
   logger.info('Uploading PDF', { filename: file.name, size: file.size });
 
+  const headers: Record<string, string> = {};
+  if (accessToken) {
+    headers['Authorization'] = `Bearer ${accessToken}`;
+  }
+
   const res = await fetch(url, {
     method: 'POST',
     body: form,
+    headers,
     credentials: 'include',
   });
   if (!res.ok) {
@@ -273,8 +291,8 @@ export async function uploadPdf(file: File): Promise<{ filename: string }> {
   return res.json();
 }
 
-export async function refreshIndex(): Promise<void> {
-  await request<void>('/api/admin/refresh', { method: 'POST' });
+export async function refreshIndex(accessToken?: string): Promise<void> {
+  await request<void>('/api/admin/refresh', { method: 'POST', accessToken });
 }
 
 export { ApiError };

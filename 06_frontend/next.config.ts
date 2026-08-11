@@ -40,14 +40,28 @@ const nextConfig: NextConfig = {
 
   // Security headers applied to every response
   async headers() {
+    const csp = [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",  // Next.js needs unsafe-inline/eval for dev
+      "style-src 'self' 'unsafe-inline'",  // Tailwind/emotion need unsafe-inline
+      "img-src 'self' data: http://localhost:8000 https://*.run.app",
+      "font-src 'self' data:",
+      "connect-src 'self' http://localhost:8000 https://*.run.app ws://localhost:8000 wss://*.run.app",
+      "frame-ancestors 'none'",
+      "form-action 'self'",
+      "base-uri 'self'",
+    ].join("; ");
+    
     return [
       {
         source: '/(.*)',
         headers: [
-          { key: 'X-Frame-Options',       value: 'DENY' },
+          { key: 'X-Frame-Options', value: 'DENY' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'Referrer-Policy',        value: 'strict-origin-when-cross-origin' },
-          { key: 'Permissions-Policy',     value: 'camera=(), microphone=(), geolocation=()' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+          { key: 'Content-Security-Policy', value: csp },
+          { key: 'X-DNS-Prefetch-Control', value: 'off' },
         ],
       },
     ];
