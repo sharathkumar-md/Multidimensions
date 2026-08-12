@@ -1,6 +1,19 @@
 version: "3.9"
 
 services:
+  redis:
+    image: redis:7-alpine
+    container_name: multidimensions-redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
   keycloak-db:
     image: postgres:15-alpine
     container_name: multidimensions-keycloak-db
@@ -52,10 +65,11 @@ services:
       API_AUTH_ENABLED: "true"
       API_KEYCLOAK_SERVER_URL: "http://keycloak:8080"
       API_CORS_ORIGINS: "http://localhost:3000"
+      API_REDIS_URL: "redis://redis:6379/0"
     volumes:
       - ./data:/app/data
       - ./03_rag/index:/app/03_rag/index
-      - ./.sessions.json:/app/.sessions.json
+      - ./.sessions.db:/app/05_api/.sessions.db
       - ./logs:/app/logs
     deploy:
       resources:
@@ -71,6 +85,8 @@ services:
       retries: 3
     depends_on:
       keycloak:
+        condition: service_healthy
+      redis:
         condition: service_healthy
     restart: unless-stopped
 
@@ -94,3 +110,4 @@ services:
 
 volumes:
   keycloak_data:
+  redis_data:

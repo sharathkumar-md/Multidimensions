@@ -17,6 +17,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
+# Create non-root user for security
+RUN groupadd -r appuser && useradd -r -g appuser -d /app -s /bin/bash appuser
+
 # Create and activate virtual environment
 RUN python3.11 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
@@ -33,7 +36,14 @@ RUN pip install --no-cache-dir --upgrade pip \
 COPY 03_rag /app/03_rag
 COPY 05_api /app/05_api
 
+# Create necessary directories and set ownership
+RUN mkdir -p /app/.cache/huggingface /app/data /app/03_rag/index /app/logs \
+    && chown -R appuser:appuser /app
+
 WORKDIR /app/05_api
+
+# Switch to non-root user
+USER appuser
 
 # Environment variables for HuggingFace / PyTorch optimization
 ENV HF_HOME=/app/.cache/huggingface \
