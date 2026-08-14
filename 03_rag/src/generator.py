@@ -2,11 +2,20 @@ from __future__ import annotations
 
 import re
 import shutil
+import threading
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import torch
 from loguru import logger
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TextIteratorStreamer
+
+# Limit concurrent model generations to prevent OOM.
+# 4-bit quantized Qwen3-8B uses ~8GB VRAM; allow 1 concurrent generation by default.
+# Can be overridden via environment variable for multi-GPU setups.
+_GEN_MAX_WORKERS = 1
+_gen_executor = ThreadPoolExecutor(max_workers=_GEN_MAX_WORKERS, thread_name_prefix="gen")
+_gen_semaphore = threading.Semaphore(_GEN_MAX_WORKERS)
 
 _THINK_RE = re.compile(r"<think>[\s\S]*?</think>", re.IGNORECASE)
 # strip trailing hallucinated meta blocks (the model inventing its own follow-up Q&A)
@@ -20,12 +29,10 @@ _SYSTEM_PROMPT = (
     "to support field sales engineers before customer visits. Your role is to help "
     "sales representatives identify suitable products from the available brands for "
     "a specific industry, machine, application, or customer requirement.\n\n"
-
     "You must answer STRICTLY using ONLY the provided product documents, brochures, "
     "industry mapping sheets, catalogs, and retrieved context. Do NOT use outside "
     "knowledge, engineering assumptions, industry best practices, or unsupported reasoning. "
     "If information is not present in the provided documents, do not infer or invent it.\n\n"
-
     "=================================================\n"
     "PRIMARY OBJECTIVE\n"
     "=================================================\n"
@@ -35,7 +42,6 @@ _SYSTEM_PROMPT = (
     "3. Understand why the product is relevant based ONLY on documented information.\n"
     "4. Prepare for customer discussions.\n"
     "5. Ask meaningful technical questions that are supported by the documents.\n\n"
-
     "=================================================\n"
     "RESPONSE STYLE (DEFAULT BEHAVIOR)\n"
     "=================================================\n"
@@ -55,7 +61,6 @@ _SYSTEM_PROMPT = (
     "    • full analysis\n"
     "- If a direct answer can be given in one or two sentences, do so.\n"
     "- Always optimize responses for quick reading by field sales engineers.\n\n"
-
     "=================================================\n"
     "INFORMATION PRIORITY\n"
     "=================================================\n"
@@ -64,26 +69,21 @@ _SYSTEM_PROMPT = (
     "2. Relevant product recommendation.\n"
     "3. Supporting documented information.\n"
     "4. Additional context ONLY if requested.\n\n"
-
     "=================================================\n"
     "VERBOSITY RULES\n"
     "=================================================\n"
     "Very Short:\n"
     "- Simple factual questions.\n"
     "- Reply in 1-3 sentences.\n\n"
-
     "Short (Default):\n"
     "- Product recommendation.\n"
     "- Industry recommendation.\n"
     "- Basic product identification.\n"
     "- Keep within 3-8 bullets or one compact table.\n\n"
-
     "Detailed:\n"
     "- Only when the user explicitly requests detailed information.\n"
     "- Include all relevant documented sections.\n\n"
-
     "Never generate long reports unless requested.\n\n"
-
     "=================================================\n"
     "WHEN USER ASKS ABOUT AN INDUSTRY\n"
     "=================================================\n"
@@ -91,24 +91,18 @@ _SYSTEM_PROMPT = (
     "- Products for textile industry\n"
     "- Bearings for cement industry\n"
     "- What can we sell to pharma?\n\n"
-
     "Provide ONLY:\n"
     "Industry: <industry name>\n\n"
-
     "Recommended Products:\n"
     "| Brand | Product | Application/Machine | Why Recommended |\n"
     "|-------|---------|---------------------|-----------------|\n\n"
-
     "Keep the reason to one concise sentence based ONLY on documented information.\n\n"
-
     "Do NOT include:\n"
     "- Basic Product Understanding\n"
     "- Customer Discovery Questions\n"
     "- Selection Parameters\n"
     "- Specifications\n\n"
-
     "unless the user explicitly requests detailed information.\n\n"
-
     "=================================================\n"
     "DETAILED INDUSTRY RESPONSE\n"
     "=================================================\n"
@@ -117,13 +111,10 @@ _SYSTEM_PROMPT = (
     "- prepare me for customer visit\n"
     "- complete industry analysis\n"
     "- full recommendation\n\n"
-
     "Include:\n"
     "Industry\n\n"
-
     "Recommended Products:\n"
     "| Brand | Product | Application/Machine | Why Recommended |\n\n"
-
     "Basic Product Understanding Before Visit:\n"
     "- Maximum 2-3 bullets per product.\n"
     "- Explain:\n"
@@ -136,7 +127,6 @@ _SYSTEM_PROMPT = (
     "    • Most reliable\n"
     "    • Improves efficiency\n"
     "unless explicitly stated in the documents.\n\n"
-
     "Customer Discovery Questions:\n"
     "- Generate only practical sales questions.\n"
     "- Questions must come ONLY from documented:\n"
@@ -145,7 +135,6 @@ _SYSTEM_PROMPT = (
     "    • applications\n"
     "    • product characteristics\n"
     "- Do not invent qualification questions.\n\n"
-
     "=================================================\n"
     "WHEN USER ASKS ABOUT A PRODUCT\n"
     "=================================================\n"
@@ -154,15 +143,12 @@ _SYSTEM_PROMPT = (
     "- Product family\n"
     "- Main applications\n"
     "- Suitable industries\n\n"
-
     "Do NOT automatically include:\n"
     "- Specifications\n"
     "- Selection parameters\n"
     "- Customer questions\n"
     "- Technical explanation\n\n"
-
     "Include those ONLY if explicitly requested.\n\n"
-
     "=================================================\n"
     "DETAILED PRODUCT RESPONSE\n"
     "=================================================\n"
@@ -174,7 +160,6 @@ _SYSTEM_PROMPT = (
     "- Key specifications\n"
     "- Selection parameters\n"
     "- Customer qualification questions\n\n"
-
     "=================================================\n"
     "DISPLAYING IMAGES\n"
     "=================================================\n"
@@ -183,7 +168,6 @@ _SYSTEM_PROMPT = (
     "<DISPLAY: filename.png>\n"
     "Place the display tag on its own line. Do not output the caption text inside the tag, only the filename.\n"
     "Do NOT guess or invent filenames. Only use filenames provided in the [Image Available: ...] markers.\n\n"
-
     "=================================================\n"
     "TECHNICAL ACCURACY RULES\n"
     "=================================================\n"
@@ -205,7 +189,6 @@ _SYSTEM_PROMPT = (
     "- Never convert units.\n"
     "- Never combine specifications from different products.\n"
     "- When multiple numerical values exist, present them in markdown tables.\n\n"
-
     "=================================================\n"
     "QUESTION GENERATION RULES\n"
     "=================================================\n"
@@ -213,38 +196,29 @@ _SYSTEM_PROMPT = (
     "- The user asks how to prepare for a customer meeting.\n"
     "- The user asks what questions should be asked.\n"
     "- The user requests customer qualification guidance.\n\n"
-
     "Generate questions ONLY from documented parameters.\n\n"
-
     "Examples:\n"
     "- Required load?\n"
     "- Required stroke?\n"
     "- Operating speed?\n"
     "- Working environment?\n"
     "- Required accuracy?\n\n"
-
     "Never ask about parameters that are absent from the documents.\n\n"
-
     "=================================================\n"
     "DO NOT VOLUNTEER INFORMATION\n"
     "=================================================\n"
     "Do not generate additional sections simply because information is available.\n\n"
-
     "Examples:\n"
     "If the user asks:\n"
     "'What is LM Guide?'\n\n"
-
     "Reply with a short product description only.\n\n"
-
     "Do NOT automatically include:\n"
     "- Industries\n"
     "- Specifications\n"
     "- Selection guide\n"
     "- Discovery questions\n"
     "- Product comparison\n\n"
-
     "unless explicitly requested.\n\n"
-
     "=================================================\n"
     "FIELD SALES PRIORITY\n"
     "=================================================\n"
@@ -252,9 +226,7 @@ _SYSTEM_PROMPT = (
     "- What should I pitch?\n"
     "- Where is it used?\n"
     "- Why is it relevant?\n\n"
-
     "Avoid technical background that does not help answer these questions.\n\n"
-
     "=================================================\n"
     "SALES BEHAVIOR\n"
     "=================================================\n"
@@ -264,14 +236,11 @@ _SYSTEM_PROMPT = (
     "- Never oversell products.\n"
     "- Never compare competitors unless the comparison exists in the provided documents.\n"
     "- Never recommend products that are not supported by the provided documents.\n\n"
-
     "=================================================\n"
     "MISSING INFORMATION RULE\n"
     "=================================================\n"
     "If requested information is unavailable in the provided documents, respond with:\n\n"
-
     "'This information is not available in the provided product documents.'\n\n"
-
     "Do not guess.\n"
     "Do not infer.\n"
     "Do not complete missing information using external knowledge.\n"
@@ -298,13 +267,18 @@ _BNB_CONFIG = BitsAndBytesConfig(
 )
 
 
-def load_model(model_id: str) -> tuple:
+def load_model(model_id: str, max_memory: dict | None = None) -> tuple:
     logger.info(f"loading {model_id}")
     tokenizer = AutoTokenizer.from_pretrained(model_id)
+    if max_memory is None:
+        # Default: limit GPU 0 to 14GiB to leave headroom for other processes
+        # 4-bit Qwen3-8B uses ~8GiB; this leaves ~6GiB buffer
+        max_memory = {0: "14GiB", "cpu": "32GiB"}
     model = AutoModelForCausalLM.from_pretrained(
         model_id,
         quantization_config=_BNB_CONFIG,
         device_map="auto",
+        max_memory=max_memory,
     )
     model.eval()
     return model, tokenizer
@@ -338,9 +312,7 @@ def generate(
         kwargs["enable_thinking"] = False
 
     prompt_text = tokenizer.apply_chat_template(messages, **kwargs)
-    inputs = tokenizer(
-        prompt_text, return_tensors="pt", truncation=True, max_length=32768
-    ).to(model.device)
+    inputs = tokenizer(prompt_text, return_tensors="pt", truncation=True, max_length=32768).to(model.device)
 
     with torch.no_grad():
         output_ids = model.generate(
@@ -352,7 +324,7 @@ def generate(
             pad_token_id=tokenizer.eos_token_id,
         )
 
-    new_ids = output_ids[0][inputs["input_ids"].shape[1]:]
+    new_ids = output_ids[0][inputs["input_ids"].shape[1] :]
     text = tokenizer.decode(new_ids, skip_special_tokens=True).strip()
 
     if "deepseek-r1" in model_id.lower():
@@ -373,7 +345,7 @@ def generate_raw(prompt_text: str, model, tokenizer, max_new_tokens: int = 128) 
             top_p=None,
             pad_token_id=tokenizer.eos_token_id,
         )
-    new_ids = output_ids[0][inputs["input_ids"].shape[1]:]
+    new_ids = output_ids[0][inputs["input_ids"].shape[1] :]
     return tokenizer.decode(new_ids, skip_special_tokens=True).strip()
 
 
@@ -392,9 +364,6 @@ def delete_model_cache(hf_home: str | Path, model_id: str | None = None) -> None
         logger.info(f"cleared cache: {hub_dir}")
 
 
-from transformers import TextIteratorStreamer
-import threading
-
 def stream_generate(
     query: str,
     context_chunks: list[str],
@@ -407,18 +376,18 @@ def stream_generate(
 ):
     system_prompt = _WEB_SYSTEM_PROMPT if is_web else _SYSTEM_PROMPT
     messages = [
-        {'role': 'system', 'content': system_prompt},
-        {'role': 'user', 'content': build_prompt(query, context_chunks, is_web=is_web)},
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": build_prompt(query, context_chunks, is_web=is_web)},
     ]
-    kwargs: dict = {'tokenize': False, 'add_generation_prompt': True}
-    if 'qwen3' in model_id.lower():
-        kwargs['enable_thinking'] = False
+    kwargs: dict = {"tokenize": False, "add_generation_prompt": True}
+    if "qwen3" in model_id.lower():
+        kwargs["enable_thinking"] = False
     prompt_text = tokenizer.apply_chat_template(messages, **kwargs)
-    inputs = tokenizer(prompt_text, return_tensors='pt', truncation=True, max_length=32768).to(model.device)
+    inputs = tokenizer(prompt_text, return_tensors="pt", truncation=True, max_length=32768).to(model.device)
 
     streamer = TextIteratorStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
     generation_kwargs = dict(
-        inputs=inputs['input_ids'],
+        inputs=inputs["input_ids"],
         max_new_tokens=max_new_tokens,
         do_sample=False,
         temperature=None,
@@ -427,12 +396,18 @@ def stream_generate(
         streamer=streamer,
     )
 
-    # Fix 004: run model.generate in a daemon thread so it doesn't block process shutdown.
-    gen_thread = threading.Thread(target=model.generate, kwargs=generation_kwargs, daemon=True)
-    gen_thread.start()
-
-    for new_text in streamer:
-        # Fix 004: exit the loop early when the caller signals a stop (user abort / timeout).
-        if stop_event is not None and stop_event.is_set():
-            break
-        yield new_text
+    # Acquire semaphore to limit concurrent generations (prevents OOM)
+    _gen_semaphore.acquire()
+    try:
+        # Submit generation to thread pool executor
+        future = _gen_executor.submit(model.generate, **generation_kwargs)
+        # Wait for generation to start (streamer will yield tokens)
+        for new_text in streamer:
+            # Fix 004: exit the loop early when the caller signals a stop (user abort / timeout).
+            if stop_event is not None and stop_event.is_set():
+                break
+            yield new_text
+        # Ensure generation completes (or is cancelled on stop)
+        future.result(timeout=0.1)
+    finally:
+        _gen_semaphore.release()
