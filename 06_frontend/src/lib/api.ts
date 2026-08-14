@@ -197,9 +197,22 @@ export async function* streamChat(
     signal,
   });
 
-  if (!res.ok || !res.body) {
-    logger.error(`Stream failed: HTTP ${res.status}`);
-    throw new ApiError(res.status, 'STREAM_ERROR', `Stream failed: HTTP ${res.status}`);
+  if (!res.ok) {
+    let errBody: { code?: string; message?: string } = {};
+    try {
+      errBody = await res.json();
+    } catch {
+      // Ignore JSON parse errors
+    }
+    // Consume response body to free the connection
+    res.body?.cancel().catch(() => {});
+    const message = errBody.message ?? `HTTP ${res.status}`;
+    logger.error(`Stream failed: HTTP ${res.status}`, { code: errBody.code, message });
+    throw new ApiError(res.status, errBody.code ?? 'STREAM_ERROR', message);
+  }
+
+  if (!res.body) {
+    throw new ApiError(res.status, 'STREAM_ERROR', 'Response body is null');
   }
 
   const reader = res.body.getReader();

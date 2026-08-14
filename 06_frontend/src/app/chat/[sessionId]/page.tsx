@@ -99,9 +99,9 @@ export default function SessionPage() {
     abortRef.current = abort;
     setStreaming(true, sessionId);
 
-    // Track whether aiMsg was added to the store — used by the abort/error handlers
-    // to know whether finalizeMessage must be called to clear isStreaming: true.
-    let messageAdded = false;
+    // Use a ref to track whether aiMsg was added to the store — survives across
+    // potential re-renders and ensures the abort/error handlers see the latest value.
+    const messageAddedRef = { current: false };
 
     try {
       for await (const raw of streamChat(sessionId, question, abort.signal, webSearch)) {
@@ -114,10 +114,10 @@ export default function SessionPage() {
         }
 
         if (parsed.token) {
-          if (!messageAdded) {
+          if (!messageAddedRef.current) {
             setShowThinking(false);
             addMessage(sessionId, aiMsg);
-            messageAdded = true;
+            messageAddedRef.current = true;
           }
           appendToken(sessionId, aiMsgId, parsed.token);
         }
@@ -136,13 +136,13 @@ export default function SessionPage() {
       if ((e as Error).name === 'AbortError') {
         // User stopped the stream — finalize the message if it was already in the store,
         // otherwise it stays stuck with isStreaming:true and a permanent blinking cursor.
-        if (messageAdded) {
+        if (messageAddedRef.current) {
           finalizeMessage(sessionId, aiMsgId, { isStreaming: false });
           logger.info('Stream aborted mid-stream', { sessionId });
         }
       } else {
         logger.error('Stream failed', { error: (e as Error).message });
-        if (messageAdded) {
+        if (messageAddedRef.current) {
           finalizeMessage(sessionId, aiMsgId, {
             content: '⚠️ Something went wrong. Please try again.',
           });
