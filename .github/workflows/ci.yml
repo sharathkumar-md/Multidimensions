@@ -30,7 +30,29 @@ jobs:
             --ignore E501 \
             --output-format github
 
-  # ── Job 2: Security Scan ─────────────────────────────────────────────────────
+  # ── Job 2: Secret Scan ────────────────────────────────────────────────────────
+  secret-scan:
+    name: Secret/Placeholder Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for placeholder secrets in example env files
+        run: |
+          # Fail if any .env.example or .env.docker.example contains placeholder values
+          if grep -r "change_me" .env.docker.example .env.example 2>/dev/null; then
+            echo "::error::Placeholder secrets detected in example env files. Replace 'change_me_*' values before deploying."
+            exit 1
+          fi
+          # Check for common placeholder patterns in committed env files
+          if find . -name ".env*" -not -path "./.git/*" -not -name ".env.example" -not -name ".env.docker.example" | xargs grep -l "change_me" 2>/dev/null; then
+            echo "::error::Placeholder secrets found in committed .env files. Never commit real secrets."
+            exit 1
+          fi
+          echo "No placeholder secrets detected."
+
+  # ── Job 3: Security Scan ─────────────────────────────────────────────────────
   security:
     name: Security Scan (bandit)
     runs-on: ubuntu-latest
@@ -54,7 +76,7 @@ jobs:
             --exit-zero \
             -f txt
 
-  # ── Job 3: Unit Tests ─────────────────────────────────────────────────────────
+  # ── Job 4: Unit Tests ─────────────────────────────────────────────────────────
   test:
     name: Unit Tests
     runs-on: ubuntu-latest
