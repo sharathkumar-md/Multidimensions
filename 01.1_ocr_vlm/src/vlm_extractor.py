@@ -1,7 +1,4 @@
-
-
 import torch
-from loguru import logger
 from PIL import Image
 from transformers import AutoProcessor, BitsAndBytesConfig, Qwen2_5_VLForConditionalGeneration
 
@@ -30,35 +27,40 @@ _BNB = BitsAndBytesConfig(
 _MAX_PIXELS = 512 * 28 * 28  # 401,408 px — Qwen2.5-VL max visual token budget
 
 
-def load_model(model_id: str):
+def load_model(model_id: str, max_memory: dict | None = None):
     """Load the Qwen2.5-VL vision-language model.
 
     BUG-011: always use Qwen2_5_VLForConditionalGeneration (already imported
     at module level) instead of the generic AutoModelForCausalLM, which may
     silently skip the VL image-processing head.
     """
+    if max_memory is None:
+        # Default: limit GPU 0 to 14GiB to leave headroom for other processes
+        # Qwen2.5-VL 7B 4-bit uses ~8GiB; this leaves ~6GiB buffer
+        max_memory = {0: "14GiB", "cpu": "32GiB"}
     model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
         model_id,
         quantization_config=_BNB,
         device_map="auto",
+        max_memory=max_memory,
     )
     model.eval()
-    processor = AutoProcessor.from_pretrained(
-        model_id, max_pixels=_MAX_PIXELS
-    )
+    processor = AutoProcessor.from_pretrained(model_id, max_pixels=_MAX_PIXELS)
     return model, processor
 
 
 def extract_page(image: Image.Image, model, processor, max_new_tokens: int = 1024) -> str:
     from qwen_vl_utils import process_vision_info
 
-    messages = [{
-        "role": "user",
-        "content": [
-            {"type": "image", "image": image, "max_pixels": _MAX_PIXELS},
-            {"type": "text", "text": _PROMPT},
-        ],
-    }]
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "image", "image": image, "max_pixels": _MAX_PIXELS},
+                {"type": "text", "text": _PROMPT},
+            ],
+        }
+    ]
 
     text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     image_inputs, video_inputs = process_vision_info(messages)
@@ -80,7 +82,7 @@ def extract_page(image: Image.Image, model, processor, max_new_tokens: int = 102
             pad_token_id=processor.tokenizer.eos_token_id,
         )
 
-    new_ids = [out[i][len(inputs.input_ids[i]):] for i in range(len(out))]
+    new_ids = [out[i][len(inputs.input_ids[i]) :] for i in range(len(out))]
     result = processor.batch_decode(new_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True)[0].strip()
 
     del inputs, out, new_ids
