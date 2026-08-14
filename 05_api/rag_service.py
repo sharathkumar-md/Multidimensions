@@ -10,14 +10,14 @@ Key design decisions:
 - Uses asyncio.get_event_loop().run_in_executor() to run the blocking
   token-generation loop in a thread pool so the event loop stays responsive.
 """
+
 from __future__ import annotations
 
 import asyncio
 import json
 import sys
-import time
 import threading
-import uuid
+import time
 from pathlib import Path
 from typing import AsyncGenerator, Optional
 
@@ -31,7 +31,9 @@ if str(_RAG_DIR) not in sys.path:
 
 # ── Lazy imports — only resolved after sys.path is set ────────────────────────
 _pipeline_loaded = False
+_pipeline_ready_event = threading.Event()
 _load_lock = threading.Lock()
+_ingest_lock = threading.Lock()
 
 _model = None
 _tokenizer = None
@@ -58,6 +60,7 @@ def _do_load() -> None:
 
     try:
         import torch
+
         from config.settings import settings
         from src.embed import get_embed_model
         from src.indexer import load_index
@@ -81,6 +84,7 @@ def _do_load() -> None:
 
         logger.info("Loading LLM…")
         from src.generator import load_model
+
         _model_id = settings.generator_model_id
         _model, _tokenizer = load_model(_model_id)
         logger.info(f"LLM loaded: {_model_id}")
@@ -91,15 +95,38 @@ def _do_load() -> None:
     except Exception as exc:
         logger.error(f"RAG pipeline load failed: {exc}")
         # Don't crash the API — health endpoint will report rag_loaded=False
+    finally:
+        _pipeline_ready_event.set()
 
 
 def load_pipeline_async() -> None:
     """Kick off pipeline loading in a background thread (called at startup)."""
+    _pipeline_ready_event.clear()
     t = threading.Thread(target=_do_load, daemon=True, name="rag-loader")
     t.start()
 
 
+async def wait_for_pipeline(timeout: float = 300.0) -> bool:
+    """
+    Wait for the RAG pipeline to finish loading.
+
+    Args:
+        timeout: Maximum time to wait in seconds (default 5 minutes).
+
+    Returns:
+        True if pipeline loaded successfully, False if timeout or load failed.
+    """
+    loop = asyncio.get_running_loop()
+    try:
+        await asyncio.wait_for(loop.run_in_executor(None, _pipeline_ready_event.wait), timeout=timeout)
+    except asyncio.TimeoutError:
+        logger.error("Pipeline loading timed out")
+        return False
+    return _pipeline_loaded
+
+
 # ── Streaming answer ──────────────────────────────────────────────────────────
+
 
 async def stream_answer(
     question: str,
@@ -114,7 +141,12 @@ async def stream_answer(
     from config.settings import settings
     from src.retriever import retrieve
     from src.web_retriever import web_retrieve
-    from src.generator import stream_generate
+
+    # Wait for pipeline to be ready before processing the request
+    if not await wait_for_pipeline():
+        yield json.dumps({"token": "⚠️ The RAG pipeline failed to load. Please try again later."})
+        yield json.dumps({"done": True, "sources": [], "route": "NONE"})
+        return
 
     loop = asyncio.get_running_loop()  # Issue #5 fix: get_event_loop() is deprecated in async context
 
@@ -125,6 +157,7 @@ async def stream_answer(
 
         def hyde_fn(prompt: str, max_new_tokens: int = 120) -> str:
             from src.generator import generate_raw
+
             return generate_raw(prompt, _model, _tokenizer, max_new_tokens=max_new_tokens)
 
         local_chunks = retrieve(
@@ -155,7 +188,7 @@ async def stream_answer(
     # ── 2. Build context texts ────────────────────────────────────────────────
     context_texts = []
     for chunk in all_chunks:
-        if hasattr(chunk, "chunk"):   # RetrievedChunk wrapper
+        if hasattr(chunk, "chunk"):  # RetrievedChunk wrapper
             context_texts.append(chunk.chunk.text)
         elif hasattr(chunk, "text"):  # raw Chunk
             context_texts.append(chunk.text)
@@ -165,7 +198,9 @@ async def stream_answer(
     # ── 3. Stream tokens ──────────────────────────────────────────────────────
     if not _pipeline_loaded or not context_texts:
         # Graceful degradation: stream a single error token
-        yield json.dumps({"token": "⚠️ The RAG pipeline is still loading or no context found. Please try again in a moment."})
+        yield json.dumps(
+            {"token": "⚠️ The RAG pipeline is still loading or no context found. Please try again in a moment."}
+        )
         yield json.dumps({"done": True, "sources": [], "route": route})
         return
 
@@ -178,8 +213,13 @@ async def stream_answer(
         # Fix 014: 120-second wall-clock timeout guards against runaway generation.
         try:
             from src.generator import stream_generate
+
             for token in stream_generate(
-                question, context_texts, _model, _tokenizer, _model_id,
+                question,
+                context_texts,
+                _model,
+                _tokenizer,
+                _model_id,
                 stop_event=stop_event,
             ):
                 if stop_event.is_set():
@@ -224,15 +264,18 @@ async def stream_answer(
 
     product_images = []
 
-    yield json.dumps({
-        "done": True,
-        "sources": sources,
-        "product_images": product_images,
-        "route": route,
-    })
+    yield json.dumps(
+        {
+            "done": True,
+            "sources": sources,
+            "product_images": product_images,
+            "route": route,
+        }
+    )
 
 
 # ── Index stats & ingestion ───────────────────────────────────────────────────
+
 
 def get_index_stats() -> dict:
     return {
@@ -244,12 +287,13 @@ def get_index_stats() -> dict:
 
 
 def get_ingestion_status() -> dict:
-    return {
-        "running": _ingest_running,
-        "progress": _ingest_progress,
-        "current_file": _ingest_current_file,
-        "error": _ingest_error,
-    }
+    with _ingest_lock:
+        return {
+            "running": _ingest_running,
+            "progress": _ingest_progress,
+            "current_file": _ingest_current_file,
+            "error": _ingest_error,
+        }
 
 
 def is_pipeline_loaded() -> bool:
@@ -263,6 +307,7 @@ def refresh_index() -> None:
         return
     from config.settings import settings
     from src.indexer import load_index
+
     # Issue #10 fix: hold the load lock while swapping globals so that concurrent
     # chat queries reading _index_client don't race against the refresh.
     with _load_lock:
@@ -273,33 +318,46 @@ def refresh_index() -> None:
     logger.info(f"Index refreshed: {_n_chunks} chunks, {_n_docs} docs")
 
 
-def trigger_ingest(pdf_path: Path) -> None:
-    """Run ingestion in a background thread."""
-    global _ingest_running, _ingest_progress, _ingest_current_file, _ingest_error
+def trigger_ingest(pdf_path: Path) -> bool:
+    """Run ingestion in a background thread.
 
-    def _ingest():
-        global _ingest_running, _ingest_progress, _ingest_current_file, _ingest_error
+    Returns:
+        True if ingestion was started, False if another ingestion is already running.
+    """
+    global _ingest_running, _ingest_progress, _ingest_current_file, _ingest_error
+    # Atomic check-and-set to prevent double-ingestion
+    with _ingest_lock:
+        if _ingest_running:
+            return False
         _ingest_running = True
         _ingest_progress = 0.0
         _ingest_current_file = pdf_path.name
         _ingest_error = None
+
+    def _ingest():
+        global _ingest_running, _ingest_progress, _ingest_current_file, _ingest_error
         try:
             from config.settings import settings
             from src.pipeline import build_pipeline_index
+
             logger.info(f"Starting ingestion of {pdf_path}")
             build_pipeline_index(
                 ocr_output_dir=settings.ocr_output_dir,
                 index_dir=settings.index_dir,
             )
-            _ingest_progress = 1.0
+            with _ingest_lock:
+                _ingest_progress = 1.0
             refresh_index()
             logger.info("Ingestion complete")
         except Exception as exc:
-            _ingest_error = str(exc)
+            with _ingest_lock:
+                _ingest_error = str(exc)
             logger.error(f"Ingestion error: {exc}")
         finally:
-            _ingest_running = False
-            _ingest_current_file = None
+            with _ingest_lock:
+                _ingest_running = False
+                _ingest_current_file = None
 
     t = threading.Thread(target=_ingest, daemon=True, name="rag-ingest")
     t.start()
+    return True

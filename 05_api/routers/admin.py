@@ -1,16 +1,14 @@
 """Admin router — PDF upload, ingestion trigger, index stats."""
+
 from __future__ import annotations
 
 import os
-import shutil
 import uuid
-from pathlib import Path
 
+from api_config import api_settings
+from auth import require_admin
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
 from loguru import logger
-
-from auth import require_admin
-from api_config import api_settings
 from models import IndexStats, IngestionStatus, UploadResponse, UserInfo
 from rag_service import get_index_stats, get_ingestion_status, refresh_index, trigger_ingest
 
@@ -109,15 +107,13 @@ async def upload_pdf(
             detail=f"Failed to save file: {e}",
         )
 
-    # Kick off background ingestion
-    current = get_ingestion_status()
-    if current["running"]:
+    # Kick off background ingestion (atomic check-and-set)
+    started = trigger_ingest(dest)
+    if not started:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
             detail="An ingestion job is already running. Wait for it to finish.",
         )
-
-    trigger_ingest(dest)
 
     return UploadResponse(
         filename=file.filename,

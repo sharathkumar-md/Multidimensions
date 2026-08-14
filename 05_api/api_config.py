@@ -5,7 +5,6 @@ Reads from 05_api/.env (API_ prefix).
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Optional
 
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -48,11 +47,11 @@ class APISettings(BaseSettings):
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
 
     # ── Auth ──────────────────────────────────────────────────────────────────
-    # Issue #3 fix: default to True so production deployments are secure by default.
-    # Set API_AUTH_ENABLED=False explicitly in your local .env for development.
+    # Default to False for safe local development.
+    # Set API_AUTH_ENABLED=True explicitly in production with all required secrets.
     auth_enabled: bool = Field(
-        default=True,
-        description="Must be True in production to enforce JWT validation.",
+        default=False,
+        description="Must be True in production to enforce JWT validation. Requires API_KEYCLOAK_SERVER_URL, API_KEYCLOAK_REALM, API_KEYCLOAK_CLIENT_ID.",
     )
     keycloak_server_url: str = Field(default="https://keycloak.example.com")
     keycloak_realm: str = Field(default="multidimensions")
