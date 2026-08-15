@@ -287,7 +287,7 @@ def load_model(model_id: str, max_memory: dict | None = None) -> tuple:
 def build_prompt(
     query: str,
     context_chunks: list[str],
-    max_context_chars: int = 24_000,
+    max_context_chars: int = 100_000,
     is_web: bool = False,
     history: list = None,
 ) -> str:

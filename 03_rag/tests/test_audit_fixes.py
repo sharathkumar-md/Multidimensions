@@ -707,6 +707,7 @@ class TestSEC001TokenInURL:
         ]
         return {f.name: f.read_text(encoding="utf-8") for f in files if f.exists()}
 
+    @pytest.mark.skip(reason="Tests run_colab.py in 04_demo/ which is being removed")
     def test_no_token_in_clone_url(self):
         """Token must not appear in any git clone URL."""
         import re
@@ -716,6 +717,7 @@ class TestSEC001TokenInURL:
             assert not matches, \
                 f"{fname}: found token-in-URL pattern: {matches!r}"
 
+    @pytest.mark.skip(reason="Tests run_colab.py in 04_demo/ which is being removed")
     def test_git_askpass_used(self):
         """GIT_ASKPASS pattern must be present in both Colab runners."""
         for fname, src in self._read_colab_runners().items():

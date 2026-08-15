@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import torch
 
-from src.conversational import needs_retrieval, rewrite_query, simple_reply
+from src.conversational import route_query, rewrite_query, simple_reply
 
 _MODEL_ID = "Qwen/Qwen3-8B"
 
@@ -53,28 +53,28 @@ def _pair(*responses: str):
     return _FakeModel(), _FakeTokenizer(list(responses), records), records
 
 
-# ── 1. router: needs_retrieval ────────────────────────────────────────────────
+# ── 1. router: route_query ──────────────────────────────────────────────────
 
 def test_router_no_skips_retrieval():
-    model, tok, _ = _pair("NO")
-    assert needs_retrieval("hi there", model, tok, _MODEL_ID) is False
+    model, tok, _ = _pair("NONE")
+    assert route_query("hi there", model, tok, _MODEL_ID) == "NONE"
 
 
 def test_router_yes_triggers_retrieval():
-    model, tok, _ = _pair("YES")
-    assert needs_retrieval("what linear motors do you have?", model, tok, _MODEL_ID) is True
+    model, tok, _ = _pair("LOCAL")
+    assert route_query("what linear motors do you have?", model, tok, _MODEL_ID) == "LOCAL"
 
 
 def test_router_no_prefix_phrase_skips():
-    # model elaborates but still leads with "no"
-    model, tok, _ = _pair("No, that's just a greeting.")
-    assert needs_retrieval("thanks!", model, tok, _MODEL_ID) is False
+    # model elaborates but still leads with "none"
+    model, tok, _ = _pair("NONE, that's just a greeting.")
+    assert route_query("thanks!", model, tok, _MODEL_ID) == "NONE"
 
 
 def test_router_defaults_to_retrieval_on_garbage():
     # ambiguous / empty output must NOT skip the catalog (fail-safe toward retrieval)
     model, tok, _ = _pair("")
-    assert needs_retrieval("?", model, tok, _MODEL_ID) is True
+    assert route_query("?", model, tok, _MODEL_ID) == "LOCAL"
 
 
 # ── 2. contextual query rewriter ──────────────────────────────────────────────

@@ -17,7 +17,6 @@ htmlcov/
 !.env.example
 
 # ── Heavy Runtime Artefacts (mounted as volumes in production) ─────────────────
-03_rag/index/
 .cache/
 data/ocr_output*/
 results/

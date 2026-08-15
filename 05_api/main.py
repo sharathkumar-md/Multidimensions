@@ -40,20 +40,6 @@ from rag_service import load_pipeline_async                         # noqa: E402
 _MAX_REQUEST_SIZE = 10 * 1024 * 1024  # 10 MB
 
 
-@app.middleware("http")
-async def limit_request_size(request: Request, call_next):
-    """Limit request body size to prevent DoS via large uploads."""
-    content_length = request.headers.get("content-length")
-    if content_length and int(content_length) > _MAX_REQUEST_SIZE:
-        raise HTTPException(
-            status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
-            detail=f"Request body too large. Maximum size is {_MAX_REQUEST_SIZE // (1024*1024)} MB.",
-        )
-    return await call_next(request)
-
-
-# ── Lifespan ──────────────────────────────────────────────────────────────────
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Startup + shutdown logic."""
@@ -63,17 +49,15 @@ async def lifespan(app: FastAPI):
         f"Auth enabled: {api_settings.auth_enabled} | "
         f"CORS origins: {api_settings.cors_origins_list}"
     )
-    # Initialize the database (creates tables if missing)
+
     from session_store import store
     await store.initialize()
-    
-    # Load RAG pipeline in background so the server responds immediately
+
     load_pipeline_async()
     yield
+
     logger.info("MultiDimensions API shut down.")
 
-
-# ── App ───────────────────────────────────────────────────────────────────────
 
 app = FastAPI(
     title="MultiDimensions RAG API",
@@ -86,6 +70,18 @@ app = FastAPI(
     redoc_url="/redoc",
     lifespan=lifespan,
 )
+
+
+@app.middleware("http")
+async def limit_request_size(request: Request, call_next):
+    """Limit request body size to prevent DoS via large uploads."""
+    content_length = request.headers.get("content-length")
+    if content_length and int(content_length) > _MAX_REQUEST_SIZE:
+        raise HTTPException(
+            status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+            detail=f"Request body too large. Maximum size is {_MAX_REQUEST_SIZE // (1024*1024)} MB.",
+        )
+    return await call_next(request)
 
 # ── CORS ──────────────────────────────────────────────────────────────────────
 

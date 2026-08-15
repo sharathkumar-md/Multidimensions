@@ -1,6 +1,13 @@
 import sys
+import os
 from pathlib import Path
 import numpy as np
+
+# Set test environment variables BEFORE importing settings
+os.environ.setdefault("RAG_AUTH_ENABLED", "false")
+os.environ.setdefault("RAG_KEYCLOAK_CLIENT_SECRET", "test-secret-for-testing-only")
+os.environ.setdefault("RAG_AUTH_SESSION_KEY", "test-session-key-for-testing-only-32chars")
+os.environ.setdefault("RAG_KEYCLOAK_SERVER_URL", "https://test-keycloak.example.com")
 
 sys.path.insert(0, str(Path(__file__).parent))
 
