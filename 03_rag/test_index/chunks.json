@@ -1,0 +1,16 @@
+[
+  {
+    "chunk_id": "test-1",
+    "doc_hash": "test-hash",
+    "source_doc": "test.txt",
+    "page_num": 1,
+    "text": "Cloud Run is a serverless platform for deploying containerized applications."
+  },
+  {
+    "chunk_id": "test-2",
+    "doc_hash": "test-hash",
+    "source_doc": "test.txt",
+    "page_num": 2,
+    "text": "Google Cloud SQL provides managed PostgreSQL databases."
+  }
+]

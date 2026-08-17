@@ -1,0 +1,14 @@
+{
+  "doc_id": "9f2e410bc60f4abf8573fb4516af1260",
+  "source_filename": "Packaging Machinery.pdf",
+  "source_path": "/content/MultiDimensions/Brand Resources/Packaging Machinery.pdf",
+  "file_size_bytes": 241053,
+  "sha256": "a7ad9f59476af0cef615fbd796f3670347c7a772bef8ad39f0ce3954b32cfb38",
+  "page_count": 4,
+  "status": "completed",
+  "created_at": "2026-07-02T05:22:59.200983",
+  "completed_at": "2026-07-02T05:22:59.200999",
+  "markdown_path": "markdown/9f2e410bc60f4abf8573fb4516af1260.md",
+  "processing_time_ms": 190842.73948400005,
+  "vlm_model": "Qwen/Qwen2.5-VL-7B-Instruct"
+}

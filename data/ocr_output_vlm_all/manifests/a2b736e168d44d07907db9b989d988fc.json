@@ -1,0 +1,14 @@
+{
+  "doc_id": "a2b736e168d44d07907db9b989d988fc",
+  "source_filename": "Food & Beverage.pdf",
+  "source_path": "/content/MultiDimensions/Brand Resources/Food & Beverage.pdf",
+  "file_size_bytes": 248273,
+  "sha256": "3ed7922a5696d6f4f102fd834c43e0fae63c673d731c36566d80b1115be384dd",
+  "page_count": 4,
+  "status": "completed",
+  "created_at": "2026-07-02T05:03:27.089355",
+  "completed_at": "2026-07-02T05:03:27.089407",
+  "markdown_path": "markdown/a2b736e168d44d07907db9b989d988fc.md",
+  "processing_time_ms": 420957.03532500006,
+  "vlm_model": "Qwen/Qwen2.5-VL-7B-Instruct"
+}
