@@ -263,21 +263,24 @@ async def stream_answer(
     # Drain the token queue; enforce a 120-second wall-clock timeout (Fix 014)
     _TIMEOUT = 120.0
     _deadline = loop.time() + _TIMEOUT
-    while True:
-        remaining = _deadline - loop.time()
-        if remaining <= 0:
-            logger.warning("Generation timed out — stopping")
-            stop_event.set()
-            break
-        try:
-            token = await asyncio.wait_for(token_queue.get(), timeout=remaining)
-        except asyncio.TimeoutError:
-            logger.warning("Generation timed out waiting for next token")
-            stop_event.set()
-            break
-        if token is None:
-            break
-        yield json.dumps({"token": token})
+    try:
+        while True:
+            remaining = _deadline - loop.time()
+            if remaining <= 0:
+                logger.warning("Generation timed out — stopping")
+                stop_event.set()
+                break
+            try:
+                token = await asyncio.wait_for(token_queue.get(), timeout=remaining)
+            except asyncio.TimeoutError:
+                logger.warning("Generation timed out waiting for next token")
+                stop_event.set()
+                break
+            if token is None:
+                break
+            yield json.dumps({"token": token})
+    finally:
+        stop_event.set()
 
     # ── 4. Build sources + images ─────────────────────────────────────────────
     sources = [
@@ -364,14 +367,23 @@ def trigger_ingest(pdf_path: Path) -> bool:
     def _ingest():
         global _ingest_running, _ingest_progress, _ingest_current_file, _ingest_error
         try:
-            from config.settings import settings
-            from src.pipeline import build_pipeline_index
-
+            import shutil
+            import subprocess
+            import sys
+            
             logger.info(f"Starting ingestion of {pdf_path}")
-            build_pipeline_index(
-                ocr_output_dir=settings.ocr_output_dir,
-                index_dir=settings.index_dir,
-            )
+            
+            # Move uploaded PDF to raw_catalogs so ingest.py picks it up
+            raw_dir = Path(__file__).resolve().parent.parent / "data" / "raw_catalogs"
+            raw_dir.mkdir(parents=True, exist_ok=True)
+            dest_pdf = raw_dir / pdf_path.name
+            if pdf_path.resolve() != dest_pdf.resolve():
+                shutil.copy2(pdf_path, dest_pdf)
+                
+            # Run the full end-to-end ingestion pipeline
+            ingest_script = Path(__file__).resolve().parent.parent / "03_rag" / "ingest.py"
+            subprocess.run([sys.executable, str(ingest_script)], check=True)
+
             with _ingest_lock:
                 _ingest_progress = 1.0
             refresh_index()
