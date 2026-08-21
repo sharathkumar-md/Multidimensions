@@ -1,0 +1,41 @@
+steps:
+  # 1. Build the API Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:latest'
+      - '-f'
+      - '05_api/Dockerfile'
+      - '.'
+
+  # 2. Push the image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - '--all-tags'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api'
+
+  # 3. Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'multidimensions-api'
+      - '--image'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA'
+      - '--region'
+      - 'asia-southeast1'
+      - '--platform'
+      - 'managed'
+      - '--quiet'
+
+images:
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
