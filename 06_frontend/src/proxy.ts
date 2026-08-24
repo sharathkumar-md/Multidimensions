@@ -1,8 +1,8 @@
-import { auth } from "@/auth"
+ï»¿import { auth } from "@/auth"
 import { NextResponse } from "next/server"
 
-export default auth((req) => {
-  // Allow local dev bypass — AUTH_ENABLED must be explicitly 'false' (string).
+export const proxy = auth((req) => {
+  // Allow local dev bypass - AUTH_ENABLED must be explicitly 'false' (string).
   if (process.env.AUTH_ENABLED === 'false') {
     return NextResponse.next();
   }
@@ -29,7 +29,7 @@ export default auth((req) => {
     return NextResponse.redirect(new URL('/login', req.nextUrl));
   }
 
-  // Already logged in — redirect away from login page
+  // Already logged in - redirect away from login page
   if (isLoggedIn && isAuthPage) {
     return NextResponse.redirect(new URL('/chat', req.nextUrl));
   }
@@ -53,7 +53,7 @@ export default auth((req) => {
       });
     }
     return new NextResponse(
-      JSON.stringify({ error: 'Session token unavailable — please sign in again.' }),
+      JSON.stringify({ error: 'Session token unavailable - please sign in again.' }),
       { status: 401 }
     );
   }
