@@ -47,7 +47,7 @@ export const proxy = auth((req) => {
     const token = req.auth?.accessToken;
     if (token) {
       const requestHeaders = new Headers(req.headers);
-      requestHeaders.set('Authorization', Bearer ${token});
+      requestHeaders.set('Authorization', `Bearer ${token}`);
       return NextResponse.next({
         request: { headers: requestHeaders },
       });
