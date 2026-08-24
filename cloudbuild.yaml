@@ -11,14 +11,7 @@ steps:
       - '05_api/Dockerfile'
       - '.'
 
-  # 2. Push the image to Artifact Registry
-  - name: 'gcr.io/cloud-builders/docker'
-    args:
-      - 'push'
-      - '--all-tags'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api'
-
-  # 3. Deploy to Cloud Run
+  # 2. Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -37,5 +30,3 @@ images:
   - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA'
   - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:latest'
 
-options:
-  logging: CLOUD_LOGGING_ONLY
