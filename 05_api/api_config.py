@@ -41,6 +41,7 @@ class APISettings(BaseSettings):
         default="postgresql+asyncpg://keycloak:keycloak@keycloak-db:5432/keycloak",
         description="Connection string for the enterprise database (PostgreSQL).",
     )
+    database_password: str = Field(default="")
 
     @property
     def cors_origins_list(self) -> list[str]:
@@ -65,7 +66,7 @@ class APISettings(BaseSettings):
     )
 
     # ── Upload ────────────────────────────────────────────────────────────────
-    upload_dir: Path = Field(default=_API_DIR.parent / "data" / "uploads")
+    upload_dir: Path = Field(default=_API_DIR / "data" / "uploads")
     max_upload_size_mb: int = Field(default=50, ge=1)
 
     @property
