@@ -11,13 +11,13 @@ steps:
       - '05_api/Dockerfile'
       - '.'
 
-  # 2. Push the image BEFORE deploying
+  # 2. Push the API image
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
       - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA'
 
-  # 3. Deploy to Cloud Run
+  # 3. Deploy API to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -30,6 +30,42 @@ steps:
       - 'asia-southeast1'
       - '--platform'
       - 'managed'
+      - '--quiet'
+
+  # 4. Build the Frontend Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-frontend:$COMMIT_SHA'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-frontend:latest'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_API_URL=https://multidimensions-api-571181295708.asia-southeast1.run.app'
+      - '-f'
+      - '06_frontend/Dockerfile'
+      - './06_frontend'
+
+  # 5. Push the Frontend image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-frontend:$COMMIT_SHA'
+
+  # 6. Deploy Frontend to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'multidimensions-frontend'
+      - '--image'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-frontend:$COMMIT_SHA'
+      - '--region'
+      - 'asia-southeast1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
       - '--quiet'
 
 options:
