@@ -59,3 +59,8 @@ desktop.ini
 
 .agents
 keycloak/
+
+# Generated RAG indexes
+03_rag/index/
+03_rag/test_index/
+data/ocr_output_vlm_all/
