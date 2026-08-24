@@ -30,3 +30,5 @@ images:
   - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA'
   - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:latest'
 
+options:
+  logging: CLOUD_LOGGING_ONLY
