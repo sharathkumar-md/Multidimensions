@@ -11,7 +11,13 @@ steps:
       - '05_api/Dockerfile'
       - '.'
 
-  # 2. Deploy to Cloud Run
+  # 2. Push the image BEFORE deploying
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA'
+
+  # 3. Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -25,10 +31,6 @@ steps:
       - '--platform'
       - 'managed'
       - '--quiet'
-
-images:
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA'
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:latest'
 
 options:
   logging: CLOUD_LOGGING_ONLY
