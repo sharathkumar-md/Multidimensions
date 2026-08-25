@@ -30,6 +30,25 @@ steps:
       - 'asia-southeast1'
       - '--platform'
       - 'managed'
+      - '--port'
+      - '8000'
+      - '--cpu'
+      - '8'
+      - '--memory'
+      - '32Gi'
+      - '--timeout'
+      - '900'
+      - '--concurrency'
+      - '1'
+      - '--min-instances'
+      - '1'
+      - '--max-instances'
+      - '1'
+      - '--gpu'
+      - '1'
+      - '--gpu-type'
+      - 'nvidia-l4'
+      - '--no-gpu-zonal-redundancy'
       - '--quiet'
 
   # 4. Build the Frontend Docker image
@@ -65,8 +84,7 @@ steps:
       - 'asia-southeast1'
       - '--platform'
       - 'managed'
+      - '--port'
+      - '3000'
       - '--allow-unauthenticated'
       - '--quiet'
-
-options:
-  logging: CLOUD_LOGGING_ONLY
