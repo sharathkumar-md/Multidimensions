@@ -37,6 +37,7 @@ steps:
           --gpu=1 \
           --gpu-type=nvidia-l4 \
           --no-gpu-zonal-redundancy \
+          --set-annotations="run.googleapis.com/maxScale=1,autoscaling.knative.dev/maxScale=1" \
           --quiet
 
   # 4. Build the Frontend Docker image
