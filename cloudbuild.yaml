@@ -19,25 +19,25 @@ steps:
 
   # 3. Deploy API to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: gcloud
+    entrypoint: 'bash'
     args:
-      - 'run'
-      - 'deploy'
-      - 'multidimensions-api'
-      - '--image=us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA'
-      - '--region=asia-southeast1'
-      - '--platform=managed'
-      - '--port=8000'
-      - '--cpu=8'
-      - '--memory=32Gi'
-      - '--timeout=900'
-      - '--concurrency=1'
-      - '--min-instances=1'
-      - '--max-instances=1'
-      - '--gpu=1'
-      - '--gpu-type=nvidia-l4'
-      - '--no-gpu-zonal-redundancy'
-      - '--quiet'
+      - '-c'
+      - |
+        gcloud run deploy multidimensions-api \
+          --image=us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA \
+          --region=asia-southeast1 \
+          --platform=managed \
+          --port=8000 \
+          --cpu=8 \
+          --memory=32Gi \
+          --timeout=900 \
+          --concurrency=1 \
+          --min-instances=1 \
+          --max-instances=1 \
+          --gpu=1 \
+          --gpu-type=nvidia-l4 \
+          --no-gpu-zonal-redundancy \
+          --quiet
 
   # 4. Build the Frontend Docker image
   - name: 'gcr.io/cloud-builders/docker'
@@ -61,17 +61,17 @@ steps:
 
   # 6. Deploy Frontend to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: gcloud
+    entrypoint: 'bash'
     args:
-      - 'run'
-      - 'deploy'
-      - 'multidimensions-frontend'
-      - '--image=us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-frontend:$COMMIT_SHA'
-      - '--region=asia-southeast1'
-      - '--platform=managed'
-      - '--port=3000'
-      - '--allow-unauthenticated'
-      - '--quiet'
+      - '-c'
+      - |
+        gcloud run deploy multidimensions-frontend \
+          --image=us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-frontend:$COMMIT_SHA \
+          --region=asia-southeast1 \
+          --platform=managed \
+          --port=3000 \
+          --allow-unauthenticated \
+          --quiet
 
 options:
   logging: CLOUD_LOGGING_ONLY
