@@ -88,3 +88,6 @@ steps:
       - '3000'
       - '--allow-unauthenticated'
       - '--quiet'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
