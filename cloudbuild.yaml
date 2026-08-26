@@ -38,6 +38,7 @@ steps:
                 autoscaling.knative.dev/maxScale: '1'
                 run.googleapis.com/minScale: '1'
                 autoscaling.knative.dev/minScale: '1'
+                run.googleapis.com/gpu-zonal-redundancy-disabled: 'true'
             spec:
               containerConcurrency: 1
               timeoutSeconds: 900
