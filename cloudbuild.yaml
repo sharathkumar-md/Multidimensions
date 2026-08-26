@@ -56,6 +56,13 @@ steps:
                     cpu: '8000m'
                     memory: '32Gi'
                     nvidia.com/gpu: '1'
+                startupProbe:
+                  tcpSocket:
+                    port: 8000
+                  initialDelaySeconds: 0
+                  timeoutSeconds: 240
+                  periodSeconds: 240
+                  failureThreshold: 4
         EOF
         gcloud run services replace service.yaml --region=asia-southeast1 --quiet
 
