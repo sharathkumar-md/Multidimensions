@@ -1,9 +1,10 @@
 'use client';
 
-import { Sun, Moon, Monitor, Cpu } from 'lucide-react';
+import { Sun, Moon, Monitor, Cpu, Download } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useChatStore, useUiStore } from '@/lib/store';
 import styles from './Header.module.css';
+import { useCallback } from 'react';
 
 interface HeaderProps {
   sessionTitle?: string;
@@ -11,13 +12,34 @@ interface HeaderProps {
 
 export function Header({ sessionTitle }: HeaderProps) {
   const { theme, setTheme } = useTheme();
-  const { isStreaming } = useChatStore();
+  const { isStreaming, messages, activeSessionId } = useChatStore();
 
   const themeOptions = [
     { value: 'light' as const,  icon: <Sun size={14} />,     label: 'Light' },
     { value: 'dark'  as const,  icon: <Moon size={14} />,    label: 'Dark'  },
     { value: 'system' as const, icon: <Monitor size={14} />, label: 'System' },
   ];
+
+  const handleExport = useCallback(() => {
+    if (!activeSessionId) return;
+    const sessionMessages = messages[activeSessionId] || [];
+    if (sessionMessages.length === 0) return;
+
+    let text = `Chat Export: ${sessionTitle || 'MultiDimensions RAG'}\n\n`;
+    sessionMessages.forEach((msg) => {
+      text += `--- ${msg.role.toUpperCase()} ---\n${msg.content}\n\n`;
+    });
+
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Chat_Export_${new Date().toISOString().split('T')[0]}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }, [activeSessionId, messages, sessionTitle]);
 
   return (
     <header className={styles.header}>
@@ -34,6 +56,12 @@ export function Header({ sessionTitle }: HeaderProps) {
       </div>
 
       <div className={styles.right}>
+        {/* Export badge */}
+        <button className={styles.exportBtn} onClick={handleExport} title="Export Chat as TXT" aria-label="Export Chat">
+          <Download size={13} />
+          <span>Export</span>
+        </button>
+
         {/* Model badge */}
         <div className={styles.modelBadge} title="Active AI model">
           <Cpu size={13} />
