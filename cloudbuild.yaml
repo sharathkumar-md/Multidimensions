@@ -48,6 +48,9 @@ steps:
               - image: us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA
                 ports:
                 - containerPort: 8000
+                env:
+                - name: API_DATABASE_URL
+                  value: "sqlite+aiosqlite:///:memory:"
                 resources:
                   limits:
                     cpu: '8000m'
