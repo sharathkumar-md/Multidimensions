@@ -17,28 +17,43 @@ steps:
       - 'push'
       - 'us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA'
 
-  # 3. Deploy API to Cloud Run
+  # 3. Deploy API to Cloud Run via YAML specification
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'bash'
     args:
       - '-c'
       - |
-        gcloud run deploy multidimensions-api \
-          --image=us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA \
-          --region=asia-southeast1 \
-          --platform=managed \
-          --port=8000 \
-          --cpu=8 \
-          --memory=32Gi \
-          --timeout=900 \
-          --concurrency=1 \
-          --min-instances=1 \
-          --max-instances=1 \
-          --gpu=1 \
-          --gpu-type=nvidia-l4 \
-          --no-gpu-zonal-redundancy \
-          --set-annotations="run.googleapis.com/maxScale=1,autoscaling.knative.dev/maxScale=1" \
-          --quiet
+        cat <<EOF > service.yaml
+        apiVersion: serving.knative.dev/v1
+        kind: Service
+        metadata:
+          name: multidimensions-api
+          labels:
+            cloud.googleapis.com/location: asia-southeast1
+        spec:
+          template:
+            metadata:
+              annotations:
+                run.googleapis.com/maxScale: '1'
+                autoscaling.knative.dev/maxScale: '1'
+                run.googleapis.com/minScale: '1'
+                autoscaling.knative.dev/minScale: '1'
+            spec:
+              containerConcurrency: 1
+              timeoutSeconds: 900
+              nodeSelector:
+                run.googleapis.com/accelerator: nvidia-l4
+              containers:
+              - image: us-central1-docker.pkg.dev/$PROJECT_ID/multidimensions/sales-assistant-api:$COMMIT_SHA
+                ports:
+                - containerPort: 8000
+                resources:
+                  limits:
+                    cpu: '8000m'
+                    memory: '32Gi'
+                    nvidia.com/gpu: '1'
+        EOF
+        gcloud run services replace service.yaml --region=asia-southeast1 --quiet
 
   # 4. Build the Frontend Docker image
   - name: 'gcr.io/cloud-builders/docker'
