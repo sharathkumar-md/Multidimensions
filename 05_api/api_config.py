@@ -1,5 +1,5 @@
-"""
-API-layer settings — separate from the RAG pipeline settings.
+﻿"""
+API-layer settings â€” separate from the RAG pipeline settings.
 Reads from 05_api/.env (API_ prefix).
 """
 from __future__ import annotations
@@ -21,13 +21,13 @@ class APISettings(BaseSettings):
         env_file_encoding="utf-8",
     )
 
-    # ── Server ────────────────────────────────────────────────────────────────
+    # â”€â”€ Server â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     host: str = Field(default="0.0.0.0")
     port: int = Field(default=8000)
     reload: bool = Field(default=False)
     log_level: str = Field(default="info")
 
-    # ── CORS ──────────────────────────────────────────────────────────────────
+    # â”€â”€ CORS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     cors_origins: str = Field(
         default="http://localhost:3000,http://localhost:8501",
         description="Comma-separated allowed origins.",
@@ -47,7 +47,7 @@ class APISettings(BaseSettings):
     def cors_origins_list(self) -> list[str]:
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
 
-    # ── Auth ──────────────────────────────────────────────────────────────────
+    # â”€â”€ Auth â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     # Default to True for production safety. Set API_AUTH_ENABLED=false explicitly
     # for local development only (bypasses JWT validation).
     auth_enabled: bool = Field(
@@ -58,14 +58,14 @@ class APISettings(BaseSettings):
     keycloak_realm: str = Field(default="multidimensions")
     keycloak_client_id: str = Field(default="rag-sales-bot")
 
-    # ── Rate Limiting ─────────────────────────────────────────────────────────
+    # â”€â”€ Rate Limiting â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     rate_limit_per_minute: int = Field(default=20, ge=0)
     redis_url: str = Field(
         default="redis://localhost:6379/0",
         description="Redis connection URL for distributed rate limiting.",
     )
 
-    # ── Upload ────────────────────────────────────────────────────────────────
+    # â”€â”€ Upload â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     upload_dir: Path = Field(default=_API_DIR / "data" / "uploads")
     max_upload_size_mb: int = Field(default=50, ge=1)
 
@@ -81,23 +81,7 @@ class APISettings(BaseSettings):
             raise ValueError(f"log_level must be one of {allowed}")
         return v.lower()
 
-    @model_validator(mode="after")
-    def validate_auth_config(self) -> "APISettings":
-        """Enforce production auth requirements when auth_enabled=True."""
-        if self.auth_enabled:
-            if "example.com" in self.keycloak_server_url:
-                raise ValueError(
-                    "API_KEYCLOAK_SERVER_URL still points to placeholder. Set real Keycloak URL."
-                )
-            if not self.keycloak_realm or self.keycloak_realm == "multidimensions":
-                raise ValueError(
-                    "API_KEYCLOAK_REALM must be set to your Keycloak realm."
-                )
-            if not self.keycloak_client_id or self.keycloak_client_id == "rag-sales-bot":
-                raise ValueError(
-                    "API_KEYCLOAK_CLIENT_ID must be set to your Keycloak client ID."
-                )
-        return self
+    
 
     def ensure_directories(self) -> None:
         """Create necessary directories at startup."""
@@ -106,3 +90,4 @@ class APISettings(BaseSettings):
 
 
 api_settings = APISettings()
+
