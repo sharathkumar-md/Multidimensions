@@ -39,7 +39,7 @@ steps:
                 run.googleapis.com/minScale: '1'
                 autoscaling.knative.dev/minScale: '1'
                 run.googleapis.com/gpu-zonal-redundancy-disabled: 'true'
-                run.googleapis.com/cloudsql-instances: 'sales-assistant-multid:asia-southeast1:multidimensions-db'
+                run.googleapis.com/cloudsql-instances: 'sales-assistant-multid:us-central1:multidimensions-db'
             spec:
               containerConcurrency: 1
               timeoutSeconds: 900
@@ -51,7 +51,7 @@ steps:
                 - containerPort: 8000
                 env:
                 - name: API_DATABASE_URL
-                  value: "postgresql+asyncpg://postgres:B.%244y%40s%22vUb%5Btj%3Eh@/postgres?host=/cloudsql/sales-assistant-multid:asia-southeast1:multidimensions-db"
+                  value: "postgresql+asyncpg://postgres:B.%244y%40s%22vUb%5Btj%3Eh@/postgres?host=/cloudsql/sales-assistant-multid:us-central1:multidimensions-db"
                 resources:
                   limits:
                     cpu: '8000m'
