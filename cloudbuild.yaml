@@ -49,7 +49,7 @@ steps:
                 - containerPort: 8000
                 env:
                 - name: API_DATABASE_URL
-                  value: "postgresql+asyncpg://postgres:B.%244y%40s%22vUb%5Btj%3Eh@/postgres?host=/cloudsql/sales-assistant-multid:us-central1:multidimensions-db"
+                  value: "postgresql+asyncpg://postgres:B.%244y%40s%22vUb%5Btj%3Eh@/multidimensions?host=/cloudsql/sales-assistant-multid:us-central1:multidimensions-db"
                 resources:
                   limits:
                     cpu: '8000m'
