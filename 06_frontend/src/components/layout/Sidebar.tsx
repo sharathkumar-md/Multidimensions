@@ -29,7 +29,6 @@ export function Sidebar() {
   const { sessions, setSessions, addSession, removeSession, setActiveSession, activeSessionId } = useChatStore();
   const { user } = useAuthStore();
   const { sidebarOpen, setSidebarOpen, toggleSidebar, searchQuery, setSearchQuery } = useUiStore();
-  const [isCreating, setIsCreating] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
 
   // Load sessions on mount
@@ -38,22 +37,6 @@ export function Sidebar() {
       .then(setSessions)
       .catch((e) => logger.error('Failed to load sessions', { error: e.message }));
   }, [setSessions]);
-
-  const handleNewChat = async () => {
-    if (isCreating) return;
-    setIsCreating(true);
-    try {
-      const session = await createSession();
-      addSession(session);
-      setActiveSession(session.id);
-      router.push(`/chat/${session.id}`);
-      logger.info('Created new session', { id: session.id });
-    } catch (e: unknown) {
-      logger.error('Failed to create session', { error: (e as Error).message });
-    } finally {
-      setIsCreating(false);
-    }
-  };
 
   const handleDelete = async (e: React.MouseEvent, sessionId: string) => {
     e.preventDefault();
@@ -98,15 +81,14 @@ export function Sidebar() {
         >
           <ChevronRight size={16} />
         </button>
-        <button
-          onClick={handleNewChat}
+        <Link
+          href="/chat/new"
           className={styles.collapseNewChat}
           aria-label="New chat"
           title="New chat"
-          disabled={isCreating}
         >
           <Plus size={18} />
-        </button>
+        </Link>
       </aside>
     );
   }
@@ -131,15 +113,14 @@ export function Sidebar() {
 
       {/* New Chat */}
       <div className={styles.actions}>
-        <button
-          onClick={handleNewChat}
-          disabled={isCreating}
+        <Link
+          href="/chat/new"
           className={styles.newChatBtn}
           aria-label="Start new conversation"
         >
           <Plus size={16} />
           <span>New chat</span>
-        </button>
+        </Link>
       </div>
 
       {/* Search */}
