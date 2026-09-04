@@ -1,4 +1,4 @@
-﻿import NextAuth from "next-auth"
+import NextAuth from "next-auth"
 import Google from "next-auth/providers/google"
 
 declare module "next-auth" {
@@ -29,8 +29,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (account) {
         // Send Google's secure ID token to the FastAPI backend
         token.accessToken = account.id_token; 
-        token.isAdmin = true; // Auto-grant admin for your team
-        token.roles = ["admin", "sales"];
+        
+        // Lock down Admin Hub access
+        const ADMIN_EMAILS = ["research@multidimensions.co.in"];
+        const userEmail = token.email || profile?.email || "";
+        token.isAdmin = ADMIN_EMAILS.includes(userEmail);
+        token.roles = token.isAdmin ? ["admin", "sales"] : ["sales"];
       }
       return token;
     },

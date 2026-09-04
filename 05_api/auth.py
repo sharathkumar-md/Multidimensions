@@ -1,4 +1,4 @@
-﻿"""
+"""
 Auth middleware - Google OAuth JWT Bearer validation.
 """
 from __future__ import annotations
@@ -68,11 +68,13 @@ def _decode_token(token: str) -> dict:
         )
 
 def _claims_to_user(claims: dict) -> UserInfo:
+    email = claims.get("email", "")
+    is_admin = email == "research@multidimensions.co.in"
     return UserInfo(
         sub=claims["sub"],
-        email=claims.get("email", ""),
+        email=email,
         name=claims.get("name", ""),
-        roles=["admin", "sales"],
+        roles=["admin", "sales"] if is_admin else ["sales"],
     )
 
 async def get_current_user(
@@ -93,4 +95,6 @@ async def get_current_user(
     return user
 
 async def require_admin(user: UserInfo = Depends(get_current_user)) -> UserInfo:
+    if "admin" not in user.roles:
+        raise HTTPException(status_code=403, detail="Admin privileges required")
     return user
