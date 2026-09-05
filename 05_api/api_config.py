@@ -1,4 +1,4 @@
-﻿"""
+"""
 API-layer settings â€” separate from the RAG pipeline settings.
 Reads from 05_api/.env (API_ prefix).
 """
@@ -56,7 +56,7 @@ class APISettings(BaseSettings):
     )
     keycloak_server_url: str = Field(default="https://keycloak.example.com")
     keycloak_realm: str = Field(default="multidimensions")
-    keycloak_client_id: str = Field(default="rag-sales-bot")
+    keycloak_client_id: str = Field(default="571181295708-03nfeit2fgimd06v4nmr02arqp59rg4h.apps.googleusercontent.com")
 
     # â”€â”€ Rate Limiting â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     rate_limit_per_minute: int = Field(default=20, ge=0)

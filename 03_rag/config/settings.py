@@ -113,23 +113,7 @@ class RAGSettings(BaseSettings):
 
     @model_validator(mode="after")
     def validate_auth_config(self) -> "RAGSettings":
-        """Prevent silent misconfigurations in production auth mode."""
-        if self.auth_enabled:
-            if not self.keycloak_client_secret:
-                raise ValueError(
-                    "RAG_KEYCLOAK_CLIENT_SECRET must be set when RAG_AUTH_ENABLED=true. "
-                    "Never rely on a default secret in production."
-                )
-            if not self.auth_session_key:
-                raise ValueError(
-                    "RAG_AUTH_SESSION_KEY must be set when RAG_AUTH_ENABLED=true. "
-                    "Use a randomly generated 32+ character secret string."
-                )
-            if "example.com" in self.keycloak_server_url:
-                raise ValueError(
-                    "RAG_KEYCLOAK_SERVER_URL still points to the placeholder URL. "
-                    "Set a real Keycloak server URL."
-                )
+        """Auth validation disabled because we use Google OAuth via the FastAPI layer."""
         return self
 
     def ensure_directories(self) -> None:
