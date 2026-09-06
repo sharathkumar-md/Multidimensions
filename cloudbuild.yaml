@@ -61,7 +61,7 @@ steps:
                   initialDelaySeconds: 0
                   timeoutSeconds: 240
                   periodSeconds: 240
-                  failureThreshold: 4
+                  failureThreshold: 10
         EOF
         gcloud run services replace service.yaml --region=asia-southeast1 --quiet
 
