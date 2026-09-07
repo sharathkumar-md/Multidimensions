@@ -58,4 +58,4 @@ ENV HF_HOME=/app/.cache/huggingface \
 # Pre-download massive AI models during build (so Cloud Run boots instantly)
 RUN python preload_models.py
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["bash", "-c", "uvicorn main:app --host 0.0.0.0 --port 8000 2>&1 | tee /tmp/crash.log || (echo 'CRASH LOGS:' && cat /tmp/crash.log && sleep 600)"]
