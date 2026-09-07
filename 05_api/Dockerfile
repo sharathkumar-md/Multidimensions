@@ -55,4 +55,7 @@ ENV HF_HOME=/app/.cache/huggingface \
     TOKENIZERS_PARALLELISM=false \
     PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
+# Pre-download massive AI models during build (so Cloud Run boots instantly)
+RUN python preload_models.py
+
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
