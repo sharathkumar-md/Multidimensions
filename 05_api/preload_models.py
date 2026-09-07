@@ -3,8 +3,8 @@ from huggingface_hub import snapshot_download
 from sentence_transformers import SentenceTransformer
 
 def preload():
-    print("Pre-downloading Qwen3-8B...")
-    snapshot_download("Qwen/Qwen3-8B", ignore_patterns=["*.msgpack", "*.h5", "*.ot", "*.gguf"])
+    print("Pre-downloading Qwen2.5-7B-Instruct-AWQ...")
+    snapshot_download("Qwen/Qwen2.5-7B-Instruct-AWQ", ignore_patterns=["*.msgpack", "*.h5", "*.ot", "*.gguf"])
     
     print("Pre-downloading BAAI/bge-large-en-v1.5...")
     snapshot_download("BAAI/bge-large-en-v1.5")

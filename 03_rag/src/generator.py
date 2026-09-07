@@ -276,7 +276,6 @@ def load_model(model_id: str, max_memory: dict | None = None) -> tuple:
         max_memory = {0: "14GiB", "cpu": "32GiB"}
     model = AutoModelForCausalLM.from_pretrained(
         model_id,
-        quantization_config=_BNB_CONFIG,
         device_map="auto",
         max_memory=max_memory,
     )
