@@ -63,7 +63,7 @@ steps:
                   periodSeconds: 240
                   failureThreshold: 10
         EOF
-        gcloud run services replace service.yaml --region=asia-southeast1 --quiet
+        gcloud run services replace service.yaml --region=asia-southeast1 --quiet --wait-timeout=45m
 
   # 4. Build the Frontend Docker image
   - name: 'gcr.io/cloud-builders/docker'

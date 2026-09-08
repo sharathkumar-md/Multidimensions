@@ -31,3 +31,4 @@ aiosqlite>=0.20.0
 # Redis (for distributed rate limiting)
 redis>=5.0.0
 autoawq
+gptqmodel
