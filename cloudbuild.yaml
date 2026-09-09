@@ -35,7 +35,7 @@ steps:
             metadata:
               annotations:
                 autoscaling.knative.dev/maxScale: '1'
-                autoscaling.knative.dev/minScale: '1'
+                autoscaling.knative.dev/minScale: '0'
                 run.googleapis.com/gpu-zonal-redundancy-disabled: 'true'
                 run.googleapis.com/cloudsql-instances: 'sales-assistant-multid:us-central1:multidimensions-db'
             spec:
