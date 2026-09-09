@@ -55,15 +55,8 @@ steps:
                     cpu: '8000m'
                     memory: '32Gi'
                     nvidia.com/gpu: '1'
-                startupProbe:
-                  tcpSocket:
-                    port: 8000
-                  initialDelaySeconds: 0
-                  timeoutSeconds: 240
-                  periodSeconds: 240
-                  failureThreshold: 10
         EOF
-        gcloud run services replace service.yaml --region=asia-southeast1 --quiet --wait-timeout=45m
+        gcloud run services replace service.yaml --region=asia-southeast1 --quiet
 
   # 4. Build the Frontend Docker image
   - name: 'gcr.io/cloud-builders/docker'
