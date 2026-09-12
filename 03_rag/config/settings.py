@@ -45,7 +45,7 @@ class RAGSettings(BaseSettings):
 
     # ── Generator Model ─────────────────────────────────────────────────────────
     generator_model_id: str = Field(
-        default="Qwen/Qwen2.5-7B-Instruct-AWQ",
+        default="Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4",
         description="HuggingFace model ID for the answer-generation LLM.",
     )
 

@@ -19,6 +19,6 @@ diskcache>=5.6.0
 authlib>=1.3.1
 PyJWT[crypto]>=2.8.0
 streamlit>=1.35.0
-autoawq
 gptqmodel
 torchvision
+optimum>=1.12.0
