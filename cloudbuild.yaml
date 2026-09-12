@@ -97,7 +97,7 @@ steps:
           --platform=managed \
           --port=3000 \
           --allow-unauthenticated \
-          --set-env-vars="AUTH_TRUST_HOST=true" \
+          --set-env-vars="AUTH_TRUST_HOST=true,AUTH_URL=https://multidimensions-frontend-571181295708.asia-southeast1.run.app" \
           --set-secrets="AUTH_GOOGLE_ID=AUTH_GOOGLE_ID:latest,AUTH_GOOGLE_SECRET=AUTH_GOOGLE_SECRET:latest,AUTH_SECRET=AUTH_SECRET:latest" \
           --quiet
 
