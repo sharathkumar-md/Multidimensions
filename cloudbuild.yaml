@@ -64,6 +64,7 @@ steps:
                   failureThreshold: 10
         EOF
         gcloud run services replace service.yaml --region=asia-southeast1 --quiet --async
+        gcloud run services add-iam-policy-binding multidimensions-api --region=asia-southeast1 --member="allUsers" --role="roles/run.invoker" --quiet
 
   # 4. Build the Frontend Docker image
   - name: 'gcr.io/cloud-builders/docker'

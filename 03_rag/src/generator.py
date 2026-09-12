@@ -274,10 +274,17 @@ def load_model(model_id: str, max_memory: dict | None = None) -> tuple:
         # Default: limit GPU 0 to 14GiB to leave headroom for other processes
         # 4-bit Qwen3-8B uses ~8GiB; this leaves ~6GiB buffer
         max_memory = {0: "14GiB", "cpu": "32GiB"}
+
+    # Force GEMM backend for AWQ models — Marlin kernels require CUDA devel
+    # headers which are not available in our runtime Docker image.
+    from transformers import AwqConfig
+    quantization_config = AwqConfig(bits=4, fuse_max_seq_len=512, do_fuse=True, version="gemm")
+
     model = AutoModelForCausalLM.from_pretrained(
         model_id,
         device_map="auto",
         max_memory=max_memory,
+        quantization_config=quantization_config,
     )
     model.eval()
     return model, tokenizer
