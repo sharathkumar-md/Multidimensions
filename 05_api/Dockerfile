@@ -53,6 +53,7 @@ ENV HF_HOME=/app/.cache/huggingface \
     TQDM_DISABLE=1 \
     TRANSFORMERS_NO_ADVISORY_WARNINGS=1 \
     TOKENIZERS_PARALLELISM=false \
+    DISABLE_MARLIN=1 \
     PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 # Pre-download massive AI models during build (so Cloud Run boots instantly)
