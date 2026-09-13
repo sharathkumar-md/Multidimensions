@@ -168,7 +168,7 @@ export async function getSessions(accessToken?: string): Promise<Session[]> {
   return sessions.map(normalizeSession);
 }
 
-export async function createSession(title: string | undefined, accessToken?: string): Promise<Session> {
+export async function createSession(title?: string, accessToken?: string): Promise<Session> {
   const session = await request<ApiSession>('/api/sessions', {
     method: 'POST',
     body: JSON.stringify({ title: title ?? 'New conversation' }),

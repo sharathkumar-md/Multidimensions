@@ -7,7 +7,7 @@ import { UserMessage } from '@/components/chat/UserMessage';
 import { AssistantMessage } from '@/components/chat/AssistantMessage';
 import { ThinkingIndicator } from '@/components/chat/ThinkingIndicator';
 import { ChatInput } from '@/components/chat/ChatInput';
-import { useChatStore, useAuthStore } from '@/lib/store';
+import { useChatStore } from '@/lib/store';
 import { getMessages, streamChat } from '@/lib/api';
 import type { Message, StreamToken } from '@/lib/types';
 import logger from '@/lib/logger';
@@ -42,7 +42,6 @@ export default function SessionPage() {
   const params = useParams<{ sessionId: string }>();
   const router = useRouter();
   const sessionId = params.sessionId;
-  const { user } = useAuthStore();
 
   const {
     messages, sessions, setMessages, addMessage, appendToken,
@@ -111,6 +110,16 @@ export default function SessionPage() {
 
         if (parsed.error) {
           logger.error('Stream error from server', { error: parsed.error });
+          // Show error to user instead of silently breaking
+          if (!messageAddedRef.current) {
+            setShowThinking(false);
+            addMessage(sessionId, { ...aiMsg, content: `⚠️ ${parsed.error}`, isStreaming: false });
+            messageAddedRef.current = true;
+          } else {
+            finalizeMessage(sessionId, aiMsgId, {
+              content: `⚠️ ${parsed.error}`,
+            });
+          }
           break;
         }
 
@@ -143,9 +152,17 @@ export default function SessionPage() {
         }
       } else {
         logger.error('Stream failed', { error: (e as Error).message });
+        // Show error whether or not we already had tokens
         if (messageAddedRef.current) {
           finalizeMessage(sessionId, aiMsgId, {
             content: '⚠️ Something went wrong. Please try again.',
+          });
+        } else {
+          setShowThinking(false);
+          addMessage(sessionId, {
+            ...aiMsg,
+            content: '⚠️ Could not reach the server. Please try again.',
+            isStreaming: false,
           });
         }
       }

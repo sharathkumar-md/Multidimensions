@@ -37,7 +37,7 @@ from rag_service import load_pipeline_async                         # noqa: E402
 
 
 # ── Request size limit middleware ───────────────────────────────────────────────
-_MAX_REQUEST_SIZE = 10 * 1024 * 1024  # 10 MB
+_MAX_REQUEST_SIZE = api_settings.max_upload_size_mb * 1024 * 1024
 
 
 @asynccontextmanager

@@ -43,11 +43,21 @@ export function Sidebar() {
     e.stopPropagation();
     // Snapshot state before optimistic removal — used for immediate rollback on failure
     const snapshot = [...sessions];
+    const wasActive = activeSessionId === sessionId;
     removeSession(sessionId);
-    if (activeSessionId === sessionId) router.push('/chat');
     try {
       await deleteSession(sessionId);
       logger.info('Deleted session', { id: sessionId });
+      // Navigate only after confirmed deletion succeeds
+      if (wasActive) {
+        // Go to next available session, or create new if none left
+        const remaining = snapshot.filter((s) => s.id !== sessionId);
+        if (remaining.length > 0) {
+          router.push(`/chat/${remaining[0].id}`);
+        } else {
+          router.push('/chat/new');
+        }
+      }
     } catch (err: unknown) {
       // Immediate rollback from snapshot for instant UX recovery
       setSessions(snapshot);

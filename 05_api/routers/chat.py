@@ -18,7 +18,7 @@ from fastapi.responses import StreamingResponse
 from loguru import logger
 
 from auth import get_current_user
-from models import ChatRequest, Message, RouteType, Source, UserInfo
+from models import ChatRequest, Message, ProductImage, RouteType, Source, UserInfo
 from rate_limit import rate_limited
 from rag_service import stream_answer
 from session_store import store
@@ -93,6 +93,7 @@ async def _event_stream(session_id: str, question: str, user: UserInfo, web_sear
                 content=full_content,
                 created_at=datetime.now(timezone.utc),
                 sources=[Source(**s) for s in final_sources],
+                product_images=[ProductImage(**i) for i in final_images],
                 route=RouteType(final_route) if final_route in RouteType._value2member_map_ else None,
             )
             await store.append_message(session_id, assistant_msg, user_id=user.sub)

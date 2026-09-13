@@ -71,7 +71,7 @@ const nextConfig: NextConfig = {
 
   // Strip console.* in production builds
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
   },
 
   // Workaround for Next.js 16 type generation bug in validator.ts

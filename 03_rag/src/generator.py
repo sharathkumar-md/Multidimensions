@@ -410,9 +410,10 @@ def stream_generate(
     prompt_text = tokenizer.apply_chat_template(messages, **kwargs)
     inputs = tokenizer(prompt_text, return_tensors="pt", truncation=True, max_length=32768).to(model.device)
 
-    streamer = TextIteratorStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
+    # Streamer with timeout prevents infinite hang if generation thread crashes/OOMs
+    streamer = TextIteratorStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True, timeout=30.0)
     generation_kwargs = dict(
-        inputs=inputs["input_ids"],
+        **inputs,  # Pass both input_ids AND attention_mask
         max_new_tokens=max_new_tokens,
         do_sample=False,
         temperature=None,
@@ -424,19 +425,31 @@ def stream_generate(
     # Acquire semaphore to limit concurrent generations (prevents OOM)
     _gen_semaphore.acquire()
     try:
-        # Submit generation to thread pool executor
-        future = _gen_executor.submit(model.generate, **generation_kwargs)
-        # Wait for generation to start (streamer will yield tokens)
-        for new_text in streamer:
-            # Fix 004: exit the loop early when the caller signals a stop (user abort / timeout).
-            if stop_event is not None and stop_event.is_set():
-                break
-            yield new_text
-        # Ensure generation completes with timeout
+        # Run generation inside torch.no_grad() to prevent autograd from
+        # tracking activations for 7B params — avoids GPU OOM
+        def _run_generate():
+            with torch.no_grad():
+                model.generate(**generation_kwargs)
+
+        future = _gen_executor.submit(_run_generate)
+
+        # Drain tokens from the streamer; the 30s timeout on the streamer
+        # ensures we don't block forever if the generation thread dies
         try:
-            future.result(timeout=timeout)
+            for new_text in streamer:
+                if stop_event is not None and stop_event.is_set():
+                    break
+                yield new_text
+        except Exception as streamer_err:
+            logger.warning(f"Streamer interrupted: {streamer_err}")
+
+        # Check if the generation thread raised (e.g. OOM)
+        try:
+            future.result(timeout=max(timeout, 5.0))
         except FuturesTimeoutError:
             logger.warning(f"Generation timed out after {timeout}s")
-            # The streamer may still have data, but we stop here
+        except Exception as gen_err:
+            logger.error(f"Generation thread error: {gen_err}")
     finally:
+        # ALWAYS release the semaphore — prevents permanent deadlock
         _gen_semaphore.release()
