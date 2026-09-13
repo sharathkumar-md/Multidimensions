@@ -7,7 +7,7 @@ import { UserMessage } from '@/components/chat/UserMessage';
 import { AssistantMessage } from '@/components/chat/AssistantMessage';
 import { ThinkingIndicator } from '@/components/chat/ThinkingIndicator';
 import { ChatInput } from '@/components/chat/ChatInput';
-import { useChatStore } from '@/lib/store';
+import { useChatStore, useAuthStore } from '@/lib/store';
 import { getMessages, streamChat } from '@/lib/api';
 import type { Message, StreamToken } from '@/lib/types';
 import logger from '@/lib/logger';
